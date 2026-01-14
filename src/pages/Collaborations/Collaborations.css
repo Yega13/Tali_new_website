@@ -1,0 +1,401 @@
+.collaborations {
+    padding-top: 0;
+}
+
+/* Hero */
+.collab-hero {
+    position: relative;
+    height: 40vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collab-hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.collab-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collab-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+}
+
+.collab-hero__title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    color: #fff;
+}
+
+@media (min-width: 480px) {
+    .collab-hero__title {
+        font-size: var(--text-4xl);
+    }
+}
+
+@media (min-width: 768px) {
+    .collab-hero__title {
+        font-size: var(--text-5xl);
+    }
+}
+
+/* Collaborations List */
+.collab-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+
+@media (min-width: 480px) {
+    .collab-list {
+        gap: var(--space-12);
+    }
+}
+
+@media (min-width: 768px) {
+    .collab-list {
+        gap: var(--space-16);
+    }
+}
+
+.collab-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.collab-card:last-child {
+    border-bottom: none;
+}
+
+/* Number Badge */
+.collab-card__number {
+    position: absolute;
+    top: -8px;
+    left: -4px;
+    font-family: var(--font-display);
+    font-size: var(--text-6xl);
+    font-weight: var(--weight-normal);
+    color: var(--color-primary);
+    opacity: 0.7;
+    line-height: 1;
+    z-index: 1;
+}
+
+.collab-card__number--right {
+    left: auto;
+    right: -4px;
+}
+
+@media (min-width: 768px) {
+    .collab-card {
+        padding: var(--space-10) 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .collab-card__number {
+        font-size: var(--text-6xl);
+    }
+}
+
+.collab-card__image {
+    position: relative;
+    z-index: 2;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.collab-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collab-card__content {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.collab-card__name {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    margin: var(--space-2) 0 var(--space-4);
+}
+
+.collab-card__description {
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Actions container for centering buttons */
+.collab-card__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: var(--space-4);
+}
+
+/* Expand Button */
+.collab-card__expand-btn {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    background: none;
+    border: none;
+    padding: var(--space-3) var(--space-4);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    margin-top: var(--space-4);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .collab-card__expand-btn:hover {
+        opacity: 0.7;
+    }
+}
+
+.collab-card__expand-btn--bottom {
+    margin-top: var(--space-6);
+}
+
+.collab-card__expand-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.collab-card__expand-icon--up {
+    transform: rotate(0deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .collab-card__expand-btn:hover {
+        opacity: 0.7;
+    }
+}
+
+/* Expanded Section Container */
+.collab-expanded {
+    width: 100%;
+    overflow: hidden;
+    margin-top: var(--space-6);
+}
+
+/* Show Less Button Centering */
+.collab-expanded__show-less {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+}
+
+/* Vertical Songs Layout */
+.collab-songs-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+
+.collab-song-vertical {
+    text-align: center;
+}
+
+.collab-song-vertical__image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto var(--space-4);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.collab-song-vertical__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.collab-song-vertical__title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-semibold);
+    margin-bottom: var(--space-3);
+}
+
+.collab-song-vertical__description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Moments Gallery Section */
+.collab-moments {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border-light);
+}
+
+.collab-moments__title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.collab-moments__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+@media (min-width: 480px) {
+    .collab-moments__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-4);
+    }
+}
+
+.collab-moments__item {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1;
+}
+
+.collab-moments__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .collab-moments__item:hover img {
+        transform: scale(1.05);
+    }
+}
+
+/* Collaborations Lightbox */
+.collab-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    padding-top: 10vh;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.collab-lightbox__counter {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    z-index: 10;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.collab-lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: var(--radius-full);
+    border: none;
+    z-index: 10;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.collab-lightbox__nav--prev {
+    left: var(--space-3);
+}
+
+.collab-lightbox__nav--next {
+    right: var(--space-3);
+}
+
+.collab-lightbox__nav svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .collab-lightbox__nav:hover {
+        background: rgba(255, 255, 255, 0.35);
+    }
+}
+
+.collab-lightbox__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: default;
+}
+
+.collab-lightbox__image {
+    max-width: 90vw;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+}
+
+.collab-lightbox__caption {
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-align: center;
+    margin: 0;
+    padding: var(--space-2) var(--space-5);
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}

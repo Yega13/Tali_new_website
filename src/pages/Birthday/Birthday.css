@@ -1,0 +1,74 @@
+.birthday {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+    background: linear-gradient(135deg, #FF6B9D 0%, #FF8E9E 50%, #FFB3BA 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.confetti-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    border-radius: 2px;
+}
+
+.birthday__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    padding: var(--space-10);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.birthday__title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    color: #FF6B9D;
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .birthday__title {
+        font-size: var(--text-4xl);
+    }
+}
+
+.birthday__message {
+    font-size: var(--text-lg);
+    color: #666;
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-8);
+}
+
+.birthday__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background-color: #FF6B9D;
+    color: #fff;
+    border-radius: var(--radius-full);
+    font-weight: var(--weight-medium);
+    transition: all var(--transition-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .birthday__btn:hover {
+        background-color: #E5527F;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+    }
+}

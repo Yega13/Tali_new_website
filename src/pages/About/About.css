@@ -1,0 +1,311 @@
+.about {
+    padding-top: 20px;
+}
+
+/* Bio Section - Picture Left, Text Right */
+.about-bio {
+    text-align: left;
+}
+
+.about-bio__layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .about-bio__layout {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: var(--space-12);
+        align-items: start;
+    }
+}
+
+.about-bio__image-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .about-bio__image-wrapper {
+        max-width: none;
+        margin: 0;
+    }
+}
+
+.about-bio__image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.about-bio__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-bio__title {
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    margin-bottom: var(--space-6);
+}
+
+/* Light mode: black title and text */
+[data-theme="light"] .about-bio__title {
+    color: #1A1A2E;
+}
+
+[data-theme="light"] .about-bio__text p {
+    color: #333;
+}
+
+.about-bio__text {
+    text-align: left;
+}
+
+.about-bio__text p {
+    margin-bottom: var(--space-4);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Life Journey */
+.life-journey {
+    background-color: var(--color-bg-secondary);
+}
+
+.life-journey__title {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.life-journey__underline {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin-top: var(--space-2);
+    border-radius: var(--radius-full);
+}
+
+/* Timeline with zigzag effect and tapered line */
+.life-journey__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+/* Vertical timeline line - visible on all sizes */
+.life-journey__timeline::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            var(--color-primary) 5%,
+            var(--color-primary) 95%,
+            transparent 100%);
+    border-radius: var(--radius-full);
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .life-journey__timeline::before {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 4px;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    max-width: 500px;
+    padding-right: var(--space-6);
+    margin-right: var(--space-2);
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* Zigzag effect on desktop */
+@media (min-width: 768px) {
+    .timeline-item--left {
+        margin-right: auto;
+        margin-left: 0;
+        padding-right: var(--space-8);
+    }
+
+    .timeline-item--right {
+        margin-left: auto;
+        margin-right: 0;
+        padding-left: var(--space-8);
+    }
+
+    /* Dot on timeline */
+    .timeline-item::after {
+        content: '';
+        position: absolute;
+        top: var(--space-4);
+        width: 12px;
+        height: 12px;
+        background-color: var(--color-primary);
+        border: 3px solid var(--color-bg-secondary);
+        border-radius: var(--radius-full);
+        z-index: 1;
+    }
+
+    .timeline-item--left::after {
+        right: calc(-6px - var(--space-8) + 50%);
+    }
+
+    .timeline-item--right::after {
+        left: calc(-6px - var(--space-8) + 50%);
+    }
+}
+
+.timeline-item__year {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.timeline-item__content {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-item__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.timeline-item__text {
+    padding: var(--space-4);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Pro Materials */
+.pro-materials {
+    text-align: center;
+}
+
+.pro-materials__title {
+    margin-bottom: var(--space-8);
+}
+
+.pro-materials__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .pro-materials__buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.pro-materials__buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* Life Journey More Text */
+.life-journey__more {
+    text-align: center;
+    margin-top: var(--space-10);
+    font-size: var(--text-lg);
+    color: var(--color-text-tertiary);
+    font-style: italic;
+}
+
+/* Resume Blocks */
+.resume-blocks {
+    display: grid;
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+}
+
+@media (min-width: 768px) {
+    .resume-blocks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.resume-block {
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid var(--color-border-light);
+}
+
+.resume-block__title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.resume-block p {
+    margin-bottom: var(--space-2);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.resume-block__label {
+    color: var(--color-primary);
+    font-weight: var(--weight-medium);
+}
+
+.resume-block__list {
+    margin-top: var(--space-2);
+}
+
+.resume-block__list li {
+    position: relative;
+    padding-left: var(--space-4);
+    margin-bottom: var(--space-2);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.resume-block__list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+}
+
+.resume-block__list li strong {
+    color: var(--color-primary);
+}

@@ -1,0 +1,152 @@
+.music-modal {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background-color: var(--color-overlay);
+}
+
+.music-modal__content {
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3);
+    box-shadow: var(--shadow-2xl);
+    /* Hide scrollbar to prevent brief line flash */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.music-modal__content::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari/Opera */
+}
+
+@media (min-width: 400px) {
+    .music-modal__content {
+        max-width: 280px;
+        padding: var(--space-4);
+    }
+}
+
+@media (min-width: 768px) {
+    .music-modal__content {
+        max-width: 340px;
+        padding: var(--space-6);
+    }
+}
+
+.music-modal__close {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.music-modal__close svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Desktop hover only */
+@media (hover: hover) and (pointer: fine) {
+    .music-modal__close:hover {
+        background-color: var(--color-primary);
+        color: var(--color-text-inverse);
+    }
+}
+
+.music-modal__title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    text-align: center;
+    margin-bottom: var(--space-2);
+}
+
+.music-modal__subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+/* 2x3 Grid on Mobile, 3x2 on Tablet+ */
+.music-modal__platforms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+@media (min-width: 480px) {
+    .music-modal__platforms {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.music-modal__platform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-2);
+    background-color: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.music-modal__platform-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.music-modal__platform-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.music-modal__platform-name {
+    font-weight: var(--weight-medium);
+    font-size: var(--text-xs);
+    color: var(--color-text-primary);
+}
+
+/* Desktop hover only */
+@media (hover: hover) and (pointer: fine) {
+    .music-modal__platform:hover {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .music-modal__platform:hover .music-modal__platform-icon,
+    .music-modal__platform:hover .music-modal__platform-name {
+        color: var(--color-text-inverse);
+    }
+}

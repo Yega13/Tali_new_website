@@ -1,0 +1,52 @@
+# Tali Golergant - Official Artist Website PRD
+
+## Project Overview
+Build a world-class, fully responsive website for Luxembourg singer Tali Golergant. The website must feature stunning animations, premium design aesthetics, and be 100% responsive across all devices using a mobile-first approach.
+
+## Core Requirements
+
+### Technical Stack
+- React 18+ with Vite for fast development and optimized builds
+- Framer Motion for smooth, professional animations
+- CSS Modules with mobile-first methodology
+- Lucide React for icons
+
+### Design Requirements
+- Premium, elegant aesthetic befitting an international artist
+- Dark theme with gold/warm accent colors
+- Smooth animations on scroll, hover, and page transitions
+- Gallery lightbox with touch gestures
+- Video showcase with custom styling
+
+### Pages/Sections
+1. **Hero Section** - Full-screen with video/image background, animated text reveal
+2. **About Section** - Artist biography with elegant typography
+3. **Music Section** - Embedded streaming players (Spotify, Apple Music, YouTube)
+4. **Gallery Section** - Masonry grid with 100+ photos, lightbox modal
+5. **Videos Section** - Video showcase with multiple clips
+6. **Footer** - Social media links, contact info
+
+### Responsive Requirements
+- Mobile-first CSS approach
+- Breakpoints: 320px (mobile), 768px (tablet), 1024px (desktop), 1440px (wide)
+- Touch-optimized interactions for mobile
+- Hamburger menu for mobile navigation
+- Fluid typography scaling
+
+### Performance Requirements
+- Lazy loading for images and videos
+- WebP image format with fallbacks
+- Code splitting per component
+- Target load time under 3 seconds
+
+### Assets Available
+- 100+ professional photos in /photos folder
+- Multiple video clips (.mp4, .mov)
+- Existing favicon files (favicon.ico, favicon-16x16.png, favicon-32x32.png)
+- Album artwork and promotional images
+
+### Quality Standards
+- No dead code or redundant code
+- No CSS overrides or specificity conflicts
+- Clean, maintainable component architecture
+- Accessibility best practices

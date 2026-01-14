@@ -1,0 +1,217 @@
+/* ============================================
+   DESIGN TOKENS - TALI GOLERGANT WEBSITE
+   ============================================ */
+
+:root {
+    /* ============ Typography ============ */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+
+    /* Font Sizes - Mobile First (rem) */
+    --text-xs: 0.75rem;
+    /* 12px */
+    --text-sm: 0.875rem;
+    /* 14px */
+    --text-base: 1rem;
+    /* 16px */
+    --text-lg: 1.125rem;
+    /* 18px */
+    --text-xl: 1.25rem;
+    /* 20px */
+    --text-2xl: 1.5rem;
+    /* 24px */
+    --text-3xl: 1.875rem;
+    /* 30px */
+    --text-4xl: 2.25rem;
+    /* 36px */
+    --text-5xl: 3rem;
+    /* 48px */
+    --text-6xl: 3.75rem;
+    /* 60px */
+    --text-7xl: 4.5rem;
+    /* 72px */
+
+    /* Font Weights */
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+    /* Line Heights */
+    --leading-tight: 1.2;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+
+    /* Letter Spacing */
+    --tracking-tight: -0.025em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+
+    /* ============ Spacing ============ */
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-5: 1.25rem;
+    /* 20px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-8: 2rem;
+    /* 32px */
+    --space-10: 2.5rem;
+    /* 40px */
+    --space-12: 3rem;
+    /* 48px */
+    --space-16: 4rem;
+    /* 64px */
+    --space-20: 5rem;
+    /* 80px */
+    --space-24: 6rem;
+    /* 96px */
+    --space-32: 8rem;
+    /* 128px */
+
+    /* ============ Layout ============ */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+
+    /* ============ Border Radius ============ */
+    --radius-sm: 0.25rem;
+    /* 4px */
+    --radius-md: 0.5rem;
+    /* 8px */
+    --radius-lg: 0.75rem;
+    /* 12px */
+    --radius-xl: 1rem;
+    /* 16px */
+    --radius-2xl: 1.5rem;
+    /* 24px */
+    --radius-full: 9999px;
+
+    /* ============ Shadows ============ */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+    /* ============ Transitions ============ */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    --transition-slower: 500ms ease;
+
+    /* ============ Z-Index ============ */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-popover: 600;
+    --z-tooltip: 700;
+    --z-preloader: 1000;
+}
+
+/* ============================================
+   LIGHT THEME (Default)
+   ============================================ */
+:root,
+[data-theme="light"] {
+    /* Primary Colors */
+    --color-primary: #1B8754;
+    /* Green accent */
+    --color-primary-dark: #146A43;
+    --color-primary-light: #28A766;
+
+    /* Backgrounds */
+    --color-bg-primary: #FFFFFF;
+    --color-bg-secondary: #F8F9FA;
+    --color-bg-tertiary: #E9ECEF;
+    --color-bg-accent: #EDF7F1;
+
+    /* Text Colors */
+    --color-text-primary: #1A1A2E;
+    --color-text-secondary: #4A5568;
+    --color-text-tertiary: #718096;
+    --color-text-inverse: #FFFFFF;
+
+    /* Borders */
+    --color-border-light: #E2E8F0;
+    --color-border-medium: #CBD5E0;
+    --color-border-dark: #A0AEC0;
+
+    /* UI Elements */
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #FFFFFF;
+    --color-overlay: rgba(0, 0, 0, 0.5);
+
+    /* Shadows (theme-specific) */
+    --shadow-color: 220 3% 15%;
+    --shadow-strength: 0.1;
+
+    /* Preloader */
+    --color-preloader-bg: #FFFFFF;
+    --color-preloader-text: #1A1A2E;
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+[data-theme="dark"] {
+    /* Primary Colors - Warm Gold */
+    --color-primary: #D4AF37;
+    /* Warm Gold accent */
+    --color-primary-dark: #B8962F;
+    --color-primary-light: #E5C558;
+
+    /* Backgrounds - Midnight */
+    --color-bg-primary: #121212;
+    --color-bg-secondary: #1A1A1A;
+    --color-bg-tertiary: #242424;
+    --color-bg-accent: #1E1B15;
+
+    /* Text Colors */
+    --color-text-primary: #F5F5F5;
+    --color-text-secondary: #B3B3B3;
+    --color-text-tertiary: #808080;
+    --color-text-inverse: #121212;
+
+    /* Borders */
+    --color-border-light: #2D2D2D;
+    --color-border-medium: #404040;
+    --color-border-dark: #525252;
+
+    /* UI Elements */
+    --color-surface: #1A1A1A;
+    --color-surface-elevated: #242424;
+    --color-overlay: rgba(0, 0, 0, 0.75);
+
+    /* Shadows (theme-specific) */
+    --shadow-color: 0 0% 0%;
+    --shadow-strength: 0.3;
+
+    /* Preloader */
+    --color-preloader-bg: #121212;
+    --color-preloader-text: #F5F5F5;
+}
+
+/* ============================================
+   BREAKPOINT REFERENCE (for documentation)
+   Mobile-first approach:
+   - Base: 0-767px (mobile)
+   - Tablet: 768px+
+   - Desktop: 1024px+
+   - Large Desktop: 1280px+
+   - XL Desktop: 1536px+
+   ============================================ */
