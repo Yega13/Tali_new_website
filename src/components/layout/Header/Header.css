@@ -118,6 +118,21 @@
     color: #fff !important;
 }
 
+/* Light theme: also white on hero pages (since hero has dark overlay) - but NOT when menu is open */
+[data-theme="light"] .header--hero:not(.header--scrolled):not(.header--menu-open) .header__logo-text,
+[data-theme="light"] .header--hero:not(.header--scrolled):not(.header--menu-open) .header__nav-link {
+    color: #fff !important;
+}
+
+[data-theme="light"] .header--hero:not(.header--scrolled):not(.header--menu-open) .header__menu-line {
+    background-color: #fff !important;
+}
+
+[data-theme="light"] .header--hero:not(.header--scrolled):not(.header--menu-open) .theme-toggle__icon--sun,
+[data-theme="light"] .header--hero:not(.header--scrolled):not(.header--menu-open) .theme-toggle__icon--moon {
+    color: #fff !important;
+}
+
 .header__container {
     display: flex;
     align-items: center;

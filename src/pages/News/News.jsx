@@ -126,7 +126,7 @@ export default function News() {
             {/* Hero */}
             <section className="news-hero">
                 <div className="news-hero__background">
-                    <img src="/photos/Tali pics(47) National selection.jpg" alt="News" className="news-hero__image" />
+                    <img src="/photos/Tali pics(47) National selection.jpg" alt="Tali - National Selection" className="news-hero__image" />
                     <div className="news-hero__overlay" />
                 </div>
                 <div className="news-hero__content container">

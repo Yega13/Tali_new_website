@@ -4,6 +4,13 @@ import './Music.css'
 
 export default function Music() {
     const [showAllShows, setShowAllShows] = useState(false)
+    const [currentTrack, setCurrentTrack] = useState(0)
+
+    const spotifyTracks = [
+        'https://open.spotify.com/embed/track/5kPrQcU2fJfpBUXAXGZZLq?utm_source=generator',
+        'https://open.spotify.com/embed/track/1z3ulT9OvoGdGjwbIQGw1h?utm_source=generator',
+        'https://open.spotify.com/embed/track/21AABHmjP1ObzTmgjcTxDM?utm_source=generator'
+    ]
 
     const youtubeVideos = [
         { id: 'DJf04cdgk70', title: 'TALI – Fighter (Official Music Video)' },
@@ -43,7 +50,7 @@ export default function Music() {
                 <div className="music-hero__background">
                     <img
                         src="/photos/Tali den atelier.jpeg"
-                        alt="Music"
+                        alt="Tali live performance"
                         className="music-hero__image"
                     />
                     <div className="music-hero__overlay" />
@@ -95,22 +102,56 @@ export default function Music() {
                 </div>
             </section>
 
-            {/* Spotify Player */}
+            {/* Spotify Player - Swipe + Buttons */}
             <section className="spotify-section section">
                 <div className="container">
-                    <h2 className="section-title">Listen on Spotify</h2>
-                    <div className="spotify-embed">
-                        <iframe
-                            style={{ borderRadius: '12px' }}
-                            src="https://open.spotify.com/embed/album/759G3cPO8KnudNnVPW7MV9?utm_source=generator&theme=0"
-                            width="100%"
-                            height="152"
-                            frameBorder="0"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                            title="Tali - Fighter"
-                        />
+                    <h2 className="section-title">Listen Now</h2>
+                    <div className="spotify-wrapper">
+                        <button
+                            className="spotify-nav-btn spotify-nav-btn--prev"
+                            onClick={() => {
+                                const container = document.querySelector('.spotify-swipe')
+                                if (container) container.scrollBy({ left: -280, behavior: 'smooth' })
+                            }}
+                            aria-label="Previous track"
+                        >
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                            </svg>
+                        </button>
+
+                        <div className="spotify-swipe">
+                            {spotifyTracks.map((track, index) => (
+                                <div key={index} className="spotify-swipe__item">
+                                    <iframe
+                                        style={{ borderRadius: '12px', overflow: 'hidden' }}
+                                        src={track}
+                                        width="100%"
+                                        height="152"
+                                        frameBorder="0"
+                                        scrolling="no"
+                                        allowFullScreen=""
+                                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+
+                        <button
+                            className="spotify-nav-btn spotify-nav-btn--next"
+                            onClick={() => {
+                                const container = document.querySelector('.spotify-swipe')
+                                if (container) container.scrollBy({ left: 280, behavior: 'smooth' })
+                            }}
+                            aria-label="Next track"
+                        >
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                            </svg>
+                        </button>
                     </div>
+                    <p className="spotify-carousel__indicator">Swipe for more</p>
                 </div>
             </section>
 
@@ -119,15 +160,16 @@ export default function Music() {
                 <div className="container">
                     <h2 className="section-title">Show History</h2>
                     <div className="shows__list">
-                        <AnimatePresence>
+                        <AnimatePresence mode="popLayout">
                             {visibleShows.map((show, index) => (
                                 <motion.div
                                     key={`${show.date}-${show.venue}`}
                                     className={`show-item ${index >= 6 && !showAllShows ? 'show-item--blurred' : ''} ${index === 5 && !showAllShows ? 'show-item--half-blurred' : ''}`}
+                                    layout
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    transition={{ delay: index * 0.03 }}
+                                    exit={{ opacity: 0, y: -10, height: 0, marginBottom: 0 }}
+                                    transition={{ duration: 0.2, delay: index * 0.02 }}
                                 >
                                     <span className="show-item__date">{show.date}</span>
                                     <span className="show-item__venue">{show.venue}</span>

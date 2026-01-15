@@ -4,13 +4,13 @@ import './Collaborations.css'
 
 // BlueStripes moments photos for the gallery
 const bluestripesPhotos = [
-    { src: '/photos/BlueStrpies.jpg', alt: 'BlueStripes Band' },
-    { src: '/photos/Blue Bird.jpg', alt: 'Blue Bird Session' },
-    { src: '/photos/Tali pics(3).jpg', alt: 'BlueStripes Recording' },
-    { src: '/photos/Tali pics(50).jpg', alt: 'Studio Session' },
-    { src: '/photos/Tali pics(52) Den atelier.webp', alt: 'Live Performance' },
-    { src: '/photos/Tali pics(57).jpg', alt: 'Rehearsal' },
-    { src: '/photos/Tali pics(59).jpg', alt: 'Band Photo' }
+    { src: '/photos/BlueStrpies.jpg', alt: 'Tali with BlueStripes' },
+    { src: '/photos/Blue Bird.jpg', alt: 'Blue Bird cover' },
+    { src: '/photos/Tali pics(3).jpg', alt: 'Tali recording' },
+    { src: '/photos/Tali pics(50).jpg', alt: 'Studio session' },
+    { src: '/photos/Tali pics(52) Den atelier.webp', alt: 'Live at Den Atelier' },
+    { src: '/photos/Tali pics(57).jpg', alt: 'Band rehearsal' },
+    { src: '/photos/Tali pics(59).jpg', alt: 'Band photo' }
 ]
 
 const collaborations = [
@@ -129,7 +129,7 @@ export default function Collaborations() {
             {/* Hero */}
             <section className="collab-hero">
                 <div className="collab-hero__background">
-                    <img src="/photos/Tali pics(106).jpg" alt="Collaborations" className="collab-hero__image" />
+                    <img src="/photos/Tali pics(106).jpg" alt="Tali - collaborations" className="collab-hero__image" />
                     <div className="collab-hero__overlay" />
                 </div>
                 <div className="collab-hero__content container">

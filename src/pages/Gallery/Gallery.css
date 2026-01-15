@@ -1,12 +1,12 @@
 .gallery {
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 /* Ticker with Images */
 .gallery-ticker {
     overflow: hidden;
     background-color: var(--color-bg-secondary);
-    padding: var(--space-2) 0;
+    padding: var(--space-6) 0;
     position: relative;
 }
 
@@ -16,20 +16,31 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: var(--font-display);
-    font-size: var(--text-4xl);
+    font-size: var(--text-3xl);
     font-weight: var(--weight-bold);
-    color: var(--color-text-primary);
+    color: #fff;
     z-index: 2;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     pointer-events: none;
+    /* Smaller glassmorphism effect */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="dark"] .gallery-ticker__title {
     color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="light"] .gallery-ticker__title {
-    color: #1A1A2E;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Theme-aware section titles */
@@ -58,7 +69,7 @@
 }
 
 .gallery-ticker__image {
-    height: 60px;
+    height: 150px;
     width: auto;
     border-radius: var(--radius-md);
     flex-shrink: 0;
@@ -66,29 +77,29 @@
 
 @media (min-width: 480px) {
     .gallery-ticker__image {
-        height: 80px;
+        height: 180px;
     }
 }
 
-/* Gallery Grid - 2 columns by default */
+/* Gallery Grid - 2 columns, smaller on mobile */
 .gallery-grid__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
+    gap: var(--space-2);
 }
 
 /* Large phones (480px+) */
 @media (min-width: 480px) {
     .gallery-grid__container {
-        gap: var(--space-4);
+        gap: var(--space-3);
     }
 }
 
-/* Tablets (768px+) - 2 columns still, but bigger */
+/* Tablets (768px+) */
 @media (min-width: 768px) {
     .gallery-grid__container {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-5);
+        gap: var(--space-4);
     }
 }
 
@@ -113,7 +124,9 @@
     cursor: pointer;
 }
 
-.gallery-item img {
+/* Images - square and smaller */
+.gallery-item img,
+.gallery-item video {
     width: 100%;
     height: 100%;
     aspect-ratio: 1 / 1;
@@ -123,9 +136,72 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .gallery-item:hover img {
+
+    .gallery-item:hover img,
+    .gallery-item:hover video {
         transform: scale(1.05);
     }
+}
+
+/* B&W filter for Moments section */
+.gallery-item--bw img {
+    filter: grayscale(100%);
+    transition: filter var(--transition-base), transform var(--transition-slow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .gallery-item--bw:hover img {
+        filter: grayscale(0%);
+    }
+}
+
+/* Video Grid */
+.gallery-videos__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+    .gallery-videos__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-4);
+    }
+}
+
+.gallery-video-item {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 9 / 16;
+}
+
+.gallery-video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-video-item__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity var(--transition-base);
+}
+
+.gallery-video-item__overlay svg {
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.gallery-video-item:hover .gallery-video-item__overlay {
+    opacity: 0;
 }
 
 /* In Focus */
@@ -255,6 +331,29 @@
 }
 
 /* Content wrapper - NO dark background */
+.lightbox__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 80vw;
+    margin-top: var(--space-4);
+}
+
+/* Video wrapper with click overlay */
+.lightbox__video-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.lightbox__video-overlay {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
 .lightbox__content {
     display: flex;
     flex-direction: column;

@@ -50,7 +50,7 @@ export default function Header() {
 
     // Check pages that need white header (dark hero backgrounds)
     const isMusicPage = location.pathname === '/music'
-    const isHeroPage = ['/news', '/collaborations', '/contact'].includes(location.pathname)
+    const isHeroPage = ['/', '/news', '/collaborations', '/contact'].includes(location.pathname)
 
     return (
         <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isMusicPage ? 'header--music' : ''} ${isHeroPage ? 'header--hero' : ''} ${isMenuOpen ? 'header--menu-open' : ''}`}>

@@ -22,7 +22,7 @@ export default function About() {
                                     ? '/photos/Tali pics(41) Eurovision.webp'
                                     : '/photos/Tali pics(38) Eurovision.webp'
                                 }
-                                alt="Tali Golergant"
+                                alt="Tali - Eurovision portrait"
                                 className="about-bio__image"
                             />
                         </motion.div>
@@ -77,21 +77,25 @@ export default function About() {
                             {
                                 year: 'Early Years',
                                 image: '/photos/Tali pics(82) baby.jpg',
+                                alt: 'Young Tali in Jerusalem',
                                 text: 'Tali was born on November 26, 2000, in Jerusalem, Israel. Growing up in a musical family, it was only natural for her to devote her life to music. She began playing the piano and singing at the age of six.'
                             },
                             {
                                 year: '2020',
                                 image: '/photos/Tali pics(48) Bowery Electric.jpg',
+                                alt: 'Tali at Bowery Electric NYC',
                                 text: 'Moved to New York City to pursue her dreams in music and theater. Started performing at local venues and open mics, developing her unique sound and stage presence.'
                             },
                             {
                                 year: '2023',
                                 image: '/photos/Tali pics(50).jpg',
+                                alt: 'Tali - debut era',
                                 text: 'Released her debut singles and started building an international fanbase. Collaborated with various artists and producers, refining her signature sound.'
                             },
                             {
                                 year: '2025',
                                 image: '/photos/Tali pics(51).jpg',
+                                alt: 'Tali - Eurovision 2025',
                                 text: 'Selected to represent Luxembourg at Eurovision Song Contest 2025. Her performance received critical acclaim and introduced her music to millions of viewers worldwide.'
                             }
                         ].map((item, index) => (
@@ -105,7 +109,7 @@ export default function About() {
                             >
                                 <span className="timeline-item__year">{item.year}</span>
                                 <div className="timeline-item__content">
-                                    <img src={item.image} alt={item.year} className="timeline-item__image" />
+                                    <img src={item.image} alt={item.alt} className="timeline-item__image" />
                                     <p className="timeline-item__text">{item.text}</p>
                                 </div>
                             </motion.div>
@@ -123,7 +127,115 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Professional Materials */}
+            {/* Acting Section - Moved before Professional Materials */}
+            <section className="acting-section section">
+                <div className="container">
+                    <motion.h2
+                        className="section-title"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        Acting & Voice
+                    </motion.h2>
+
+                    {/* IMDB Link */}
+                    <motion.div
+                        className="acting-imdb"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <a
+                            href="https://www.imdb.com/name/nm12387164/?ref_=ext_shr_lnk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="acting-imdb__link"
+                        >
+                            <div className="imdb-logo">IMDb</div>
+                            <span>View on IMDB</span>
+                        </a>
+                    </motion.div>
+
+                    {/* Eurovision - First */}
+                    <motion.div
+                        className="acting-category"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="acting-category__title">Eurovision</h3>
+                        <div className="acting-videos__grid">
+                            <div className="acting-video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/TCWH3Nq5y9A"
+                                    title="Eurovision Performance"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Acting Videos */}
+                    <motion.div
+                        className="acting-category"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="acting-category__title">Acting</h3>
+                        <div className="acting-videos__grid">
+                            <div className="acting-video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/64rCT11eorY"
+                                    title="Acting Reel 1"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Voice Videos */}
+                    <motion.div
+                        className="acting-category"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="acting-category__title">Voice</h3>
+                        <div className="acting-videos__grid acting-videos__grid--multi">
+                            <div className="acting-video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/M3RUQWYNA8o"
+                                    title="Voice Reel 1"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                            <div className="acting-video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/8yO6rqY7pFs"
+                                    title="Voice Reel 2"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                            <div className="acting-video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/is7nUjHOAlw"
+                                    title="Voice Reel 3"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Professional Materials - Moved after Acting */}
             <section className="pro-materials section">
                 <div className="container">
                     <motion.h2

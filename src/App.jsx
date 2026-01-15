@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from '@/hooks/useTheme'
+import { AnimatePresence, motion } from 'framer-motion'
 import Preloader from '@/components/common/Preloader'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -17,6 +18,41 @@ import Contact from '@/pages/Contact'
 import NotFound from '@/pages/NotFound'
 import Birthday from '@/pages/Birthday'
 
+// Page transition wrapper - pure opacity appear
+const pageVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+    exit: { opacity: 0, transition: { duration: 0.2 } }
+}
+
+function AnimatedRoutes() {
+    const location = useLocation()
+
+    return (
+        <AnimatePresence mode="wait">
+            <motion.div
+                key={location.pathname}
+                variants={pageVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+            >
+                <Routes location={location}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/music" element={<Music />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/news" element={<News />} />
+                    <Route path="/collaborations" element={<Collaborations />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/birthday" element={<Birthday />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </motion.div>
+        </AnimatePresence>
+    )
+}
+
 export default function App() {
     return (
         <ThemeProvider>
@@ -25,17 +61,7 @@ export default function App() {
                 <ScrollToTop />
                 <Header />
                 <main>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/music" element={<Music />} />
-                        <Route path="/gallery" element={<Gallery />} />
-                        <Route path="/news" element={<News />} />
-                        <Route path="/collaborations" element={<Collaborations />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/birthday" element={<Birthday />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
+                    <AnimatedRoutes />
                 </main>
                 <Footer />
                 <BackToTop />
