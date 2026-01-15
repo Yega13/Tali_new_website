@@ -316,170 +316,49 @@
     }
 }
 
-/* ============ Music Player Track Cards ============ */
-.music-player {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-6);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.track-card {
-    background: var(--color-bg-secondary);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.track-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-}
-
-.track-card__image {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-}
-
-.track-card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.track-card:hover .track-card__image img {
-    transform: scale(1.05);
-}
-
-.track-card__play {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.track-card:hover .track-card__play {
-    opacity: 1;
-}
-
-.track-card__play svg {
-    width: 60px;
-    height: 60px;
-    color: #fff;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-    transition: transform 0.2s ease;
-}
-
-.track-card__play:hover svg {
-    transform: scale(1.1);
-    color: var(--color-primary);
-}
-
-.track-card__info {
-    padding: var(--space-4);
-    text-align: center;
-}
-
-.track-card__title {
-    font-family: var(--font-display);
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-1);
-}
-
-.track-card__artist {
-    font-size: var(--text-sm);
-    color: var(--color-text-tertiary);
-}
-
-/* ============ Spotify Swipe Carousel ============ */
-.spotify-wrapper {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-.spotify-nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    flex-shrink: 0;
-    color: #1a1a1a;
-}
-
-[data-theme="dark"] .spotify-nav-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-}
-
-.spotify-nav-btn svg {
-    width: 18px;
-    height: 18px;
-}
-
+/* ============ Spotify Player - Horizontal Swipe Carousel ============ */
 .spotify-swipe {
     display: flex;
-    gap: var(--space-3);
+    gap: var(--space-4);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     padding: var(--space-2) 0;
-    flex: 1;
-    min-width: 0;
-}
-
-/* Hide scrollbar but keep functionality */
-.spotify-swipe::-webkit-scrollbar {
-    display: none;
-}
-
-.spotify-swipe {
+    /* Hide scrollbar */
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
+.spotify-swipe::-webkit-scrollbar {
+    display: none;
+}
+
 .spotify-swipe__item {
     flex: 0 0 85%;
-    min-width: 260px;
-    height: 100px;
+    min-width: 280px;
+    max-width: 400px;
     scroll-snap-align: center;
     scroll-snap-stop: always;
-    overflow: hidden;
+}
+
+.spotify-swipe__item iframe {
+    width: 100%;
+    height: 152px;
     border-radius: 12px;
 }
 
 .spotify-carousel__indicator {
     text-align: center;
-    margin-top: var(--space-2);
-    font-size: var(--text-xs);
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
     color: var(--color-text-tertiary);
 }
 
-@media (max-width: 480px) {
+/* Desktop - show more */
+@media (min-width: 768px) {
     .spotify-swipe__item {
-        flex: 0 0 180px;
-    }
-
-    .spotify-nav-btn {
-        width: 32px;
-        height: 32px;
+        flex: 0 0 45%;
+        max-width: 400px;
     }
 }
