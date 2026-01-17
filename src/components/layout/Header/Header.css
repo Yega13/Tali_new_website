@@ -303,6 +303,13 @@
     padding-top: 80px;
     background-color: transparent;
     overflow-y: auto;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.header__nav--mobile::-webkit-scrollbar {
+    display: none;
 }
 
 .header__nav-link--mobile {
@@ -397,4 +404,33 @@
 .header__mobile-socials-icons svg {
     width: 22px;
     height: 22px;
+}
+
+/* ============ Mobile Responsive Fixes ============ */
+/* Bigger header elements on all mobile devices */
+@media (max-width: 1023px) {
+    .header__logo-text {
+        font-size: var(--text-xl) !important;
+    }
+
+    .header__menu-btn {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    .header__menu-line {
+        width: 28px !important;
+        height: 3px !important;
+    }
+
+    .theme-toggle {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .theme-toggle__icon--sun,
+    .theme-toggle__icon--moon {
+        width: 24px !important;
+        height: 24px !important;
+    }
 }

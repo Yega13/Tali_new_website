@@ -222,10 +222,22 @@ export default function About() {
                                     allowFullScreen
                                 />
                             </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Live Videos */}
+                    <motion.div
+                        className="acting-category"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="acting-category__title">Live</h3>
+                        <div className="acting-videos__grid">
                             <div className="acting-video">
                                 <iframe
                                     src="https://www.youtube.com/embed/is7nUjHOAlw"
-                                    title="Voice Reel 3"
+                                    title="Live Performance"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />

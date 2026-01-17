@@ -1,9 +1,22 @@
+import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePreloader } from '@/hooks/usePreloader'
 import './Preloader.css'
 
 export default function Preloader() {
     const { isLoading, isAnimating } = usePreloader(2500)
+
+    // Hide scrollbar during preloader using CSS class
+    useEffect(() => {
+        if (isLoading) {
+            document.body.classList.add('preloader-active')
+        } else {
+            document.body.classList.remove('preloader-active')
+        }
+        return () => {
+            document.body.classList.remove('preloader-active')
+        }
+    }, [isLoading])
 
     return (
         <AnimatePresence>

@@ -1,3 +1,8 @@
+/* Hide scrollbar when preloader is active */
+body.preloader-active {
+    overflow: hidden !important;
+}
+
 .preloader {
     position: fixed;
     inset: 0;
@@ -6,6 +11,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-preloader-bg);
+    overflow: hidden;
 }
 
 .preloader__content {

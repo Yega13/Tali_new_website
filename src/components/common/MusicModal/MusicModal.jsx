@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './MusicModal.css'
 
@@ -60,31 +60,25 @@ const musicPlatforms = [
 ]
 
 export default function MusicModal({ isOpen, onClose }) {
-    // Block body scroll when modal is open - robust implementation
+    const scrollPositionRef = useRef(0)
+
+    // Block body scroll when modal is open - improved to prevent jumping
     useEffect(() => {
         if (isOpen) {
-            const scrollY = window.scrollY
-            document.body.style.position = 'fixed'
-            document.body.style.top = `-${scrollY}px`
-            document.body.style.left = '0'
-            document.body.style.right = '0'
+            scrollPositionRef.current = window.scrollY
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
             document.body.style.overflow = 'hidden'
-            // Add escape key listener here to ensure it's active only when open
+            document.body.style.paddingRight = `${scrollbarWidth}px`
+            // Add escape key listener
             const handleEscape = (e) => {
                 if (e.key === 'Escape') onClose()
             }
             document.addEventListener('keydown', handleEscape)
             return () => document.removeEventListener('keydown', handleEscape)
         } else {
-            const scrollY = document.body.style.top
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.left = ''
-            document.body.style.right = ''
             document.body.style.overflow = ''
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY || '0') * -1)
-            }
+            document.body.style.paddingRight = ''
+            window.scrollTo(0, scrollPositionRef.current)
         }
     }, [isOpen, onClose])
 

@@ -1,11 +1,24 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import './NotFound.css'
 
 export default function NotFound() {
     const [stage, setStage] = useState('initial') // initial, playing, finished
+    const [volume, setVolume] = useState(50)
     const videoRef = useRef(null)
+
+    // Force dark theme on 404 page
+    useEffect(() => {
+        const originalTheme = document.documentElement.getAttribute('data-theme')
+        document.documentElement.setAttribute('data-theme', 'dark')
+
+        return () => {
+            // Restore original theme when leaving
+            if (originalTheme) {
+                document.documentElement.setAttribute('data-theme', originalTheme)
+            }
+        }
+    }, [])
 
     const handleButtonClick = () => {
         if (stage === 'initial' || stage === 'finished') {
@@ -14,6 +27,13 @@ export default function NotFound() {
                 videoRef.current.currentTime = 0
                 videoRef.current.play()
             }
+        }
+    }
+
+    const handleVolumeChange = (newVolume) => {
+        setVolume(newVolume)
+        if (videoRef.current) {
+            videoRef.current.volume = newVolume / 100
         }
     }
 
@@ -41,13 +61,9 @@ export default function NotFound() {
                     type="range"
                     min="0"
                     max="100"
-                    defaultValue="50"
+                    value={volume}
                     className="not-found__slider"
-                    onChange={(e) => {
-                        if (videoRef.current) {
-                            videoRef.current.volume = e.target.value / 100
-                        }
-                    }}
+                    onChange={(e) => handleVolumeChange(parseInt(e.target.value))}
                 />
             </div>
 
@@ -56,7 +72,7 @@ export default function NotFound() {
                 <video
                     ref={videoRef}
                     className="not-found__video"
-                    src="/photos/Tali vids(3).mp4"
+                    src="/photos/Tali vids(7) Legendar.mp4"
                     playsInline
                     muted={false}
                 />
@@ -93,11 +109,6 @@ export default function NotFound() {
             >
                 <h1 className="not-found__title">404</h1>
                 <p className="not-found__subtitle">Page not found</p>
-
-                <Link to="/" className="btn btn-outline not-found__btn">
-                    ← Back to Home
-                </Link>
-
                 <p className="not-found__message">We're incredibly sorry, try later !</p>
             </motion.div>
         </div>

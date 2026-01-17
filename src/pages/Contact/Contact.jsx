@@ -114,43 +114,25 @@ export default function Contact() {
             return
         }
 
-        // Check if already subscribed
-        if (isAlreadySubscribed(newsletterEmail)) {
-            setNewsletterStatus({ type: 'error', message: 'This email is already subscribed to our Newsletter!' })
-            return
-        }
-
         setIsSubscribing(true)
         setNewsletterStatus({ type: '', message: '' })
 
         try {
-            // Create hidden form and submit directly to Mailchimp
-            const form = document.createElement('form')
-            form.action = 'https://gmail.us6.list-manage.com/subscribe/post?u=cb988d7f10c01076fb4b5a6f6&id=91c7edfd70&f_id=007b9be0f0'
-            form.method = 'POST'
-            form.target = '_blank'
+            // Submit to Brevo
+            const formData = new FormData()
+            formData.append('EMAIL', newsletterEmail)
+            formData.append('email_address_check', '') // Honeypot
+            formData.append('locale', 'en')
 
-            const emailInput = document.createElement('input')
-            emailInput.type = 'email'
-            emailInput.name = 'EMAIL'
-            emailInput.value = newsletterEmail
-            form.appendChild(emailInput)
-
-            // Honeypot field
-            const honeypot = document.createElement('input')
-            honeypot.type = 'text'
-            honeypot.name = 'b_cb988d7f10c01076fb4b5a6f6_91c7edfd70'
-            honeypot.value = ''
-            honeypot.style.display = 'none'
-            form.appendChild(honeypot)
-
-            document.body.appendChild(form)
-            form.submit()
-            document.body.removeChild(form)
+            const response = await fetch('https://6e5fcb15.sibforms.com/serve/MUIFAPvHfL-EoMJF5FdSc0DduYzM3u9l9IQcXrgraV7FqGq0NZ2Wqi1Rs9njXfVJNGjLfIqoSw0bsK8nh8nTqL_9foaT8itTm2-yjtW0e9Rn4g3EC7K0wwfgpcoKv3sCpkQ6UBGF879_g_Pwq5v4w33pD20dr_Hx0wfm-VRDIz8TEImAtm9Crsb1J7ElinGPXLe8XJ9eT2b5vFGm4w==', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Brevo doesn't allow CORS
+            })
 
             // Track locally for duplicate check
             addToSubscribedList(newsletterEmail)
-            setNewsletterStatus({ type: 'success', message: 'Welcome to the family! Check the new tab to confirm :)' })
+            setNewsletterStatus({ type: 'success', message: 'Welcome to the family! Check your email to confirm :)' })
             setNewsletterEmail('')
         } catch (error) {
             setNewsletterStatus({ type: 'error', message: 'Oops! Something went wrong. Please try again.' })

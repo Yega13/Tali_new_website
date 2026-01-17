@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Collaborations.css'
 
 // BlueStripes moments photos for the gallery
 const bluestripesPhotos = [
-    { src: '/photos/BlueStrpies.jpg', alt: 'Tali with BlueStripes' },
-    { src: '/photos/Blue Bird.jpg', alt: 'Blue Bird cover' },
-    { src: '/photos/Tali pics(3).jpg', alt: 'Tali recording' },
-    { src: '/photos/Tali pics(50).jpg', alt: 'Studio session' },
-    { src: '/photos/Tali pics(52) Den atelier.webp', alt: 'Live at Den Atelier' },
-    { src: '/photos/Tali pics(57).jpg', alt: 'Band rehearsal' },
-    { src: '/photos/Tali pics(59).jpg', alt: 'Band photo' }
+    { src: '/photos/Tali pics(111).webp', alt: 'Subway', type: 'image' },
+    { src: '/photos/Tali vids(5).mp4', alt: 'Come On!', type: 'video' },
+    { src: '/photos/Tali vids(3).mp4', alt: 'New York', type: 'video' },
+    { src: '/photos/Tali pics(3).jpg', alt: 'Tali recording', type: 'image' },
+    { src: '/photos/Tali pics(5).webp', alt: 'Filming', type: 'image' },
+    { src: '/photos/Tali vids(30).mp4', alt: 'Rehearsal', type: 'video' },
+    { src: '/photos/Tali vids(31).mp4', type: 'video' },
+    { src: '/photos/Tali pics(140).jpg', alt: 'Rehearsal', type: 'image', objectPosition: 'right' }
 ]
 
 const collaborations = [
@@ -61,6 +62,26 @@ const collaborations = [
 export default function Collaborations() {
     const [expandedCollab, setExpandedCollab] = useState(null)
     const [lightboxIndex, setLightboxIndex] = useState(null)
+    const scrollPositionRef = useRef(0)
+
+    // Preload images for expandable sections to prevent lag
+    useEffect(() => {
+        const imagesToPreload = [
+            // Song images
+            ...collaborations
+                .filter(c => c.songs)
+                .flatMap(c => c.songs.map(s => s.image)),
+            // Moments images/videos
+            ...bluestripesPhotos
+                .filter(p => p.type !== 'video')
+                .map(p => p.src)
+        ]
+
+        imagesToPreload.forEach(src => {
+            const img = new Image()
+            img.src = src
+        })
+    }, [])
 
     const toggleExpand = (id) => {
         setExpandedCollab(expandedCollab === id ? null : id)
@@ -86,41 +107,21 @@ export default function Collaborations() {
         }
     }
 
-    // Block body scroll when lightbox is open
+    // Block body scroll when lightbox is open - improved to prevent jumping
     useEffect(() => {
-        let savedScrollY = 0
-
         if (lightboxIndex !== null) {
-            savedScrollY = window.scrollY
-            document.body.style.position = 'fixed'
-            document.body.style.top = `-${savedScrollY}px`
-            document.body.style.left = '0'
-            document.body.style.right = '0'
+            scrollPositionRef.current = window.scrollY
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
             document.body.style.overflow = 'hidden'
-            document.body.dataset.scrollY = savedScrollY
+            document.body.style.paddingRight = `${scrollbarWidth}px`
         } else {
-            const scrollY = document.body.dataset.scrollY
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.left = ''
-            document.body.style.right = ''
             document.body.style.overflow = ''
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY))
-                delete document.body.dataset.scrollY
-            }
+            document.body.style.paddingRight = ''
+            window.scrollTo(0, scrollPositionRef.current)
         }
         return () => {
-            const scrollY = document.body.dataset.scrollY
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.left = ''
-            document.body.style.right = ''
             document.body.style.overflow = ''
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY))
-                delete document.body.dataset.scrollY
-            }
+            document.body.style.paddingRight = ''
         }
     }, [lightboxIndex])
 
@@ -241,7 +242,15 @@ export default function Collaborations() {
                                                                 transition={{ delay: i * 0.05 }}
                                                                 onClick={() => openLightbox(i)}
                                                             >
-                                                                <img src={photo.src} alt={photo.alt} />
+                                                                {photo.type === 'video' ? (
+                                                                    <video src={photo.src} autoPlay loop muted playsInline preload="auto" />
+                                                                ) : (
+                                                                    <img
+                                                                        src={photo.src}
+                                                                        alt={photo.alt}
+                                                                        style={photo.objectPosition ? { objectPosition: photo.objectPosition } : undefined}
+                                                                    />
+                                                                )}
                                                             </motion.div>
                                                         ))}
                                                     </div>
@@ -303,12 +312,27 @@ export default function Collaborations() {
                         </button>
 
                         <div className="collab-lightbox__content" onClick={(e) => e.stopPropagation()}>
-                            <img
-                                src={bluestripesPhotos[lightboxIndex].src}
-                                alt={bluestripesPhotos[lightboxIndex].alt}
-                                className="collab-lightbox__image"
-                            />
-                            <p className="collab-lightbox__caption">{bluestripesPhotos[lightboxIndex].alt}</p>
+                            {/* Spacer to balance caption for proper centering */}
+                            {bluestripesPhotos[lightboxIndex].alt && <div className="collab-lightbox__spacer" />}
+                            {bluestripesPhotos[lightboxIndex].type === 'video' ? (
+                                <video
+                                    key={lightboxIndex}
+                                    src={bluestripesPhotos[lightboxIndex].src}
+                                    className="collab-lightbox__image"
+                                    controls
+                                    autoPlay
+                                    playsInline
+                                />
+                            ) : (
+                                <img
+                                    src={bluestripesPhotos[lightboxIndex].src}
+                                    alt={bluestripesPhotos[lightboxIndex].alt || ''}
+                                    className="collab-lightbox__image"
+                                />
+                            )}
+                            {bluestripesPhotos[lightboxIndex].alt && (
+                                <p className="collab-lightbox__caption">{bluestripesPhotos[lightboxIndex].alt}</p>
+                            )}
                         </div>
                     </motion.div>
                 )}

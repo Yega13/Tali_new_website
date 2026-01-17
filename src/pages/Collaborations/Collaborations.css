@@ -52,12 +52,12 @@
 .collab-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-10);
+    gap: var(--space-6);
 }
 
 @media (min-width: 480px) {
     .collab-list {
-        gap: var(--space-12);
+        gap: var(--space-10);
     }
 }
 
@@ -312,8 +312,17 @@
     transition: transform var(--transition-slow);
 }
 
+.collab-moments__item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
 @media (hover: hover) and (pointer: fine) {
-    .collab-moments__item:hover img {
+
+    .collab-moments__item:hover img,
+    .collab-moments__item:hover video {
         transform: scale(1.05);
     }
 }
@@ -324,10 +333,10 @@
     inset: 0;
     z-index: var(--z-modal);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: var(--space-4);
-    padding-top: 10vh;
     cursor: pointer;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(20px);
@@ -412,8 +421,14 @@
     font-weight: var(--weight-semibold);
     text-align: center;
     margin: 0;
+    margin-top: var(--space-4);
     padding: var(--space-2) var(--space-5);
     background: rgba(0, 0, 0, 0.75);
     border-radius: var(--radius-lg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Spacer to balance caption for centering */
+.collab-lightbox__spacer {
+    height: calc(var(--text-sm) + var(--space-4) + var(--space-4));
 }

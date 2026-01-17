@@ -17,6 +17,7 @@ import Collaborations from '@/pages/Collaborations'
 import Contact from '@/pages/Contact'
 import NotFound from '@/pages/NotFound'
 import Birthday from '@/pages/Birthday'
+import Shop from '@/pages/Shop'
 
 // Page transition wrapper - pure opacity appear
 const pageVariants = {
@@ -24,6 +25,9 @@ const pageVariants = {
     animate: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
     exit: { opacity: 0, transition: { duration: 0.2 } }
 }
+
+// Valid routes for checking 404
+const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/birthday', '/shop']
 
 function AnimatedRoutes() {
     const location = useLocation()
@@ -46,6 +50,7 @@ function AnimatedRoutes() {
                     <Route path="/collaborations" element={<Collaborations />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/birthday" element={<Birthday />} />
+                    <Route path="/shop" element={<Shop />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </motion.div>
@@ -53,18 +58,29 @@ function AnimatedRoutes() {
     )
 }
 
+function AppContent() {
+    const location = useLocation()
+    const is404 = !validRoutes.includes(location.pathname)
+
+    return (
+        <>
+            <Preloader />
+            <ScrollToTop />
+            {!is404 && <Header />}
+            <main>
+                <AnimatedRoutes />
+            </main>
+            {!is404 && <Footer />}
+            {!is404 && <BackToTop />}
+        </>
+    )
+}
+
 export default function App() {
     return (
         <ThemeProvider>
             <Router>
-                <Preloader />
-                <ScrollToTop />
-                <Header />
-                <main>
-                    <AnimatedRoutes />
-                </main>
-                <Footer />
-                <BackToTop />
+                <AppContent />
             </Router>
         </ThemeProvider>
     )

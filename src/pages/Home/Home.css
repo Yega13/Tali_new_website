@@ -109,6 +109,22 @@
     -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.2);
 }
 
+/* Very small phones (360px and below) */
+@media (max-width: 374px) {
+    .hero__title {
+        font-size: var(--text-2xl);
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-base);
+    }
+
+    .hero__btn {
+        padding: var(--space-3) var(--space-6);
+        font-size: var(--text-sm);
+    }
+}
+
 /* Small phones (375px+) */
 @media (min-width: 375px) {
     .hero__title {
@@ -199,7 +215,7 @@
 }
 
 [data-theme="light"] .hero__scroll {
-    color: rgba(100, 100, 100, 0.7);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .hero__scroll-text {

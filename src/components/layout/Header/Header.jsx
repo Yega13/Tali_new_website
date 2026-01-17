@@ -11,7 +11,8 @@ const navLinks = [
     { to: '/gallery', label: 'Gallery' },
     { to: '/news', label: 'News' },
     { to: '/collaborations', label: 'Collaborations' },
-    { to: '/contact', label: 'Contact' }
+    { to: '/contact', label: 'Contact' },
+    { to: '/shop', label: 'Shop', badge: '🚧' }
 ]
 
 export default function Header() {
@@ -70,7 +71,7 @@ export default function Header() {
                                 `header__nav-link ${isActive ? 'header__nav-link--active' : ''}`
                             }
                         >
-                            {link.label}
+                            {link.label} {link.badge && <span className="header__nav-badge">{link.badge}</span>}
                         </NavLink>
                     ))}
                 </nav>
@@ -125,7 +126,7 @@ export default function Header() {
                                             }
                                             onClick={() => setIsMenuOpen(false)}
                                         >
-                                            {link.label}
+                                            {link.label} {link.badge && <span className="header__nav-badge">{link.badge}</span>}
                                         </NavLink>
                                     </motion.div>
                                 ))}

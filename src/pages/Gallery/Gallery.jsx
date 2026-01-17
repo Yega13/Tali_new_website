@@ -1,62 +1,68 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useIsDesktop } from '@/hooks/useMediaQuery'
+import LazyImage from '@/components/common/LazyImage'
 import './Gallery.css'
 
 // Mixed media arrays (photos + videos merged)
+// WANDER section
 const wanderMedia = [
-    { src: '/photos/Tali pics(51).jpg', alt: 'Tali - Wander portrait', type: 'image' },
-    { src: '/photos/Tali wander vid.mp4', alt: 'Tali - Wander', type: 'video' },
-    { src: '/photos/Tali pics(52) Den atelier.webp', alt: 'Tali at Den Atelier', type: 'image' },
-    { src: '/photos/Tali pics(50).jpg', alt: 'Tali - candid moment', type: 'image' },
-    { src: '/photos/Tali vids Style walking.mp4', alt: 'Tali - Style walk', type: 'video' },
-    { src: '/photos/Tali pics(3).jpg', alt: 'Tali - natural light', type: 'image' },
-    { src: '/photos/Tali pics(23) Wander.jpg', alt: 'Tali - Wander shoot', type: 'image' },
-    { src: '/photos/Tali pics(49).jpg', alt: 'Tali portrait', type: 'image' }
+    { src: '/photos/Tali pics(25) Dear Parents.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
+    { src: '/photos/Tali pics(26) Dear Parents Tongue.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
+    { src: '/photos/Tali from facebook 8.webp', type: 'image' },
+    { src: '/photos/Tali pics(27) Dear Parents necklace.webp', alt: 'Dear Parents necklace', type: 'image' },
+    { src: '/photos/Tali vids(20).mp4', alt: 'Blue Turns To Grey - Studio', type: 'video' },
+    { src: '/photos/Tali pics(51).webp', alt: 'WANDER', type: 'image' },
+    { src: '/photos/Tali pics(23) Wander.webp', alt: 'Wander Photoshoot', type: 'image' },
+    { src: '/photos/Tali wander vid.mp4', type: 'video' },
+    { src: '/photos/Tali vids(21).mp4', alt: 'Sticker ;)', type: 'video' },
+    { src: '/photos/Tali pics(85).webp', type: 'image' }
 ]
 
+// Eurovision 2024 section
 const eurovisionMedia = [
-    { src: '/photos/Tali pics(35) eurovision 2025.jpg', alt: 'Tali - Eurovision 2025', type: 'image' },
-    { src: '/photos/Tali pics(38) Eurovision.webp', alt: 'Tali on Eurovision stage', type: 'image' },
-    { src: '/photos/Tali pics(28).jpg', alt: 'Tali - backstage', type: 'image' },
-    { src: '/photos/Tali pics(8).jpg', alt: 'Tali - rehearsal', type: 'image' },
-    { src: '/photos/Tali pics(40) Eurovision.jpg', alt: 'Tali Eurovision performance', type: 'image' },
-    { src: '/photos/Tali pics(41) Eurovision.jpg', alt: 'Tali Eurovision glow', type: 'image' },
-    { src: '/photos/Tali pics(42) Eurovision.jpg', alt: 'Tali Eurovision moment', type: 'image' },
-    { src: '/photos/Tali pics(13) Eurovision.jpg', alt: 'Tali Eurovision pose', type: 'image' }
+    { src: '/photos/Tali pics(98).webp', alt: 'Eurovision 2024 - Malmo', type: 'image' },
+    { src: '/photos/Tali pics(42) Eurovision.webp', alt: 'Tali Eurovision moment', type: 'image' },
+    { src: '/photos/Tali pics(97).webp', alt: 'Tali portrait', type: 'image' },
+    { src: '/photos/Talis vids(19).mp4', alt: 'Tali Eurovision video', type: 'video' },
+    { src: '/photos/Tali pics(14) Eurovision Heart.webp', alt: 'Tali Eurovision heart', type: 'image' },
+    { src: '/photos/Tali pics(80).webp', alt: 'Tali close-up', type: 'image' },
+    { src: '/photos/Tali pics(13) Eurovision.webp', alt: 'Tali Eurovision pose', type: 'image' },
+    { src: '/photos/Tali vids(32).mp4', alt: 'Tali Eurovision backstage', type: 'video' }
 ]
 
+// In Focus section
 const inFocusMedia = [
-    { src: '/photos/Tali den atelier.jpeg', alt: 'Tali live at Den Atelier', type: 'image' },
-    { src: '/photos/Tali vids(3).mp4', alt: 'Tali performance', type: 'video' },
-    { src: '/photos/Tali pics(5).jpg', alt: 'Tali - powerful vocals', type: 'image' },
-    { src: '/photos/Tali pics(72).jpg', alt: 'Tali - photoshoot', type: 'image' },
-    { src: '/photos/Tali vids(5).mp4', alt: 'Tali live', type: 'video' },
-    { src: '/photos/Tali pics(73).jpg', alt: 'Tali - editorial', type: 'image' },
-    { src: '/photos/Tali pics(85).jpg', alt: 'Tali live with crowd', type: 'image' },
-    { src: '/photos/Tali Style elevator.mp4', alt: 'Tali - elevator', type: 'video' },
-    { src: '/photos/Tali pics(95).jpg', alt: 'Tali on stage', type: 'image' },
-    { src: '/photos/Tali pics(97).jpg', alt: 'Tali portrait', type: 'image' },
-    { src: '/photos/Tali pics(74).jpg', alt: 'Tali - style', type: 'image' },
-    { src: '/photos/Tali pics(75).jpg', alt: 'Tali fashion', type: 'image' },
-    { src: '/photos/Tali pics(79).jpg', alt: 'Tali artistic', type: 'image' },
-    { src: '/photos/Tali pics(80).jpg', alt: 'Tali close-up', type: 'image' },
-    { src: '/photos/Tali pics(81).jpg', alt: 'Tali gaze', type: 'image' },
-    { src: '/photos/Tali pics(83).jpg', alt: 'Tali dramatic', type: 'image' },
-    { src: '/photos/Tali pics(98).jpg', alt: 'Tali stunning', type: 'image' },
-    { src: '/photos/Tali pics(99).jpg', alt: 'Tali radiant', type: 'image' }
+    { src: '/photos/Tali pics(68).webp', alt: 'Tali moment', type: 'image' },
+    { src: '/photos/Tali pics(47) National selection.webp', alt: 'Tali - National selection', type: 'image' },
+    { src: '/photos/Tali vids Style walking.mp4', alt: 'Tali - Style walk', type: 'video' },
+    { src: '/photos/Tali pics(60) trounwiessel.webp', alt: 'Tali at Trounwiessel', type: 'image' },
+    { src: '/photos/Tali pics(18).webp', alt: 'Tali candid', type: 'image' },
+    { src: '/photos/Tali pics(12) Not included.webp', alt: 'Fans', type: 'image' },
+    { src: '/photos/Tali pics(36) eurovision 2025 Not included.webp', alt: 'LSC 2025', type: 'image' },
+    { src: '/photos/Tali pics(10).webp', alt: 'Tali essence', type: 'image' },
+    { src: '/photos/Tali pics(52) Den atelier.webp', alt: 'Tali at Den Atelier', type: 'image' },
+    { src: '/photos/Tali vids(16).mp4', alt: 'Luxembourg Philarmonie 2025', type: 'video' },
+    { src: '/photos/Tali vids(17).mp4', alt: 'Trounwiessel show', type: 'video' },
+    { src: '/photos/Tali vids(11).mp4', alt: 'Luxembourg Philarmonie 2024', type: 'video' },
+    { src: '/photos/Tali pics(57) echterlicht.webp', alt: 'Tali at Echterliecht', type: 'image' },
+    { src: '/photos/Tali pics(57).webp', alt: 'Tali portrait', type: 'image' },
+    { src: '/photos/Tali pics(59).webp', alt: 'Tali candid', type: 'image' },
+    { src: '/photos/Tali pics(55) dancing alone.webp', type: 'image' },
+    { src: '/photos/Tali pics(104).webp', alt: 'Echterleicht backstage', type: 'image', objectPosition: '30% center' },
+    { src: '/photos/Tali pics(82) baby.webp', alt: 'Tali baby photo', type: 'image' },
+    { src: '/photos/Tali pics(83).webp', alt: 'Luxembourg Philarmonie 2025', type: 'image', objectPosition: 'top' },
+    { src: '/photos/Tali pics(53) Echterleicht.webp', alt: 'Tali at Echterleicht', type: 'image' },
 ]
 
-// Moments section - B&W photos
+// Moments section - pictures with humans
 const momentsImages = [
-    { src: '/photos/Tali pics(103) - Black and white.jpg', alt: 'Tali - black and white' },
-    { src: '/photos/Tali pics(60) trounwiessel- Black and white.jpg', alt: 'Tali at Trounwiessel' },
-    { src: '/photos/Tali pics(68).jpg', alt: 'Tali moment' },
-    { src: '/photos/Tali pics(69).jpg', alt: 'Tali candid' },
-    { src: '/photos/Tali pics(70).jpg', alt: 'Tali reflection' },
-    { src: '/photos/Tali from facebook 4.jpg', alt: 'Tali genuine' },
-    { src: '/photos/Tali from facebook 8.jpg', alt: 'Tali soul' },
-    { src: '/photos/Tali pics(10).jpg', alt: 'Tali essence' }
+    { src: '/photos/Tali pics(103).webp', alt: 'Tali moment' },
+    { src: '/photos/Tali pics(69).webp', alt: 'Tali candid' },
+    { src: '/photos/Tali from facebook 4.webp', alt: 'Tali genuine' },
+    { src: '/photos/Tali pics(72).webp', alt: 'Tali photoshoot' },
+    { src: '/photos/Tali pics(73).webp', alt: 'Tali editorial' },
+    { src: '/photos/Tali pics(74).webp', alt: 'Tali style' }
 ]
 
 // Combine ALL media into one unified array for the lightbox
@@ -76,6 +82,7 @@ const momentsStartIndex = wanderMedia.length + eurovisionMedia.length + inFocusM
 export default function Gallery() {
     const [lightboxIndex, setLightboxIndex] = useState(null)
     const isDesktop = useIsDesktop()
+    const scrollPositionRef = useRef(0)
 
     const openLightbox = (globalIndex) => {
         setLightboxIndex(globalIndex)
@@ -85,41 +92,26 @@ export default function Gallery() {
         setLightboxIndex(null)
     }
 
-    // Block body scroll when lightbox is open - robust implementation
+    // Block body scroll when lightbox is open - improved to prevent jumping
     useEffect(() => {
-        let savedScrollY = 0
-
         if (lightboxIndex !== null) {
-            savedScrollY = window.scrollY
-            document.body.style.position = 'fixed'
-            document.body.style.top = `-${savedScrollY}px`
-            document.body.style.left = '0'
-            document.body.style.right = '0'
+            // Save current scroll position
+            scrollPositionRef.current = window.scrollY
+            // Get scrollbar width to prevent layout shift
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+            // Lock scroll without position:fixed to avoid jumping
             document.body.style.overflow = 'hidden'
-            document.body.dataset.scrollY = savedScrollY
+            document.body.style.paddingRight = `${scrollbarWidth}px`
         } else {
-            const scrollY = document.body.dataset.scrollY
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.left = ''
-            document.body.style.right = ''
+            // Restore scroll
             document.body.style.overflow = ''
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY))
-                delete document.body.dataset.scrollY
-            }
+            document.body.style.paddingRight = ''
+            // Restore scroll position immediately
+            window.scrollTo(0, scrollPositionRef.current)
         }
         return () => {
-            const scrollY = document.body.dataset.scrollY
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.left = ''
-            document.body.style.right = ''
             document.body.style.overflow = ''
-            if (scrollY) {
-                window.scrollTo(0, parseInt(scrollY))
-                delete document.body.dataset.scrollY
-            }
+            document.body.style.paddingRight = ''
         }
     }, [lightboxIndex])
 
@@ -170,8 +162,32 @@ export default function Gallery() {
             <div className="gallery-ticker">
                 <div className="gallery-ticker__title">GALLERY</div>
                 <div className="gallery-ticker__content">
-                    {[...wanderMedia.filter(m => m.type === 'image'), ...wanderMedia.filter(m => m.type === 'image')].map((media, i) => (
-                        <img key={i} src={media.src} alt={media.alt} className="gallery-ticker__image" />
+                    {[
+                        '/photos/Tali from facebook 4.webp',
+                        '/photos/Tali pics(25) Dear Parents.webp',
+                        '/photos/Tali pics(28).webp',
+                        '/photos/Tali pics(32).webp',
+                        '/photos/Tali pics(57) echterlicht.webp',
+                        '/photos/Tali pics(80).webp',
+                        '/photos/Tali pics(51).webp',
+                        '/photos/Tali pics(16).webp',
+                        '/photos/Tali pics(68).webp',
+                        '/photos/Tali pics(18).webp',
+                        '/photos/Tali pics(14) Eurovision Heart.webp',
+                        // Loop
+                        '/photos/Tali from facebook 4.webp',
+                        '/photos/Tali pics(25) Dear Parents.webp',
+                        '/photos/Tali pics(28).webp',
+                        '/photos/Tali pics(32).webp',
+                        '/photos/Tali pics(57) echterlicht.webp',
+                        '/photos/Tali pics(80).webp',
+                        '/photos/Tali pics(51).webp',
+                        '/photos/Tali pics(16).webp',
+                        '/photos/Tali pics(68).webp',
+                        '/photos/Tali pics(18).webp',
+                        '/photos/Tali pics(14) Eurovision Heart.webp',
+                    ].map((src, i) => (
+                        <img key={i} src={src} alt="Gallery" className="gallery-ticker__image" />
                     ))}
                 </div>
             </div>
@@ -179,7 +195,7 @@ export default function Gallery() {
             {/* WANDER */}
             <section className="gallery-grid section">
                 <div className="container">
-                    <h2 className="section-title">Gallery</h2>
+                    <h2 className="section-title">WANDER</h2>
                     <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
                         {wanderMedia.map((media, index) => (
                             <motion.div
@@ -192,9 +208,9 @@ export default function Gallery() {
                                 onClick={() => openLightbox(wanderStartIndex + index)}
                             >
                                 {media.type === 'video' ? (
-                                    <video src={media.src} autoPlay loop muted playsInline />
+                                    <video src={media.src} autoPlay loop muted playsInline preload="auto" />
                                 ) : (
-                                    <img src={media.src} alt={media.alt} loading="lazy" />
+                                    <LazyImage src={media.src} alt={media.alt} />
                                 )}
                             </motion.div>
                         ))}
@@ -202,10 +218,10 @@ export default function Gallery() {
                 </div>
             </section>
 
-            {/* Eurovision 2025 */}
+            {/* Eurovision 2024 */}
             <section className="gallery-grid section" style={{ paddingTop: 0 }}>
                 <div className="container">
-                    <h2 className="section-title">Eurovision 2025</h2>
+                    <h2 className="section-title">Eurovision 2024</h2>
                     <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
                         {eurovisionMedia.map((media, index) => (
                             <motion.div
@@ -218,9 +234,9 @@ export default function Gallery() {
                                 onClick={() => openLightbox(eurovisionStartIndex + index)}
                             >
                                 {media.type === 'video' ? (
-                                    <video src={media.src} autoPlay loop muted playsInline />
+                                    <video src={media.src} autoPlay loop muted playsInline preload="auto" />
                                 ) : (
-                                    <img src={media.src} alt={media.alt} loading="lazy" />
+                                    <LazyImage src={media.src} alt={media.alt} />
                                 )}
                             </motion.div>
                         ))}
@@ -244,9 +260,13 @@ export default function Gallery() {
                                 onClick={() => openLightbox(inFocusStartIndex + index)}
                             >
                                 {media.type === 'video' ? (
-                                    <video src={media.src} autoPlay loop muted playsInline />
+                                    <video src={media.src} autoPlay loop muted playsInline preload="auto" />
                                 ) : (
-                                    <img src={media.src} alt={media.alt} loading="lazy" />
+                                    <LazyImage
+                                        src={media.src}
+                                        alt={media.alt}
+                                        style={media.objectPosition ? { objectPosition: media.objectPosition } : undefined}
+                                    />
                                 )}
                             </motion.div>
                         ))}
@@ -269,7 +289,7 @@ export default function Gallery() {
                                 transition={{ delay: index * 0.05 }}
                                 onClick={() => openLightbox(momentsStartIndex + index)}
                             >
-                                <img src={image.src} alt={image.alt} loading="lazy" />
+                                <LazyImage src={image.src} alt={image.alt} />
                             </motion.div>
                         ))}
                     </div>
@@ -311,6 +331,8 @@ export default function Gallery() {
                             onTouchStart={handleTouchStart}
                             onTouchEnd={handleTouchEnd}
                         >
+                            {/* Spacer to balance caption for proper centering */}
+                            {allMedia[lightboxIndex].alt && <div className="lightbox__spacer" />}
                             {allMedia[lightboxIndex].type === 'video' || allMedia[lightboxIndex].src.endsWith('.mp4') ? (
                                 <div className="lightbox__video-wrapper">
                                     <video
@@ -341,11 +363,13 @@ export default function Gallery() {
                                 <img
                                     key={lightboxIndex}
                                     src={allMedia[lightboxIndex].src}
-                                    alt={allMedia[lightboxIndex].alt}
+                                    alt={allMedia[lightboxIndex].alt || ''}
                                     className="lightbox__image"
                                 />
                             )}
-                            <p className="lightbox__caption">{allMedia[lightboxIndex].alt}</p>
+                            {allMedia[lightboxIndex].alt && (
+                                <p className="lightbox__caption">{allMedia[lightboxIndex].alt}</p>
+                            )}
                         </div>
                     </motion.div>
                 )}

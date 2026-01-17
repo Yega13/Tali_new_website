@@ -14,8 +14,13 @@ export function usePreloader(duration = 2500) {
     useEffect(() => {
         if (!isLoading) {
             setIsAnimating(false)
+            // Ensure body is scrollable when not loading
+            document.body.style.overflow = ''
             return
         }
+
+        // Lock body scroll during preloader
+        document.body.style.overflow = 'hidden'
 
         // Mark as shown in session storage
         sessionStorage.setItem(PRELOADER_KEY, 'true')
@@ -26,10 +31,15 @@ export function usePreloader(duration = 2500) {
             // Give time for exit animation
             setTimeout(() => {
                 setIsLoading(false)
+                // Unlock body scroll after preloader
+                document.body.style.overflow = ''
             }, 500)
         }, duration)
 
-        return () => clearTimeout(timer)
+        return () => {
+            clearTimeout(timer)
+            document.body.style.overflow = ''
+        }
     }, [isLoading, duration])
 
     return { isLoading, isAnimating }
