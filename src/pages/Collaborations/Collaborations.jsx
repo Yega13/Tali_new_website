@@ -107,20 +107,20 @@ export default function Collaborations() {
         }
     }
 
-    // Block body scroll when lightbox is open - improved to prevent jumping
+    // Block body scroll when lightbox is open - using CSS class with !important
     useEffect(() => {
         if (lightboxIndex !== null) {
             scrollPositionRef.current = window.scrollY
             const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-            document.body.style.overflow = 'hidden'
+            document.body.classList.add('lightbox-open')
             document.body.style.paddingRight = `${scrollbarWidth}px`
         } else {
-            document.body.style.overflow = ''
+            document.body.classList.remove('lightbox-open')
             document.body.style.paddingRight = ''
             window.scrollTo(0, scrollPositionRef.current)
         }
         return () => {
-            document.body.style.overflow = ''
+            document.body.classList.remove('lightbox-open')
             document.body.style.paddingRight = ''
         }
     }, [lightboxIndex])

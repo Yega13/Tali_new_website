@@ -22,6 +22,22 @@
     }
 }
 
+/* Small Desktop (1024px - 1299px) - Compact about page */
+@media (min-width: 1024px) and (max-width: 1299px) {
+    .about-bio__layout {
+        gap: var(--space-8);
+    }
+
+    .about-bio__image {
+        max-height: 400px;
+    }
+
+    .about-bio__text p {
+        margin-bottom: var(--space-3);
+        font-size: var(--text-sm);
+    }
+}
+
 .about-bio__image-wrapper {
     width: 100%;
     max-width: 400px;

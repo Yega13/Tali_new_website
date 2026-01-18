@@ -62,12 +62,12 @@ const musicPlatforms = [
 export default function MusicModal({ isOpen, onClose }) {
     const scrollPositionRef = useRef(0)
 
-    // Block body scroll when modal is open - improved to prevent jumping
+    // Block body scroll when modal is open - using CSS class with !important
     useEffect(() => {
         if (isOpen) {
             scrollPositionRef.current = window.scrollY
             const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-            document.body.style.overflow = 'hidden'
+            document.body.classList.add('modal-open')
             document.body.style.paddingRight = `${scrollbarWidth}px`
             // Add escape key listener
             const handleEscape = (e) => {
@@ -76,7 +76,7 @@ export default function MusicModal({ isOpen, onClose }) {
             document.addEventListener('keydown', handleEscape)
             return () => document.removeEventListener('keydown', handleEscape)
         } else {
-            document.body.style.overflow = ''
+            document.body.classList.remove('modal-open')
             document.body.style.paddingRight = ''
             window.scrollTo(0, scrollPositionRef.current)
         }

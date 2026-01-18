@@ -35,15 +35,15 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Prevent body scroll when menu is open
+    // Prevent body scroll when menu is open - using CSS class
     useEffect(() => {
         if (isMenuOpen) {
-            document.body.style.overflow = 'hidden'
+            document.body.classList.add('menu-open')
         } else {
-            document.body.style.overflow = ''
+            document.body.classList.remove('menu-open')
         }
         return () => {
-            document.body.style.overflow = ''
+            document.body.classList.remove('menu-open')
         }
     }, [isMenuOpen])
 

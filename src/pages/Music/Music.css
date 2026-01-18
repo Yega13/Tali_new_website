@@ -22,7 +22,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 60%;
+    object-position: center 30%;
 }
 
 .music-hero__overlay {
@@ -91,6 +91,20 @@
 @media (min-width: 768px) {
     .music-videos__grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop (1024px+) - 4 columns, smaller videos */
+@media (min-width: 1024px) {
+    .music-videos__grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-4);
+    }
+
+    .video-card__play svg {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
     }
 }
 
@@ -207,22 +221,17 @@
     transition: all 0.3s ease-out;
 }
 
-@media (min-width: 768px) {
-    .shows__list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-2);
-    }
-}
+/* Shows section is always single column so all dates align */
 
 .show-item {
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space-3);
     padding: var(--space-2) 0;
     background-color: transparent;
     border: none;
     font-size: var(--text-sm);
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .show-item--half-blurred {
@@ -235,6 +244,8 @@
     color: var(--color-primary);
     white-space: nowrap;
     font-size: var(--text-sm);
+    min-width: 65px;
+    flex-shrink: 0;
 }
 
 .show-item__venue {
@@ -319,36 +330,61 @@
     }
 }
 
-/* ============ Spotify Player - Horizontal Swipe Carousel ============ */
-.spotify-swipe {
+/* ============ Spotify Player - Carousel with Navigation ============ */
+.spotify-carousel {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: var(--space-4);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding: var(--space-2) 0;
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.spotify-swipe::-webkit-scrollbar {
-    display: none;
+.spotify-carousel__player {
+    flex: 1;
+    max-width: 500px;
+    min-width: 0;
 }
 
-.spotify-swipe__item {
-    flex: 0 0 100%;
-    min-width: 280px;
-    max-width: 400px;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
+.spotify-carousel__item {
+    width: 100%;
 }
 
-.spotify-swipe__item iframe {
+.spotify-carousel__item iframe {
     width: 100%;
     height: 152px;
     border-radius: 12px;
+}
+
+.spotify-carousel__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    flex-shrink: 0;
+}
+
+.spotify-carousel__nav svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .spotify-carousel__nav:hover {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .spotify-carousel__nav:hover svg {
+        color: #fff;
+    }
 }
 
 .spotify-carousel__indicator {
@@ -358,10 +394,15 @@
     color: var(--color-text-tertiary);
 }
 
-/* Desktop - show more */
-@media (min-width: 768px) {
-    .spotify-swipe__item {
-        flex: 0 0 45%;
-        max-width: 400px;
+/* Mobile - smaller nav buttons */
+@media (max-width: 479px) {
+    .spotify-carousel__nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .spotify-carousel__nav svg {
+        width: 20px;
+        height: 20px;
     }
 }

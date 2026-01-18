@@ -10,7 +10,19 @@
 
 @media (min-width: 768px) {
     .footer {
-        padding: var(--space-12) 0 var(--space-8);
+        padding: var(--space-8) 0 var(--space-4);
+    }
+}
+
+/* Small Desktop (1024px - 1299px) - More compact footer */
+@media (min-width: 1024px) and (max-width: 1299px) {
+    .footer {
+        padding: var(--space-6) 0 var(--space-3);
+    }
+
+    .footer__content {
+        gap: var(--space-4);
+        margin-bottom: var(--space-3);
     }
 }
 

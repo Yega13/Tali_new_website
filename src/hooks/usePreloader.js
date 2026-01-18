@@ -15,12 +15,12 @@ export function usePreloader(duration = 2500) {
         if (!isLoading) {
             setIsAnimating(false)
             // Ensure body is scrollable when not loading
-            document.body.style.overflow = ''
+            document.body.classList.remove('preloader-active')
             return
         }
 
-        // Lock body scroll during preloader
-        document.body.style.overflow = 'hidden'
+        // Lock body scroll during preloader using CSS class
+        document.body.classList.add('preloader-active')
 
         // Mark as shown in session storage
         sessionStorage.setItem(PRELOADER_KEY, 'true')
@@ -32,13 +32,13 @@ export function usePreloader(duration = 2500) {
             setTimeout(() => {
                 setIsLoading(false)
                 // Unlock body scroll after preloader
-                document.body.style.overflow = ''
+                document.body.classList.remove('preloader-active')
             }, 500)
         }, duration)
 
         return () => {
             clearTimeout(timer)
-            document.body.style.overflow = ''
+            document.body.classList.remove('preloader-active')
         }
     }, [isLoading, duration])
 

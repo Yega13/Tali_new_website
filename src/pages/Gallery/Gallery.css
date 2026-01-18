@@ -1,5 +1,5 @@
 .gallery {
-    padding-top: 40px;
+    padding-top: 100px;
 }
 
 /* Ticker with Images */
@@ -117,6 +117,13 @@
     .gallery-grid__container--masonry .gallery-item {
         break-inside: avoid;
         margin-bottom: var(--space-4);
+        border-radius: 0 !important;
+        /* Sharp corners on desktop - override all */
+    }
+
+    .gallery-grid__container--masonry .gallery-item img,
+    .gallery-grid__container--masonry .gallery-item video {
+        border-radius: 0 !important;
     }
 }
 
@@ -136,6 +143,16 @@
     object-fit: cover;
     display: block;
     transition: transform var(--transition-slow);
+}
+
+/* Desktop: natural heights for masonry */
+@media (min-width: 1024px) {
+
+    .gallery-grid__container--masonry .gallery-item img,
+    .gallery-grid__container--masonry .gallery-item video {
+        aspect-ratio: unset;
+        height: auto;
+    }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -366,10 +383,19 @@
 }
 
 .lightbox__image {
-    max-width: 90vw;
-    max-height: 75vh;
+    max-width: 85vw;
+    max-height: 80vh;
     object-fit: contain;
     border-radius: var(--radius-lg);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Desktop lightbox - better visibility */
+@media (min-width: 1024px) {
+    .lightbox__image {
+        max-width: 80vw;
+        max-height: 85vh;
+    }
 }
 
 /* Caption - Clean solid design */
@@ -389,4 +415,36 @@
 /* Spacer to balance caption for centering */
 .lightbox__spacer {
     height: calc(var(--text-sm) + var(--space-4) + var(--space-4));
+}
+
+/* Carousel strip - 3 images side by side */
+.lightbox__carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: pan-y pinch-zoom;
+    user-select: none;
+    cursor: grab;
+}
+
+.lightbox__carousel:active {
+    cursor: grabbing;
+}
+
+.lightbox__strip {
+    display: flex;
+    width: 300%;
+    height: 100%;
+}
+
+.lightbox__slide {
+    flex: 0 0 33.333%;
+    width: 33.333%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
 }

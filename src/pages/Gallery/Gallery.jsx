@@ -92,25 +92,25 @@ export default function Gallery() {
         setLightboxIndex(null)
     }
 
-    // Block body scroll when lightbox is open - improved to prevent jumping
+    // Block body scroll when lightbox is open - using CSS class with !important
     useEffect(() => {
         if (lightboxIndex !== null) {
             // Save current scroll position
             scrollPositionRef.current = window.scrollY
             // Get scrollbar width to prevent layout shift
             const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-            // Lock scroll without position:fixed to avoid jumping
-            document.body.style.overflow = 'hidden'
+            // Add class for CSS-based overflow hidden with !important
+            document.body.classList.add('lightbox-open')
             document.body.style.paddingRight = `${scrollbarWidth}px`
         } else {
             // Restore scroll
-            document.body.style.overflow = ''
+            document.body.classList.remove('lightbox-open')
             document.body.style.paddingRight = ''
             // Restore scroll position immediately
             window.scrollTo(0, scrollPositionRef.current)
         }
         return () => {
-            document.body.style.overflow = ''
+            document.body.classList.remove('lightbox-open')
             document.body.style.paddingRight = ''
         }
     }, [lightboxIndex])
@@ -127,24 +127,50 @@ export default function Gallery() {
         }
     }
 
-    // Swipe handling for mobile
-    const [touchStartX, setTouchStartX] = useState(0)
+    // Carousel swipe handling
+    const [isDragging, setIsDragging] = useState(false)
+    const [dragOffset, setDragOffset] = useState(0)
+    const touchStartRef = useRef({ x: 0, time: 0 })
+    const swipeThreshold = 50 // pixels to trigger swipe
+    const swipeVelocityThreshold = 0.3 // pixels per ms for quick swipe
 
-    const handleTouchStart = (e) => {
-        setTouchStartX(e.touches[0].clientX)
+    const handleSwipeStart = (e) => {
+        const touch = e.touches ? e.touches[0] : e
+        touchStartRef.current = {
+            x: touch.clientX,
+            time: Date.now()
+        }
+        setIsDragging(true)
+        setDragOffset(0)
     }
 
-    const handleTouchEnd = (e) => {
-        const touchEndX = e.changedTouches[0].clientX
-        const diff = touchStartX - touchEndX
-        if (Math.abs(diff) > 50) { // minimum swipe distance
-            if (diff > 0) {
-                nextImage() // swipe left = next
+    const handleSwipeMove = (e) => {
+        if (!isDragging) return
+        const touch = e.touches ? e.touches[0] : e
+        const diff = touch.clientX - touchStartRef.current.x
+        setDragOffset(diff)
+    }
+
+    const handleSwipeEnd = () => {
+        if (!isDragging) return
+        setIsDragging(false)
+
+        const velocity = Math.abs(dragOffset) / (Date.now() - touchStartRef.current.time)
+        const isQuickSwipe = velocity > swipeVelocityThreshold
+        const isPastThreshold = Math.abs(dragOffset) > swipeThreshold
+
+        if ((isQuickSwipe || isPastThreshold) && dragOffset !== 0) {
+            if (dragOffset < 0) {
+                nextImage()
             } else {
-                prevImage() // swipe right = prev
+                prevImage()
             }
         }
+
+        setDragOffset(0)
     }
+
+
 
     // Video click to pause/play
     const handleVideoClick = (e) => {
@@ -298,7 +324,7 @@ export default function Gallery() {
 
 
             {/* Lightbox */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence>
                 {lightboxIndex !== null && (
                     <motion.div
                         className="lightbox"
@@ -307,7 +333,7 @@ export default function Gallery() {
                         exit={{ opacity: 0 }}
                         onClick={closeLightbox}
                     >
-                        {/* Photo counter instead of X */}
+                        {/* Photo counter */}
                         <div className="lightbox__counter">
                             {lightboxIndex + 1} / {allMedia.length}
                         </div>
@@ -324,52 +350,78 @@ export default function Gallery() {
                             </svg>
                         </button>
 
-                        {/* Media container with caption */}
+                        {/* Carousel strip with prev/current/next - all visible during drag */}
                         <div
-                            className="lightbox__content"
+                            className="lightbox__carousel"
+                            onTouchStart={handleSwipeStart}
+                            onTouchMove={handleSwipeMove}
+                            onTouchEnd={handleSwipeEnd}
+                            onMouseDown={handleSwipeStart}
+                            onMouseMove={isDragging ? handleSwipeMove : undefined}
+                            onMouseUp={handleSwipeEnd}
+                            onMouseLeave={isDragging ? handleSwipeEnd : undefined}
                             onClick={(e) => e.stopPropagation()}
-                            onTouchStart={handleTouchStart}
-                            onTouchEnd={handleTouchEnd}
                         >
-                            {/* Spacer to balance caption for proper centering */}
-                            {allMedia[lightboxIndex].alt && <div className="lightbox__spacer" />}
-                            {allMedia[lightboxIndex].type === 'video' || allMedia[lightboxIndex].src.endsWith('.mp4') ? (
-                                <div className="lightbox__video-wrapper">
-                                    <video
-                                        key={lightboxIndex}
-                                        id="lightbox-video"
-                                        src={allMedia[lightboxIndex].src}
-                                        className="lightbox__image"
-                                        autoPlay
-                                        playsInline
-                                        controls
-                                    />
-                                    <div
-                                        className="lightbox__video-overlay"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            const video = document.getElementById('lightbox-video');
-                                            if (video) {
-                                                if (video.paused) {
-                                                    video.play();
-                                                } else {
-                                                    video.pause();
-                                                }
-                                            }
-                                        }}
-                                    />
+                            <div
+                                className="lightbox__strip"
+                                style={{
+                                    transform: `translateX(calc(-100% + ${dragOffset}px))`,
+                                    transition: isDragging ? 'none' : 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                                }}
+                            >
+                                {/* Previous image */}
+                                <div className="lightbox__slide">
+                                    {(() => {
+                                        const prevIdx = (lightboxIndex - 1 + allMedia.length) % allMedia.length
+                                        const prevItem = allMedia[prevIdx]
+                                        return prevItem.type === 'video' || prevItem.src.endsWith('.mp4') ? (
+                                            <video src={prevItem.src} className="lightbox__image" muted playsInline />
+                                        ) : (
+                                            <img src={prevItem.src} alt={prevItem.alt || ''} className="lightbox__image" draggable={false} />
+                                        )
+                                    })()}
                                 </div>
-                            ) : (
-                                <img
-                                    key={lightboxIndex}
-                                    src={allMedia[lightboxIndex].src}
-                                    alt={allMedia[lightboxIndex].alt || ''}
-                                    className="lightbox__image"
-                                />
-                            )}
-                            {allMedia[lightboxIndex].alt && (
-                                <p className="lightbox__caption">{allMedia[lightboxIndex].alt}</p>
-                            )}
+
+                                {/* Current image */}
+                                <div className="lightbox__slide lightbox__slide--current">
+                                    {allMedia[lightboxIndex].alt && <div className="lightbox__spacer" />}
+                                    {allMedia[lightboxIndex].type === 'video' || allMedia[lightboxIndex].src.endsWith('.mp4') ? (
+                                        <div className="lightbox__video-wrapper">
+                                            <video
+                                                id="lightbox-video"
+                                                src={allMedia[lightboxIndex].src}
+                                                className="lightbox__image"
+                                                autoPlay
+                                                playsInline
+                                                controls
+                                            />
+                                        </div>
+                                    ) : (
+                                        <img
+                                            src={allMedia[lightboxIndex].src}
+                                            alt={allMedia[lightboxIndex].alt || ''}
+                                            className="lightbox__image"
+                                            draggable={false}
+                                        />
+                                    )}
+                                    {allMedia[lightboxIndex].alt && (
+                                        <p className="lightbox__caption">{allMedia[lightboxIndex].alt}</p>
+                                    )}
+                                </div>
+
+                                {/* Next image */}
+                                <div className="lightbox__slide">
+                                    {(() => {
+                                        const nextIdx = (lightboxIndex + 1) % allMedia.length
+                                        const nextItem = allMedia[nextIdx]
+                                        return nextItem.type === 'video' || nextItem.src.endsWith('.mp4') ? (
+                                            <video src={nextItem.src} className="lightbox__image" muted playsInline />
+                                        ) : (
+                                            <img src={nextItem.src} alt={nextItem.alt || ''} className="lightbox__image" draggable={false} />
+                                        )
+                                    })()}
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
                 )}
