@@ -182,6 +182,10 @@
         display: flex;
         gap: var(--space-6);
     }
+
+    .header__nav-link {
+        font-size: 0.85rem !important;
+    }
 }
 
 /* Large desktop (1300px+) - full spacing */
@@ -340,16 +344,16 @@
 /* TIER 2: Mid phones (360px+) */
 @media (min-width: 360px) {
     .header__nav-link--mobile {
-        font-size: 1.75rem;
-        padding: var(--space-5) 0;
+        font-size: 1.6rem;
+        padding: var(--space-4) 0;
     }
 }
 
 /* TIER 3: Standard phones (400px+) */
 @media (min-width: 400px) {
     .header__nav-link--mobile {
-        font-size: 1.85rem;
-        padding: var(--space-5) 0;
+        font-size: 1.7rem;
+        padding: var(--space-4) 0;
     }
 }
 

@@ -36,6 +36,22 @@
         margin-bottom: var(--space-3);
         font-size: var(--text-sm);
     }
+
+    /* Move Acting section higher (Aggressive) */
+    .acting-section {
+        padding-top: 4rem !important;
+    }
+
+    /* Reduce padding of previous section to pull it up even more */
+    .life-journey {
+        padding-bottom: var(--space-8) !important;
+    }
+
+    /* Make IMDb button bigger (Aggressive) */
+    .acting-imdb__link {
+        font-size: 1.3rem !important;
+        padding: 1rem 4rem !important;
+    }
 }
 
 .about-bio__image-wrapper {
@@ -175,34 +191,17 @@
     }
 
     /* Dot on timeline */
-    .timeline-item::after {
-        content: '';
-        position: absolute;
-        top: var(--space-4);
-        width: 12px;
-        height: 12px;
-        background-color: var(--color-primary);
-        border: 3px solid var(--color-bg-secondary);
-        border-radius: var(--radius-full);
-        z-index: 1;
-    }
 
-    .timeline-item--left::after {
-        right: calc(-6px - var(--space-8) + 50%);
-    }
-
-    .timeline-item--right::after {
-        left: calc(-6px - var(--space-8) + 50%);
-    }
 }
 
 .timeline-item__year {
     display: inline-block;
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-3) var(--space-6);
     background-color: var(--color-surface);
     border: 2px solid var(--color-primary);
     border-radius: var(--radius-lg);
-    font-weight: var(--weight-semibold);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-lg);
     color: var(--color-primary);
     margin-bottom: var(--space-4);
 }
@@ -216,7 +215,7 @@
 
 .timeline-item__image {
     width: 100%;
-    height: 220px;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -226,9 +225,15 @@
     line-height: var(--leading-relaxed);
 }
 
+/* Adjust 3rd Life Journey image (2023) to show face */
+.life-journey__timeline .timeline-item:nth-child(3) .timeline-item__image {
+    object-position: center 30% !important;
+}
+
 /* Pro Materials */
 .pro-materials {
     text-align: center;
+    padding-top: var(--space-8) !important;
 }
 
 .pro-materials__title {
@@ -254,16 +259,23 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    min-width: 220px;
+    min-width: 250px;
+    padding: var(--space-4) var(--space-8);
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 /* Life Journey More Text */
 .life-journey__more {
     text-align: center;
     margin-top: var(--space-10);
-    font-size: var(--text-lg);
-    color: var(--color-text-tertiary);
+    font-size: 2rem;
+    color: #000;
     font-style: italic;
+}
+
+[data-theme="dark"] .life-journey__more {
+    color: #fff;
 }
 
 /* Resume Blocks */
@@ -331,6 +343,7 @@
 /* Acting Section */
 .acting-section {
     background: var(--color-bg-secondary);
+    padding-bottom: var(--space-8) !important;
 }
 
 .acting-imdb {
@@ -401,6 +414,7 @@
 .acting-videos__grid {
     display: grid;
     gap: var(--space-4);
+    justify-content: center;
 }
 
 .acting-videos__grid--multi {
@@ -430,4 +444,11 @@
     width: 100%;
     height: 100%;
     border: none;
+}
+
+/* Constrain video width for single videos so they aren't huge */
+.acting-videos__grid:not(.acting-videos__grid--multi) .acting-video {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
 }

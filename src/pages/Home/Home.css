@@ -33,7 +33,6 @@
 
 /* Light mode: show more bottom, with subtle zoom animation */
 [data-theme="light"] .hero__image {
-    object-position: center 28%;
     transform: scale(1.1);
     transform-origin: center center;
 }
@@ -110,7 +109,8 @@
 }
 
 /* TIER 1: tiny phones (320-359px) */
-@media (max-width: 359px) {
+/* TIER 1: tiny phones (320-359px) usually, but handling fractionals */
+@media (max-width: 359.98px) {
     .hero__title {
         font-size: var(--text-2xl);
     }
@@ -122,6 +122,18 @@
     .hero__btn {
         padding: var(--space-3) var(--space-6);
         font-size: var(--text-sm);
+    }
+
+
+
+    .hero__image {
+        height: 115% !important;
+        object-position: center top !important;
+        transform: translateY(-10%) !important;
+    }
+
+    [data-theme="dark"] .hero__image {
+        transform: translateY(-13%) !important;
     }
 }
 
@@ -138,6 +150,18 @@
     .hero__btn {
         padding: var(--space-4) var(--space-8);
         font-size: var(--text-base);
+    }
+
+
+
+    .hero__image {
+        height: 115% !important;
+        object-position: center top !important;
+        transform: translateY(-10%) !important;
+    }
+
+    [data-theme="dark"] .hero__image {
+        transform: translateY(-13%) !important;
     }
 }
 
@@ -193,6 +217,14 @@
 @media (min-width: 1024px) and (max-width: 1299px) {
     .hero__title {
         font-size: 4.5rem;
+    }
+
+    .hero__image {
+        object-position: center 20% !important;
+    }
+
+    [data-theme="dark"] .hero__image {
+        object-position: center 40% !important;
     }
 }
 
@@ -355,15 +387,15 @@
 
 @media (min-width: 768px) {
     .explore__card {
-        padding: var(--space-10) var(--space-6);
-        min-height: 220px;
+        padding: var(--space-8) var(--space-5);
+        min-height: 200px;
     }
 }
 
-/* Small Desktop (1024px - 1299px) - Equal sized cards */
-@media (min-width: 1024px) and (max-width: 1299px) {
+/* Desktop - Equal sized cards */
+@media (min-width: 1024px) {
     .explore__card {
-        min-height: 180px;
+        min-height: 200px;
         padding: var(--space-6) var(--space-4);
     }
 }
@@ -408,6 +440,7 @@
 .follow {
     text-align: center;
     background-color: var(--color-bg-secondary);
+    padding-top: 0 !important;
 }
 
 .follow__title {

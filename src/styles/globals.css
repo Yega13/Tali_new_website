@@ -273,6 +273,12 @@ h6,
     color: #fff;
 }
 
+/* Dark mode hero: white outline button (brighter) */
+[data-theme="dark"] .hero .btn-outline {
+    border-color: #fff;
+    color: #fff;
+}
+
 /* Desktop-only hover states */
 @media (hover: hover) and (pointer: fine) {
     .btn-primary:hover {

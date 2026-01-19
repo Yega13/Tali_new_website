@@ -22,7 +22,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 30%;
+    /* Removed blocking base position to allow overrides */
 }
 
 .music-hero__overlay {
@@ -61,7 +61,23 @@
     font-family: var(--font-display);
 }
 
-/* Videos Grid */
+/* ID-based override for Music page hero image (Strongest Specificity) */
+/* Target specifically the problematic range 1024px - 1300px */
+@media (min-width: 1024px) {
+    #music-hero-img-fix {
+        width: 100% !important;
+        height: 100% !important;
+        /* Flip the image to move Left-side content (Face) to the Right side */
+        transform: scaleX(-1) !important;
+        object-fit: cover !important;
+        object-position: 0% 30% !important;
+        /* Keep focus on (originally) Left side */
+        position: static !important;
+        /* Reset positioning */
+        max-width: none !important;
+    }
+}
+
 .music-videos {
     background-color: var(--color-bg-secondary);
 }
@@ -94,18 +110,21 @@
     }
 }
 
-/* Desktop (1024px+) - 4 columns, smaller videos */
+/* Desktop (1024px+) - 3 columns, bigger videos */
 @media (min-width: 1024px) {
     .music-videos__grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-4);
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-5);
     }
 
     .video-card__play svg {
-        width: 40px;
-        height: 40px;
-        padding: 10px;
+        width: 50px;
+        height: 50px;
+        padding: 12px;
     }
+
+    /* Adjust main image for desktops to show face */
+    /* Handled in 768px query now */
 }
 
 .video-card {
@@ -221,7 +240,19 @@
     transition: all 0.3s ease-out;
 }
 
-/* Shows section is always single column so all dates align */
+/* Shows section - 2 columns on desktop */
+.shows__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .shows__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+}
 
 .show-item {
     display: flex;

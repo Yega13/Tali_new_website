@@ -53,6 +53,7 @@ export default function Music() {
                         src="/photos/Tali den atelier.jpeg"
                         alt="Tali live performance"
                         className="music-hero__image"
+                        id="music-hero-img-fix"
                     />
                     <div className="music-hero__overlay" />
                 </div>
@@ -151,7 +152,7 @@ export default function Music() {
                             </svg>
                         </button>
                     </div>
-                    <p className="spotify-carousel__indicator">{currentTrack + 1} / {spotifyTracks.length}</p>
+                    <p className="spotify-carousel__indicator">← Scroll for more →</p>
                 </div>
             </section>
 
@@ -159,55 +160,21 @@ export default function Music() {
             <section className="shows section">
                 <div className="container">
                     <h2 className="section-title">Show History</h2>
-                    <motion.div
-                        key={showAllShows ? 'expanded' : 'collapsed'}
-                        className="shows__list"
-                        initial={{ opacity: 1 }}
-                        animate={{ opacity: 1 }}
-                    >
-                        {visibleShows.map((show, index) => {
-                            // Only animate items after index 5 (the new ones when expanding)
-                            const isNewItem = index >= 6;
-                            const totalNewItems = visibleShows.length - 6;
-
-                            // When expanding: animate new items (6+) with delay
-                            // When collapsing: no animation needed (items are removed)
-                            const delay = showAllShows && isNewItem
-                                ? (index - 6) * 0.05
-                                : 0;
-
-                            return (
-                                <motion.div
-                                    key={`${show.date}-${show.venue}`}
-                                    className={`show-item ${index >= 6 && !showAllShows ? 'show-item--blurred' : ''} ${index === 5 && !showAllShows ? 'show-item--half-blurred' : ''}`}
-                                    initial={isNewItem ? { opacity: 0, y: 10 } : false}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.3, delay: delay }}
-                                >
-                                    <span className="show-item__date">{show.date}</span>
-                                    <span className="show-item__venue">{show.venue}</span>
-                                </motion.div>
-                            );
-                        })}
-                    </motion.div>
-
-                    <motion.button
-                        className="shows__toggle"
-                        onClick={() => setShowAllShows(!showAllShows)}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <span>{showAllShows ? 'Show Less' : 'Show More'}</span>
-                        <motion.svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            animate={{ rotate: showAllShows ? 180 : 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <polyline points="6 9 12 15 18 9" />
-                        </motion.svg>
-                    </motion.button>
+                    <div className="shows__list">
+                        {allShows.map((show, index) => (
+                            <motion.div
+                                key={`${show.date}-${show.venue}`}
+                                className="show-item"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.3, delay: index * 0.03 }}
+                            >
+                                <span className="show-item__date">{show.date}</span>
+                                <span className="show-item__venue">{show.venue}</span>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
