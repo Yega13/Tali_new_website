@@ -25,7 +25,7 @@ const collaborations = [
         songs: [
             {
                 title: "You Don't Really Know Me",
-                image: '/photos/You don\'t really know me pic.jpg',
+                image: '/photos/you-dont-really-know-me-pic.jpg',
                 description: 'A powerful ballad exploring themes of identity and perception, featuring Tali\'s soaring vocals over ethereal guitar melodies.'
             },
             {

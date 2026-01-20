@@ -9,15 +9,15 @@ import './Gallery.css'
 const wanderMedia = [
     { src: '/photos/tali-pics25-dear-parents.jpg', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
     { src: '/photos/tali-pics26-dear-parents-tongue.jpg', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
-    { src: '/photos/tali-from-facebook-8.jpg', type: 'image' },
+    { src: '/photos/tali-from-facebook-8.jpg', alt: 'Tali from Facebook', type: 'image' },
     { src: '/photos/tali-pics27-dear-parents-necklace.jpg', alt: 'Dear Parents necklace', type: 'image' },
     { src: '/photos/tali-vids20.mp4', alt: 'Blue Turns To Grey - Studio', type: 'video' },
     { src: '/photos/tali-pics51.jpg', alt: 'WANDER', type: 'image' },
     { src: '/photos/tali-pics23-wander.jpg', alt: 'Wander Photoshoot', type: 'image' },
     { src: '/photos/tali-wander-vid.mp4', type: 'video' },
     { src: '/photos/tali-vids21.mp4', alt: 'Sticker ;)', type: 'video' },
-    { src: '/photos/tali-pics85.jpg', type: 'image' },
-    { src: '/photos/lemon lime.mp4', alt: 'Lemon Lime', type: 'video', desktopOnly: true }
+    { src: '/photos/tali-pics85.jpg', alt: 'Tali portrait', type: 'image' },
+    // { src: '/photos/lemon lime.mp4', alt: 'Lemon Lime', type: 'video', desktopOnly: true }
 ]
 
 // Eurovision 2024 section
@@ -49,7 +49,7 @@ const inFocusMedia = [
     { src: '/photos/tali-pics57-echterlicht.webp', alt: 'Tali at Echterliecht', type: 'image' },
     { src: '/photos/tali-pics57.jpg', alt: 'Tali portrait', type: 'image' },
     { src: '/photos/tali-pics59.jpg', alt: 'Tali candid', type: 'image' },
-    { src: '/photos/tali-pics55-dancing-alone.webp', type: 'image' },
+    { src: '/photos/tali-pics55-dancing-alone.webp', alt: 'Dancing alone', type: 'image' },
     { src: '/photos/tali-pics104.jpg', alt: 'Echterleicht backstage', type: 'image', objectPosition: '30% center' },
     { src: '/photos/tali-pics82-baby.jpg', alt: 'Tali baby photo', type: 'image' },
     { src: '/photos/tali-pics83.jpg', alt: 'Luxembourg Philarmonie 2025', type: 'image', objectPosition: 'top' },
