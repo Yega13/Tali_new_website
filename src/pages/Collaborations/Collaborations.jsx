@@ -61,8 +61,13 @@ const collaborations = [
 
 export default function Collaborations() {
     const [expandedCollab, setExpandedCollab] = useState(null)
+    const [collapsingCollab, setCollapsingCollab] = useState(null)
+    const [collapseHeight, setCollapseHeight] = useState(null)
     const [lightboxIndex, setLightboxIndex] = useState(null)
     const scrollPositionRef = useRef(0)
+    const wasOpenRef = useRef(false)
+    const cardRefs = useRef({})
+    const expandedRef = useRef(null)
 
     // Preload images for expandable sections to prevent lag
     useEffect(() => {
@@ -84,7 +89,29 @@ export default function Collaborations() {
     }, [])
 
     const toggleExpand = (id) => {
-        setExpandedCollab(expandedCollab === id ? null : id)
+        if (expandedCollab === id) {
+            // Collapsing - measure current height for animation
+            const expandedEl = expandedRef.current
+            const currentHeight = expandedEl ? expandedEl.scrollHeight : 0
+
+            // Set height for CSS transition and start collapse
+            setCollapseHeight(currentHeight)
+            setExpandedCollab(null)
+            setCollapsingCollab(id)
+
+            // Trigger reflow, then animate to 0
+            requestAnimationFrame(() => {
+                setCollapseHeight(0)
+            })
+
+            // After animation completes, clean up
+            setTimeout(() => {
+                setCollapsingCollab(null)
+                setCollapseHeight(null)
+            }, 400)
+        } else {
+            setExpandedCollab(id)
+        }
     }
 
     const openLightbox = (index) => {
@@ -107,21 +134,24 @@ export default function Collaborations() {
         }
     }
 
-    // Block body scroll when lightbox is open - using CSS class with !important
+    // Block body scroll when lightbox is open - using wasOpenRef pattern
     useEffect(() => {
         if (lightboxIndex !== null) {
             scrollPositionRef.current = window.scrollY
-            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-            document.body.classList.add('lightbox-open')
-            document.body.style.paddingRight = `${scrollbarWidth}px`
-        } else {
-            document.body.classList.remove('lightbox-open')
-            document.body.style.paddingRight = ''
-            window.scrollTo(0, scrollPositionRef.current)
+            wasOpenRef.current = true
+            document.documentElement.style.overflow = 'hidden'
+            document.body.style.overflow = 'hidden'
+        } else if (wasOpenRef.current) {
+            document.documentElement.style.overflow = ''
+            document.body.style.overflow = ''
+            requestAnimationFrame(() => {
+                window.scrollTo(0, scrollPositionRef.current)
+            })
+            wasOpenRef.current = false
         }
         return () => {
-            document.body.classList.remove('lightbox-open')
-            document.body.style.paddingRight = ''
+            document.documentElement.style.overflow = ''
+            document.body.style.overflow = ''
         }
     }, [lightboxIndex])
 
@@ -150,6 +180,7 @@ export default function Collaborations() {
                     {collaborations.map((collab, index) => (
                         <motion.article
                             key={collab.id}
+                            ref={el => cardRefs.current[collab.id] = el}
                             className="collab-card"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -201,15 +232,17 @@ export default function Collaborations() {
                                         )}
                                     </AnimatePresence>
 
-                                    <AnimatePresence>
-                                        {expandedCollab === collab.id && (
-                                            <motion.div
-                                                className="collab-expanded"
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: 'auto', opacity: 1 }}
-                                                exit={{ height: 0, opacity: 0 }}
-                                                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-                                            >
+                                    {(expandedCollab === collab.id || collapsingCollab === collab.id) && (
+                                        <div
+                                            ref={expandedCollab === collab.id ? expandedRef : null}
+                                            className="collab-expanded"
+                                            style={collapsingCollab === collab.id ? {
+                                                height: collapseHeight,
+                                                overflow: 'hidden',
+                                                transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.4s ease',
+                                                opacity: collapseHeight === 0 ? 0 : 1
+                                            } : undefined}
+                                        >
                                                 {/* Songs Section - Vertical Layout */}
                                                 <div className="collab-songs-vertical">
                                                     {collab.songs.map((song, i) => (
@@ -276,9 +309,8 @@ export default function Collaborations() {
                                                         </motion.svg>
                                                     </button>
                                                 </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </motion.article>

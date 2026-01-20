@@ -16,7 +16,8 @@ const wanderMedia = [
     { src: '/photos/Tali pics(23) Wander.webp', alt: 'Wander Photoshoot', type: 'image' },
     { src: '/photos/Tali wander vid.mp4', type: 'video' },
     { src: '/photos/Tali vids(21).mp4', alt: 'Sticker ;)', type: 'video' },
-    { src: '/photos/Tali pics(85).webp', type: 'image' }
+    { src: '/photos/Tali pics(85).webp', type: 'image' },
+    { src: '/photos/lemon lime.mp4', alt: 'Lemon Lime', type: 'video', desktopOnly: true }
 ]
 
 // Eurovision 2024 section
@@ -53,6 +54,10 @@ const inFocusMedia = [
     { src: '/photos/Tali pics(82) baby.webp', alt: 'Tali baby photo', type: 'image' },
     { src: '/photos/Tali pics(83).webp', alt: 'Luxembourg Philarmonie 2025', type: 'image', objectPosition: 'top' },
     { src: '/photos/Tali pics(53) Echterleicht.webp', alt: 'Tali at Echterleicht', type: 'image' },
+    { src: '/photos/Tali pics Rocklab.webp', alt: 'Tali at Rocklab', type: 'image' },
+    // Desktop-only media
+    { src: '/photos/Tali pics(132).webp', alt: 'Tali portrait', type: 'image', desktopOnly: true },
+    { src: '/photos/Tali Style(3).mp4', alt: 'Tali Style', type: 'video', desktopOnly: true },
 ]
 
 // Moments section - pictures with humans
@@ -83,6 +88,7 @@ export default function Gallery() {
     const [lightboxIndex, setLightboxIndex] = useState(null)
     const isDesktop = useIsDesktop()
     const scrollPositionRef = useRef(0)
+    const wasOpenRef = useRef(false)
 
     const openLightbox = (globalIndex) => {
         setLightboxIndex(globalIndex)
@@ -92,26 +98,31 @@ export default function Gallery() {
         setLightboxIndex(null)
     }
 
-    // Block body scroll when lightbox is open - using CSS class with !important
+    // Block body scroll when lightbox is open
     useEffect(() => {
         if (lightboxIndex !== null) {
-            // Save current scroll position
+            // Save current scroll position BEFORE any changes
             scrollPositionRef.current = window.scrollY
-            // Get scrollbar width to prevent layout shift
-            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-            // Add class for CSS-based overflow hidden with !important
-            document.body.classList.add('lightbox-open')
-            document.body.style.paddingRight = `${scrollbarWidth}px`
-        } else {
-            // Restore scroll
-            document.body.classList.remove('lightbox-open')
-            document.body.style.paddingRight = ''
-            // Restore scroll position immediately
-            window.scrollTo(0, scrollPositionRef.current)
+            wasOpenRef.current = true
+
+            // Simply hide overflow - don't use fixed positioning
+            document.documentElement.style.overflow = 'hidden'
+            document.body.style.overflow = 'hidden'
+        } else if (wasOpenRef.current) {
+            // Restore overflow
+            document.documentElement.style.overflow = ''
+            document.body.style.overflow = ''
+
+            // Restore scroll position in next frame to ensure DOM is ready
+            requestAnimationFrame(() => {
+                window.scrollTo(0, scrollPositionRef.current)
+            })
+            wasOpenRef.current = false
         }
+
         return () => {
-            document.body.classList.remove('lightbox-open')
-            document.body.style.paddingRight = ''
+            document.documentElement.style.overflow = ''
+            document.body.style.overflow = ''
         }
     }, [lightboxIndex])
 
@@ -223,7 +234,10 @@ export default function Gallery() {
                 <div className="container">
                     <h2 className="section-title">WANDER</h2>
                     <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
-                        {wanderMedia.map((media, index) => (
+                        {wanderMedia.map((media, index) => {
+                            // Skip desktop-only items on mobile
+                            if (media.desktopOnly && !isDesktop) return null
+                            return (
                             <motion.div
                                 key={index}
                                 className="gallery-item"
@@ -239,7 +253,8 @@ export default function Gallery() {
                                     <LazyImage src={media.src} alt={media.alt} />
                                 )}
                             </motion.div>
-                        ))}
+                            )
+                        })}
                     </div>
                 </div>
             </section>
@@ -275,7 +290,10 @@ export default function Gallery() {
                 <div className="container">
                     <h2 className="section-title">In Focus</h2>
                     <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
-                        {inFocusMedia.map((media, index) => (
+                        {inFocusMedia.map((media, index) => {
+                            // Skip desktop-only items on mobile
+                            if (media.desktopOnly && !isDesktop) return null
+                            return (
                             <motion.div
                                 key={index}
                                 className="gallery-item"
@@ -295,7 +313,8 @@ export default function Gallery() {
                                     />
                                 )}
                             </motion.div>
-                        ))}
+                            )
+                        })}
                     </div>
                 </div>
             </section>
@@ -360,12 +379,11 @@ export default function Gallery() {
                             onMouseMove={isDragging ? handleSwipeMove : undefined}
                             onMouseUp={handleSwipeEnd}
                             onMouseLeave={isDragging ? handleSwipeEnd : undefined}
-                            onClick={(e) => e.stopPropagation()}
                         >
                             <div
                                 className="lightbox__strip"
                                 style={{
-                                    transform: `translateX(calc(-100% + ${dragOffset}px))`,
+                                    transform: `translateX(calc(-33.333% + ${dragOffset}px))`,
                                     transition: isDragging ? 'none' : 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                                 }}
                             >
@@ -386,7 +404,7 @@ export default function Gallery() {
                                 <div className="lightbox__slide lightbox__slide--current">
                                     {allMedia[lightboxIndex].alt && <div className="lightbox__spacer" />}
                                     {allMedia[lightboxIndex].type === 'video' || allMedia[lightboxIndex].src.endsWith('.mp4') ? (
-                                        <div className="lightbox__video-wrapper">
+                                        <div className="lightbox__video-wrapper" onClick={(e) => e.stopPropagation()}>
                                             <video
                                                 id="lightbox-video"
                                                 src={allMedia[lightboxIndex].src}
@@ -402,10 +420,11 @@ export default function Gallery() {
                                             alt={allMedia[lightboxIndex].alt || ''}
                                             className="lightbox__image"
                                             draggable={false}
+                                            onClick={(e) => e.stopPropagation()}
                                         />
                                     )}
                                     {allMedia[lightboxIndex].alt && (
-                                        <p className="lightbox__caption">{allMedia[lightboxIndex].alt}</p>
+                                        <p className="lightbox__caption" onClick={(e) => e.stopPropagation()}>{allMedia[lightboxIndex].alt}</p>
                                     )}
                                 </div>
 

@@ -31,12 +31,6 @@
         filter 0.4s ease;
 }
 
-/* Light mode: show more bottom, with subtle zoom animation */
-[data-theme="light"] .hero__image {
-    transform: scale(1.1);
-    transform-origin: center center;
-}
-
 .hero::after {
     background: linear-gradient(to bottom,
             rgba(0, 0, 0, 0.6) 0%,
@@ -108,8 +102,20 @@
     -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.2);
 }
 
+/* Mobile hero image positioning (all phones) */
+@media (max-width: 479.98px) {
+    .hero__image {
+        height: 115% !important;
+        object-position: center top !important;
+        transform: translateY(-10%) !important;
+    }
+
+    [data-theme="dark"] .hero__image {
+        transform: translateY(-13%) !important;
+    }
+}
+
 /* TIER 1: tiny phones (320-359px) */
-/* TIER 1: tiny phones (320-359px) usually, but handling fractionals */
 @media (max-width: 359.98px) {
     .hero__title {
         font-size: var(--text-2xl);
@@ -123,22 +129,10 @@
         padding: var(--space-3) var(--space-6);
         font-size: var(--text-sm);
     }
-
-
-
-    .hero__image {
-        height: 115% !important;
-        object-position: center top !important;
-        transform: translateY(-10%) !important;
-    }
-
-    [data-theme="dark"] .hero__image {
-        transform: translateY(-13%) !important;
-    }
 }
 
 /* TIER 2: Mid phones (360px - 399px) */
-@media (min-width: 360px) {
+@media (min-width: 360px) and (max-width: 399.98px) {
     .hero__title {
         font-size: var(--text-4xl);
     }
@@ -150,18 +144,6 @@
     .hero__btn {
         padding: var(--space-4) var(--space-8);
         font-size: var(--text-base);
-    }
-
-
-
-    .hero__image {
-        height: 115% !important;
-        object-position: center top !important;
-        transform: translateY(-10%) !important;
-    }
-
-    [data-theme="dark"] .hero__image {
-        transform: translateY(-13%) !important;
     }
 }
 
@@ -213,25 +195,35 @@
     }
 }
 
-/* TIER 7: Small Desktop (1024px - 1299px) */
-@media (min-width: 1024px) and (max-width: 1299px) {
+/* TIER 7 & 8: Desktop (1024px+) - Consolidated for consistency */
+@media (min-width: 1024px) {
     .hero__title {
-        font-size: 4.5rem;
+        font-size: 5rem;
     }
 
+    /* Hero Image: Face Higher (User Request) */
+    /* FORCE HIGH POSITIONING FOR ALL DESKTOPS */
     .hero__image {
-        object-position: center 20% !important;
+        /* 40% - Lowering a bit more from 45% as requested for Light Mode only */
+        object-position: center 40% !important;
     }
 
     [data-theme="dark"] .hero__image {
-        object-position: center 40% !important;
+        /* 45% - Unchanged */
+        object-position: center 45% !important;
     }
 }
 
-/* TIER 8: Desktop (1300px+) */
-@media (min-width: 1300px) {
-    .hero__title {
-        font-size: 5rem;
+/* Custom Hover for About Tali Button - GLOBAL DESKTOP SCOPE */
+/* This ensures it works on all devices that support hover, not just >1300px */
+@media (hover: hover) {
+    [data-theme="light"] .hero__btn.btn-outline:hover {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-color: #ffffff !important;
+        transform: translateY(-2px);
+        /* Removed glow effect (box-shadow) as requested */
+        box-shadow: none !important;
     }
 }
 

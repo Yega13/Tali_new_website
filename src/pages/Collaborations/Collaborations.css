@@ -81,9 +81,9 @@
     padding-right: calc(50vw - 50% + var(--space-6));
 }
 
-/* Alternating backgrounds - odd cards brighter, even cards darker */
+/* Alternating backgrounds - like Contact page */
 .collab-card:nth-child(odd) {
-    background: var(--color-surface);
+    background: var(--color-bg-primary);
 }
 
 .collab-card:nth-child(even) {
@@ -94,16 +94,11 @@
     background: #202020;
 }
 
-/* First card blends with hero - remove visible separation */
+/* First card - simple background, no gradient */
 .collab-card:first-child {
     border-top: none;
     margin-top: 0;
     padding-top: var(--space-8);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, var(--color-surface) 100%);
-}
-
-[data-theme="dark"] .collab-card:first-child {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, var(--color-bg-primary) 100%);
 }
 
 .collab-card:last-child {
@@ -131,13 +126,65 @@
 
 @media (min-width: 768px) {
     .collab-card {
-        padding: var(--space-10) 0;
-        max-width: 600px;
-        margin: 0 auto;
+        padding: var(--space-10) var(--space-8);
     }
 
     .collab-card__number {
         font-size: var(--text-6xl);
+    }
+}
+
+/* Desktop - full width layout with side-by-side content */
+@media (min-width: 1024px) {
+    .collab-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-10);
+        align-items: center;
+        padding: var(--space-12) var(--space-10);
+    }
+
+    .collab-card__number {
+        position: absolute;
+        top: var(--space-4);
+        left: var(--space-8);
+        font-size: 8rem;
+        opacity: 0.15;
+    }
+
+    .collab-card__number--right {
+        left: auto;
+        right: var(--space-8);
+    }
+
+    .collab-card__content {
+        text-align: left;
+        align-items: flex-start;
+        padding: var(--space-6);
+    }
+
+    .collab-card__image {
+        aspect-ratio: 4/3;
+        max-width: 500px;
+    }
+
+    /* Alternate layout - image on left for even cards */
+    .collab-card:nth-child(even) {
+        direction: rtl;
+    }
+
+    .collab-card:nth-child(even) > * {
+        direction: ltr;
+    }
+
+    .collab-card:nth-child(even) .collab-card__content {
+        text-align: right;
+        align-items: flex-end;
+    }
+
+    /* Expanded section spans full width */
+    .collab-card__actions {
+        grid-column: 1 / -1;
     }
 }
 
@@ -222,12 +269,6 @@
     transform: rotate(0deg);
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .collab-card__expand-btn:hover {
-        opacity: 0.7;
-    }
-}
-
 /* Expanded Section Container */
 .collab-expanded {
     width: 100%;
@@ -307,6 +348,70 @@
     .collab-moments__grid {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--space-3);
+    }
+}
+
+/* Desktop - masonry layout for moments like Gallery */
+@media (min-width: 1024px) {
+    .collab-moments__grid {
+        display: block;
+        column-count: 4;
+        column-gap: var(--space-4);
+        max-width: 100%;
+    }
+
+    .collab-moments__item {
+        break-inside: avoid;
+        margin-bottom: var(--space-4);
+        aspect-ratio: auto;
+    }
+
+    .collab-moments__item img,
+    .collab-moments__item video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+    }
+
+    /* Varied sizes for masonry effect */
+    .collab-moments__item:nth-child(1) img,
+    .collab-moments__item:nth-child(1) video {
+        aspect-ratio: 4 / 5;
+    }
+
+    .collab-moments__item:nth-child(2) img,
+    .collab-moments__item:nth-child(2) video {
+        aspect-ratio: 1 / 1;
+    }
+
+    .collab-moments__item:nth-child(3) img,
+    .collab-moments__item:nth-child(3) video {
+        aspect-ratio: 3 / 4;
+    }
+
+    .collab-moments__item:nth-child(4) img,
+    .collab-moments__item:nth-child(4) video {
+        aspect-ratio: 16 / 9;
+    }
+
+    .collab-moments__item:nth-child(5) img,
+    .collab-moments__item:nth-child(5) video {
+        aspect-ratio: 1 / 1;
+    }
+
+    .collab-moments__item:nth-child(6) img,
+    .collab-moments__item:nth-child(6) video {
+        aspect-ratio: 4 / 3;
+    }
+
+    .collab-moments__item:nth-child(7) img,
+    .collab-moments__item:nth-child(7) video {
+        aspect-ratio: 3 / 4;
+    }
+
+    .collab-moments__item:nth-child(8) img,
+    .collab-moments__item:nth-child(8) video {
+        aspect-ratio: 16 / 9;
     }
 }
 

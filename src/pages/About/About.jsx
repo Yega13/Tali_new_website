@@ -233,11 +233,19 @@ export default function About() {
                         viewport={{ once: true }}
                     >
                         <h3 className="acting-category__title">Live</h3>
-                        <div className="acting-videos__grid">
+                        <div className="acting-videos__grid acting-videos__grid--multi">
                             <div className="acting-video">
                                 <iframe
                                     src="https://www.youtube.com/embed/is7nUjHOAlw"
-                                    title="Live Performance"
+                                    title="Live Performance 1"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                            <div className="acting-video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/BVkFivF3OeY"
+                                    title="Live Performance 2"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />

@@ -105,10 +105,36 @@ const newsItems = [
 ]
 
 const interviews = [
-    { id: 'iBQ4K6-SN60', title: 'TALI - Fighter (Official Lyric Video)' },
-    { id: '76D6qF5ILZE', title: 'TALI - Interview at Eurovision 2025' },
-    { id: 'RbwsXErIMKo', title: 'TALI - Behind The Scenes' },
-    { id: 'SSYzQQCq9aA', title: 'TALI - Live Performance Highlights' }
+    {
+        id: 'iBQ4K6-SN60',
+        title: 'TALI - Fighter (Official Lyric Video)',
+        description: 'Experience the powerful lyrics of "Fighter" brought to life in this stunning official lyric video.'
+    },
+    {
+        id: '76D6qF5ILZE',
+        title: 'TALI - Interview at Eurovision 2025',
+        description: 'An exclusive behind-the-scenes interview with Tali during her Eurovision 2025 journey.'
+    },
+    {
+        id: 'JQrrdp_XQEg',
+        title: 'TALI - RTL Interview',
+        description: 'Tali sits down with RTL for an in-depth conversation about her music and inspirations.'
+    },
+    {
+        id: 'yPlvdeNH2PU',
+        title: 'TALI - Live Session',
+        description: 'An intimate live session showcasing Tali\'s raw vocal talent and emotional depth.'
+    },
+    {
+        id: 'RbwsXErIMKo',
+        title: 'TALI - Behind The Scenes',
+        description: 'Go behind the curtain and discover the creative process behind Tali\'s latest projects.'
+    },
+    {
+        id: 'SSYzQQCq9aA',
+        title: 'TALI - Live Performance Highlights',
+        description: 'Relive the most electrifying moments from Tali\'s unforgettable live performances.'
+    }
 ]
 
 export default function News() {
@@ -205,32 +231,48 @@ export default function News() {
             {/* Interviews */}
             <section className="interviews section">
                 <div className="container">
-                    <h2 className="interviews__title">Interviews</h2>
-                    <div className="interviews__grid">
+                    <h2 className="interviews__title">Interviews & Videos</h2>
+                    <div className="interviews__list">
                         {interviews.map((interview, index) => (
-                            <motion.a
+                            <motion.div
                                 key={index}
-                                href={`https://youtu.be/${interview.id}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="interview-card"
-                                initial={{ opacity: 0, y: 20 }}
+                                className={`interview-row ${index % 2 === 1 ? 'interview-row--reverse' : ''}`}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
                             >
-                                <div className="interview-card__thumbnail">
-                                    <img
-                                        src={`https://img.youtube.com/vi/${interview.id}/hqdefault.jpg`}
-                                        alt={interview.title}
-                                    />
-                                    <div className="interview-card__play">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z" />
-                                        </svg>
+                                <a
+                                    href={`https://youtu.be/${interview.id}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="interview-card"
+                                >
+                                    <div className="interview-card__thumbnail">
+                                        <img
+                                            src={`https://img.youtube.com/vi/${interview.id}/hqdefault.jpg`}
+                                            alt={interview.title}
+                                        />
+                                        <div className="interview-card__play">
+                                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
                                     </div>
+                                </a>
+                                <div className="interview-info">
+                                    <h3 className="interview-info__title">{interview.title}</h3>
+                                    <p className="interview-info__description">{interview.description}</p>
+                                    <a
+                                        href={`https://youtu.be/${interview.id}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="interview-info__link"
+                                    >
+                                        Watch Now →
+                                    </a>
                                 </div>
-                                <h4 className="interview-card__title">{interview.title}</h4>
-                            </motion.a>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

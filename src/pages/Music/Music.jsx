@@ -53,7 +53,6 @@ export default function Music() {
                         src="/photos/Tali den atelier.jpeg"
                         alt="Tali live performance"
                         className="music-hero__image"
-                        id="music-hero-img-fix"
                     />
                     <div className="music-hero__overlay" />
                 </div>
@@ -158,13 +157,27 @@ export default function Music() {
 
             {/* Show History */}
             <section className="shows section">
+                {/* Decorative stickers - left side */}
+                <div className="shows__stickers shows__stickers--left">
+                    <img src="/photos/Tali pics(10).webp" alt="" className="shows__sticker shows__sticker--1" />
+                    <img src="/photos/Tali pics(40) Eurovision.webp" alt="" className="shows__sticker shows__sticker--2" />
+                    <img src="/photos/Tali pics(49).webp" alt="" className="shows__sticker shows__sticker--3" />
+                </div>
+
+                {/* Decorative stickers - right side */}
+                <div className="shows__stickers shows__stickers--right">
+                    <img src="/photos/Tali pics(76).webp" alt="" className="shows__sticker shows__sticker--4" />
+                    <img src="/photos/Tali pics(75).webp" alt="" className="shows__sticker shows__sticker--5" />
+                    <img src="/photos/Tali pics(105).webp" alt="" className="shows__sticker shows__sticker--6" />
+                </div>
+
                 <div className="container">
                     <h2 className="section-title">Show History</h2>
                     <div className="shows__list">
-                        {allShows.map((show, index) => (
+                        {visibleShows.map((show, index) => (
                             <motion.div
                                 key={`${show.date}-${show.venue}`}
-                                className="show-item"
+                                className={`show-item ${!showAllShows && index === 5 ? 'show-item--half-blurred' : ''}`}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -175,6 +188,27 @@ export default function Music() {
                             </motion.div>
                         ))}
                     </div>
+
+                    <button
+                        className="shows__toggle"
+                        onClick={() => setShowAllShows(!showAllShows)}
+                    >
+                        {showAllShows ? (
+                            <>
+                                Show Less
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="18 15 12 9 6 15" />
+                                </svg>
+                            </>
+                        ) : (
+                            <>
+                                Show More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </>
+                        )}
+                    </button>
                 </div>
             </section>
 
