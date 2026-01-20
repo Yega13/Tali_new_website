@@ -11,7 +11,8 @@ const bluestripesPhotos = [
     { src: '/photos/tali-pics5.jpg', alt: 'Filming', type: 'image' },
     { src: '/photos/tali-vids30.mp4', alt: 'Rehearsal', type: 'video' },
     { src: '/photos/tali-vids31.mp4', type: 'video' },
-    { src: '/photos/tali-vids31.mp4', type: 'video' }
+    { src: '/photos/tali-vids31.mp4', type: 'video' },
+    { src: '/photos/tali-pics140.jpg', alt: 'Rehearsal', type: 'image', objectPosition: 'right' }
 ]
 
 const collaborations = [

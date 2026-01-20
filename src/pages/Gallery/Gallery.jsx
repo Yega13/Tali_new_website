@@ -29,7 +29,7 @@ const eurovisionMedia = [
     { src: '/photos/tali-pics14-eurovision-heart.jpg', alt: 'Tali Eurovision heart', type: 'image' },
     { src: '/photos/tali-pics80.jpg', alt: 'Tali close-up', type: 'image' },
     { src: '/photos/tali-pics13-eurovision.jpg', alt: 'Tali Eurovision pose', type: 'image' },
-    { src: '/photos/tali-vids31.mp4', alt: 'Tali Eurovision backstage', type: 'video' }
+    { src: '/photos/tali-vids32.mp4', alt: 'Tali Eurovision backstage', type: 'video' }
 ]
 
 // In Focus section
@@ -54,10 +54,10 @@ const inFocusMedia = [
     { src: '/photos/tali-pics82-baby.jpg', alt: 'Tali baby photo', type: 'image' },
     { src: '/photos/tali-pics83.jpg', alt: 'Luxembourg Philarmonie 2025', type: 'image', objectPosition: 'top' },
     { src: '/photos/tali-pics53-echterleicht.webp', alt: 'Tali at Echterleicht', type: 'image' },
-    { src: '/photos/tali-pics52-den-atelier.webp', alt: 'Tali at Rocklab', type: 'image' },
+    { src: '/photos/tali-pics-rockhall.webp', alt: 'Tali at Rockhall', type: 'image' },
     // Desktop-only media
-    { src: '/photos/Tali pics(132).webp', alt: 'Tali portrait', type: 'image', desktopOnly: true },
-    { src: '/photos/Tali Style(3).mp4', alt: 'Tali Style', type: 'video', desktopOnly: true },
+    { src: '/photos/tali-pics132.webp', alt: 'Tali portrait', type: 'image', desktopOnly: true },
+    { src: '/photos/tali-style3.mp4', alt: 'Tali Style', type: 'video', desktopOnly: true },
 ]
 
 // Moments section - pictures with humans
