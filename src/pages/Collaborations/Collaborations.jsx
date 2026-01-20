@@ -11,7 +11,7 @@ const bluestripesPhotos = [
     { src: '/photos/tali-pics5.jpg', alt: 'Filming', type: 'image' },
     { src: '/photos/tali-vids30.mp4', alt: 'Rehearsal', type: 'video' },
     { src: '/photos/tali-vids31.mp4', type: 'video' },
-    { src: '/photos/Tali pics(140).jpg', alt: 'Rehearsal', type: 'image', objectPosition: 'right' }
+    { src: '/photos/tali-vids31.mp4', type: 'video' }
 ]
 
 const collaborations = [
@@ -34,7 +34,7 @@ const collaborations = [
             },
             {
                 title: "Come On!",
-                image: '/photos/bluestrpies.jpg',
+                image: '/photos/bluestripes.jpg',
                 description: 'An energetic, dance-ready track with infectious rhythms and empowering lyrics that celebrate living in the moment.'
             }
         ]
@@ -243,72 +243,72 @@ export default function Collaborations() {
                                                 opacity: collapseHeight === 0 ? 0 : 1
                                             } : undefined}
                                         >
-                                                {/* Songs Section - Vertical Layout */}
-                                                <div className="collab-songs-vertical">
-                                                    {collab.songs.map((song, i) => (
+                                            {/* Songs Section - Vertical Layout */}
+                                            <div className="collab-songs-vertical">
+                                                {collab.songs.map((song, i) => (
+                                                    <motion.div
+                                                        key={i}
+                                                        className="collab-song-vertical"
+                                                        initial={{ opacity: 0, y: 20 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        transition={{ delay: i * 0.1 }}
+                                                    >
+                                                        <div className="collab-song-vertical__image">
+                                                            <img src={song.image} alt={song.title} />
+                                                        </div>
+                                                        <h4 className="collab-song-vertical__title">{song.title}</h4>
+                                                        <p className="collab-song-vertical__description">{song.description}</p>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+
+                                            {/* Moments Gallery Section */}
+                                            <div className="collab-moments">
+                                                <h3 className="collab-moments__title">Moments</h3>
+                                                <div className="collab-moments__grid">
+                                                    {bluestripesPhotos.map((photo, i) => (
                                                         <motion.div
                                                             key={i}
-                                                            className="collab-song-vertical"
-                                                            initial={{ opacity: 0, y: 20 }}
-                                                            animate={{ opacity: 1, y: 0 }}
-                                                            transition={{ delay: i * 0.1 }}
+                                                            className="collab-moments__item"
+                                                            initial={{ opacity: 0, scale: 0.9 }}
+                                                            animate={{ opacity: 1, scale: 1 }}
+                                                            transition={{ delay: i * 0.05 }}
+                                                            onClick={() => openLightbox(i)}
                                                         >
-                                                            <div className="collab-song-vertical__image">
-                                                                <img src={song.image} alt={song.title} />
-                                                            </div>
-                                                            <h4 className="collab-song-vertical__title">{song.title}</h4>
-                                                            <p className="collab-song-vertical__description">{song.description}</p>
+                                                            {photo.type === 'video' ? (
+                                                                <video src={photo.src} autoPlay loop muted playsInline preload="auto" />
+                                                            ) : (
+                                                                <img
+                                                                    src={photo.src}
+                                                                    alt={photo.alt}
+                                                                    style={photo.objectPosition ? { objectPosition: photo.objectPosition } : undefined}
+                                                                />
+                                                            )}
                                                         </motion.div>
                                                     ))}
                                                 </div>
+                                            </div>
 
-                                                {/* Moments Gallery Section */}
-                                                <div className="collab-moments">
-                                                    <h3 className="collab-moments__title">Moments</h3>
-                                                    <div className="collab-moments__grid">
-                                                        {bluestripesPhotos.map((photo, i) => (
-                                                            <motion.div
-                                                                key={i}
-                                                                className="collab-moments__item"
-                                                                initial={{ opacity: 0, scale: 0.9 }}
-                                                                animate={{ opacity: 1, scale: 1 }}
-                                                                transition={{ delay: i * 0.05 }}
-                                                                onClick={() => openLightbox(i)}
-                                                            >
-                                                                {photo.type === 'video' ? (
-                                                                    <video src={photo.src} autoPlay loop muted playsInline preload="auto" />
-                                                                ) : (
-                                                                    <img
-                                                                        src={photo.src}
-                                                                        alt={photo.alt}
-                                                                        style={photo.objectPosition ? { objectPosition: photo.objectPosition } : undefined}
-                                                                    />
-                                                                )}
-                                                            </motion.div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-
-                                                {/* Show Less Button - Centered */}
-                                                <div className="collab-expanded__show-less">
-                                                    <button
-                                                        className="collab-card__expand-btn"
-                                                        onClick={() => toggleExpand(collab.id)}
+                                            {/* Show Less Button - Centered */}
+                                            <div className="collab-expanded__show-less">
+                                                <button
+                                                    className="collab-card__expand-btn"
+                                                    onClick={() => toggleExpand(collab.id)}
+                                                >
+                                                    <span>Show Less</span>
+                                                    <motion.svg
+                                                        viewBox="0 0 24 24"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        strokeWidth="2"
+                                                        className="collab-card__expand-icon"
+                                                        animate={{ y: [0, -3, 0] }}
+                                                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                                                     >
-                                                        <span>Show Less</span>
-                                                        <motion.svg
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            strokeWidth="2"
-                                                            className="collab-card__expand-icon"
-                                                            animate={{ y: [0, -3, 0] }}
-                                                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                                                        >
-                                                            <polyline points="6 15 12 9 18 15" />
-                                                        </motion.svg>
-                                                    </button>
-                                                </div>
+                                                        <polyline points="6 15 12 9 18 15" />
+                                                    </motion.svg>
+                                                </button>
+                                            </div>
                                         </div>
                                     )}
                                 </div>

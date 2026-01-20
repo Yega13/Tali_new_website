@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useIsDesktop } from '@/hooks/useMediaQuery'
 import LazyImage from '@/components/common/LazyImage'
@@ -29,7 +29,7 @@ const eurovisionMedia = [
     { src: '/photos/tali-pics14-eurovision-heart.jpg', alt: 'Tali Eurovision heart', type: 'image' },
     { src: '/photos/tali-pics80.jpg', alt: 'Tali close-up', type: 'image' },
     { src: '/photos/tali-pics13-eurovision.jpg', alt: 'Tali Eurovision pose', type: 'image' },
-    { src: '/photos/Tali vids(32).mp4', alt: 'Tali Eurovision backstage', type: 'video' }
+    { src: '/photos/tali-vids31.mp4', alt: 'Tali Eurovision backstage', type: 'video' }
 ]
 
 // In Focus section
@@ -39,7 +39,7 @@ const inFocusMedia = [
     { src: '/photos/tali-vids-style-walking.mp4', alt: 'Tali - Style walk', type: 'video' },
     { src: '/photos/tali-pics60-trounwiessel.jpg', alt: 'Tali at Trounwiessel', type: 'image' },
     { src: '/photos/tali-pics18.jpg', alt: 'Tali candid', type: 'image' },
-    { src: '/photos/Tali pics(12) Not included.webp', alt: 'Fans', type: 'image' },
+    { src: '/photos/tali-pics12-not-included.jpg', alt: 'Fans', type: 'image' },
     { src: '/photos/tali-pics36-eurovision-2025-not-included.jpg', alt: 'LSC 2025', type: 'image' },
     { src: '/photos/tali-pics10.jpg', alt: 'Tali essence', type: 'image' },
     { src: '/photos/tali-pics52-den-atelier.webp', alt: 'Tali at Den Atelier', type: 'image' },
@@ -54,7 +54,7 @@ const inFocusMedia = [
     { src: '/photos/tali-pics82-baby.jpg', alt: 'Tali baby photo', type: 'image' },
     { src: '/photos/tali-pics83.jpg', alt: 'Luxembourg Philarmonie 2025', type: 'image', objectPosition: 'top' },
     { src: '/photos/tali-pics53-echterleicht.webp', alt: 'Tali at Echterleicht', type: 'image' },
-    { src: '/photos/Tali pics Rocklab.webp', alt: 'Tali at Rocklab', type: 'image' },
+    { src: '/photos/tali-pics52-den-atelier.webp', alt: 'Tali at Rocklab', type: 'image' },
     // Desktop-only media
     { src: '/photos/Tali pics(132).webp', alt: 'Tali portrait', type: 'image', desktopOnly: true },
     { src: '/photos/Tali Style(3).mp4', alt: 'Tali Style', type: 'video', desktopOnly: true },
@@ -78,11 +78,13 @@ const allMedia = [
     ...momentsImages.map(img => ({ ...img, type: 'image' }))
 ]
 
-// Calculate starting indices for each section
+// Indices are no longer needed for direct object lookup
+/*
 const wanderStartIndex = 0
 const eurovisionStartIndex = wanderMedia.length
 const inFocusStartIndex = wanderMedia.length + eurovisionMedia.length
 const momentsStartIndex = wanderMedia.length + eurovisionMedia.length + inFocusMedia.length
+*/
 
 export default function Gallery() {
     const [lightboxIndex, setLightboxIndex] = useState(null)
@@ -90,8 +92,16 @@ export default function Gallery() {
     const scrollPositionRef = useRef(0)
     const wasOpenRef = useRef(false)
 
-    const openLightbox = (globalIndex) => {
-        setLightboxIndex(globalIndex)
+    // Filter media for lightbox based on device
+    const filteredMedia = useMemo(() => {
+        return allMedia.filter(media => isDesktop || !media.desktopOnly)
+    }, [isDesktop])
+
+    const openLightbox = (media) => {
+        const index = filteredMedia.findIndex(m => m.src === media.src)
+        if (index !== -1) {
+            setLightboxIndex(index)
+        }
     }
 
     const closeLightbox = () => {
@@ -128,13 +138,13 @@ export default function Gallery() {
 
     const nextImage = () => {
         if (lightboxIndex !== null) {
-            setLightboxIndex((lightboxIndex + 1) % allMedia.length)
+            setLightboxIndex((lightboxIndex + 1) % filteredMedia.length)
         }
     }
 
     const prevImage = () => {
         if (lightboxIndex !== null) {
-            setLightboxIndex((lightboxIndex - 1 + allMedia.length) % allMedia.length)
+            setLightboxIndex((lightboxIndex - 1 + filteredMedia.length) % filteredMedia.length)
         }
     }
 
@@ -238,21 +248,21 @@ export default function Gallery() {
                             // Skip desktop-only items on mobile
                             if (media.desktopOnly && !isDesktop) return null
                             return (
-                            <motion.div
-                                key={index}
-                                className="gallery-item"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
-                                onClick={() => openLightbox(wanderStartIndex + index)}
-                            >
-                                {media.type === 'video' ? (
-                                    <video src={media.src} autoPlay loop muted playsInline preload="auto" />
-                                ) : (
-                                    <LazyImage src={media.src} alt={media.alt} />
-                                )}
-                            </motion.div>
+                                <motion.div
+                                    key={index}
+                                    className="gallery-item"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    onClick={() => openLightbox(media)}
+                                >
+                                    {media.type === 'video' ? (
+                                        <video src={media.src} autoPlay loop muted playsInline preload="auto" />
+                                    ) : (
+                                        <LazyImage src={media.src} alt={media.alt} />
+                                    )}
+                                </motion.div>
                             )
                         })}
                     </div>
@@ -272,7 +282,7 @@ export default function Gallery() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.05 }}
-                                onClick={() => openLightbox(eurovisionStartIndex + index)}
+                                onClick={() => openLightbox(media)}
                             >
                                 {media.type === 'video' ? (
                                     <video src={media.src} autoPlay loop muted playsInline preload="auto" />
@@ -294,25 +304,25 @@ export default function Gallery() {
                             // Skip desktop-only items on mobile
                             if (media.desktopOnly && !isDesktop) return null
                             return (
-                            <motion.div
-                                key={index}
-                                className="gallery-item"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
-                                onClick={() => openLightbox(inFocusStartIndex + index)}
-                            >
-                                {media.type === 'video' ? (
-                                    <video src={media.src} autoPlay loop muted playsInline preload="auto" />
-                                ) : (
-                                    <LazyImage
-                                        src={media.src}
-                                        alt={media.alt}
-                                        style={media.objectPosition ? { objectPosition: media.objectPosition } : undefined}
-                                    />
-                                )}
-                            </motion.div>
+                                <motion.div
+                                    key={index}
+                                    className="gallery-item"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    onClick={() => openLightbox(media)}
+                                >
+                                    {media.type === 'video' ? (
+                                        <video src={media.src} autoPlay loop muted playsInline preload="auto" />
+                                    ) : (
+                                        <LazyImage
+                                            src={media.src}
+                                            alt={media.alt}
+                                            style={media.objectPosition ? { objectPosition: media.objectPosition } : undefined}
+                                        />
+                                    )}
+                                </motion.div>
                             )
                         })}
                     </div>
@@ -332,7 +342,7 @@ export default function Gallery() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.05 }}
-                                onClick={() => openLightbox(momentsStartIndex + index)}
+                                onClick={() => openLightbox(image)}
                             >
                                 <LazyImage src={image.src} alt={image.alt} />
                             </motion.div>
@@ -354,7 +364,7 @@ export default function Gallery() {
                     >
                         {/* Photo counter */}
                         <div className="lightbox__counter">
-                            {lightboxIndex + 1} / {allMedia.length}
+                            {lightboxIndex + 1} / {filteredMedia.length}
                         </div>
 
                         {/* Navigation buttons */}
@@ -390,8 +400,8 @@ export default function Gallery() {
                                 {/* Previous image */}
                                 <div className="lightbox__slide">
                                     {(() => {
-                                        const prevIdx = (lightboxIndex - 1 + allMedia.length) % allMedia.length
-                                        const prevItem = allMedia[prevIdx]
+                                        const prevIdx = (lightboxIndex - 1 + filteredMedia.length) % filteredMedia.length
+                                        const prevItem = filteredMedia[prevIdx]
                                         return prevItem.type === 'video' || prevItem.src.endsWith('.mp4') ? (
                                             <video src={prevItem.src} className="lightbox__image" muted playsInline />
                                         ) : (
@@ -402,12 +412,12 @@ export default function Gallery() {
 
                                 {/* Current image */}
                                 <div className="lightbox__slide lightbox__slide--current">
-                                    {allMedia[lightboxIndex].alt && <div className="lightbox__spacer" />}
-                                    {allMedia[lightboxIndex].type === 'video' || allMedia[lightboxIndex].src.endsWith('.mp4') ? (
+                                    {filteredMedia[lightboxIndex].alt && <div className="lightbox__spacer" />}
+                                    {filteredMedia[lightboxIndex].type === 'video' || filteredMedia[lightboxIndex].src.endsWith('.mp4') ? (
                                         <div className="lightbox__video-wrapper" onClick={(e) => e.stopPropagation()}>
                                             <video
                                                 id="lightbox-video"
-                                                src={allMedia[lightboxIndex].src}
+                                                src={filteredMedia[lightboxIndex].src}
                                                 className="lightbox__image"
                                                 autoPlay
                                                 playsInline
@@ -416,23 +426,23 @@ export default function Gallery() {
                                         </div>
                                     ) : (
                                         <img
-                                            src={allMedia[lightboxIndex].src}
-                                            alt={allMedia[lightboxIndex].alt || ''}
+                                            src={filteredMedia[lightboxIndex].src}
+                                            alt={filteredMedia[lightboxIndex].alt || ''}
                                             className="lightbox__image"
                                             draggable={false}
                                             onClick={(e) => e.stopPropagation()}
                                         />
                                     )}
-                                    {allMedia[lightboxIndex].alt && (
-                                        <p className="lightbox__caption" onClick={(e) => e.stopPropagation()}>{allMedia[lightboxIndex].alt}</p>
+                                    {filteredMedia[lightboxIndex].alt && (
+                                        <p className="lightbox__caption" onClick={(e) => e.stopPropagation()}>{filteredMedia[lightboxIndex].alt}</p>
                                     )}
                                 </div>
 
                                 {/* Next image */}
                                 <div className="lightbox__slide">
                                     {(() => {
-                                        const nextIdx = (lightboxIndex + 1) % allMedia.length
-                                        const nextItem = allMedia[nextIdx]
+                                        const nextIdx = (lightboxIndex + 1) % filteredMedia.length
+                                        const nextItem = filteredMedia[nextIdx]
                                         return nextItem.type === 'video' || nextItem.src.endsWith('.mp4') ? (
                                             <video src={nextItem.src} className="lightbox__image" muted playsInline />
                                         ) : (
