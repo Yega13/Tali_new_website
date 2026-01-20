@@ -4,13 +4,13 @@ import './Collaborations.css'
 
 // BlueStripes moments photos for the gallery
 const bluestripesPhotos = [
-    { src: '/photos/Tali pics(111).webp', alt: 'Subway', type: 'image' },
-    { src: '/photos/Tali vids(5).mp4', alt: 'Come On!', type: 'video' },
-    { src: '/photos/Tali vids(3).mp4', alt: 'New York', type: 'video' },
-    { src: '/photos/Tali pics(3).jpg', alt: 'Tali recording', type: 'image' },
-    { src: '/photos/Tali pics(5).webp', alt: 'Filming', type: 'image' },
-    { src: '/photos/Tali vids(30).mp4', alt: 'Rehearsal', type: 'video' },
-    { src: '/photos/Tali vids(31).mp4', type: 'video' },
+    { src: '/photos/tali-pics111.jpg', alt: 'Subway', type: 'image' },
+    { src: '/photos/tali-vids5.mp4', alt: 'Come On!', type: 'video' },
+    { src: '/photos/tali-vids3.mp4', alt: 'New York', type: 'video' },
+    { src: '/photos/tali-pics3.jpg', alt: 'Tali recording', type: 'image' },
+    { src: '/photos/tali-pics5.jpg', alt: 'Filming', type: 'image' },
+    { src: '/photos/tali-vids30.mp4', alt: 'Rehearsal', type: 'video' },
+    { src: '/photos/tali-vids31.mp4', type: 'video' },
     { src: '/photos/Tali pics(140).jpg', alt: 'Rehearsal', type: 'image', objectPosition: 'right' }
 ]
 
@@ -18,7 +18,7 @@ const collaborations = [
     {
         id: 'bluestripes',
         name: 'BlueStripes',
-        image: '/photos/Tali pics(3).jpg',
+        image: '/photos/tali-pics3.jpg',
         description: 'Tali collaborated with BlueStripes on their debut EP, bringing her unique vocal style to their alternative rock sound.',
         hasExpandableSongs: true,
         songs: [
@@ -29,12 +29,12 @@ const collaborations = [
             },
             {
                 title: "Blue Bird",
-                image: '/photos/Blue Bird.jpg',
+                image: '/photos/blue-bird.jpg',
                 description: 'An uplifting anthem about freedom and self-discovery, blending indie rock with folk influences.'
             },
             {
                 title: "Come On!",
-                image: '/photos/BlueStrpies.jpg',
+                image: '/photos/bluestrpies.jpg',
                 description: 'An energetic, dance-ready track with infectious rhythms and empowering lyrics that celebrate living in the moment.'
             }
         ]
@@ -42,19 +42,19 @@ const collaborations = [
     {
         id: 'lostinpacific',
         name: 'Lost in Pacific',
-        image: '/photos/Ocean logo.jpg',
+        image: '/photos/ocean-logo.jpg',
         description: 'An experimental electronic collaboration exploring atmospheric soundscapes and ethereal melodies.'
     },
     {
         id: 'sarahvera',
         name: 'Sarah Vera',
-        image: '/photos/Garden of Eden.jpg',
+        image: '/photos/garden-of-eden.jpg',
         description: 'A beautiful acoustic collaboration with rising Luxembourg singer-songwriter Sarah Vera.'
     },
     {
         id: 'maxbartos',
         name: 'Max Bartos',
-        image: '/photos/Carry me home.jpg',
+        image: '/photos/carry-me-home.jpg',
         description: 'Tali worked with renowned producer Max Bartos on several tracks, blending indie pop with electronic production.'
     }
 ]
@@ -160,7 +160,7 @@ export default function Collaborations() {
             {/* Hero */}
             <section className="collab-hero">
                 <div className="collab-hero__background">
-                    <img src="/photos/Tali pics(106).jpg" alt="Tali - collaborations" className="collab-hero__image" />
+                    <img src="/photos/tali-pics106.jpg" alt="Tali - collaborations" className="collab-hero__image" />
                     <div className="collab-hero__overlay" />
                 </div>
                 <div className="collab-hero__content container">

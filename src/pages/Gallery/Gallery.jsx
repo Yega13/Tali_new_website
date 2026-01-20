@@ -7,53 +7,53 @@ import './Gallery.css'
 // Mixed media arrays (photos + videos merged)
 // WANDER section
 const wanderMedia = [
-    { src: '/photos/Tali pics(25) Dear Parents.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
-    { src: '/photos/Tali pics(26) Dear Parents Tongue.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
-    { src: '/photos/Tali from facebook 8.webp', type: 'image' },
-    { src: '/photos/Tali pics(27) Dear Parents necklace.webp', alt: 'Dear Parents necklace', type: 'image' },
-    { src: '/photos/Tali vids(20).mp4', alt: 'Blue Turns To Grey - Studio', type: 'video' },
-    { src: '/photos/Tali pics(51).webp', alt: 'WANDER', type: 'image' },
-    { src: '/photos/Tali pics(23) Wander.webp', alt: 'Wander Photoshoot', type: 'image' },
-    { src: '/photos/Tali wander vid.mp4', type: 'video' },
-    { src: '/photos/Tali vids(21).mp4', alt: 'Sticker ;)', type: 'video' },
-    { src: '/photos/Tali pics(85).webp', type: 'image' },
+    { src: '/photos/tali-pics25-dear-parents.jpg', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
+    { src: '/photos/tali-pics26-dear-parents-tongue.jpg', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
+    { src: '/photos/tali-from-facebook-8.jpg', type: 'image' },
+    { src: '/photos/tali-pics27-dear-parents-necklace.jpg', alt: 'Dear Parents necklace', type: 'image' },
+    { src: '/photos/tali-vids20.mp4', alt: 'Blue Turns To Grey - Studio', type: 'video' },
+    { src: '/photos/tali-pics51.jpg', alt: 'WANDER', type: 'image' },
+    { src: '/photos/tali-pics23-wander.jpg', alt: 'Wander Photoshoot', type: 'image' },
+    { src: '/photos/tali-wander-vid.mp4', type: 'video' },
+    { src: '/photos/tali-vids21.mp4', alt: 'Sticker ;)', type: 'video' },
+    { src: '/photos/tali-pics85.jpg', type: 'image' },
     { src: '/photos/lemon lime.mp4', alt: 'Lemon Lime', type: 'video', desktopOnly: true }
 ]
 
 // Eurovision 2024 section
 const eurovisionMedia = [
-    { src: '/photos/Tali pics(98).webp', alt: 'Eurovision 2024 - Malmo', type: 'image' },
-    { src: '/photos/Tali pics(42) Eurovision.webp', alt: 'Tali Eurovision moment', type: 'image' },
-    { src: '/photos/Tali pics(97).webp', alt: 'Tali portrait', type: 'image' },
-    { src: '/photos/Talis vids(19).mp4', alt: 'Tali Eurovision video', type: 'video' },
-    { src: '/photos/Tali pics(14) Eurovision Heart.webp', alt: 'Tali Eurovision heart', type: 'image' },
-    { src: '/photos/Tali pics(80).webp', alt: 'Tali close-up', type: 'image' },
-    { src: '/photos/Tali pics(13) Eurovision.webp', alt: 'Tali Eurovision pose', type: 'image' },
+    { src: '/photos/tali-pics98.jpg', alt: 'Eurovision 2024 - Malmo', type: 'image' },
+    { src: '/photos/tali-pics42-eurovision.jpg', alt: 'Tali Eurovision moment', type: 'image' },
+    { src: '/photos/tali-pics97.jpg', alt: 'Tali portrait', type: 'image' },
+    { src: '/photos/talis-vids19.mp4', alt: 'Tali Eurovision video', type: 'video' },
+    { src: '/photos/tali-pics14-eurovision-heart.jpg', alt: 'Tali Eurovision heart', type: 'image' },
+    { src: '/photos/tali-pics80.jpg', alt: 'Tali close-up', type: 'image' },
+    { src: '/photos/tali-pics13-eurovision.jpg', alt: 'Tali Eurovision pose', type: 'image' },
     { src: '/photos/Tali vids(32).mp4', alt: 'Tali Eurovision backstage', type: 'video' }
 ]
 
 // In Focus section
 const inFocusMedia = [
-    { src: '/photos/Tali pics(68).webp', alt: 'Tali moment', type: 'image' },
-    { src: '/photos/Tali pics(47) National selection.webp', alt: 'Tali - National selection', type: 'image' },
-    { src: '/photos/Tali vids Style walking.mp4', alt: 'Tali - Style walk', type: 'video' },
-    { src: '/photos/Tali pics(60) trounwiessel.webp', alt: 'Tali at Trounwiessel', type: 'image' },
-    { src: '/photos/Tali pics(18).webp', alt: 'Tali candid', type: 'image' },
+    { src: '/photos/tali-pics68.jpg', alt: 'Tali moment', type: 'image' },
+    { src: '/photos/tali-pics47-national-selection.jpg', alt: 'Tali - National selection', type: 'image' },
+    { src: '/photos/tali-vids-style-walking.mp4', alt: 'Tali - Style walk', type: 'video' },
+    { src: '/photos/tali-pics60-trounwiessel.jpg', alt: 'Tali at Trounwiessel', type: 'image' },
+    { src: '/photos/tali-pics18.jpg', alt: 'Tali candid', type: 'image' },
     { src: '/photos/Tali pics(12) Not included.webp', alt: 'Fans', type: 'image' },
-    { src: '/photos/Tali pics(36) eurovision 2025 Not included.webp', alt: 'LSC 2025', type: 'image' },
-    { src: '/photos/Tali pics(10).webp', alt: 'Tali essence', type: 'image' },
-    { src: '/photos/Tali pics(52) Den atelier.webp', alt: 'Tali at Den Atelier', type: 'image' },
-    { src: '/photos/Tali vids(16).mp4', alt: 'Luxembourg Philarmonie 2025', type: 'video' },
-    { src: '/photos/Tali vids(17).mp4', alt: 'Trounwiessel show', type: 'video' },
-    { src: '/photos/Tali vids(11).mp4', alt: 'Luxembourg Philarmonie 2024', type: 'video' },
-    { src: '/photos/Tali pics(57) echterlicht.webp', alt: 'Tali at Echterliecht', type: 'image' },
-    { src: '/photos/Tali pics(57).webp', alt: 'Tali portrait', type: 'image' },
-    { src: '/photos/Tali pics(59).webp', alt: 'Tali candid', type: 'image' },
-    { src: '/photos/Tali pics(55) dancing alone.webp', type: 'image' },
-    { src: '/photos/Tali pics(104).webp', alt: 'Echterleicht backstage', type: 'image', objectPosition: '30% center' },
-    { src: '/photos/Tali pics(82) baby.webp', alt: 'Tali baby photo', type: 'image' },
-    { src: '/photos/Tali pics(83).webp', alt: 'Luxembourg Philarmonie 2025', type: 'image', objectPosition: 'top' },
-    { src: '/photos/Tali pics(53) Echterleicht.webp', alt: 'Tali at Echterleicht', type: 'image' },
+    { src: '/photos/tali-pics36-eurovision-2025-not-included.jpg', alt: 'LSC 2025', type: 'image' },
+    { src: '/photos/tali-pics10.jpg', alt: 'Tali essence', type: 'image' },
+    { src: '/photos/tali-pics52-den-atelier.webp', alt: 'Tali at Den Atelier', type: 'image' },
+    { src: '/photos/tali-vids16.mp4', alt: 'Luxembourg Philarmonie 2025', type: 'video' },
+    { src: '/photos/tali-vids17.mp4', alt: 'Trounwiessel show', type: 'video' },
+    { src: '/photos/tali-vids11.mp4', alt: 'Luxembourg Philarmonie 2024', type: 'video' },
+    { src: '/photos/tali-pics57-echterlicht.webp', alt: 'Tali at Echterliecht', type: 'image' },
+    { src: '/photos/tali-pics57.jpg', alt: 'Tali portrait', type: 'image' },
+    { src: '/photos/tali-pics59.jpg', alt: 'Tali candid', type: 'image' },
+    { src: '/photos/tali-pics55-dancing-alone.webp', type: 'image' },
+    { src: '/photos/tali-pics104.jpg', alt: 'Echterleicht backstage', type: 'image', objectPosition: '30% center' },
+    { src: '/photos/tali-pics82-baby.jpg', alt: 'Tali baby photo', type: 'image' },
+    { src: '/photos/tali-pics83.jpg', alt: 'Luxembourg Philarmonie 2025', type: 'image', objectPosition: 'top' },
+    { src: '/photos/tali-pics53-echterleicht.webp', alt: 'Tali at Echterleicht', type: 'image' },
     { src: '/photos/Tali pics Rocklab.webp', alt: 'Tali at Rocklab', type: 'image' },
     // Desktop-only media
     { src: '/photos/Tali pics(132).webp', alt: 'Tali portrait', type: 'image', desktopOnly: true },
@@ -62,12 +62,12 @@ const inFocusMedia = [
 
 // Moments section - pictures with humans
 const momentsImages = [
-    { src: '/photos/Tali pics(103).webp', alt: 'Tali moment' },
-    { src: '/photos/Tali pics(69).webp', alt: 'Tali candid' },
-    { src: '/photos/Tali from facebook 4.webp', alt: 'Tali genuine' },
-    { src: '/photos/Tali pics(72).webp', alt: 'Tali photoshoot' },
-    { src: '/photos/Tali pics(73).webp', alt: 'Tali editorial' },
-    { src: '/photos/Tali pics(74).webp', alt: 'Tali style' }
+    { src: '/photos/tali-pics103.jpg', alt: 'Tali moment' },
+    { src: '/photos/tali-pics69.jpg', alt: 'Tali candid' },
+    { src: '/photos/tali-from-facebook-4.jpg', alt: 'Tali genuine' },
+    { src: '/photos/tali-pics72.jpg', alt: 'Tali photoshoot' },
+    { src: '/photos/tali-pics73.jpg', alt: 'Tali editorial' },
+    { src: '/photos/tali-pics74.jpg', alt: 'Tali style' }
 ]
 
 // Combine ALL media into one unified array for the lightbox
@@ -200,29 +200,29 @@ export default function Gallery() {
                 <div className="gallery-ticker__title">GALLERY</div>
                 <div className="gallery-ticker__content">
                     {[
-                        '/photos/Tali from facebook 4.webp',
-                        '/photos/Tali pics(25) Dear Parents.webp',
-                        '/photos/Tali pics(28).webp',
-                        '/photos/Tali pics(32).webp',
-                        '/photos/Tali pics(57) echterlicht.webp',
-                        '/photos/Tali pics(80).webp',
-                        '/photos/Tali pics(51).webp',
-                        '/photos/Tali pics(16).webp',
-                        '/photos/Tali pics(68).webp',
-                        '/photos/Tali pics(18).webp',
-                        '/photos/Tali pics(14) Eurovision Heart.webp',
+                        '/photos/tali-from-facebook-4.jpg',
+                        '/photos/tali-pics25-dear-parents.jpg',
+                        '/photos/tali-pics28.jpg',
+                        '/photos/tali-pics32.jpg',
+                        '/photos/tali-pics57-echterlicht.webp',
+                        '/photos/tali-pics80.jpg',
+                        '/photos/tali-pics51.jpg',
+                        '/photos/tali-pics16.jpg',
+                        '/photos/tali-pics68.jpg',
+                        '/photos/tali-pics18.jpg',
+                        '/photos/tali-pics14-eurovision-heart.jpg',
                         // Loop
-                        '/photos/Tali from facebook 4.webp',
-                        '/photos/Tali pics(25) Dear Parents.webp',
-                        '/photos/Tali pics(28).webp',
-                        '/photos/Tali pics(32).webp',
-                        '/photos/Tali pics(57) echterlicht.webp',
-                        '/photos/Tali pics(80).webp',
-                        '/photos/Tali pics(51).webp',
-                        '/photos/Tali pics(16).webp',
-                        '/photos/Tali pics(68).webp',
-                        '/photos/Tali pics(18).webp',
-                        '/photos/Tali pics(14) Eurovision Heart.webp',
+                        '/photos/tali-from-facebook-4.jpg',
+                        '/photos/tali-pics25-dear-parents.jpg',
+                        '/photos/tali-pics28.jpg',
+                        '/photos/tali-pics32.jpg',
+                        '/photos/tali-pics57-echterlicht.webp',
+                        '/photos/tali-pics80.jpg',
+                        '/photos/tali-pics51.jpg',
+                        '/photos/tali-pics16.jpg',
+                        '/photos/tali-pics68.jpg',
+                        '/photos/tali-pics18.jpg',
+                        '/photos/tali-pics14-eurovision-heart.jpg',
                     ].map((src, i) => (
                         <img key={i} src={src} alt="Gallery" className="gallery-ticker__image" />
                     ))}

@@ -72,7 +72,7 @@ export default function NotFound() {
                 <video
                     ref={videoRef}
                     className="not-found__video"
-                    src="/photos/Tali vids(7) Legendar.mp4"
+                    src="/photos/tali-vids7-legendar.mp4"
                     playsInline
                     muted={false}
                 />

@@ -146,7 +146,7 @@ export default function Contact() {
             {/* Hero */}
             <section className="contact-hero">
                 <div className="contact-hero__background">
-                    <img src="/photos/Tali pics(78).jpg" alt="Tali portrait" className="contact-hero__image" />
+                    <img src="/photos/tali-pics78.jpg" alt="Tali portrait" className="contact-hero__image" />
                     <div className="contact-hero__overlay" />
                 </div>
                 <div className="contact-hero__content container">

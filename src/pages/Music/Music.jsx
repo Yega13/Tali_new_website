@@ -50,7 +50,7 @@ export default function Music() {
             <section className="music-hero">
                 <div className="music-hero__background">
                     <img
-                        src="/photos/Tali den atelier.jpeg"
+                        src="/photos/tali-den-atelier.jpg"
                         alt="Tali live performance"
                         className="music-hero__image"
                     />
@@ -159,16 +159,16 @@ export default function Music() {
             <section className="shows section">
                 {/* Decorative stickers - left side */}
                 <div className="shows__stickers shows__stickers--left">
-                    <img src="/photos/Tali pics(10).webp" alt="" className="shows__sticker shows__sticker--1" />
-                    <img src="/photos/Tali pics(40) Eurovision.webp" alt="" className="shows__sticker shows__sticker--2" />
-                    <img src="/photos/Tali pics(49).webp" alt="" className="shows__sticker shows__sticker--3" />
+                    <img src="/photos/tali-pics10.jpg" alt="" className="shows__sticker shows__sticker--1" />
+                    <img src="/photos/tali-pics40-eurovision.jpg" alt="" className="shows__sticker shows__sticker--2" />
+                    <img src="/photos/tali-pics49.jpg" alt="" className="shows__sticker shows__sticker--3" />
                 </div>
 
                 {/* Decorative stickers - right side */}
                 <div className="shows__stickers shows__stickers--right">
-                    <img src="/photos/Tali pics(76).webp" alt="" className="shows__sticker shows__sticker--4" />
-                    <img src="/photos/Tali pics(75).webp" alt="" className="shows__sticker shows__sticker--5" />
-                    <img src="/photos/Tali pics(105).webp" alt="" className="shows__sticker shows__sticker--6" />
+                    <img src="/photos/tali-pics76.jpg" alt="" className="shows__sticker shows__sticker--4" />
+                    <img src="/photos/tali-pics75.jpg" alt="" className="shows__sticker shows__sticker--5" />
+                    <img src="/photos/tali-pics105.jpg" alt="" className="shows__sticker shows__sticker--6" />
                 </div>
 
                 <div className="container">

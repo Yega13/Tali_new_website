@@ -16,8 +16,8 @@ export default function Home() {
                 <div className="hero__background">
                     <img
                         src={theme === 'light'
-                            ? '/photos/Tali style(1).jpg'
-                            : '/photos/Tali pics(35) eurovision 2025.jpg'
+                            ? '/photos/tali-style1.jpg'
+                            : '/photos/tali-pics35-eurovision-2025.jpg'
                         }
                         alt="Tali Golergant"
                         className="hero__image"
