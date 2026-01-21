@@ -186,7 +186,7 @@
     }
 
     .hero__btn {
-        padding: var(--space-5) var(--space-12);
+        padding: var(--space-3) var(--space-12);
         font-size: var(--text-lg);
     }
 }
@@ -287,16 +287,16 @@
     .hero__btn {
         width: 190px;
         /* Reduced from 220px */
-        padding: var(--space-2) 0;
-        /* Vertical padding, horizontal handled by width */
+        padding: 10px 0;
+        /* Custom padding for perfect height (~44px) */
         font-size: var(--text-base);
         justify-content: center;
     }
 
     .hero__btn-icon {
-        width: 34px;
-        height: 34px;
-        margin-right: var(--space-1);
+        width: 24px;
+        height: 24px;
+        margin-right: var(--space-2);
         /* Ensure spacing */
     }
 }
