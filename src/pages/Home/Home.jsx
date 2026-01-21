@@ -18,12 +18,18 @@ export default function Home() {
                         alt="Tali Golergant"
                         className={`hero__image hero__image--light ${theme === 'light' ? 'hero__image--active' : ''}`}
                         loading="eager"
+                        fetchpriority={theme === 'light' ? 'high' : 'low'}
+                        width="1920"
+                        height="1080"
                     />
                     <img
                         src="/photos/tali-pics35-eurovision-2025.webp"
                         alt="Tali Golergant"
                         className={`hero__image hero__image--dark ${theme === 'dark' ? 'hero__image--active' : ''}`}
                         loading="eager"
+                        fetchpriority={theme === 'dark' ? 'high' : 'low'}
+                        width="1920"
+                        height="1080"
                     />
                     <div className="hero__overlay" />
                 </div>
