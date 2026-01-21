@@ -7,7 +7,7 @@ const structuredData = {
     "alternateName": "TALI",
     "description": "Singer, songwriter, and actor from Luxembourg. Known for representing Luxembourg at Eurovision 2025.",
     "url": "https://taligolergant.up.railway.app",
-    "image": "https://taligolergant.up.railway.app/social.png",
+    "image": "https://taligolergant.up.railway.app/social-preview.png",
     "sameAs": [
         "https://www.instagram.com/taligolergant",
         "https://www.youtube.com/@taligolergant",
