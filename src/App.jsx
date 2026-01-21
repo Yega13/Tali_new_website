@@ -10,7 +10,7 @@ import BackToTop from '@/components/common/BackToTop'
 import ErrorBoundary from '@/components/common/ErrorBoundary'
 import SEO from '@/components/common/SEO'
 
-const Home = lazy(() => import('@/pages/Home'))
+import Home from '@/pages/Home'
 const About = lazy(() => import('@/pages/About'))
 const Music = lazy(() => import('@/pages/Music'))
 const Gallery = lazy(() => import('@/pages/Gallery'))
