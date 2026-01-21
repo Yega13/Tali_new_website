@@ -4,7 +4,6 @@ const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(() => {
-        // Check localStorage first, then system preference
         const stored = localStorage.getItem('tali-theme')
         if (stored) return stored
 
@@ -15,17 +14,14 @@ export function ThemeProvider({ children }) {
     })
 
     useEffect(() => {
-        // Apply theme to document
         document.documentElement.setAttribute('data-theme', theme)
         localStorage.setItem('tali-theme', theme)
     }, [theme])
 
-    // Listen for system theme changes
     useEffect(() => {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
         const handleChange = (e) => {
-            // Only auto-switch if user hasn't manually set a preference
             const stored = localStorage.getItem('tali-theme')
             if (!stored) {
                 setTheme(e.matches ? 'dark' : 'light')
@@ -37,7 +33,26 @@ export function ThemeProvider({ children }) {
     }, [])
 
     const toggleTheme = () => {
-        setTheme(prev => prev === 'light' ? 'dark' : 'light')
+        const scrollY = window.scrollY
+        const scrollX = window.scrollX
+
+        const html = document.documentElement
+        const originalScrollBehavior = html.style.scrollBehavior
+        html.style.scrollBehavior = 'auto'
+
+        const newTheme = theme === 'light' ? 'dark' : 'light'
+
+        html.setAttribute('data-theme', newTheme)
+        localStorage.setItem('tali-theme', newTheme)
+
+        setTheme(newTheme)
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                window.scrollTo(scrollX, scrollY)
+                html.style.scrollBehavior = originalScrollBehavior
+            })
+        })
     }
 
     return (

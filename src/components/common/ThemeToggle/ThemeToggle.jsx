@@ -17,15 +17,14 @@ export default function ThemeToggle({ className = '' }) {
                 className="theme-toggle__icon-wrapper"
                 initial={false}
                 animate={{ rotate: isDark ? 180 : 0 }}
-                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
-                {/* Clean Vector Sun - The Final Version */}
                 <motion.svg
                     className="theme-toggle__icon theme-toggle__icon--sun"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2.2" // Slightly bolder than standard 2 for better visibility
+                    strokeWidth="2.2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     initial={false}
@@ -33,12 +32,10 @@ export default function ThemeToggle({ className = '' }) {
                         opacity: isDark ? 0 : 1,
                         scale: isDark ? 0.5 : 1
                     }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
                 >
-                    {/* Circle */}
                     <circle cx="12" cy="12" r="5" />
 
-                    {/* 8 Rays - Simple, Clean, Symmetric */}
                     <path d="M12 1v2" />
                     <path d="M12 21v2" />
                     <path d="M4.22 4.22l1.42 1.42" />
@@ -49,7 +46,6 @@ export default function ThemeToggle({ className = '' }) {
                     <path d="M18.36 5.64l1.42-1.42" />
                 </motion.svg>
 
-                {/* Moon Icon */}
                 <motion.svg
                     className="theme-toggle__icon theme-toggle__icon--moon"
                     viewBox="0 0 24 24"
@@ -63,7 +59,7 @@ export default function ThemeToggle({ className = '' }) {
                         opacity: isDark ? 1 : 0,
                         scale: isDark ? 1 : 0.5
                     }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.4, ease: 'easeInOut' }}
                 >
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                 </motion.svg>

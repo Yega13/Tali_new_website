@@ -19,5 +19,36 @@ export default defineConfig({
     server: {
         port: 5173,
         open: true
+    },
+    build: {
+        // Enable minification
+        minify: 'terser',
+        terserOptions: {
+            compress: {
+                drop_console: true,
+                drop_debugger: true
+            }
+        },
+        // Generate source maps for debugging (can disable for smaller builds)
+        sourcemap: false,
+        // Chunk splitting for better caching
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    // Vendor chunk for React
+                    'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+                    // Animation libraries
+                    'animation': ['framer-motion'],
+                }
+            }
+        },
+        // Target modern browsers for smaller bundles
+        target: 'es2020',
+        // Increase chunk size warning limit
+        chunkSizeWarningLimit: 1000
+    },
+    // Optimize dependencies
+    optimizeDeps: {
+        include: ['react', 'react-dom', 'react-router-dom', 'framer-motion']
     }
 })

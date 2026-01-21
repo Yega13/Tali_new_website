@@ -5,7 +5,8 @@
     right: 0;
     z-index: var(--z-modal);
     padding: var(--space-4) 0;
-    transition: background-color var(--transition-base), backdrop-filter var(--transition-base);
+    transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+        backdrop-filter var(--transition-base);
     max-width: 100vw;
     overflow-x: hidden;
 }

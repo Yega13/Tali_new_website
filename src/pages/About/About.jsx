@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
+import LazyVideo from '@/components/common/LazyVideo'
 import './About.css'
 
 export default function About() {
@@ -7,7 +8,6 @@ export default function About() {
 
     return (
         <div className="about">
-            {/* Bio Section - Picture Left, Text Right */}
             <section className="about-bio section">
                 <div className="container">
                     <div className="about-bio__layout">
@@ -18,12 +18,14 @@ export default function About() {
                             viewport={{ once: true }}
                         >
                             <img
-                                src={theme === 'dark'
-                                    ? '/photos/tali-pics41-eurovision.jpg'
-                                    : '/photos/tali-pics38-eurovision.png'
-                                }
+                                src="/photos/tali-pics38-eurovision.png"
                                 alt="Tali - Eurovision portrait"
-                                className="about-bio__image"
+                                className={`about-bio__image about-bio__image--light ${theme === 'light' ? 'about-bio__image--active' : ''}`}
+                            />
+                            <img
+                                src="/photos/tali-pics41-eurovision.webp"
+                                alt="Tali - Eurovision portrait"
+                                className={`about-bio__image about-bio__image--dark ${theme === 'dark' ? 'about-bio__image--active' : ''}`}
                             />
                         </motion.div>
 
@@ -59,7 +61,6 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Life Journey Section */}
             <section className="life-journey section">
                 <div className="container">
                     <motion.h2
@@ -76,25 +77,25 @@ export default function About() {
                         {[
                             {
                                 year: 'Early Years',
-                                image: '/photos/tali-pics82-baby.jpg',
+                                image: '/photos/tali-pics82-baby.webp',
                                 alt: 'Young Tali in Jerusalem',
                                 text: 'Tali was born on November 26, 2000, in Jerusalem, Israel. Growing up in a musical family, it was only natural for her to devote her life to music. She began playing the piano and singing at the age of six.'
                             },
                             {
                                 year: '2020',
-                                image: '/photos/tali-pics48-bowery-electric.jpg',
+                                image: '/photos/tali-pics48-bowery-electric.webp',
                                 alt: 'Tali at Bowery Electric NYC',
                                 text: 'Moved to New York City to pursue her dreams in music and theater. Started performing at local venues and open mics, developing her unique sound and stage presence.'
                             },
                             {
                                 year: '2023',
-                                image: '/photos/tali-pics50.jpg',
+                                image: '/photos/tali-pics50.webp',
                                 alt: 'Tali - debut era',
                                 text: 'Released her debut singles and started building an international fanbase. Collaborated with various artists and producers, refining her signature sound.'
                             },
                             {
                                 year: '2025',
-                                image: '/photos/tali-pics51.jpg',
+                                image: '/photos/tali-pics51.webp',
                                 alt: 'Tali - Eurovision 2025',
                                 text: 'Selected to represent Luxembourg at Eurovision Song Contest 2025. Her performance received critical acclaim and introduced her music to millions of viewers worldwide.'
                             }
@@ -127,7 +128,6 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Acting Section - Moved before Professional Materials */}
             <section className="acting-section section">
                 <div className="container">
                     <motion.h2
@@ -139,7 +139,6 @@ export default function About() {
                         Acting & Voice
                     </motion.h2>
 
-                    {/* IMDB Link */}
                     <motion.div
                         className="acting-imdb"
                         initial={{ opacity: 0, y: 20 }}
@@ -157,7 +156,6 @@ export default function About() {
                         </a>
                     </motion.div>
 
-                    {/* Eurovision - First */}
                     <motion.div
                         className="acting-category"
                         initial={{ opacity: 0, y: 20 }}
@@ -166,18 +164,14 @@ export default function About() {
                     >
                         <h3 className="acting-category__title">Eurovision</h3>
                         <div className="acting-videos__grid">
-                            <div className="acting-video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/TCWH3Nq5y9A"
-                                    title="Eurovision Performance"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
+                            <LazyVideo
+                                src="https://www.youtube.com/embed/TCWH3Nq5y9A"
+                                title="Eurovision Performance"
+                                className="acting-video"
+                            />
                         </div>
                     </motion.div>
 
-                    {/* Acting Videos */}
                     <motion.div
                         className="acting-category"
                         initial={{ opacity: 0, y: 20 }}
@@ -186,18 +180,14 @@ export default function About() {
                     >
                         <h3 className="acting-category__title">Acting</h3>
                         <div className="acting-videos__grid">
-                            <div className="acting-video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/64rCT11eorY"
-                                    title="Acting Reel 1"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
+                            <LazyVideo
+                                src="https://www.youtube.com/embed/64rCT11eorY"
+                                title="Acting Reel 1"
+                                className="acting-video"
+                            />
                         </div>
                     </motion.div>
 
-                    {/* Voice Videos */}
                     <motion.div
                         className="acting-category"
                         initial={{ opacity: 0, y: 20 }}
@@ -206,26 +196,19 @@ export default function About() {
                     >
                         <h3 className="acting-category__title">Voice</h3>
                         <div className="acting-videos__grid acting-videos__grid--multi">
-                            <div className="acting-video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/M3RUQWYNA8o"
-                                    title="Voice Reel 1"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
-                            <div className="acting-video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/8yO6rqY7pFs"
-                                    title="Voice Reel 2"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
+                            <LazyVideo
+                                src="https://www.youtube.com/embed/M3RUQWYNA8o"
+                                title="Voice Reel 1"
+                                className="acting-video"
+                            />
+                            <LazyVideo
+                                src="https://www.youtube.com/embed/8yO6rqY7pFs"
+                                title="Voice Reel 2"
+                                className="acting-video"
+                            />
                         </div>
                     </motion.div>
 
-                    {/* Live Videos */}
                     <motion.div
                         className="acting-category"
                         initial={{ opacity: 0, y: 20 }}
@@ -234,28 +217,21 @@ export default function About() {
                     >
                         <h3 className="acting-category__title">Live</h3>
                         <div className="acting-videos__grid acting-videos__grid--multi">
-                            <div className="acting-video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/is7nUjHOAlw"
-                                    title="Live Performance 1"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
-                            <div className="acting-video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/BVkFivF3OeY"
-                                    title="Live Performance 2"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
+                            <LazyVideo
+                                src="https://www.youtube.com/embed/is7nUjHOAlw"
+                                title="Live Performance 1"
+                                className="acting-video"
+                            />
+                            <LazyVideo
+                                src="https://www.youtube.com/embed/BVkFivF3OeY"
+                                title="Live Performance 2"
+                                className="acting-video"
+                            />
                         </div>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Professional Materials - Moved after Acting */}
             <section className="pro-materials section">
                 <div className="container">
                     <motion.h2
@@ -274,7 +250,7 @@ export default function About() {
                             className="btn btn-primary"
                             whileTap={{ scale: 0.95 }}
                         >
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                                 <polyline points="7 10 12 15 17 10" />
                                 <line x1="12" y1="15" x2="12" y2="3" />
@@ -287,7 +263,7 @@ export default function About() {
                             onClick={() => alert("We don't have your headshot yet! :(")}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                                 <circle cx="8.5" cy="8.5" r="1.5" />
                                 <polyline points="21 15 16 10 5 21" />
@@ -296,7 +272,8 @@ export default function About() {
                         </motion.button>
                     </div>
 
-                    {/* Resume Info Blocks */}
+
+
                     <div className="resume-blocks">
                         <motion.div
                             className="resume-block"
@@ -385,7 +362,7 @@ export default function About() {
                         </motion.div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     )
 }

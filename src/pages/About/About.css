@@ -55,6 +55,7 @@
 }
 
 .about-bio__image-wrapper {
+    position: relative;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
@@ -75,6 +76,26 @@
     object-position: center top;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
+    /* Theme transition for dual images - include all properties for sync */
+    opacity: 0;
+    transition: opacity var(--theme-transition-duration) var(--theme-transition-timing),
+        background-color var(--theme-transition-duration) var(--theme-transition-timing),
+        border-color var(--theme-transition-duration) var(--theme-transition-timing),
+        box-shadow var(--theme-transition-duration) var(--theme-transition-timing);
+}
+
+/* Position second image on top of first */
+.about-bio__image--dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Active image is visible */
+.about-bio__image--active {
+    opacity: 1;
 }
 
 .about-bio__content {
@@ -189,9 +210,6 @@
         margin-right: 0;
         padding-left: var(--space-8);
     }
-
-    /* Dot on timeline */
-
 }
 
 .timeline-item__year {
@@ -263,6 +281,18 @@
     padding: var(--space-4) var(--space-8);
     font-size: 1.1rem;
     font-weight: 600;
+}
+
+.pro-materials__buttons .btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (min-width: 1024px) {
+    .pro-materials__buttons .btn svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 /* Life Journey More Text */

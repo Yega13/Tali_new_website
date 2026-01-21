@@ -20,12 +20,10 @@ export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
     const location = useLocation()
 
-    // Close menu on route change
     useEffect(() => {
         setIsMenuOpen(false)
     }, [location.pathname])
 
-    // Handle scroll for backdrop blur
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50)
@@ -35,7 +33,6 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Prevent body scroll when menu is open - using CSS class
     useEffect(() => {
         if (isMenuOpen) {
             document.body.classList.add('menu-open')
@@ -49,19 +46,16 @@ export default function Header() {
 
     const toggleMenu = () => setIsMenuOpen(prev => !prev)
 
-    // Check pages that need white header (dark hero backgrounds)
     const isMusicPage = location.pathname === '/music'
     const isHeroPage = ['/', '/news', '/collaborations', '/contact'].includes(location.pathname)
 
     return (
         <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isMusicPage ? 'header--music' : ''} ${isHeroPage ? 'header--hero' : ''} ${isMenuOpen ? 'header--menu-open' : ''}`}>
             <div className="header__container container">
-                {/* Logo */}
                 <Link to="/" className="header__logo">
                     <span className="header__logo-text">Tali Golergant</span>
                 </Link>
 
-                {/* Desktop Navigation */}
                 <nav className="header__nav header__nav--desktop">
                     {navLinks.map(link => (
                         <NavLink
@@ -76,11 +70,9 @@ export default function Header() {
                     ))}
                 </nav>
 
-                {/* Right Side Actions */}
                 <div className="header__actions">
                     <ThemeToggle />
 
-                    {/* Mobile Menu Button */}
                     <button
                         className={`header__menu-btn ${isMenuOpen ? 'header__menu-btn--open' : ''}`}
                         onClick={toggleMenu}
@@ -94,7 +86,6 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile Navigation Overlay */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
@@ -132,7 +123,6 @@ export default function Header() {
                                 ))}
                             </div>
 
-                            {/* Social Icons */}
                             <motion.div
                                 className="header__mobile-socials"
                                 initial={{ opacity: 0 }}

@@ -1,0 +1,50 @@
+.lazy-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.lazy-video__thumbnail {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lazy-video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.lazy-video:hover .lazy-video__play {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.lazy-video__play-bg {
+    transition: fill 0.2s ease;
+}
+
+.lazy-video:hover .lazy-video__play-bg {
+    fill: #f00;
+    fill-opacity: 1;
+}
+
+.lazy-video__iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}

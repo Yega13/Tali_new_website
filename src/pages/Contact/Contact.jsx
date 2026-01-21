@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Contact.css'
 
-// Formspree form IDs
 const CONTACT_FORM_ID = 'mlggdeda'
 const NEWSLETTER_FORM_ID = 'mzddzbzw'
 
@@ -23,7 +22,6 @@ export default function Contact() {
         setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
-    // Check if user exceeded daily contact form limit (5 per day)
     const checkDailyLimit = () => {
         const today = new Date().toDateString()
         const stored = localStorage.getItem('contactFormSubmissions')
@@ -36,7 +34,6 @@ export default function Contact() {
         return false
     }
 
-    // Increment contact form submission count
     const incrementSubmissionCount = () => {
         const today = new Date().toDateString()
         const stored = localStorage.getItem('contactFormSubmissions')
@@ -53,7 +50,8 @@ export default function Contact() {
     const handleFormSubmit = async (e) => {
         e.preventDefault()
 
-        // Check daily limit
+
+
         if (checkDailyLimit()) {
             setFormStatus({ type: 'error', message: 'You reached your daily limit of messages!' })
             return
@@ -86,7 +84,6 @@ export default function Contact() {
         }
     }
 
-    // Check if email is already subscribed
     const isAlreadySubscribed = (email) => {
         const stored = localStorage.getItem('subscribedEmails')
         if (stored) {
@@ -96,7 +93,6 @@ export default function Contact() {
         return false
     }
 
-    // Add email to subscribed list
     const addToSubscribedList = (email) => {
         const stored = localStorage.getItem('subscribedEmails')
         let emails = stored ? JSON.parse(stored) : []
@@ -107,7 +103,8 @@ export default function Contact() {
     const handleNewsletterSubmit = async (e) => {
         e.preventDefault()
 
-        // Validate email format
+
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailRegex.test(newsletterEmail)) {
             setNewsletterStatus({ type: 'error', message: 'Please enter a valid email address (e.g., name@example.com)' })
@@ -118,19 +115,19 @@ export default function Contact() {
         setNewsletterStatus({ type: '', message: '' })
 
         try {
-            // Submit to Brevo
             const formData = new FormData()
             formData.append('EMAIL', newsletterEmail)
-            formData.append('email_address_check', '') // Honeypot
+            formData.append('email_address_check', '')
             formData.append('locale', 'en')
 
             const response = await fetch('https://6e5fcb15.sibforms.com/serve/MUIFAPvHfL-EoMJF5FdSc0DduYzM3u9l9IQcXrgraV7FqGq0NZ2Wqi1Rs9njXfVJNGjLfIqoSw0bsK8nh8nTqL_9foaT8itTm2-yjtW0e9Rn4g3EC7K0wwfgpcoKv3sCpkQ6UBGF879_g_Pwq5v4w33pD20dr_Hx0wfm-VRDIz8TEImAtm9Crsb1J7ElinGPXLe8XJ9eT2b5vFGm4w==', {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // Brevo doesn't allow CORS
+                mode: 'no-cors'
             })
 
-            // Track locally for duplicate check
+
+
             addToSubscribedList(newsletterEmail)
             setNewsletterStatus({ type: 'success', message: 'Welcome to the family! Check your email to confirm :)' })
             setNewsletterEmail('')
@@ -143,10 +140,9 @@ export default function Contact() {
 
     return (
         <div className="contact">
-            {/* Hero */}
             <section className="contact-hero">
                 <div className="contact-hero__background">
-                    <img src="/photos/tali-pics78.jpg" alt="Tali portrait" className="contact-hero__image" />
+                    <img src="/photos/tali-pics78.webp" alt="Tali portrait" className="contact-hero__image" />
                     <div className="contact-hero__overlay" />
                 </div>
                 <div className="contact-hero__content container">
@@ -160,7 +156,6 @@ export default function Contact() {
                 </div>
             </section>
 
-            {/* Contact Form */}
             <section className="contact-form-section section">
                 <div className="container">
                     <div className="contact-grid">
@@ -243,7 +238,6 @@ export default function Contact() {
                 </div>
             </section>
 
-            {/* Location Section - Moved above Newsletter */}
             <section className="location-section section">
                 <div className="container">
                     <motion.div
@@ -276,7 +270,6 @@ export default function Contact() {
                 </div>
             </section>
 
-            {/* Newsletter */}
             <section className="newsletter section">
                 <div className="container">
                     <motion.div
@@ -315,7 +308,6 @@ export default function Contact() {
                 </div>
             </section>
 
-            {/* Map Modal - Updated Design */}
             <AnimatePresence>
                 {isMapOpen && (
                     <motion.div

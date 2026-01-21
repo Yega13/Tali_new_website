@@ -46,11 +46,10 @@ export default function Music() {
 
     return (
         <div className="music music-page">
-            {/* Hero */}
             <section className="music-hero">
                 <div className="music-hero__background">
                     <img
-                        src="/photos/tali-den-atelier.jpg"
+                        src="/photos/tali-den-atelier.webp"
                         alt="Tali live performance"
                         className="music-hero__image"
                     />
@@ -68,7 +67,6 @@ export default function Music() {
                 </div>
             </section>
 
-            {/* YouTube Videos */}
             <section className="music-videos section">
                 <div className="container">
                     <h2 className="section-title">Music Videos</h2>
@@ -103,7 +101,6 @@ export default function Music() {
                 </div>
             </section>
 
-            {/* Spotify Player - Carousel with Navigation */}
             <section className="spotify-section section">
                 <div className="container">
                     <h2 className="section-title">Listen Now</h2>
@@ -155,20 +152,17 @@ export default function Music() {
                 </div>
             </section>
 
-            {/* Show History */}
             <section className="shows section">
-                {/* Decorative stickers - left side */}
                 <div className="shows__stickers shows__stickers--left">
-                    <img src="/photos/tali-pics10.jpg" alt="" className="shows__sticker shows__sticker--1" />
-                    <img src="/photos/tali-pics40-eurovision.jpg" alt="" className="shows__sticker shows__sticker--2" />
-                    <img src="/photos/tali-pics49.jpg" alt="" className="shows__sticker shows__sticker--3" />
+                    <img src="/photos/tali-pics10.webp" alt="" className="shows__sticker shows__sticker--1" />
+                    <img src="/photos/tali-pics40-eurovision.webp" alt="" className="shows__sticker shows__sticker--2" />
+                    <img src="/photos/tali-pics49.webp" alt="" className="shows__sticker shows__sticker--3" />
                 </div>
 
-                {/* Decorative stickers - right side */}
                 <div className="shows__stickers shows__stickers--right">
-                    <img src="/photos/tali-pics76.jpg" alt="" className="shows__sticker shows__sticker--4" />
-                    <img src="/photos/tali-pics75.jpg" alt="" className="shows__sticker shows__sticker--5" />
-                    <img src="/photos/tali-pics105.jpg" alt="" className="shows__sticker shows__sticker--6" />
+                    <img src="/photos/tali-pics76.webp" alt="" className="shows__sticker shows__sticker--4" />
+                    <img src="/photos/tali-pics75.webp" alt="" className="shows__sticker shows__sticker--5" />
+                    <img src="/photos/tali-pics105.webp" alt="" className="shows__sticker shows__sticker--6" />
                 </div>
 
                 <div className="container">
@@ -212,24 +206,13 @@ export default function Music() {
                 </div>
             </section>
 
-            {/* GIF/Video Section */}
             <section className="gif-section section">
                 <div className="container">
                     <div className="gif-section__content">
-                        {/* Placeholder - replace src with actual GIF/video when available */}
                         <div className="gif-section__placeholder">
                             <span>GIF coming soon...</span>
                         </div>
-                        {/* 
-                        <video 
-                            className="gif-section__video"
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline
-                            src="/videos/your-gif.mp4"
-                        />
-                        */}
+
                     </div>
                 </div>
             </section>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import './News.css'
 
-// Wander streaming platforms
 const wanderPlatforms = [
     {
         name: 'Spotify',
@@ -64,7 +63,7 @@ const wanderPlatforms = [
 const newsItems = [
     {
         id: 'wander',
-        image: '/photos/tali-pics51.jpg',
+        image: '/photos/tali-pics51.webp',
         title: 'WANDER: A Journey of Self-Discovery',
         date: 'January 2025',
         excerpt: 'Tali\'s debut single "Wander" explores themes of finding yourself in unfamiliar places and embracing the unknown journey ahead.',
@@ -73,7 +72,7 @@ const newsItems = [
     },
     {
         id: 'style',
-        image: '/photos/tali-style2.jpg',
+        image: '/photos/tali-style2.webp',
         title: 'Style Drops: A Bold New Chapter',
         date: 'December 2024',
         excerpt: 'The electrifying new single "Style" showcases Tali\'s evolution as an artist with its infectious beats and empowering lyrics.',
@@ -83,7 +82,7 @@ const newsItems = [
     },
     {
         id: 'trounwiessel',
-        image: '/photos/trounwiessel-3.jpg',
+        image: '/photos/trounwiessel-3.webp',
         title: 'Trounwiessel: The Duke\'s Coronation',
         date: 'October 2024',
         excerpt: 'A historic collaboration celebrating Luxembourg\'s royal heritage through an enchanting musical tribute.',
@@ -95,7 +94,7 @@ const newsItems = [
     },
     {
         id: 'birthday',
-        image: '/photos/baby-tali-1.jpg',
+        image: '/photos/baby-tali-1.webp',
         title: '🎂 Happy Birthday Tali!',
         date: 'November 2024',
         excerpt: 'Celebrating another year of music, creativity, and inspiration!',
@@ -149,10 +148,9 @@ export default function News() {
 
     return (
         <div className="news">
-            {/* Hero */}
             <section className="news-hero">
                 <div className="news-hero__background">
-                    <img src="/photos/tali-pics47-national-selection.jpg" alt="Tali - National Selection" className="news-hero__image" />
+                    <img src="/photos/tali-pics47-national-selection.webp" alt="Tali - National Selection" className="news-hero__image" />
                     <div className="news-hero__overlay" />
                 </div>
                 <div className="news-hero__content container">
@@ -166,7 +164,6 @@ export default function News() {
                 </div>
             </section>
 
-            {/* News Items */}
             <section className="news-grid section">
                 <div className="container">
                     <div className="news-grid__container">
@@ -228,7 +225,6 @@ export default function News() {
                 </div>
             </section>
 
-            {/* Interviews */}
             <section className="interviews section">
                 <div className="container">
                     <h2 className="interviews__title">Interviews & Videos</h2>
@@ -278,7 +274,6 @@ export default function News() {
                 </div>
             </section>
 
-            {/* Wander Modal */}
             <AnimatePresence>
                 {isWanderModalOpen && (
                     <motion.div

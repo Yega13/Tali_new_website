@@ -112,6 +112,10 @@
     --transition-slow: 350ms ease;
     --transition-slower: 500ms ease;
 
+    /* Theme transition - unified timing for smooth theme switching */
+    --theme-transition-duration: 0.4s;
+    --theme-transition-timing: ease;
+
     /* ============ Z-Index ============ */
     --z-dropdown: 100;
     --z-sticky: 200;

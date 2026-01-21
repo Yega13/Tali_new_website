@@ -66,14 +66,12 @@ export default function Footer() {
     const currentYear = new Date().getFullYear()
     const location = useLocation()
 
-    // Filter out current page from quick links
     const filteredLinks = quickLinks.filter(link => link.to !== location.pathname)
 
     return (
         <footer className="footer">
             <div className="footer__container container">
                 <div className="footer__content">
-                    {/* Brand */}
                     <div className="footer__brand">
                         <Link to="/" className="footer__logo">
                             <span className="footer__logo-text">Tali Golergant</span>
@@ -83,7 +81,6 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Quick Links - hidden on mobile */}
                     <nav className="footer__nav footer__nav--desktop-only">
                         <h4 className="footer__nav-title">Quick Links</h4>
                         <ul className="footer__nav-list">
@@ -97,7 +94,6 @@ export default function Footer() {
                         </ul>
                     </nav>
 
-                    {/* Social Links */}
                     <div className="footer__social">
                         <h4 className="footer__nav-title">Follow Tali</h4>
                         <div className="footer__social-links">

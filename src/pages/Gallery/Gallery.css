@@ -38,10 +38,18 @@
 /* Theme-aware section titles */
 .gallery-grid .section-title {
     color: #000000;
+    text-align: center;
+    margin-bottom: var(--space-4);
 }
 
 [data-theme="dark"] .gallery-grid .section-title {
     color: var(--color-primary);
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid .section-title {
+        margin-bottom: var(--space-8);
+    }
 }
 
 .gallery-ticker__content {

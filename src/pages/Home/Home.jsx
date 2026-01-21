@@ -11,16 +11,18 @@ export default function Home() {
 
     return (
         <div className="home">
-            {/* Hero Section */}
             <section className="hero">
                 <div className="hero__background">
                     <img
-                        src={theme === 'light'
-                            ? '/photos/tali-style1.jpg'
-                            : '/photos/tali-pics35-eurovision-2025.jpg'
-                        }
+                        src="/photos/tali-style1.webp"
                         alt="Tali Golergant"
-                        className="hero__image"
+                        className={`hero__image hero__image--light ${theme === 'light' ? 'hero__image--active' : ''}`}
+                        loading="eager"
+                    />
+                    <img
+                        src="/photos/tali-pics35-eurovision-2025.webp"
+                        alt="Tali Golergant"
+                        className={`hero__image hero__image--dark ${theme === 'dark' ? 'hero__image--active' : ''}`}
                         loading="eager"
                     />
                     <div className="hero__overlay" />
@@ -85,7 +87,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Explore Section */}
             <section className="explore section">
                 <div className="container">
                     <motion.h2
@@ -153,7 +154,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Follow Section */}
             <section className="follow section">
                 <div className="container">
                     <motion.h2
@@ -200,7 +200,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Music Modal */}
             <MusicModal
                 isOpen={isMusicModalOpen}
                 onClose={() => setIsMusicModalOpen(false)}

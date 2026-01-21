@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import './Shop.css'
 
-// SVG Icons for shop items
 const TshirtIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
@@ -64,7 +63,6 @@ export default function Shop() {
     return (
         <div className="shop">
             <div className="shop__construction">
-                {/* Animated tools */}
                 <motion.div
                     className="shop__crane"
                     animate={{ rotate: [0, 5, -5, 0] }}
@@ -142,7 +140,6 @@ export default function Shop() {
                     </motion.div>
                 </div>
 
-                {/* Animated construction elements */}
                 <motion.div
                     className="shop__cone shop__cone--left"
                     animate={{ rotate: [0, 3, -3, 0] }}

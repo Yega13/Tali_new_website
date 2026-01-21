@@ -2,40 +2,39 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Collaborations.css'
 
-// BlueStripes moments photos for the gallery
 const bluestripesPhotos = [
-    { src: '/photos/tali-pics111.jpg', alt: 'Subway', type: 'image' },
+    { src: '/photos/tali-pics111.webp', alt: 'Subway', type: 'image' },
     { src: '/photos/tali-vids5.mp4', alt: 'Come On!', type: 'video' },
     { src: '/photos/tali-vids3.mp4', alt: 'New York', type: 'video' },
-    { src: '/photos/tali-pics3.jpg', alt: 'Tali recording', type: 'image' },
-    { src: '/photos/tali-pics5.jpg', alt: 'Filming', type: 'image' },
+    { src: '/photos/tali-pics3.webp', alt: 'Tali recording', type: 'image' },
+    { src: '/photos/tali-pics5.webp', alt: 'Filming', type: 'image' },
     { src: '/photos/tali-vids30.mp4', alt: 'Rehearsal', type: 'video' },
     { src: '/photos/tali-vids31.mp4', type: 'video' },
     { src: '/photos/tali-vids31.mp4', type: 'video' },
-    { src: '/photos/tali-pics140.jpg', alt: 'Rehearsal', type: 'image', objectPosition: 'right' }
+    { src: '/photos/tali-pics140.webp', alt: 'Rehearsal', type: 'image', objectPosition: 'right' }
 ]
 
 const collaborations = [
     {
         id: 'bluestripes',
         name: 'BlueStripes',
-        image: '/photos/tali-pics3.jpg',
+        image: '/photos/tali-pics3.webp',
         description: 'Tali collaborated with BlueStripes on their debut EP, bringing her unique vocal style to their alternative rock sound.',
         hasExpandableSongs: true,
         songs: [
             {
                 title: "You Don't Really Know Me",
-                image: '/photos/you-dont-really-know-me-pic.jpg',
+                image: '/photos/you-dont-really-know-me-pic.webp',
                 description: 'A powerful ballad exploring themes of identity and perception, featuring Tali\'s soaring vocals over ethereal guitar melodies.'
             },
             {
                 title: "Blue Bird",
-                image: '/photos/blue-bird.jpg',
+                image: '/photos/blue-bird.webp',
                 description: 'An uplifting anthem about freedom and self-discovery, blending indie rock with folk influences.'
             },
             {
                 title: "Come On!",
-                image: '/photos/bluestripes.jpg',
+                image: '/photos/bluestripes.webp',
                 description: 'An energetic, dance-ready track with infectious rhythms and empowering lyrics that celebrate living in the moment.'
             }
         ]
@@ -43,19 +42,19 @@ const collaborations = [
     {
         id: 'lostinpacific',
         name: 'Lost in Pacific',
-        image: '/photos/ocean-logo.jpg',
+        image: '/photos/ocean-logo.webp',
         description: 'An experimental electronic collaboration exploring atmospheric soundscapes and ethereal melodies.'
     },
     {
         id: 'sarahvera',
         name: 'Sarah Vera',
-        image: '/photos/garden-of-eden.jpg',
+        image: '/photos/garden-of-eden.webp',
         description: 'A beautiful acoustic collaboration with rising Luxembourg singer-songwriter Sarah Vera.'
     },
     {
         id: 'maxbartos',
         name: 'Max Bartos',
-        image: '/photos/carry-me-home.jpg',
+        image: '/photos/carry-me-home.webp',
         description: 'Tali worked with renowned producer Max Bartos on several tracks, blending indie pop with electronic production.'
     }
 ]
@@ -70,14 +69,11 @@ export default function Collaborations() {
     const cardRefs = useRef({})
     const expandedRef = useRef(null)
 
-    // Preload images for expandable sections to prevent lag
     useEffect(() => {
         const imagesToPreload = [
-            // Song images
             ...collaborations
                 .filter(c => c.songs)
                 .flatMap(c => c.songs.map(s => s.image)),
-            // Moments images/videos
             ...bluestripesPhotos
                 .filter(p => p.type !== 'video')
                 .map(p => p.src)
@@ -91,21 +87,17 @@ export default function Collaborations() {
 
     const toggleExpand = (id) => {
         if (expandedCollab === id) {
-            // Collapsing - measure current height for animation
             const expandedEl = expandedRef.current
             const currentHeight = expandedEl ? expandedEl.scrollHeight : 0
 
-            // Set height for CSS transition and start collapse
             setCollapseHeight(currentHeight)
             setExpandedCollab(null)
             setCollapsingCollab(id)
 
-            // Trigger reflow, then animate to 0
             requestAnimationFrame(() => {
                 setCollapseHeight(0)
             })
 
-            // After animation completes, clean up
             setTimeout(() => {
                 setCollapsingCollab(null)
                 setCollapseHeight(null)
@@ -135,7 +127,6 @@ export default function Collaborations() {
         }
     }
 
-    // Block body scroll when lightbox is open - using wasOpenRef pattern
     useEffect(() => {
         if (lightboxIndex !== null) {
             scrollPositionRef.current = window.scrollY
@@ -161,7 +152,7 @@ export default function Collaborations() {
             {/* Hero */}
             <section className="collab-hero">
                 <div className="collab-hero__background">
-                    <img src="/photos/tali-pics106.jpg" alt="Tali - collaborations" className="collab-hero__image" />
+                    <img src="/photos/tali-pics106.webp" alt="Tali - collaborations" className="collab-hero__image" />
                     <div className="collab-hero__overlay" />
                 </div>
                 <div className="collab-hero__content container">

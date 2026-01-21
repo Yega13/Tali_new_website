@@ -62,7 +62,6 @@ const musicPlatforms = [
 export default function MusicModal({ isOpen, onClose }) {
     const scrollPositionRef = useRef(0)
 
-    // Block body scroll when modal is open - using CSS class with !important
     useEffect(() => {
         if (isOpen) {
             scrollPositionRef.current = window.scrollY

@@ -406,12 +406,12 @@
         height: 100%;
         object-fit: cover;
 
-        /* Anchoring LEFT (0%) and Y-POS (45%) to raise face */
-        object-position: 0% 45% !important;
+        /* Anchoring LEFT (0%) and Y-POS (25%) to show face (lower content) */
+        object-position: 0% 25% !important;
     }
 
     [data-theme="dark"] .music-hero__image {
-        object-position: 0% 35% !important;
+        object-position: 0% 25% !important;
     }
 
     .music-videos__grid {

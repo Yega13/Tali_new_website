@@ -6,7 +6,6 @@ import './Preloader.css'
 export default function Preloader() {
     const { isLoading, isAnimating } = usePreloader(2500)
 
-    // Hide scrollbar during preloader using CSS class
     useEffect(() => {
         if (isLoading) {
             document.body.classList.add('preloader-active')

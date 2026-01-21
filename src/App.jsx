@@ -1,33 +1,53 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from '@/hooks/useTheme'
 import { AnimatePresence, motion } from 'framer-motion'
+import { lazy, Suspense } from 'react'
 import Preloader from '@/components/common/Preloader'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/common/ScrollToTop'
 import BackToTop from '@/components/common/BackToTop'
+import ErrorBoundary from '@/components/common/ErrorBoundary'
+import SEO from '@/components/common/SEO'
 
-// Pages
-import Home from '@/pages/Home'
-import About from '@/pages/About'
-import Music from '@/pages/Music'
-import Gallery from '@/pages/Gallery'
-import News from '@/pages/News'
-import Collaborations from '@/pages/Collaborations'
-import Contact from '@/pages/Contact'
-import NotFound from '@/pages/NotFound'
-import Birthday from '@/pages/Birthday'
-import Shop from '@/pages/Shop'
+const Home = lazy(() => import('@/pages/Home'))
+const About = lazy(() => import('@/pages/About'))
+const Music = lazy(() => import('@/pages/Music'))
+const Gallery = lazy(() => import('@/pages/Gallery'))
+const News = lazy(() => import('@/pages/News'))
+const Collaborations = lazy(() => import('@/pages/Collaborations'))
+const Contact = lazy(() => import('@/pages/Contact'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
+const Birthday = lazy(() => import('@/pages/Birthday'))
+const Shop = lazy(() => import('@/pages/Shop'))
 
-// Page transition wrapper - pure opacity appear
 const pageVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
     exit: { opacity: 0, transition: { duration: 0.2 } }
 }
 
-// Valid routes for checking 404
 const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/birthday', '/shop']
+
+function PageLoader() {
+    return (
+        <div style={{
+            minHeight: '50vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
+            <div style={{
+                width: '40px',
+                height: '40px',
+                border: '3px solid var(--color-border-light)',
+                borderTopColor: 'var(--color-primary)',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite'
+            }} />
+        </div>
+    )
+}
 
 function AnimatedRoutes() {
     const location = useLocation()
@@ -41,18 +61,20 @@ function AnimatedRoutes() {
                 animate="animate"
                 exit="exit"
             >
-                <Routes location={location}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/music" element={<Music />} />
-                    <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/news" element={<News />} />
-                    <Route path="/collaborations" element={<Collaborations />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/birthday" element={<Birthday />} />
-                    <Route path="/shop" element={<Shop />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <Suspense fallback={<PageLoader />}>
+                    <Routes location={location}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/music" element={<Music />} />
+                        <Route path="/gallery" element={<Gallery />} />
+                        <Route path="/news" element={<News />} />
+                        <Route path="/collaborations" element={<Collaborations />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/birthday" element={<Birthday />} />
+                        <Route path="/shop" element={<Shop />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </Suspense>
             </motion.div>
         </AnimatePresence>
     )
@@ -66,6 +88,7 @@ function AppContent() {
         <>
             <Preloader />
             <ScrollToTop />
+            <SEO />
             {!is404 && <Header />}
             <main>
                 <AnimatedRoutes />
@@ -78,10 +101,12 @@ function AppContent() {
 
 export default function App() {
     return (
-        <ThemeProvider>
-            <Router>
-                <AppContent />
-            </Router>
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <Router>
+                    <AppContent />
+                </Router>
+            </ThemeProvider>
+        </ErrorBoundary>
     )
 }
