@@ -2,6 +2,9 @@
     background-color: var(--color-bg-primary);
     border-top: 3px solid var(--color-primary);
     padding: var(--space-10) 0 var(--space-6);
+    /* Prevent CLS by reserving space */
+    min-height: 280px;
+    contain: layout style;
 }
 
 [data-theme="dark"] .footer {
@@ -11,6 +14,7 @@
 @media (min-width: 768px) {
     .footer {
         padding: var(--space-6) 0 var(--space-3);
+        min-height: 220px;
     }
 }
 
