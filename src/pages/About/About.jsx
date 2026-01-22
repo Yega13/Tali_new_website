@@ -45,7 +45,7 @@ export default function About() {
                                     music together to create her own unique sound.
                                 </p>
                                 <p>
-                                    Post-pandemic, she started gigging shows with her own music in NYC. Her debut single "Wander"
+                                    After 2020, she started gigging shows with her own music in NYC. Her debut single "Wander"
                                     caught the attention of listeners worldwide, leading to collaborations with renowned producers
                                     and songwriters. TALI's music is characterized by introspective lyrics, ethereal vocals, and
                                     a blend of electronic and acoustic elements.
