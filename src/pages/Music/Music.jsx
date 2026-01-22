@@ -218,10 +218,14 @@ export default function Music() {
             <section className="gif-section section">
                 <div className="container">
                     <div className="gif-section__content">
-                        <div className="gif-section__placeholder">
-                            <span>GIF coming soon...</span>
-                        </div>
-
+                        <video
+                            className="gif-section__video"
+                            src="/photos/Tali vids(temp).mp4"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
                     </div>
                 </div>
             </section>

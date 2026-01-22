@@ -257,8 +257,12 @@
 .gif-section__video {
     width: 100%;
     max-width: 400px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center 30%;
     border-radius: var(--radius-lg);
     display: block;
+    pointer-events: none;
 }
 
 /* ============ Spotify Player - Carousel with Navigation ============ */
