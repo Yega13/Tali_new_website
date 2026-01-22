@@ -83,7 +83,9 @@ export default function Birthday() {
                 >
                     Wishing you all the best on your special day!
                     <br />
-                    May your melodies continue to inspire millions around the world.
+                    Happy birthday to the most talented and full of love human there is, thank you for touching my heart and so many others, your art is a hug for the soul and I am beyond grateful to have found you, have a lovely day, I celebrate your life because you saved mine, love you so much Tali🤍
+                    Written by Dania ;
+                    <br />
                 </motion.p>
 
                 <motion.div
