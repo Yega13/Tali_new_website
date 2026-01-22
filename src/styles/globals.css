@@ -272,6 +272,85 @@ h6,
     }
 }
 
+/* Medium Desktop (1300px+) */
+@media (min-width: 1300px) {
+    .container {
+        max-width: var(--container-2xl);
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+
+    h1,
+    .h1 {
+        font-size: 4rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: var(--text-5xl);
+    }
+}
+
+/* Big Desktop (1700px+) */
+@media (min-width: 1700px) {
+    .container {
+        max-width: var(--container-3xl);
+        padding-left: var(--space-10);
+        padding-right: var(--space-10);
+    }
+
+    .section {
+        padding-top: var(--space-24);
+        padding-bottom: var(--space-24);
+    }
+
+    h1,
+    .h1 {
+        font-size: var(--text-7xl);
+    }
+
+    h2,
+    .h2 {
+        font-size: var(--text-5xl);
+    }
+
+    h3,
+    .h3 {
+        font-size: var(--text-4xl);
+    }
+}
+
+/* Huge Desktop (1900px+) */
+@media (min-width: 1900px) {
+    .container {
+        max-width: var(--container-4xl);
+        padding-left: var(--space-12);
+        padding-right: var(--space-12);
+    }
+
+    .section {
+        padding-top: var(--space-32);
+        padding-bottom: var(--space-32);
+    }
+}
+
+/* Massive Desktop (2100px+) */
+@media (min-width: 2100px) {
+    .container {
+        max-width: var(--container-5xl);
+    }
+
+    h1,
+    .h1 {
+        font-size: 5rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 4rem;
+    }
+}
+
 /* ============ Buttons ============ */
 .btn {
     display: inline-flex;

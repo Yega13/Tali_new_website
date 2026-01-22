@@ -43,3 +43,45 @@
         height: 20px;
     }
 }
+
+@media (min-width: 1700px) {
+    .back-to-top {
+        bottom: var(--space-8);
+        right: var(--space-8);
+        width: 48px;
+        height: 48px;
+    }
+
+    .back-to-top svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .back-to-top {
+        bottom: var(--space-10);
+        right: var(--space-10);
+        width: 52px;
+        height: 52px;
+    }
+
+    .back-to-top svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (min-width: 2100px) {
+    .back-to-top {
+        bottom: var(--space-12);
+        right: var(--space-12);
+        width: 56px;
+        height: 56px;
+    }
+
+    .back-to-top svg {
+        width: 26px;
+        height: 26px;
+    }
+}

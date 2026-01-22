@@ -19,23 +19,23 @@ const collaborations = [
         id: 'bluestripes',
         name: 'BlueStripes',
         image: '/photos/tali-pics3.webp',
-        description: 'Tali collaborated with BlueStripes on their debut EP, bringing her unique vocal style to their alternative rock sound.',
+        description: 'In 2025 Tali starts to collaborating with new band called BlueStripes! They already released 3 songs. They\'re debut song was "You Don\' Really Know Me" which immidately made peaople fall in love with beautiful jazzy melodies. Then band released new song called - "Blue Bird" and then the latest song released by BlueStripes - "Come On!". BlueStripes and TALI still have a lot of exciting things and songs to show. All of their songs are available on all music platforms!',
         hasExpandableSongs: true,
         songs: [
             {
                 title: "You Don't Really Know Me",
                 image: '/photos/you-dont-really-know-me-pic.webp',
-                description: 'A powerful ballad exploring themes of identity and perception, featuring Tali\'s soaring vocals over ethereal guitar melodies.'
+                description: 'This is the first and the most popular song of the bad at the moment, and it is popular for a reason!'
             },
             {
                 title: "Blue Bird",
                 image: '/photos/blue-bird.webp',
-                description: 'An uplifting anthem about freedom and self-discovery, blending indie rock with folk influences.'
+                description: 'This is one of the most unique melodies with beatiful vocals and instruments like violin and saxaphone, which will fill your heart with jazzy notes'
             },
             {
                 title: "Come On!",
                 image: '/photos/bluestripes.webp',
-                description: 'An energetic, dance-ready track with infectious rhythms and empowering lyrics that celebrate living in the moment.'
+                description: 'An energetic, dance-ready track with infectious rhythms and empowering lyrics that celebrate living in the moment :)'
             }
         ]
     },
@@ -43,19 +43,19 @@ const collaborations = [
         id: 'lostinpacific',
         name: 'Lost in Pacific',
         image: '/photos/ocean-logo.webp',
-        description: 'An experimental electronic collaboration exploring atmospheric soundscapes and ethereal melodies.'
+        description: 'This is truly one of the hidden gems of TALI\'s journey. This collaborations was made in 2024 and it already counts more than 4 million listens in Spotify only! The collaborations was with french electronic music producer Lost in Pacific, known for atmospheric, surf-inspired tracks TALI herself did not tell her fans about this song, keeping it a secret, and she shared the song six months later - In the summer of 2025. The song is called "Ocean", you can find it in music platforms like Spotify, Apple Music e.t.c.'
     },
     {
         id: 'sarahvera',
         name: 'Sarah Vera',
         image: '/photos/garden-of-eden.webp',
-        description: 'A beautiful acoustic collaboration with rising Luxembourg singer-songwriter Sarah Vera.'
+        description: 'This beautiful song was the first collaboration of TALI, and it was with Sarah Vera. Collaboration was made in 2022 and instantly blow up in social media like Tik Tok, Instagram e.t.c. The song itself is a unique history, and everyone should hear it at least once!'
     },
     {
         id: 'maxbartos',
         name: 'Max Bartos',
         image: '/photos/carry-me-home.webp',
-        description: 'Tali worked with renowned producer Max Bartos on several tracks, blending indie pop with electronic production.'
+        description: 'This was the second collaboration of TALI, and it was with Max Bartos. The song is called "Carry Me Home" and it was released in 2023.'
     }
 ]
 

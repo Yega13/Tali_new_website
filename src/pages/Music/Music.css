@@ -526,7 +526,7 @@
     }
 
     .shows__sticker--3 {
-        width: 115px;
+        width: 95px;
         height: auto;
         top: 75%;
         left: 15px;
@@ -582,7 +582,7 @@
     }
 
     .shows__sticker--3 {
-        width: 145px;
+        width: 115px;
         left: 30px;
         transform: rotate(-8deg);
     }
@@ -604,5 +604,35 @@
         width: 115px;
         right: 65px;
         transform: rotate(6deg);
+    }
+}
+
+/* User Request: Make stickers smaller for 1900px - 2299px range */
+@media (min-width: 1900px) and (max-width: 2299px) {
+
+    /* Left side - slightly smaller than 1300px version */
+    .shows__sticker--1 {
+        width: 135px;
+    }
+
+    .shows__sticker--2 {
+        width: 105px;
+    }
+
+    .shows__sticker--3 {
+        width: 95px;
+    }
+
+    /* Right side - slightly smaller than 1300px version */
+    .shows__sticker--4 {
+        width: 115px;
+    }
+
+    .shows__sticker--5 {
+        width: 125px;
+    }
+
+    .shows__sticker--6 {
+        width: 100px;
     }
 }

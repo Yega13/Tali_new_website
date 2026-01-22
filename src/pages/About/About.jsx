@@ -1,10 +1,80 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import LazyVideo from '@/components/common/LazyVideo'
 import './About.css'
 
+const resumeData = [
+    {
+        title: "Management",
+        content: (
+            <>
+                <p><strong>More Zap Productions & Management</strong></p>
+                <p><span className="resume-block__label">Contact:</span> morezapwave@gmail.com, +1 (310) 749-5700</p>
+            </>
+        )
+    },
+    {
+        title: "Theatre",
+        content: (
+            <ul className="resume-block__list">
+                <li><strong>Carrie</strong> - Susan Snell, Carrie U/S - New England Theatreworks</li>
+                <li><strong>Les Miserables</strong> - Eponine - Luxembourg Theatre</li>
+                <li><strong>Fiddler on the Roof</strong> - Tzeitel - Luxembourg Theatre</li>
+                <li><strong>Fugitive Songs</strong> - (Alysha Umphress Track) - The Great Hall</li>
+                <li><strong>This Thing of Darkness</strong> - Kiara - Black Box Theatre</li>
+            </ul>
+        )
+    },
+    {
+        title: "Film/Media",
+        content: (
+            <ul className="resume-block__list">
+                <li><strong>Agua</strong> - Lead (Iris) - Wady Films/Indie</li>
+                <li><strong>Match Made on Eleven</strong> - Supporting (Diana) - NYU Graduate Film/Short</li>
+            </ul>
+        )
+    },
+    {
+        title: "VO/Jingles",
+        content: (
+            <ul className="resume-block__list">
+                <li><strong>Melusina</strong> - Principal Singer - Film Fund Lux/Short</li>
+                <li><strong>Rosport Pommes</strong> - Principal Singer - Mayfex/Commercial</li>
+            </ul>
+        )
+    },
+    {
+        title: "Training",
+        content: (
+            <>
+                <p><strong>Marymount Manhattan College</strong> - BFA Musical Theatre</p>
+                <ul className="resume-block__list">
+                    <li>Acting for Stage: Michael Mendez, Brandon Logan, Johanna Pinzler</li>
+                    <li>Acting on Camera: Ann Hamilton</li>
+                    <li>Vocal Technique: Elijah Caldwell</li>
+                    <li>Vocal Repertoire/Coaching: Tyler Knauf</li>
+                    <li>Dance: Kimberly Schafer, Tommy Scrivens, Kyle Pleasant</li>
+                </ul>
+            </>
+        )
+    },
+    {
+        title: "Special Skills",
+        content: (
+            <>
+                <p><span className="resume-block__label">Languages:</span> Hebrew (fluent), Spanish (fluent), French (advanced), German (intermediate)</p>
+                <p><span className="resume-block__label">Musical:</span> Piano (advanced), Singer/Songwriter (Spotify: Tali Golergant), Teacher of piano and voice (6 years)</p>
+            </>
+        )
+    }
+]
+
 export default function About() {
     const { theme } = useTheme()
+    const isDesktop = useMediaQuery('(min-width: 768px)')
+    const [isResumeExpanded, setIsResumeExpanded] = useState(false)
 
     return (
         <div className="about">
@@ -45,15 +115,17 @@ export default function About() {
                                     music together to create her own unique sound.
                                 </p>
                                 <p>
-                                    After 2020, she started gigging shows with her own music in NYC. Her debut single "Wander"
-                                    caught the attention of listeners worldwide, leading to collaborations with renowned producers
-                                    and songwriters. TALI's music is characterized by introspective lyrics, ethereal vocals, and
-                                    a blend of electronic and acoustic elements.
+                                    After 2020, she started gigging shows with her own music in NYC. Her debut single is a part of
+                                    her first EP "Lose You", the song is called "temporary". After that in 2024 TALI tried her luck
+                                    in Luxembourg's national selection for Eurovision, and won with her song "Fighter". And that's
+                                    how Luxembourg got back to Eurovision after 32 years. In Eurovision TALI achieved Grand Final
+                                    and finished 13th.
                                 </p>
                                 <p>
-                                    In 2025, TALI represented Luxembourg at the Eurovision Song Contest, bringing her unique
-                                    sound to an international stage. Her performance captivated millions of viewers and
-                                    established her as one of the most promising artists in European pop music.
+                                    In January of 2025, TALI released first song of her new EP "WANDER", which was "Dear Parents".
+                                    Shortly after that TALI had her first solo concert in famous Den Atelier, Luxembourg. Then in May,
+                                    TALI released her second EP - "WANDER", which contains 7 songs and and one collaborations with Sean
+                                    Biopick. Soon, TALI is realising her new song which is called "Style", we still have a lot to show! ;)
                                 </p>
                             </div>
                         </motion.div>
@@ -78,7 +150,7 @@ export default function About() {
                             {
                                 year: 'Early Years',
                                 image: '/photos/tali-pics82-baby.webp',
-                                alt: 'Young Tali in Jerusalem',
+                                alt: 'Young Tali',
                                 text: 'Tali was born on November 26, 2000, in Jerusalem, Israel. Growing up in a musical family, it was only natural for her to devote her life to music. She began playing the piano and singing at the age of six.'
                             },
                             {
@@ -88,16 +160,16 @@ export default function About() {
                                 text: 'Moved to New York City to pursue her dreams in music and theater. Started performing at local venues and open mics, developing her unique sound and stage presence.'
                             },
                             {
-                                year: '2023',
+                                year: '2024',
                                 image: '/photos/tali-pics50.webp',
-                                alt: 'Tali - debut era',
-                                text: 'Released her debut singles and started building an international fanbase. Collaborated with various artists and producers, refining her signature sound.'
+                                alt: 'Tali - Eurovision 2024',
+                                text: 'Selected to represent Luxembourg at Eurovision Song Contest 2024. Which was very important step in her career.Her performance introduced her music to millions of viewers worldwide.'
                             },
                             {
                                 year: '2025',
                                 image: '/photos/tali-pics51.webp',
-                                alt: 'Tali - Eurovision 2025',
-                                text: 'Selected to represent Luxembourg at Eurovision Song Contest 2025. Her performance received critical acclaim and introduced her music to millions of viewers worldwide.'
+                                alt: 'Tali WANDER',
+                                text: 'In 2025 Tali finally release her second EP, had her first solo gig, which immidiatel went sold-out, and started to exapnd her community across the globe.'
                             }
                         ].map((item, index) => (
                             <motion.div
@@ -139,12 +211,7 @@ export default function About() {
                         Acting & Voice
                     </motion.h2>
 
-                    <motion.div
-                        className="acting-imdb"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    <div className="acting-imdb">
                         <a
                             href="https://www.imdb.com/name/nm12387164/?ref_=ext_shr_lnk"
                             target="_blank"
@@ -154,14 +221,10 @@ export default function About() {
                             <div className="imdb-logo">IMDb</div>
                             <span>View on IMDB</span>
                         </a>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        className="acting-category"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    {/* Videos without complex animations to ensure visibility on all screens */}
+                    <div className="acting-category">
                         <h3 className="acting-category__title">Eurovision</h3>
                         <div className="acting-videos__grid">
                             <LazyVideo
@@ -170,14 +233,9 @@ export default function About() {
                                 className="acting-video"
                             />
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        className="acting-category"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    <div className="acting-category">
                         <h3 className="acting-category__title">Acting</h3>
                         <div className="acting-videos__grid">
                             <LazyVideo
@@ -186,14 +244,9 @@ export default function About() {
                                 className="acting-video"
                             />
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        className="acting-category"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    <div className="acting-category">
                         <h3 className="acting-category__title">Voice</h3>
                         <div className="acting-videos__grid acting-videos__grid--multi">
                             <LazyVideo
@@ -207,14 +260,9 @@ export default function About() {
                                 className="acting-video"
                             />
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        className="acting-category"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    <div className="acting-category">
                         <h3 className="acting-category__title">Live</h3>
                         <div className="acting-videos__grid acting-videos__grid--multi">
                             <LazyVideo
@@ -228,7 +276,7 @@ export default function About() {
                                 className="acting-video"
                             />
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -272,97 +320,49 @@ export default function About() {
                         </motion.button>
                     </div>
 
-
-
                     <div className="resume-blocks">
-                        <motion.div
-                            className="resume-block"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <h3 className="resume-block__title">Management</h3>
-                            <p><strong>More Zap Productions & Management</strong></p>
-                            <p><span className="resume-block__label">Contact:</span> morezapwave@gmail.com, +1 (310) 749-5700</p>
-                        </motion.div>
+                        {resumeData.map((block, index) => {
+                            // On mobile, blur the last item (6th item, index 5) if not expanded
+                            const isBlurred = !isDesktop && !isResumeExpanded && index === 5;
 
-                        <motion.div
-                            className="resume-block"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                        >
-                            <h3 className="resume-block__title">Theatre</h3>
-                            <ul className="resume-block__list">
-                                <li><strong>Carrie</strong> - Susan Snell, Carrie U/S - New England Theatreworks</li>
-                                <li><strong>Les Miserables</strong> - Eponine - Luxembourg Theatre</li>
-                                <li><strong>Fiddler on the Roof</strong> - Tzeitel - Luxembourg Theatre</li>
-                                <li><strong>Fugitive Songs</strong> - (Alysha Umphress Track) - The Great Hall</li>
-                                <li><strong>This Thing of Darkness</strong> - Kiara - Black Box Theatre</li>
-                            </ul>
-                        </motion.div>
+                            return (
+                                <motion.div
+                                    key={block.title}
+                                    className={`resume-block ${isBlurred ? 'resume-block--blurred' : ''}`}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                >
+                                    <h3 className="resume-block__title">{block.title}</h3>
+                                    {block.content}
+                                </motion.div>
+                            );
+                        })}
 
-                        <motion.div
-                            className="resume-block"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                        >
-                            <h3 className="resume-block__title">Film/Media</h3>
-                            <ul className="resume-block__list">
-                                <li><strong>Agua</strong> - Lead (Iris) - Wady Films/Indie</li>
-                                <li><strong>Match Made on Eleven</strong> - Supporting (Diana) - NYU Graduate Film/Short</li>
-                            </ul>
-                        </motion.div>
-
-                        <motion.div
-                            className="resume-block"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                        >
-                            <h3 className="resume-block__title">VO/Jingles</h3>
-                            <ul className="resume-block__list">
-                                <li><strong>Melusina</strong> - Principal Singer - Film Fund Lux/Short</li>
-                                <li><strong>Rosport Pommes</strong> - Principal Singer - Mayfex/Commercial</li>
-                            </ul>
-                        </motion.div>
-
-                        <motion.div
-                            className="resume-block"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
-                        >
-                            <h3 className="resume-block__title">Training</h3>
-                            <p><strong>Marymount Manhattan College</strong> - BFA Musical Theatre</p>
-                            <ul className="resume-block__list">
-                                <li>Acting for Stage: Michael Mendez, Brandon Logan, Johanna Pinzler</li>
-                                <li>Acting on Camera: Ann Hamilton</li>
-                                <li>Vocal Technique: Elijah Caldwell</li>
-                                <li>Vocal Repertoire/Coaching: Tyler Knauf</li>
-                                <li>Dance: Kimberly Schafer, Tommy Scrivens, Kyle Pleasant</li>
-                            </ul>
-                        </motion.div>
-
-                        <motion.div
-                            className="resume-block"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.5 }}
-                        >
-                            <h3 className="resume-block__title">Special Skills</h3>
-                            <p><span className="resume-block__label">Languages:</span> Hebrew (fluent), Spanish (fluent), French (advanced), German (intermediate)</p>
-                            <p><span className="resume-block__label">Musical:</span> Piano (advanced), Singer/Songwriter (Spotify: Tali Golergant), Teacher of piano and voice (6 years)</p>
-                        </motion.div>
+                        {!isDesktop && (
+                            <div className="resume-show-more-container">
+                                <button
+                                    className="resume-show-more-btn"
+                                    onClick={() => setIsResumeExpanded(!isResumeExpanded)}
+                                >
+                                    {isResumeExpanded ? (
+                                        <>
+                                            Show Less
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                                        </>
+                                    ) : (
+                                        <>
+                                            Show More
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                        </>
+                                    )}
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
-            </section >
-        </div >
+            </section>
+        </div>
     )
 }

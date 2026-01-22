@@ -97,6 +97,21 @@
     .news-grid__container {
         gap: var(--space-8);
     }
+
+    /* Make news page wider */
+    .news-grid .container,
+    .interviews .container {
+        max-width: 1600px;
+    }
+}
+
+/* Even wider for 1700px+ */
+@media (min-width: 1700px) {
+
+    .news-grid .container,
+    .interviews .container {
+        max-width: 1900px;
+    }
 }
 
 .news-card {
@@ -140,6 +155,7 @@
 
 /* Push links to bottom for 1st and last cards on desktop */
 @media (min-width: 1024px) {
+
     .news-card:nth-child(1) .news-card__links,
     .news-card:last-child .news-card__links {
         margin-top: auto;
@@ -197,7 +213,8 @@
 @media (min-width: 1024px) {
     .interview-row {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 4fr 6fr;
+        /* Video smaller */
         gap: var(--space-10);
         align-items: start;
     }
@@ -206,7 +223,7 @@
         direction: rtl;
     }
 
-    .interview-row--reverse > * {
+    .interview-row--reverse>* {
         direction: ltr;
     }
 }

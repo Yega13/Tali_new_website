@@ -61,6 +61,24 @@
     }
 }
 
+@media (min-width: 1700px) {
+    .contact-grid {
+        gap: var(--space-12);
+    }
+}
+
+@media (min-width: 1900px) {
+    .contact-grid {
+        gap: var(--space-16);
+    }
+}
+
+@media (min-width: 2100px) {
+    .contact-grid {
+        gap: var(--space-20);
+    }
+}
+
 /* Contact Info */
 .contact-info__title {
     font-family: var(--font-display);
@@ -380,5 +398,35 @@
 
     .map-modal__content {
         max-width: 400px;
+    }
+}
+
+@media (min-width: 1700px) {
+    .map-modal__content {
+        max-width: 450px;
+    }
+
+    .map-modal__frame {
+        height: 320px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .map-modal__content {
+        max-width: 500px;
+    }
+
+    .map-modal__frame {
+        height: 360px;
+    }
+}
+
+@media (min-width: 2100px) {
+    .map-modal__content {
+        max-width: 600px;
+    }
+
+    .map-modal__frame {
+        height: 420px;
     }
 }

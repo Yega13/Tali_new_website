@@ -127,6 +127,30 @@
     }
 }
 
+/* Wider gallery for 1300px+ */
+@media (min-width: 1300px) {
+    .gallery-grid .container {
+        max-width: 1600px;
+    }
+
+    .gallery-grid__container--masonry {
+        column-count: 4;
+        column-gap: var(--space-5);
+    }
+}
+
+/* Even wider for 1700px+ */
+@media (min-width: 1700px) {
+    .gallery-grid .container {
+        max-width: 1900px;
+    }
+
+    .gallery-grid__container--masonry {
+        column-count: 5;
+        column-gap: var(--space-6);
+    }
+}
+
 .gallery-item {
     position: relative;
     border-radius: var(--radius-lg);

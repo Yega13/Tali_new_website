@@ -104,8 +104,24 @@
    --container-lg: 1024px;
    --container-xl: 1280px;
    --container-2xl: 1536px;
+   --container-3xl: 1700px;
+   --container-4xl: 1900px;
+   --container-5xl: 2100px;
 
    /* ============ Border Radius ============ */
+   --radius-sm: 0.25rem;
+   /* ... other variables ... */
+   /* ============ BREAKPOINT REFERENCE (for documentation) ============
+   Mobile-first approach:
+   - Base: 0-767px (mobile)
+   - Tablet: 768px+
+   - Desktop: 1024px+
+   - Large Desktop: 1280px+
+   - XL Desktop: 1536px+
+   - Big Desktop: 1700px - 1899px
+   - Huge Desktop: 1900px - 2099px
+   - Massive Desktop: 2100px+
+   ============================================ */
    --radius-sm: 0.25rem;
    /* 4px */
    --radius-md: 0.5rem;
@@ -149,6 +165,7 @@
 /* ============================================
    LIGHT THEME (Default)
    ============================================ */
+
 :root,
 [data-theme="light"] {
    /* Primary Colors */
@@ -228,13 +245,3 @@
    --color-preloader-bg: #121212;
    --color-preloader-text: #F5F5F5;
 }
-
-/* ============================================
-   BREAKPOINT REFERENCE (for documentation)
-   Mobile-first approach:
-   - Base: 0-767px (mobile)
-   - Tablet: 768px+
-   - Desktop: 1024px+
-   - Large Desktop: 1280px+
-   - XL Desktop: 1536px+
-   ============================================ */

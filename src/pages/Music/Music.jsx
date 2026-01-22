@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import './Music.css'
 
 export default function Music() {
+    const isDesktop = useMediaQuery('(min-width: 1024px)')
     const [showAllShows, setShowAllShows] = useState(false)
     const [currentTrack, setCurrentTrack] = useState(0)
+
+    // ... (tracks)
 
     const spotifyTracks = [
         'https://open.spotify.com/embed/track/5kPrQcU2fJfpBUXAXGZZLq?utm_source=generator',
@@ -42,7 +46,10 @@ export default function Music() {
         { date: '12/17/21', venue: 'The Green Room' }
     ]
 
-    const visibleShows = showAllShows ? allShows : allShows.slice(0, 6)
+    const visibleShows = isDesktop ? allShows : (showAllShows ? allShows : allShows.slice(0, 6))
+
+    // ... render ...
+
 
     return (
         <div className="music music-page">
@@ -171,7 +178,7 @@ export default function Music() {
                         {visibleShows.map((show, index) => (
                             <motion.div
                                 key={`${show.date}-${show.venue}`}
-                                className={`show-item ${!showAllShows && index === 5 ? 'show-item--half-blurred' : ''}`}
+                                className={`show-item ${!isDesktop && !showAllShows && index === 5 ? 'show-item--half-blurred' : ''}`}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -183,26 +190,28 @@ export default function Music() {
                         ))}
                     </div>
 
-                    <button
-                        className="shows__toggle"
-                        onClick={() => setShowAllShows(!showAllShows)}
-                    >
-                        {showAllShows ? (
-                            <>
-                                Show Less
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="18 15 12 9 6 15" />
-                                </svg>
-                            </>
-                        ) : (
-                            <>
-                                Show More
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="6 9 12 15 18 9" />
-                                </svg>
-                            </>
-                        )}
-                    </button>
+                    {!isDesktop && (
+                        <button
+                            className="shows__toggle"
+                            onClick={() => setShowAllShows(!showAllShows)}
+                        >
+                            {showAllShows ? (
+                                <>
+                                    Show Less
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="18 15 12 9 6 15" />
+                                    </svg>
+                                </>
+                            ) : (
+                                <>
+                                    Show More
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </>
+                            )}
+                        </button>
+                    )}
                 </div>
             </section>
 

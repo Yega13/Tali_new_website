@@ -67,6 +67,18 @@
     }
 }
 
+@media (min-width: 1700px) {
+    .collab-list {
+        gap: var(--space-20);
+    }
+}
+
+@media (min-width: 1900px) {
+    .collab-list {
+        gap: var(--space-24);
+    }
+}
+
 .collab-card {
     position: relative;
     display: flex;
@@ -173,7 +185,7 @@
         direction: rtl;
     }
 
-    .collab-card:nth-child(even) > * {
+    .collab-card:nth-child(even)>* {
         direction: ltr;
     }
 
@@ -185,6 +197,61 @@
     /* Expanded section spans full width */
     .collab-card__actions {
         grid-column: 1 / -1;
+    }
+}
+
+/* Medium Desktop (1300px+) */
+@media (min-width: 1300px) {
+    .collab-card {
+        grid-template-columns: 1fr 1fr;
+        /* Equal columns */
+        gap: var(--space-32);
+        /* More gap between picture and text */
+        padding: var(--space-8) var(--space-12);
+        max-width: none;
+        /* Use full width */
+    }
+
+    .collab-card__image {
+        max-width: 550px;
+        /* Bigger pictures */
+    }
+}
+
+/* Big Desktop (1700px+) */
+@media (min-width: 1700px) {
+    .collab-card {
+        gap: var(--space-40);
+        /* Even more gap */
+        padding: var(--space-10) var(--space-16);
+    }
+
+    .collab-card__image {
+        max-width: 600px;
+    }
+}
+
+/* Huge Desktop (1900px+) */
+@media (min-width: 1900px) {
+    .collab-card {
+        gap: var(--space-48);
+        /* Maximum gap */
+        padding: var(--space-12) var(--space-20);
+    }
+
+    .collab-card__image {
+        max-width: 650px;
+    }
+
+    .collab-card__number {
+        font-size: 10rem;
+    }
+}
+
+/* Massive Desktop (2100px+) */
+@media (min-width: 2100px) {
+    .collab-card__image {
+        max-width: 700px;
     }
 }
 
@@ -412,6 +479,27 @@
     .collab-moments__item:nth-child(8) img,
     .collab-moments__item:nth-child(8) video {
         aspect-ratio: 16 / 9;
+    }
+}
+
+@media (min-width: 1700px) {
+    .collab-moments__grid {
+        column-count: 5;
+        column-gap: var(--space-5);
+    }
+}
+
+@media (min-width: 1900px) {
+    .collab-moments__grid {
+        column-count: 6;
+        column-gap: var(--space-6);
+    }
+}
+
+@media (min-width: 2100px) {
+    .collab-moments__grid {
+        column-count: 7;
+        column-gap: var(--space-8);
     }
 }
 

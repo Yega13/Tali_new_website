@@ -66,7 +66,7 @@ const newsItems = [
         image: '/photos/tali-pics51.webp',
         title: 'WANDER: A Journey of Self-Discovery',
         date: 'January 2025',
-        excerpt: 'Tali\'s debut single "Wander" explores themes of finding yourself in unfamiliar places and embracing the unknown journey ahead.',
+        excerpt: 'Tali\'s second EP "Wander" is for sure a journey of self-discovery, every listener can find something special in it.',
         linkText: 'Listen now →',
         hasModal: true
     },
@@ -74,8 +74,8 @@ const newsItems = [
         id: 'style',
         image: '/photos/tali-style2.webp',
         title: 'Style Drops: A Bold New Chapter',
-        date: 'December 2024',
-        excerpt: 'The electrifying new single "Style" showcases Tali\'s evolution as an artist with its infectious beats and empowering lyrics.',
+        date: 'January 30, 2026',
+        excerpt: 'The upcoming new single "Style" will definitely make your style a bit better, especially if you\'re dressing for that one person. rawr.',
         linkText: 'Pre-Save →',
         link: 'https://ffm.to/tstyle.OIS?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnBpY1-3QmiLZu9MWZ4Pb7qIebEPdfKnXOZCEORMSd3rz8U8s3QqhxaefCdgg_aem_P-ObV9XJPXYsGjx0KMgSeA',
         isExternal: true
@@ -84,7 +84,7 @@ const newsItems = [
         id: 'trounwiessel',
         image: '/photos/trounwiessel-3.webp',
         title: 'Trounwiessel: The Duke\'s Coronation',
-        date: 'October 2024',
+        date: 'October 2025',
         excerpt: 'A historic collaboration celebrating Luxembourg\'s royal heritage through an enchanting musical tribute.',
         linkText: 'Read more →',
         link: 'https://monarchie.lu/en/trounwiessel-throne',
@@ -95,9 +95,9 @@ const newsItems = [
     {
         id: 'birthday',
         image: '/photos/baby-tali-1.webp',
-        title: '🎂 Happy Birthday Tali!',
-        date: 'November 2024',
-        excerpt: 'Celebrating another year of music, creativity, and inspiration!',
+        title: 'Happy Birthday Tali!',
+        date: 'November 2025',
+        excerpt: 'TALIIIII, ik i\'m late, and i\' so sorry, but this is definitely worth it! Happy Birthday! Happy Hannukah! and Happy new year! Love you sm!',
         linkText: 'Read more →',
         link: '/birthday'
     }
@@ -106,33 +106,33 @@ const newsItems = [
 const interviews = [
     {
         id: 'iBQ4K6-SN60',
-        title: 'TALI - Fighter (Official Lyric Video)',
-        description: 'Experience the powerful lyrics of "Fighter" brought to life in this stunning official lyric video.'
+        title: 'TALI at Eurovision 2024 | ELLE On The Go With GINTA',
+        description: 'Dive into an inspiring episode of "ELLE On The Go" as Ginta meets TALI, Luxembourg\'s vibrant representative at Eurovision 2024.'
     },
     {
         id: '76D6qF5ILZE',
-        title: 'TALI - Interview at Eurovision 2025',
-        description: 'An exclusive behind-the-scenes interview with Tali during her Eurovision 2025 journey.'
+        title: 'Tali - Music, Creativity and Peruvian food - with special guest, Winnie Lee',
+        description: 'With our special guests, Tali Golergant - Famous Luxembourg singer and Winnie Lee - a world renowned baker, we discussed about many things and secrets.After, Tali and I prepared her father\'s recipe for Peruvian ceviche and discussed her path to Eurovision before her band joined us for a kitchen jam session and lunch. An absolutely brilliant day with this fabulous musician!'
     },
     {
         id: 'JQrrdp_XQEg',
-        title: 'TALI - RTL Interview',
-        description: 'Tali sits down with RTL for an in-depth conversation about her music and inspirations.'
+        title: 'Tali Luxembourg - Eurovision 2024 Turquoise Carpet Opening Ceremony',
+        description: 'Tali walks the Eurovision 2024 Turquoise Carpet and gives us a quick interview. She says that like the "Fighter" in her song she understands struggle. As an artist in New York City, she has faced rejection but keeps persevering. '
     },
     {
         id: 'yPlvdeNH2PU',
-        title: 'TALI - Live Session',
-        description: 'An intimate live session showcasing Tali\'s raw vocal talent and emotional depth.'
+        title: 'Eurovision 2024 Luxembourg: Tali interview',
+        description: 'We had the pleasure of talking with Tali who represents Luxembourg in their comeback year, 2024, with her song Fighter. We talked about many rumours and many interesting facts about the song!'
     },
     {
         id: 'RbwsXErIMKo',
-        title: 'TALI - Behind The Scenes',
-        description: 'Go behind the curtain and discover the creative process behind Tali\'s latest projects.'
+        title: 'TALI: From Hard Work to Eurovision - GËLLE FRO EP. 92',
+        description: 'In this interview we talked about struggling of how to become a singer in New-York, what difficulties she met at her jouney, how was her first solo gig, about philosophy, our nature and many many more! if you want to dig a bit deeper and know all the answers, then watch the interview!'
     },
     {
         id: 'SSYzQQCq9aA',
-        title: 'TALI - Live Performance Highlights',
-        description: 'Relive the most electrifying moments from Tali\'s unforgettable live performances.'
+        title: 'Tali on her Secret Code Name, Undercover Disguises and Surprising Celine Dion Connection',
+        description: 'We sit down, in person, with Tali (Luxembourg, Eurovision 2024) and explore what post-Eurovision life is like for a contemporary artist, she reveals her secret code name during Eurovision, and we get a little peak into what\'s next for her as she prepares to release her next EP!'
     }
 ]
 
