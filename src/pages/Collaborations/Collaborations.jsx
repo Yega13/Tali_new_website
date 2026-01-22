@@ -46,16 +46,16 @@ const collaborations = [
         description: 'This is truly one of the hidden gems of TALI\'s journey. This collaborations was made in 2024 and it already counts more than 4 million listens in Spotify only! The collaborations was with french electronic music producer Lost in Pacific, known for atmospheric, surf-inspired tracks TALI herself did not tell her fans about this song, keeping it a secret, and she shared the song six months later - In the summer of 2025. The song is called "Ocean", you can find it in music platforms like Spotify, Apple Music e.t.c.'
     },
     {
-        id: 'sarahvera',
-        name: 'Sarah Vera',
-        image: '/photos/garden-of-eden.webp',
-        description: 'This beautiful song was the first collaboration of TALI, and it was with Sarah Vera. Collaboration was made in 2022 and instantly blow up in social media like Tik Tok, Instagram e.t.c. The song itself is a unique history, and everyone should hear it at least once!'
-    },
-    {
         id: 'maxbartos',
         name: 'Max Bartos',
         image: '/photos/carry-me-home.webp',
         description: 'This was the second collaboration of TALI, and it was with Max Bartos. The song is called "Carry Me Home" and it was released in 2023.'
+    },
+    {
+        id: 'sarahvera',
+        name: 'Sarah Vera',
+        image: '/photos/garden-of-eden.webp',
+        description: 'This beautiful song was the first collaboration of TALI, and it was with Sarah Vera. Collaboration was made in 2022 and instantly blow up in social media like Tik Tok, Instagram e.t.c. The song itself is a unique history, and everyone should hear it at least once!'
     }
 ]
 
