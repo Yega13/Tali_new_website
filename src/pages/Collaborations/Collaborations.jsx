@@ -10,7 +10,6 @@ const bluestripesPhotos = [
     { src: '/photos/tali-pics5.webp', alt: 'Filming', type: 'image' },
     { src: '/photos/tali-vids30.mp4', alt: 'Rehearsal', type: 'video' },
     { src: '/photos/tali-vids31.mp4', type: 'video' },
-    { src: '/photos/tali-vids31.mp4', type: 'video' },
     { src: '/photos/tali-pics140.webp', alt: 'Rehearsal', type: 'image', objectPosition: 'right' }
 ]
 
