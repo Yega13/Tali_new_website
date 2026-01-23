@@ -88,7 +88,7 @@ function AppContent() {
 
     return (
         <>
-            <Preloader />
+            {!is404 && <Preloader />}
             <ScrollToTop />
             <SEO />
             {!is404 && <Header />}

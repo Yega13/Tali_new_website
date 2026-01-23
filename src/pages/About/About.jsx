@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import LazyVideo from '@/components/common/LazyVideo'
 import './About.css'
 
@@ -73,8 +71,6 @@ const resumeData = [
 
 export default function About() {
     const { theme } = useTheme()
-    const isDesktop = useMediaQuery('(min-width: 768px)')
-    const [isResumeExpanded, setIsResumeExpanded] = useState(false)
 
     return (
         <div className="about">
@@ -321,45 +317,19 @@ export default function About() {
                     </div>
 
                     <div className="resume-blocks">
-                        {resumeData.map((block, index) => {
-                            // On mobile, blur the last item (6th item, index 5) if not expanded
-                            const isBlurred = !isDesktop && !isResumeExpanded && index === 5;
-
-                            return (
-                                <motion.div
-                                    key={block.title}
-                                    className={`resume-block ${isBlurred ? 'resume-block--blurred' : ''}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                >
-                                    <h3 className="resume-block__title">{block.title}</h3>
-                                    {block.content}
-                                </motion.div>
-                            );
-                        })}
-
-                        {!isDesktop && (
-                            <div className="resume-show-more-container">
-                                <button
-                                    className="resume-show-more-btn"
-                                    onClick={() => setIsResumeExpanded(!isResumeExpanded)}
-                                >
-                                    {isResumeExpanded ? (
-                                        <>
-                                            Show Less
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                        </>
-                                    ) : (
-                                        <>
-                                            Show More
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                                        </>
-                                    )}
-                                </button>
-                            </div>
-                        )}
+                        {resumeData.map((block, index) => (
+                            <motion.div
+                                key={block.title}
+                                className="resume-block"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                            >
+                                <h3 className="resume-block__title">{block.title}</h3>
+                                {block.content}
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>

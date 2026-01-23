@@ -391,6 +391,18 @@
     padding-bottom: var(--space-8) !important;
 }
 
+/* Mobile: Center title and move section higher */
+@media (max-width: 767px) {
+    .acting-section {
+        padding-top: var(--space-4) !important;
+    }
+
+    .acting-section .section-title {
+        text-align: center;
+        margin-bottom: var(--space-6);
+    }
+}
+
 .acting-imdb {
     text-align: center;
     margin-bottom: var(--space-10);

@@ -281,6 +281,29 @@
     min-width: 0;
 }
 
+/* Mobile swipeable carousel with snap */
+.spotify-carousel__player--mobile {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    gap: var(--space-3);
+    padding: 0 var(--space-2);
+}
+
+.spotify-carousel__player--mobile::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.spotify-carousel__player--mobile .spotify-carousel__item {
+    flex: 0 0 calc(100% - var(--space-4));
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
 .spotify-carousel__item {
     width: 100%;
 }
@@ -289,6 +312,30 @@
     width: 100%;
     height: 152px;
     border-radius: 12px;
+}
+
+/* Dot indicators for mobile carousel */
+.spotify-carousel__dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.spotify-carousel__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-border-light);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.spotify-carousel__dot--active {
+    background-color: var(--color-primary);
+    transform: scale(1.2);
 }
 
 .spotify-carousel__nav {
@@ -351,16 +398,44 @@
     }
 }
 
-/* Mobile specific override just for nav buttons */
+/* Mobile specific - swipeable carousel */
 @media (max-width: 479px) {
-    .spotify-carousel__nav {
-        width: 40px;
-        height: 40px;
+    .spotify-carousel {
+        gap: 0;
+        padding: 0;
     }
 
-    .spotify-carousel__nav svg {
-        width: 20px;
-        height: 20px;
+    .spotify-carousel__player {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .spotify-carousel__item iframe {
+        border-radius: 8px;
+    }
+
+    /* Reduce container padding for more player space */
+    .spotify-section .container {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+
+    /* Dots styling for small screens */
+    .spotify-carousel__dots {
+        margin-top: var(--space-3);
+    }
+
+    .spotify-carousel__dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Very small mobile (360px) */
+@media (max-width: 380px) {
+    .spotify-section .container {
+        padding-left: var(--space-2);
+        padding-right: var(--space-2);
     }
 }
 

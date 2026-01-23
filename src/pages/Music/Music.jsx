@@ -1,14 +1,42 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useMediaQuery, useIsDesktop } from '@/hooks/useMediaQuery'
 import './Music.css'
 
 export default function Music() {
-    const isDesktop = useMediaQuery('(min-width: 1024px)')
+    const carouselRef = useRef(null);
+    const playerRef = useRef(null);
     const [showAllShows, setShowAllShows] = useState(false)
     const [currentTrack, setCurrentTrack] = useState(0)
+    const isMobile = useMediaQuery('(max-width: 479px)')
+    const isDesktop = useIsDesktop()
 
-    // ... (tracks)
+    // Handle scroll to track current position (for mobile carousel)
+    useEffect(() => {
+        const player = playerRef.current;
+        if (!player || !isMobile) return;
+
+        const handleScroll = () => {
+            const scrollLeft = player.scrollLeft;
+            const itemWidth = player.offsetWidth;
+            const newIndex = Math.round(scrollLeft / itemWidth);
+            setCurrentTrack(newIndex);
+        };
+
+        player.addEventListener('scroll', handleScroll, { passive: true });
+        return () => player.removeEventListener('scroll', handleScroll);
+    }, [isMobile]);
+
+    // Scroll to specific track when dot is clicked
+    const scrollToTrack = (index) => {
+        if (playerRef.current) {
+            const itemWidth = playerRef.current.offsetWidth;
+            playerRef.current.scrollTo({
+                left: index * itemWidth,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     const spotifyTracks = [
         'https://open.spotify.com/embed/track/5kPrQcU2fJfpBUXAXGZZLq?utm_source=generator',
@@ -111,51 +139,60 @@ export default function Music() {
             <section className="spotify-section section">
                 <div className="container">
                     <h2 className="section-title">Listen Now</h2>
-                    <div className="spotify-carousel">
-                        <button
-                            className="spotify-carousel__nav spotify-carousel__nav--prev"
-                            onClick={() => setCurrentTrack(prev => prev === 0 ? spotifyTracks.length - 1 : prev - 1)}
-                            aria-label="Previous track"
-                        >
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <polyline points="15 18 9 12 15 6" />
-                            </svg>
-                        </button>
+                    {/* Scrollable carousel */}
+                    <div className="spotify-carousel" ref={carouselRef}>
+                        {!isMobile && (
+                            <button
+                                className="spotify-carousel__nav spotify-carousel__nav--prev"
+                                onClick={() => {
+                                    if (playerRef.current) {
+                                        const itemWidth = playerRef.current.offsetWidth;
+                                        playerRef.current.scrollBy({ left: -itemWidth, behavior: 'smooth' })
+                                    }
+                                }}
+                                aria-label="Previous tracks"
+                            >
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <polyline points="15 18 9 12 15 6" />
+                                </svg>
+                            </button>
+                        )}
 
-                        <div className="spotify-carousel__player">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={currentTrack}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -20 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="spotify-carousel__item"
-                                >
+                        <div className={`spotify-carousel__player ${isMobile ? 'spotify-carousel__player--mobile' : ''}`} ref={playerRef}>
+                            {spotifyTracks.map((track, idx) => (
+                                <div key={idx} className="spotify-carousel__item">
                                     <iframe
-                                        src={spotifyTracks[currentTrack]}
+                                        src={track}
                                         width="100%"
                                         height="152"
                                         frameBorder="0"
                                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                         loading="lazy"
-                                        title={`Spotify track ${currentTrack + 1}`}
+                                        title={`Spotify track ${idx + 1}`}
                                     />
-                                </motion.div>
-                            </AnimatePresence>
+                                </div>
+                            ))}
                         </div>
 
-                        <button
-                            className="spotify-carousel__nav spotify-carousel__nav--next"
-                            onClick={() => setCurrentTrack(prev => prev === spotifyTracks.length - 1 ? 0 : prev + 1)}
-                            aria-label="Next track"
-                        >
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <polyline points="9 18 15 12 9 6" />
-                            </svg>
-                        </button>
+                        {!isMobile && (
+                            <button
+                                className="spotify-carousel__nav spotify-carousel__nav--next"
+                                onClick={() => {
+                                    if (playerRef.current) {
+                                        const itemWidth = playerRef.current.offsetWidth;
+                                        playerRef.current.scrollBy({ left: itemWidth, behavior: 'smooth' })
+                                    }
+                                }}
+                                aria-label="Next tracks"
+                            >
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <polyline points="9 18 15 12 9 6" />
+                                </svg>
+                            </button>
+                        )}
                     </div>
-                    <p className="spotify-carousel__indicator">← Scroll for more →</p>
+
+                    <p className="spotify-carousel__indicator">← Swipe for more →</p>
                 </div>
             </section>
 
