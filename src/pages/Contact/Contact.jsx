@@ -11,7 +11,10 @@ export default function Contact() {
         email: '',
         message: ''
     })
-    const [newsletterEmail, setNewsletterEmail] = useState('')
+    const [newsletterData, setNewsletterData] = useState({
+        firstName: '',
+        email: ''
+    })
     const [formStatus, setFormStatus] = useState({ type: '', message: '' })
     const [newsletterStatus, setNewsletterStatus] = useState({ type: '', message: '' })
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -106,7 +109,7 @@ export default function Contact() {
 
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(newsletterEmail)) {
+        if (!emailRegex.test(newsletterData.email)) {
             setNewsletterStatus({ type: 'error', message: 'Please enter a valid email address (e.g., name@example.com)' })
             return
         }
@@ -116,7 +119,8 @@ export default function Contact() {
 
         try {
             const formData = new FormData()
-            formData.append('EMAIL', newsletterEmail)
+            formData.append('FIRSTNAME', newsletterData.firstName)
+            formData.append('EMAIL', newsletterData.email)
             formData.append('email_address_check', '')
             formData.append('locale', 'en')
 
@@ -128,9 +132,9 @@ export default function Contact() {
 
 
 
-            addToSubscribedList(newsletterEmail)
+            addToSubscribedList(newsletterData.email)
             setNewsletterStatus({ type: 'success', message: 'Welcome to the family! Check your email to confirm :)' })
-            setNewsletterEmail('')
+            setNewsletterData({ firstName: '', email: '' })
         } catch (error) {
             setNewsletterStatus({ type: 'error', message: 'Oops! Something went wrong. Please try again.' })
         } finally {
@@ -296,10 +300,20 @@ export default function Contact() {
                         <form className="newsletter__form" onSubmit={handleNewsletterSubmit}>
                             <input
                                 type="text"
-                                placeholder="Enter your email"
-                                value={newsletterEmail}
-                                onChange={(e) => setNewsletterEmail(e.target.value)}
+                                placeholder="Your Name (optional)"
+                                value={newsletterData.firstName}
+                                onChange={(e) => setNewsletterData(prev => ({ ...prev, firstName: e.target.value }))}
                             />
+                            <div className="newsletter__email-field">
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    value={newsletterData.email}
+                                    onChange={(e) => setNewsletterData(prev => ({ ...prev, email: e.target.value }))}
+                                    required
+                                />
+                                <span className="newsletter__required">*</span>
+                            </div>
                             <button type="submit" className="btn btn-primary" disabled={isSubscribing}>
                                 {isSubscribing ? 'Subscribing...' : 'Subscribe'}
                             </button>

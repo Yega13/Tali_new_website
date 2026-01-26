@@ -131,6 +131,20 @@ export default function Gallery() {
         }
     }, [lightboxIndex])
 
+    // Keyboard navigation for lightbox
+    useEffect(() => {
+        if (lightboxIndex === null) return
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') closeLightbox()
+            if (e.key === 'ArrowLeft') prevImage()
+            if (e.key === 'ArrowRight') nextImage()
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [lightboxIndex])
+
     const nextImage = () => {
         if (lightboxIndex !== null) {
             setLightboxIndex((lightboxIndex + 1) % filteredMedia.length)
@@ -361,12 +375,12 @@ export default function Gallery() {
                         </div>
 
                         {/* Navigation buttons */}
-                        <button className="lightbox__nav lightbox__nav--prev" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+                        <button className="lightbox__nav lightbox__nav--prev" onClick={(e) => { e.stopPropagation(); prevImage(); }} aria-label="Previous image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <polyline points="15 18 9 12 15 6" />
                             </svg>
                         </button>
-                        <button className="lightbox__nav lightbox__nav--next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+                        <button className="lightbox__nav lightbox__nav--next" onClick={(e) => { e.stopPropagation(); nextImage(); }} aria-label="Next image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <polyline points="9 18 15 12 9 6" />
                             </svg>

@@ -18,7 +18,7 @@ const collaborations = [
         id: 'bluestripes',
         name: 'BlueStripes',
         image: '/photos/tali-pics3.webp',
-        description: 'In 2025 Tali starts to collaborating with new band called BlueStripes! They already released 3 songs. They\'re debut song was "You Don\' Really Know Me" which immidately made peaople fall in love with beautiful jazzy melodies. Then band released new song called - "Blue Bird" and then the latest song released by BlueStripes - "Come On!". BlueStripes and TALI still have a lot of exciting things and songs to show. All of their songs are available on all music platforms!',
+        description: 'In 2025 Tali started collaborating with a new band called BlueStripes! They already released 3 songs. Their debut song was "You Don\'t Really Know Me" which immediately made people fall in love with beautiful jazzy melodies. Then the band released a new song called "Blue Bird" and then the latest song released by BlueStripes - "Come On!". BlueStripes and TALI still have a lot of exciting things and songs to show. All of their songs are available on all music platforms!',
         hasExpandableSongs: true,
         songs: [
             {
@@ -37,6 +37,12 @@ const collaborations = [
                 description: 'An energetic, dance-ready track with infectious rhythms and empowering lyrics that celebrate living in the moment :)'
             }
         ]
+    },
+    {
+        id: 'seanbiopick',
+        name: 'Sean Biopick',
+        image: '/photos/So far so good.webp',
+        description: 'Sean Biopick is a talented singer-songwriter and producer known for his soulful voice and covers In 2025, TALI collaborated with Sean on the track "So Far So Good" - a beautiful blend of emotional vocals and atmospheric production that showcases both artists at their best. The song quickly became a fan favorite, praised for its energy and upbeat melodies.'
     },
     {
         id: 'lostinpacific',
@@ -63,10 +69,40 @@ export default function Collaborations() {
     const [collapsingCollab, setCollapsingCollab] = useState(null)
     const [collapseHeight, setCollapseHeight] = useState(null)
     const [lightboxIndex, setLightboxIndex] = useState(null)
+    const [expandedDescriptions, setExpandedDescriptions] = useState({})
+    const [longDescriptions, setLongDescriptions] = useState({})
     const scrollPositionRef = useRef(0)
     const wasOpenRef = useRef(false)
     const cardRefs = useRef({})
     const expandedRef = useRef(null)
+    const descriptionRefs = useRef({})
+
+    // Check which descriptions are longer than 4 lines
+    useEffect(() => {
+        const checkDescriptionHeights = () => {
+            const newLongDescriptions = {}
+            collaborations.forEach(collab => {
+                const el = descriptionRefs.current[collab.id]
+                if (el) {
+                    const lineHeight = parseFloat(getComputedStyle(el).lineHeight)
+                    const maxHeight = lineHeight * 4
+                    newLongDescriptions[collab.id] = el.scrollHeight > maxHeight + 5
+                }
+            })
+            setLongDescriptions(newLongDescriptions)
+        }
+
+        checkDescriptionHeights()
+        window.addEventListener('resize', checkDescriptionHeights)
+        return () => window.removeEventListener('resize', checkDescriptionHeights)
+    }, [])
+
+    const toggleDescription = (id) => {
+        setExpandedDescriptions(prev => ({
+            ...prev,
+            [id]: !prev[id]
+        }))
+    }
 
     useEffect(() => {
         const imagesToPreload = [
@@ -146,6 +182,20 @@ export default function Collaborations() {
         }
     }, [lightboxIndex])
 
+    // Keyboard navigation for lightbox
+    useEffect(() => {
+        if (lightboxIndex === null) return
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') closeLightbox()
+            if (e.key === 'ArrowLeft') prevImage()
+            if (e.key === 'ArrowRight') nextImage()
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [lightboxIndex])
+
     return (
         <div className="collaborations">
             {/* Hero */}
@@ -182,15 +232,48 @@ export default function Collaborations() {
                                 {String(index + 1).padStart(2, '0')}
                             </div>
 
-                            {/* Title and Description */}
-                            <div className="collab-card__content">
-                                <h2 className="collab-card__name">{collab.name}</h2>
-                                <p className="collab-card__description">{collab.description}</p>
-                            </div>
+                            {/* Title */}
+                            <h2 className="collab-card__name">{collab.name}</h2>
 
                             {/* Image */}
                             <div className="collab-card__image">
                                 <img src={collab.image} alt={collab.name} />
+                            </div>
+
+                            {/* Description */}
+                            <div className="collab-card__description-wrapper">
+                                <p
+                                    ref={el => descriptionRefs.current[collab.id] = el}
+                                    className={`collab-card__description ${collab.hasExpandableSongs
+                                            ? (expandedCollab !== collab.id ? 'collab-card__description--clamped' : '')
+                                            : (longDescriptions[collab.id] && !expandedDescriptions[collab.id] ? 'collab-card__description--clamped' : '')
+                                        }`}
+                                >
+                                    {collab.description}
+                                </p>
+                                {/* Only show description toggle for non-expandable collaborations */}
+                                {!collab.hasExpandableSongs && longDescriptions[collab.id] && (
+                                    <button
+                                        className="collab-card__description-toggle"
+                                        onClick={() => toggleDescription(collab.id)}
+                                    >
+                                        {expandedDescriptions[collab.id] ? (
+                                            <>
+                                                Show Less
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <polyline points="18 15 12 9 6 15" />
+                                                </svg>
+                                            </>
+                                        ) : (
+                                            <>
+                                                Show More
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <polyline points="6 9 12 15 18 9" />
+                                                </svg>
+                                            </>
+                                        )}
+                                    </button>
+                                )}
                             </div>
 
                             {/* Expandable Section (BlueStripes only) */}
@@ -323,12 +406,12 @@ export default function Collaborations() {
                             {lightboxIndex + 1} / {bluestripesPhotos.length}
                         </div>
 
-                        <button className="collab-lightbox__nav collab-lightbox__nav--prev" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+                        <button className="collab-lightbox__nav collab-lightbox__nav--prev" onClick={(e) => { e.stopPropagation(); prevImage(); }} aria-label="Previous image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <polyline points="15 18 9 12 15 6" />
                             </svg>
                         </button>
-                        <button className="collab-lightbox__nav collab-lightbox__nav--next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+                        <button className="collab-lightbox__nav collab-lightbox__nav--next" onClick={(e) => { e.stopPropagation(); nextImage(); }} aria-label="Next image">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <polyline points="9 18 15 12 9 6" />
                             </svg>

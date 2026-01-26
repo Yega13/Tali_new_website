@@ -165,7 +165,7 @@ export default function About() {
                                 year: '2025',
                                 image: '/photos/tali-pics51.webp',
                                 alt: 'Tali WANDER',
-                                text: 'In 2025 Tali finally release her second EP, had her first solo gig, which immidiatel went sold-out, and started to exapnd her community across the globe.'
+                                text: 'In 2025 Tali finally released her second EP, had her first solo gig, which immediately went sold-out, and started to expand her community across the globe.'
                             }
                         ].map((item, index) => (
                             <motion.div
