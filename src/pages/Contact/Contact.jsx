@@ -31,7 +31,7 @@ export default function Contact() {
         if (stored) {
             const data = JSON.parse(stored)
             if (data.date === today) {
-                return data.count >= 5
+                return data.count >= 3
             }
         }
         return false
@@ -106,11 +106,14 @@ export default function Contact() {
     const handleNewsletterSubmit = async (e) => {
         e.preventDefault()
 
-
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailRegex.test(newsletterData.email)) {
             setNewsletterStatus({ type: 'error', message: 'Please enter a valid email address (e.g., name@example.com)' })
+            return
+        }
+
+        if (isAlreadySubscribed(newsletterData.email)) {
+            setNewsletterStatus({ type: 'error', message: 'You\'re already subscribed! Check your inbox for updates.' })
             return
         }
 

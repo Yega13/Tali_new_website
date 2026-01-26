@@ -115,7 +115,7 @@ export default function Info() {
                             <h4>Contact Page</h4>
                             <ul>
                                 <li>Contact form with Name, Email, and Message fields</li>
-                                <li>Messages sent via Formspree (limit: 5 per day)</li>
+                                <li>Messages sent via Formspree (limit: 3 per day)</li>
                                 <li>Contact email: taliartistproductions@gmail.com</li>
                                 <li>Location section with interactive Google Maps modal (Limpertsberg, Luxembourg)</li>
                                 <li>Newsletter subscription section (powered by Brevo/Sendinblue)</li>
@@ -170,7 +170,7 @@ export default function Info() {
                         </p>
                         <ul className="info-card__list">
                             <li>Messages are delivered to Tali's team email</li>
-                            <li>Daily limit: 5 messages per visitor (to prevent spam)</li>
+                            <li>Daily limit: 3 messages per visitor (to prevent spam)</li>
                             <li>Response time varies based on inquiry type</li>
                             <li>For urgent matters, email directly: taliartistproductions@gmail.com</li>
                         </ul>
