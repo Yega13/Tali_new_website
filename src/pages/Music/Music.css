@@ -271,7 +271,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-4);
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -279,23 +279,26 @@
     flex: 1;
     max-width: 500px;
     min-width: 0;
-}
-
-/* Mobile swipeable carousel with snap */
-.spotify-carousel__player--mobile {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-    gap: var(--space-3);
-    padding: 0 var(--space-2);
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
 }
 
-.spotify-carousel__player--mobile::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+.spotify-carousel__player::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* Mobile swipeable carousel with snap */
+.spotify-carousel__player--mobile {
+    -webkit-overflow-scrolling: touch;
+    gap: var(--space-3);
+    padding: 0 var(--space-2);
 }
 
 .spotify-carousel__player--mobile .spotify-carousel__item {
@@ -305,7 +308,9 @@
 }
 
 .spotify-carousel__item {
-    width: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    min-width: 0;
 }
 
 .spotify-carousel__item iframe {

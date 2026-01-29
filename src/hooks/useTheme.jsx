@@ -6,10 +6,7 @@ export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(() => {
         const stored = localStorage.getItem('tali-theme')
         if (stored) return stored
-
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark'
-        }
+        // Default to light theme for first-time visitors
         return 'light'
     })
 
