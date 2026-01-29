@@ -18,7 +18,6 @@ const wanderMedia = [
     { src: '/photos/tali-vids21.mp4', alt: 'Sticker ;)', type: 'video' },
     { src: '/photos/tali-pics85.webp', type: 'image' },
     // Desktop-only media
-    { src: '/photos/lemon-lime.mp4', alt: 'Lemon lime', type: 'video', desktopOnly: true },
     { src: '/photos/Lemon lime vid.mp4', alt: 'Lemon Lime', type: 'video', desktopOnly: true },
 ]
 
