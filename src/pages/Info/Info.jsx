@@ -244,7 +244,7 @@ export default function Info() {
                                 <li><code>&lt;meta name="keywords"&gt;</code> Tali Golergant, Luxembourg singer, songwriter, Eurovision 2025, pop music, indie music</li>
                                 <li><code>&lt;meta name="author"&gt;</code> Tali Golergant</li>
                                 <li><code>&lt;meta name="robots"&gt;</code> index, follow</li>
-                                <li><code>&lt;link rel="canonical"&gt;</code> https://taligolergant.up.railway.app</li>
+                                <li><code>&lt;link rel="canonical"&gt;</code> https://tali-new-website.pages.dev</li>
                             </ul>
                         </div>
 
@@ -252,7 +252,7 @@ export default function Info() {
                             <h4>Open Graph (Facebook/Social)</h4>
                             <ul>
                                 <li><code>og:type</code> website</li>
-                                <li><code>og:url</code> https://taligolergant.up.railway.app/</li>
+                                <li><code>og:url</code> https://tali-new-website.pages.dev/</li>
                                 <li><code>og:title</code> Tali Golergant - Official Website</li>
                                 <li><code>og:description</code> Singer, Songwriter, and Artist from Luxembourg</li>
                                 <li><code>og:image</code> /social-square.jpg (800x800)</li>
@@ -265,7 +265,7 @@ export default function Info() {
                             <h4>Twitter Card</h4>
                             <ul>
                                 <li><code>twitter:card</code> summary_large_image</li>
-                                <li><code>twitter:url</code> https://taligolergant.up.railway.app/</li>
+                                <li><code>twitter:url</code> https://tali-new-website.pages.dev/</li>
                                 <li><code>twitter:title</code> Tali Golergant - Official Website</li>
                                 <li><code>twitter:description</code> Singer, Songwriter, and Artist from Luxembourg</li>
                                 <li><code>twitter:image</code> /social-square.jpg</li>
@@ -345,7 +345,7 @@ export default function Info() {
                     <article className="info-card info-card--tech">
                         <h3 className="info-card__title">Infrastructure & Hosting</h3>
                         <ul className="info-card__list">
-                            <li><strong>Hosting:</strong> Railway (https://taligolergant.up.railway.app)</li>
+                            <li><strong>Hosting:</strong> Cloudflare Pages (https://tali-new-website.pages.dev)</li>
                             <li><strong>Build:</strong> Vite production build with Terser minification</li>
                             <li><strong>Target:</strong> ES2020 (modern browsers)</li>
                             <li><strong>Source Maps:</strong> Disabled in production</li>

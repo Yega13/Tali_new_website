@@ -10,7 +10,7 @@ The official website for **Tali Golergant** - Singer, Songwriter, and Artist fro
 
 ## Live Site
 
-**[taligolergant.up.railway.app](https://taligolergant.up.railway.app)**
+**[tali-new-website.pages.dev](https://tali-new-website.pages.dev)**
 
 ---
 
@@ -131,7 +131,7 @@ This is a fully custom-built, professional designed to showcase Tali's music, pe
 | **CSS Variables** | Dynamic theming |
 | **Formspree** | Contact form backend |
 | **Mailchimp** | Newsletter integration |
-| **Railway** | Hosting platform |
+| **Cloudflare Pages** | Hosting platform |
 
 ---
 
@@ -163,9 +163,9 @@ src/
 
 ## Deployment
 
-The site is deployed on **Railway** with automatic deployments from the `main` branch.
+The site is deployed on **Cloudflare Pages** with automatic deployments from the `main` branch.
 
-**Live URL:** [taligolergant.up.railway.app](https://taligolergant.up.railway.app)
+**Live URL:** [tali-new-website.pages.dev](https://tali-new-website.pages.dev)
 
 ---
 

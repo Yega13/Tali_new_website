@@ -6,8 +6,8 @@ const structuredData = {
     "name": "Tali Golergant",
     "alternateName": "TALI",
     "description": "Singer, songwriter, and actor from Luxembourg. Known for representing Luxembourg at Eurovision 2025.",
-    "url": "https://taligolergant.up.railway.app",
-    "image": "https://taligolergant.up.railway.app/social-square.jpg",
+    "url": "https://tali-new-website.pages.dev",
+    "image": "https://tali-new-website.pages.dev/social-square.jpg",
     "sameAs": [
         "https://www.instagram.com/taligolergant",
         "https://www.youtube.com/@taligolergant",
@@ -38,7 +38,7 @@ const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Tali Golergant - Official Website",
-    "url": "https://taligolergant.up.railway.app",
+    "url": "https://tali-new-website.pages.dev",
     "description": "Official website of Tali Golergant - Singer, Songwriter, and Artist from Luxembourg",
     "publisher": {
         "@type": "Person",
