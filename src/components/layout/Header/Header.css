@@ -119,6 +119,18 @@
     color: #fff !important;
 }
 
+/* BUT on hover, make icon dark so it's visible against the hover background */
+@media (hover: hover) and (pointer: fine) {
+
+    .header--music:not(.header--scrolled) .theme-toggle:hover .theme-toggle__icon--sun,
+    .header--hero:not(.header--scrolled) .theme-toggle:hover .theme-toggle__icon--sun,
+    .header--music:not(.header--scrolled) .theme-toggle:hover .theme-toggle__icon--moon,
+    .header--hero:not(.header--scrolled) .theme-toggle:hover .theme-toggle__icon--moon {
+        color: #1A1A2E !important;
+        stroke: #1A1A2E !important;
+    }
+}
+
 /* Light theme: also white on hero pages (since hero has dark overlay) - but NOT when menu is open */
 [data-theme="light"] .header--hero:not(.header--scrolled):not(.header--menu-open) .header__logo-text,
 [data-theme="light"] .header--hero:not(.header--scrolled):not(.header--menu-open) .header__nav-link {

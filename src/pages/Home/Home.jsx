@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
 import MusicModal from '@/components/common/MusicModal'
+import StyleModal from '@/components/common/StyleModal'
+import NewSinglePopup from '@/components/common/NewSinglePopup'
 import './Home.css'
 
 export default function Home() {
     const [isMusicModalOpen, setIsMusicModalOpen] = useState(false)
+    const [isStyleModalOpen, setIsStyleModalOpen] = useState(false)
     const { theme } = useTheme()
 
     return (
@@ -210,6 +213,13 @@ export default function Home() {
                 isOpen={isMusicModalOpen}
                 onClose={() => setIsMusicModalOpen(false)}
             />
+
+            <StyleModal
+                isOpen={isStyleModalOpen}
+                onClose={() => setIsStyleModalOpen(false)}
+            />
+
+            <NewSinglePopup onListenClick={() => setIsStyleModalOpen(true)} />
         </div>
     )
 }

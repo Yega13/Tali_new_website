@@ -1,0 +1,145 @@
+.style-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.style-modal__content {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+}
+
+.style-modal__close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-tertiary);
+    transition: color var(--transition-base);
+}
+
+.style-modal__close:hover {
+    color: var(--color-text-primary);
+}
+
+.style-modal__close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.style-modal__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.style-modal__cover {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+}
+
+.style-modal__info {
+    text-align: left;
+}
+
+.style-modal__title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--space-1);
+}
+
+.style-modal__artist {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.style-modal__subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-5);
+}
+
+.style-modal__platforms {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.style-modal__platform {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    color: var(--color-text-primary);
+}
+
+.style-modal__platform:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.style-modal__platform:hover .style-modal__platform-icon,
+.style-modal__platform:hover .style-modal__platform-name {
+    color: #fff;
+}
+
+.style-modal__platform-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.style-modal__platform-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.style-modal__platform-name {
+    font-weight: var(--weight-medium);
+    font-size: var(--text-base);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .style-modal__content {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+}
+
+[data-theme="dark"] .style-modal__platform {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .style-modal__platform:hover {
+    background: var(--color-primary);
+}

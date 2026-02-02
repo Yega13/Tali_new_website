@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import StyleModal from '@/components/common/StyleModal'
 import './News.css'
 
 const wanderPlatforms = [
@@ -75,10 +76,9 @@ const newsItems = [
         image: '/photos/tali-style2.webp',
         title: 'Style Drops: A Bold New Chapter',
         date: 'January 30, 2026',
-        excerpt: 'The upcoming new single "Style" will definitely make your style a bit better, especially if you\'re dressing for that one person. rawr.',
-        linkText: 'Pre-Save →',
-        link: 'https://ffm.to/tstyle.OIS?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnBpY1-3QmiLZu9MWZ4Pb7qIebEPdfKnXOZCEORMSd3rz8U8s3QqhxaefCdgg_aem_P-ObV9XJPXYsGjx0KMgSeA',
-        isExternal: true
+        excerpt: 'The new single "Style" will definitely make your style a bit better, especially if you\'re dressing for that one person. rawr.',
+        linkText: 'Listen Now →',
+        hasStyleModal: true
     },
     {
         id: 'trounwiessel',
@@ -138,11 +138,16 @@ const interviews = [
 
 export default function News() {
     const [isWanderModalOpen, setIsWanderModalOpen] = useState(false)
+    const [isStyleModalOpen, setIsStyleModalOpen] = useState(false)
 
     const handleCardClick = (item, e) => {
         if (item.hasModal) {
             e.preventDefault()
             setIsWanderModalOpen(true)
+        }
+        if (item.hasStyleModal) {
+            e.preventDefault()
+            setIsStyleModalOpen(true)
         }
     }
 
@@ -185,7 +190,7 @@ export default function News() {
                                     <p className="news-card__excerpt">{item.excerpt}</p>
 
                                     <div className="news-card__links">
-                                        {item.hasModal ? (
+                                        {item.hasModal || item.hasStyleModal ? (
                                             <button
                                                 className="news-card__link news-card__link--button"
                                                 onClick={(e) => handleCardClick(item, e)}
@@ -328,6 +333,11 @@ export default function News() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <StyleModal
+                isOpen={isStyleModalOpen}
+                onClose={() => setIsStyleModalOpen(false)}
+            />
         </div>
     )
 }

@@ -39,10 +39,10 @@ export default function Music() {
     };
 
     const spotifyTracks = [
-        'https://open.spotify.com/embed/track/5kPrQcU2fJfpBUXAXGZZLq?utm_source=generator',
+        'https://open.spotify.com/embed/track/1wdZFH8dbdUXQxTmoAh9tu?utm_source=generator', // Style (NEW)
+        'https://open.spotify.com/embed/track/5kPrQcU2fJfpBUXAXGZZLq?utm_source=generator', // Fighter
         'https://open.spotify.com/embed/track/1z3ulT9OvoGdGjwbIQGw1h?utm_source=generator',
-        'https://open.spotify.com/embed/track/21AABHmjP1ObzTmgjcTxDM?utm_source=generator',
-        'https://open.spotify.com/embed/track/3DOmXTWCfVjGit39RD0uic?utm_source=generator'
+        'https://open.spotify.com/embed/track/21AABHmjP1ObzTmgjcTxDM?utm_source=generator'
     ]
 
     const youtubeVideos = [

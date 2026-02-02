@@ -17,6 +17,16 @@
     .theme-toggle:hover {
         background-color: var(--color-bg-tertiary);
     }
+
+    /* Ensure icon is visible on hover */
+    .theme-toggle:hover .theme-toggle__icon--sun,
+    .theme-toggle:hover .theme-toggle__icon--moon {
+        color: var(--color-text-primary) !important;
+    }
+
+    [data-theme="light"] .theme-toggle:hover .theme-toggle__icon--sun {
+        color: #1A1A2E !important;
+    }
 }
 
 .theme-toggle__icon-wrapper {
