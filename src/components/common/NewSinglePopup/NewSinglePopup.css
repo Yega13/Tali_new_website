@@ -136,3 +136,12 @@
         font-size: var(--text-sm);
     }
 }
+
+/* Hide when mobile menu or modal is open */
+body.modal-open .new-single-popup,
+body.menu-open .new-single-popup {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    z-index: -1 !important;
+}
