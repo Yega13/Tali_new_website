@@ -6,8 +6,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: var(--radius-full);
     background-color: var(--color-primary);
     color: var(--color-text-inverse);
@@ -18,8 +18,8 @@
 }
 
 .back-to-top svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
 }
 
 /* Desktop hover only */
