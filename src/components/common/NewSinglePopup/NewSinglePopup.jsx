@@ -4,51 +4,86 @@ import './NewSinglePopup.css'
 
 export default function NewSinglePopup({ onListenClick }) {
     const [isVisible, setIsVisible] = useState(false)
+    const [hasAnimatedIn, setHasAnimatedIn] = useState(false)
+    const [isScrolledPastHero, setIsScrolledPastHero] = useState(false)
     const lastScrollY = useRef(0)
-    const scrollThreshold = 100 // How far user must scroll before it fades
 
     useEffect(() => {
-        // Show popup after initial delay
+        // Show popup after initial delay with slide-in animation
         const showTimer = setTimeout(() => {
             setIsVisible(true)
+            // Mark that initial slide-in has completed
+            setTimeout(() => setHasAnimatedIn(true), 600)
         }, 2500)
 
+        return () => clearTimeout(showTimer)
+    }, [])
+
+    // Mobile-only scroll detection
+    useEffect(() => {
+        const isMobile = window.innerWidth <= 479
+
+        if (!isMobile) return
+
         const handleScroll = () => {
-            const currentScrollY = window.scrollY
+            // Get the explore section position
+            const exploreSection = document.querySelector('.explore')
+            if (!exploreSection) return
 
-            // Scrolling down past threshold - hide
-            if (currentScrollY > lastScrollY.current && currentScrollY > scrollThreshold) {
-                setIsVisible(false)
-            }
-            // Scrolling up - show
-            else if (currentScrollY < lastScrollY.current) {
-                setIsVisible(true)
+            const exploreSectionTop = exploreSection.getBoundingClientRect().top
+            const threshold = window.innerHeight * 0.5 // Middle of screen
+
+            // If explore section is in view (scrolled past hero)
+            if (exploreSectionTop < threshold) {
+                setIsScrolledPastHero(true)
+            } else {
+                setIsScrolledPastHero(false)
             }
 
-            lastScrollY.current = currentScrollY
+            lastScrollY.current = window.scrollY
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true })
 
-        return () => {
-            clearTimeout(showTimer)
-            window.removeEventListener('scroll', handleScroll)
-        }
+        return () => window.removeEventListener('scroll', handleScroll)
     }, [])
+
+    // Animation variants
+    const slideInVariants = {
+        hidden: { opacity: 0, x: -150 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring',
+                stiffness: 200,
+                damping: 25
+            }
+        },
+        exit: { opacity: 0, transition: { duration: 0.3 } }
+    }
+
+    const fadeVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { duration: 0.3 }
+        },
+        exit: { opacity: 0, transition: { duration: 0.3 } }
+    }
+
+    // Determine if should show
+    const shouldShow = isVisible && !isScrolledPastHero
 
     return (
         <AnimatePresence>
-            {isVisible && (
+            {shouldShow && (
                 <motion.div
                     className="new-single-popup"
-                    initial={{ opacity: 0, x: -100, y: 20 }}
-                    animate={{ opacity: 1, x: 0, y: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 260,
-                        damping: 20
-                    }}
+                    variants={hasAnimatedIn ? fadeVariants : slideInVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
                 >
                     <div className="new-single-popup__content">
                         <img
