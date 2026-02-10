@@ -499,10 +499,139 @@ export default function Info() {
                     </article>
                 </section>
 
+                {/* Cybersecurity Divider */}
+                <div className="info-divider">
+                    <span>Cybersecurity</span>
+                </div>
+
+                {/* Cybersecurity Section */}
+                <section className="info-section info-section--dev">
+                    <h2 className="info-section__heading">Security Measures</h2>
+
+                    {/* XSS / HTML Injection Protection */}
+                    <article className="info-card info-card--tech">
+                        <h3 className="info-card__title">XSS &amp; HTML Injection Protection</h3>
+                        <p className="info-card__text">
+                            The website is protected against Cross-Site Scripting (XSS) and HTML injection attacks
+                            through multiple layers of defense:
+                        </p>
+                        <ul className="info-card__list">
+                            <li><strong>React Auto-Escaping:</strong> React automatically escapes all content rendered in JSX, converting HTML characters to safe text so malicious code like {'<script>'} tags are displayed as plain text, never executed</li>
+                            <li><strong>No dangerouslySetInnerHTML:</strong> The codebase does not use React's dangerouslySetInnerHTML anywhere, eliminating the primary XSS vector in React apps</li>
+                            <li><strong>No innerHTML:</strong> No direct DOM manipulation with raw HTML strings is used</li>
+                            <li><strong>No User-Generated Content:</strong> All displayed content is hardcoded by the developer — no database, no user comments, no forums</li>
+                        </ul>
+                    </article>
+
+                    {/* Content Security Policy */}
+                    <article className="info-card info-card--tech">
+                        <h3 className="info-card__title">Content Security Policy (CSP)</h3>
+                        <p className="info-card__text">
+                            A strict Content-Security-Policy header tells the browser exactly which sources are trusted,
+                            blocking any unauthorized scripts, styles, or content from loading:
+                        </p>
+
+                        <div className="info-code-block">
+                            <h4>Script Sources</h4>
+                            <ul>
+                                <li><strong>self:</strong> Only scripts from our own domain</li>
+                                <li><strong>chimpstatic.com:</strong> Mailchimp analytics integration</li>
+                                <li>All other script sources are blocked</li>
+                            </ul>
+                        </div>
+
+                        <div className="info-code-block">
+                            <h4>Frame Sources (Embeds)</h4>
+                            <ul>
+                                <li><strong>youtube.com / youtube-nocookie.com:</strong> Video embeds</li>
+                                <li><strong>open.spotify.com:</strong> Spotify player embeds</li>
+                                <li><strong>google.com:</strong> Google Maps embed</li>
+                                <li>No other domains can embed content into the site</li>
+                            </ul>
+                        </div>
+
+                        <div className="info-code-block">
+                            <h4>Connect Sources (API Calls)</h4>
+                            <ul>
+                                <li><strong>formspree.io:</strong> Contact form submissions</li>
+                                <li><strong>api.brevo.com:</strong> Newsletter subscriptions</li>
+                                <li>No other external API calls are permitted</li>
+                            </ul>
+                        </div>
+
+                        <div className="info-code-block">
+                            <h4>Blocked Sources</h4>
+                            <ul>
+                                <li><code>object-src 'none'</code> — No Flash, Java, or other plugins</li>
+                                <li><code>base-uri 'self'</code> — Prevents base tag hijacking</li>
+                                <li><code>form-action</code> — Forms can only submit to self or Formspree</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    {/* HTTP Security Headers */}
+                    <article className="info-card info-card--tech">
+                        <h3 className="info-card__title">HTTP Security Headers</h3>
+                        <p className="info-card__text">
+                            Additional security headers are enforced on every response via Cloudflare Pages:
+                        </p>
+                        <ul className="info-card__list">
+                            <li><strong>X-Content-Type-Options: nosniff</strong> — Prevents browsers from guessing content types, blocking MIME-type attacks</li>
+                            <li><strong>X-Frame-Options: DENY</strong> — Prevents the site from being embedded in iframes on other websites (clickjacking protection)</li>
+                            <li><strong>X-XSS-Protection: 1; mode=block</strong> — Enables the browser's built-in XSS filter as a fallback</li>
+                            <li><strong>Referrer-Policy: strict-origin-when-cross-origin</strong> — Controls what referrer info is sent with requests, protecting user privacy</li>
+                            <li><strong>Strict-Transport-Security (HSTS):</strong> Forces HTTPS connections for 1 year, preventing downgrade attacks</li>
+                        </ul>
+                    </article>
+
+                    {/* Permissions Policy */}
+                    <article className="info-card info-card--tech">
+                        <h3 className="info-card__title">Permissions Policy</h3>
+                        <p className="info-card__text">
+                            The Permissions-Policy header restricts which browser features the website can access:
+                        </p>
+                        <ul className="info-card__list">
+                            <li><strong>camera=()</strong> — Camera access disabled</li>
+                            <li><strong>microphone=()</strong> — Microphone access disabled</li>
+                            <li><strong>geolocation=()</strong> — Location tracking disabled</li>
+                            <li><strong>payment=()</strong> — Payment API disabled</li>
+                        </ul>
+                        <p className="info-card__text">
+                            This ensures that even if an attacker somehow injected code, they couldn't access
+                            sensitive device features.
+                        </p>
+                    </article>
+
+                    {/* HTTPS & Infrastructure */}
+                    <article className="info-card info-card--tech">
+                        <h3 className="info-card__title">HTTPS &amp; Infrastructure Security</h3>
+                        <ul className="info-card__list">
+                            <li><strong>HTTPS Everywhere:</strong> All traffic is encrypted via TLS/SSL, enforced by Cloudflare</li>
+                            <li><strong>HSTS Preload:</strong> Browser preloads HTTPS enforcement, preventing first-visit HTTP downgrade</li>
+                            <li><strong>Cloudflare DDoS Protection:</strong> Built-in DDoS mitigation from Cloudflare's global network</li>
+                            <li><strong>No Server-Side Code:</strong> Static site — no backend servers, no databases, no SQL injection risk</li>
+                            <li><strong>No Cookies:</strong> The site does not set any cookies (theme preference is stored in localStorage)</li>
+                            <li><strong>Source Maps Disabled:</strong> Production builds don't expose source maps, making reverse engineering harder</li>
+                            <li><strong>Console Removed:</strong> All console.log statements are stripped from production code</li>
+                        </ul>
+                    </article>
+
+                    {/* Form & API Security */}
+                    <article className="info-card info-card--tech">
+                        <h3 className="info-card__title">Form &amp; API Security</h3>
+                        <ul className="info-card__list">
+                            <li><strong>Rate Limiting:</strong> Contact form limited to 3 submissions per day per visitor</li>
+                            <li><strong>Input Validation:</strong> All form inputs are validated client-side before submission</li>
+                            <li><strong>External Form Processing:</strong> Forms are handled by Formspree and Brevo, which have their own server-side validation and spam protection</li>
+                            <li><strong>No Direct Database Access:</strong> No database connection strings or API keys are exposed in the frontend code</li>
+                        </ul>
+                    </article>
+                </section>
+
                 {/* Footer */}
                 <footer className="info-page__footer">
                     <p>Tali Golergant Official Website - Built with React + Vite</p>
-                    <p>Last updated: January 2026</p>
+                    <p>Last updated: February 2026</p>
                     <p>Made with love by friend from Armenia! ;D</p>
                 </footer>
             </div>
