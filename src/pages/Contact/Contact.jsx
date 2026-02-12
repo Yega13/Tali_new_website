@@ -303,7 +303,7 @@ export default function Contact() {
                         <form className="newsletter__form" onSubmit={handleNewsletterSubmit}>
                             <input
                                 type="text"
-                                placeholder="Your Name (optional)"
+                                placeholder="Your First Name"
                                 value={newsletterData.firstName}
                                 onChange={(e) => setNewsletterData(prev => ({ ...prev, firstName: e.target.value }))}
                             />
