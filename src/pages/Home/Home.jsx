@@ -94,8 +94,6 @@ export default function Home() {
                         </motion.svg>
                     </motion.div>
                 </div>
-
-                <NewSinglePopup onListenClick={() => setIsStyleModalOpen(true)} />
             </section>
 
             <section className="explore section">
@@ -221,6 +219,7 @@ export default function Home() {
                 onClose={() => setIsStyleModalOpen(false)}
             />
 
+            <NewSinglePopup onListenClick={() => setIsStyleModalOpen(true)} />
         </div>
     )
 }
