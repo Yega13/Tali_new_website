@@ -111,12 +111,12 @@
     }
 }
 
-/* Even wider for 1700px+ */
+/* Even wider for 1700px+ - use full available width */
 @media (min-width: 1700px) {
 
     .news-grid .container,
     .interviews .container {
-        max-width: 1900px;
+        max-width: 98vw;
     }
 }
 

@@ -474,3 +474,10 @@
         height: 56px;
     }
 }
+
+/* ============ Big Desktop (1700px+): use full width ============ */
+@media (min-width: 1700px) {
+    .contact .container {
+        max-width: 98vw;
+    }
+}

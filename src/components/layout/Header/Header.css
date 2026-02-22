@@ -938,3 +938,18 @@
         transform: translateY(-11.5px) rotate(-45deg);
     }
 }
+
+/* ============ 2000px-2499px: smaller logo, closer nav ============ */
+@media (min-width: 2000px) and (max-width: 2499px) {
+    .header__logo-text {
+        font-size: 2.8rem;
+    }
+
+    .header__nav--desktop {
+        gap: var(--space-12);
+    }
+
+    .header__nav-link {
+        font-size: var(--text-lg);
+    }
+}

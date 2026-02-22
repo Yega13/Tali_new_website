@@ -389,6 +389,10 @@
     padding-bottom: var(--space-8) !important;
 }
 
+.acting-section .section-title {
+    text-align: center;
+}
+
 @media (max-width: 767px) {
     .acting-section {
         padding-top: var(--space-4) !important;
@@ -566,4 +570,60 @@
 .resume-show-more-btn svg {
     width: 20px;
     height: 20px;
+}
+
+/* ============ Big Desktop (1700px+) ============ */
+@media (min-width: 1700px) {
+
+    /* Main picture higher */
+    .about-bio__image-wrapper {
+        height: 620px;
+        margin-top: -60px;
+    }
+}
+
+/* 2000px-2499px: picture content even higher */
+@media (min-width: 2000px) and (max-width: 2499px) {
+    .about-bio__image-wrapper {
+        height: 700px;
+        margin-top: -110px;
+    }
+}
+
+@media (min-width: 1700px) {
+
+    /* Life journey blocks wider and bigger */
+    .life-journey__timeline {
+        max-width: 1100px;
+    }
+
+    .timeline-item {
+        max-width: 650px;
+    }
+
+    .timeline-item__image {
+        height: 310px;
+    }
+
+    .timeline-item__text {
+        padding: var(--space-6);
+        font-size: var(--text-lg);
+    }
+
+    .timeline-item__year {
+        font-size: var(--text-xl);
+        padding: var(--space-3) var(--space-8);
+    }
+
+    /* Acting section button bigger */
+    .acting-imdb__link {
+        font-size: 1.6rem;
+        padding: var(--space-5) var(--space-12);
+        gap: var(--space-5);
+    }
+
+    .imdb-logo {
+        font-size: 16px;
+        padding: 7px 13px;
+    }
 }

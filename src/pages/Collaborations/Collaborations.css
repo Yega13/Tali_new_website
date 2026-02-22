@@ -708,3 +708,10 @@
 .collab-lightbox__spacer {
     height: calc(var(--text-sm) + var(--space-4) + var(--space-4));
 }
+
+/* ============ Big Desktop (1700px+): use full width ============ */
+@media (min-width: 1700px) {
+    .collaborations .container {
+        max-width: 98vw;
+    }
+}

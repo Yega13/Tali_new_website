@@ -152,19 +152,26 @@
 /* Even wider for 1700px+ */
 @media (min-width: 1700px) {
     .gallery-grid .container {
-        max-width: 1900px;
+        max-width: 98vw;
     }
 
     .gallery-grid__container--masonry {
         column-count: 4;
         column-gap: var(--space-6);
     }
+
+    /* Bigger ticker images */
+    .gallery-ticker__image {
+        height: 195px;
+        max-width: 245px;
+        contain-intrinsic-size: 245px 195px;
+    }
 }
 
 /* Ultra Desktop (2400px+) */
 @media (min-width: 2400px) {
     .gallery-grid .container {
-        max-width: 2200px;
+        max-width: 98vw;
     }
 
     .gallery-grid__container--masonry {
@@ -182,7 +189,7 @@
 /* Mega Desktop (2700px+) */
 @media (min-width: 2700px) {
     .gallery-grid .container {
-        max-width: 2500px;
+        max-width: 98vw;
     }
 
     .gallery-grid__container--masonry {
@@ -199,7 +206,7 @@
 /* Super Desktop (3000px+) */
 @media (min-width: 3000px) {
     .gallery-grid .container {
-        max-width: 2800px;
+        max-width: 98vw;
     }
 
     .gallery-grid__container--masonry {
