@@ -738,3 +738,72 @@
         color: var(--color-primary);
     }
 }
+
+/* ============ 1900px-2099px (1920p screens) ============ */
+@media (min-width: 1900px) and (max-width: 2099px) {
+
+    /* Hero buttons bigger */
+    .hero__btn {
+        width: 300px;
+        padding: 20px 0;
+        font-size: var(--text-2xl);
+    }
+
+    .hero__btn-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hero__cta {
+        gap: var(--space-6);
+    }
+
+    /* Explore section title and blocks bigger */
+    .explore__title {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-12);
+    }
+
+    .explore__grid {
+        gap: var(--space-8);
+    }
+
+    .explore__card {
+        min-height: 320px;
+        padding: var(--space-12) var(--space-8);
+    }
+
+    .explore__card-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .explore__card-label {
+        font-size: var(--text-xl);
+    }
+
+    .explore__card-desc {
+        font-size: var(--text-base);
+    }
+
+    /* Follow Tali section title and blocks bigger */
+    .follow__title {
+        font-size: var(--text-4xl);
+        margin-bottom: var(--space-12);
+    }
+
+    .follow__socials {
+        gap: var(--space-6);
+    }
+
+    .follow__link {
+        min-height: 250px;
+        padding: var(--space-16) var(--space-8);
+        font-size: var(--text-base);
+    }
+
+    .follow__icon {
+        width: 52px;
+        height: 52px;
+    }
+}

@@ -715,3 +715,10 @@
         max-width: 98vw;
     }
 }
+
+/* ============ 1900px-2099px (1920p screens) ============ */
+@media (min-width: 1900px) and (max-width: 2099px) {
+    .collab-card__description {
+        font-size: var(--text-lg);
+    }
+}

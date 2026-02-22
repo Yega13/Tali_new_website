@@ -481,3 +481,63 @@
         max-width: 98vw;
     }
 }
+
+/* ============ 1900px-2099px (1920p screens) ============ */
+@media (min-width: 1900px) and (max-width: 2099px) {
+    .form-group label {
+        font-size: var(--text-base);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: var(--text-lg);
+        padding: var(--space-4) var(--space-5);
+    }
+
+    .contact-info__title {
+        font-size: var(--text-3xl);
+    }
+
+    .contact-info__text {
+        font-size: var(--text-lg);
+    }
+
+    .contact-info__item strong,
+    .contact-info__item span {
+        font-size: var(--text-lg);
+    }
+
+    .contact-form__submit,
+    .location__btn,
+    .newsletter__form button {
+        padding: var(--space-5) var(--space-12);
+        font-size: var(--text-xl);
+        min-width: 220px;
+    }
+
+    .newsletter__form input,
+    .newsletter__form button {
+        height: 64px;
+        font-size: var(--text-lg);
+    }
+
+    .newsletter__content {
+        max-width: 620px;
+    }
+
+    .newsletter__title {
+        font-size: var(--text-3xl);
+    }
+
+    .newsletter__text {
+        font-size: var(--text-lg);
+    }
+
+    .location__title {
+        font-size: var(--text-3xl);
+    }
+
+    .location__text {
+        font-size: var(--text-lg);
+    }
+}

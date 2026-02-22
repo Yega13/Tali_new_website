@@ -133,8 +133,9 @@
 
 @media (min-width: 1900px) and (max-width: 2199px) {
     .about-bio__image-wrapper {
-        height: 560px;
+        height: 700px;
         overflow: hidden;
+        margin-top: -100px;
     }
 
     .about-bio__image {

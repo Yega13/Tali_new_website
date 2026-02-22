@@ -700,33 +700,42 @@
     }
 }
 
-/* User Request: Make stickers smaller for 1900px - 2299px range */
+/* 1900px-2299px: stickers bigger and closer to text */
 @media (min-width: 1900px) and (max-width: 2299px) {
+    .shows__stickers {
+        width: 320px;
+    }
 
-    /* Left side - slightly smaller than 1300px version */
+    /* Left side */
     .shows__sticker--1 {
-        width: 135px;
+        width: 205px;
+        left: 50px;
     }
 
     .shows__sticker--2 {
-        width: 105px;
+        width: 160px;
+        left: 95px;
     }
 
     .shows__sticker--3 {
-        width: 95px;
+        width: 150px;
+        left: 40px;
     }
 
-    /* Right side - slightly smaller than 1300px version */
+    /* Right side */
     .shows__sticker--4 {
-        width: 115px;
+        width: 170px;
+        right: 62px;
     }
 
     .shows__sticker--5 {
-        width: 125px;
+        width: 200px;
+        right: 38px;
     }
 
     .shows__sticker--6 {
-        width: 100px;
+        width: 150px;
+        right: 78px;
     }
 }
 

@@ -287,7 +287,7 @@
 
 @media (min-width: 1900px) {
     .header__nav--desktop {
-        gap: var(--space-20);
+        gap: var(--space-16);
     }
 }
 
@@ -936,6 +936,17 @@
 
     .header__menu-btn--open .header__menu-line:nth-child(3) {
         transform: translateY(-11.5px) rotate(-45deg);
+    }
+}
+
+/* ============ 1900px-2099px (1920p screens) ============ */
+@media (min-width: 1900px) and (max-width: 2099px) {
+    .header__logo-text {
+        font-size: 3rem;
+    }
+
+    .header__nav--desktop {
+        gap: var(--space-12);
     }
 }
 
