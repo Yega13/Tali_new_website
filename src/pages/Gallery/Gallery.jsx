@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useIsDesktop } from '@/hooks/useMediaQuery'
 import LazyImage from '@/components/common/LazyImage'
@@ -83,8 +83,6 @@ const allMedia = [
 export default function Gallery() {
     const [lightboxIndex, setLightboxIndex] = useState(null)
     const isDesktop = useIsDesktop()
-    const scrollPositionRef = useRef(0)
-    const wasOpenRef = useRef(false)
 
     // Filter media for lightbox based on device
     const filteredMedia = useMemo(() => {
@@ -103,30 +101,10 @@ export default function Gallery() {
     }
 
     // Block body scroll when lightbox is open
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (lightboxIndex !== null) {
-            // Save current scroll position BEFORE any changes
-            scrollPositionRef.current = window.scrollY
-            wasOpenRef.current = true
-
-            // Simply hide overflow - don't use fixed positioning
-            document.documentElement.style.overflow = 'hidden'
             document.body.style.overflow = 'hidden'
-        } else if (wasOpenRef.current) {
-            // Restore overflow
-            document.documentElement.style.overflow = ''
-            document.body.style.overflow = ''
-
-            // Restore scroll position in next frame to ensure DOM is ready
-            requestAnimationFrame(() => {
-                window.scrollTo(0, scrollPositionRef.current)
-            })
-            wasOpenRef.current = false
-        }
-
-        return () => {
-            document.documentElement.style.overflow = ''
-            document.body.style.overflow = ''
+            return () => { document.body.style.overflow = '' }
         }
     }, [lightboxIndex])
 
@@ -240,7 +218,15 @@ export default function Gallery() {
                         '/photos/tali-pics18.webp',
                         '/photos/tali-pics14-eurovision-heart.webp',
                     ].map((src, i) => (
-                        <img key={i} src={src} alt="Gallery" className="gallery-ticker__image" />
+                        <img
+                            key={i}
+                            src={src}
+                            alt="Gallery"
+                            className="gallery-ticker__image"
+                            loading="eager"
+                            decoding="async"
+                            fetchPriority={i < 11 ? "high" : "low"}
+                        />
                     ))}
                 </div>
             </div>

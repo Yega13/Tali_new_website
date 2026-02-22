@@ -107,6 +107,9 @@
    --container-3xl: 1700px;
    --container-4xl: 1900px;
    --container-5xl: 2100px;
+   --container-6xl: 2400px;
+   --container-7xl: 2700px;
+   --container-8xl: 3000px;
 
    /* ============ Border Radius ============ */
    --radius-sm: 0.25rem;
@@ -120,7 +123,10 @@
    - XL Desktop: 1536px+
    - Big Desktop: 1700px - 1899px
    - Huge Desktop: 1900px - 2099px
-   - Massive Desktop: 2100px+
+   - Massive Desktop: 2100px - 2399px
+   - Ultra Desktop: 2400px - 2699px
+   - Mega Desktop: 2700px - 2999px
+   - Super Desktop: 3000px+
    ============================================ */
    --radius-sm: 0.25rem;
    /* 4px */

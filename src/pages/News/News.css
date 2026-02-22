@@ -25,6 +25,12 @@
     object-position: center 30%;
 }
 
+@media (min-width: 1024px) {
+    .news-hero__image {
+        object-position: center 20%;
+    }
+}
+
 .news-hero__overlay {
     position: absolute;
     inset: 0;
@@ -383,6 +389,13 @@
     box-shadow: var(--shadow-2xl);
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+@media (min-width: 1024px) {
+    .wander-modal__content {
+        max-width: 500px;
+        padding: var(--space-8);
+    }
 }
 
 .wander-modal__content::-webkit-scrollbar {

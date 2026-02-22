@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Collaborations.css'
 
@@ -71,8 +71,6 @@ export default function Collaborations() {
     const [lightboxIndex, setLightboxIndex] = useState(null)
     const [expandedDescriptions, setExpandedDescriptions] = useState({})
     const [longDescriptions, setLongDescriptions] = useState({})
-    const scrollPositionRef = useRef(0)
-    const wasOpenRef = useRef(false)
     const cardRefs = useRef({})
     const expandedRef = useRef(null)
     const descriptionRefs = useRef({})
@@ -162,23 +160,14 @@ export default function Collaborations() {
         }
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (lightboxIndex !== null) {
-            scrollPositionRef.current = window.scrollY
-            wasOpenRef.current = true
             document.documentElement.style.overflow = 'hidden'
             document.body.style.overflow = 'hidden'
-        } else if (wasOpenRef.current) {
-            document.documentElement.style.overflow = ''
-            document.body.style.overflow = ''
-            requestAnimationFrame(() => {
-                window.scrollTo(0, scrollPositionRef.current)
-            })
-            wasOpenRef.current = false
-        }
-        return () => {
-            document.documentElement.style.overflow = ''
-            document.body.style.overflow = ''
+            return () => {
+                document.documentElement.style.overflow = ''
+                document.body.style.overflow = ''
+            }
         }
     }, [lightboxIndex])
 

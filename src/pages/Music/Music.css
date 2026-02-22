@@ -480,6 +480,15 @@
 /* Desktop (1024px+) */
 @media (min-width: 1024px) {
 
+    /* GIF/Video bigger on desktop */
+    .gif-section__content {
+        max-width: 680px;
+    }
+
+    .gif-section__video {
+        max-width: 680px;
+    }
+
     /* Hero Image Positioning */
     .music-hero__image {
         /* GLOBAL OVERRIDE REQUIRED: */

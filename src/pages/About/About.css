@@ -2,7 +2,6 @@
     padding-top: 20px;
 }
 
-/* Bio Section - Picture Left, Text Right */
 .about-bio {
     text-align: left;
 }
@@ -13,59 +12,11 @@
     gap: var(--space-8);
 }
 
-@media (min-width: 768px) {
-    .about-bio__layout {
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: var(--space-12);
-        align-items: start;
-    }
-}
-
-/* Small Desktop (1024px - 1299px) - Compact about page */
-@media (min-width: 1024px) and (max-width: 1299px) {
-    .about-bio__layout {
-        gap: var(--space-8);
-    }
-
-    .about-bio__image {
-        max-height: 400px;
-    }
-
-    .about-bio__text p {
-        margin-bottom: var(--space-3);
-        font-size: var(--text-sm);
-    }
-
-    /* Move Acting section higher (Aggressive) */
-    .acting-section {
-        padding-top: 4rem !important;
-    }
-
-    /* Reduce padding of previous section to pull it up even more */
-    .life-journey {
-        padding-bottom: var(--space-8) !important;
-    }
-
-    /* Make IMDb button bigger (Aggressive) */
-    .acting-imdb__link {
-        font-size: 1.3rem !important;
-        padding: 1rem 4rem !important;
-    }
-}
-
 .about-bio__image-wrapper {
     position: relative;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-    .about-bio__image-wrapper {
-        max-width: none;
-        margin: 0;
-    }
 }
 
 .about-bio__image {
@@ -74,10 +25,8 @@
     max-height: 500px;
     object-fit: cover;
     object-position: top center;
-    /* Focus on top (face) */
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
-    /* Theme transition for dual images - include all properties for sync */
     opacity: 0;
     transition: opacity var(--theme-transition-duration) var(--theme-transition-timing),
         background-color var(--theme-transition-duration) var(--theme-transition-timing),
@@ -85,7 +34,6 @@
         box-shadow var(--theme-transition-duration) var(--theme-transition-timing);
 }
 
-/* Position second image on top of first */
 .about-bio__image--dark {
     position: absolute;
     top: 0;
@@ -94,23 +42,8 @@
     height: 100%;
 }
 
-/* Active image is visible */
 .about-bio__image--active {
     opacity: 1;
-}
-
-/* For 1900-2199px: position face higher */
-@media (min-width: 1900px) and (max-width: 2199px) {
-    .about-bio__image-wrapper {
-        max-height: 380px !important;
-        overflow: hidden !important;
-    }
-
-    .about-bio__image {
-        max-height: none !important;
-        height: 380px !important;
-        object-position: top center !important;
-    }
 }
 
 .about-bio__content {
@@ -124,7 +57,6 @@
     margin-bottom: var(--space-6);
 }
 
-/* Light mode: black title and text */
 [data-theme="light"] .about-bio__title {
     color: #1A1A2E;
 }
@@ -143,7 +75,75 @@
     line-height: var(--leading-relaxed);
 }
 
-/* Life Journey */
+@media (min-width: 768px) {
+    .about-bio__layout {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: var(--space-12);
+        align-items: start;
+    }
+
+    .about-bio__image-wrapper {
+        max-width: none;
+        margin: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .about-bio__image-wrapper {
+        height: 500px;
+        overflow: hidden;
+    }
+
+    .about-bio__image {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        object-position: top center;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1299px) {
+    .about-bio__layout {
+        gap: var(--space-8);
+    }
+
+    .about-bio__image-wrapper {
+        height: 420px;
+    }
+
+    .about-bio__text p {
+        margin-bottom: var(--space-3);
+        font-size: var(--text-sm);
+    }
+
+    .acting-section {
+        padding-top: 4rem !important;
+    }
+
+    .life-journey {
+        padding-bottom: var(--space-8) !important;
+    }
+
+    .acting-imdb__link {
+        font-size: 1.3rem !important;
+        padding: 1rem 4rem !important;
+    }
+}
+
+@media (min-width: 1900px) and (max-width: 2199px) {
+    .about-bio__image-wrapper {
+        height: 560px;
+        overflow: hidden;
+    }
+
+    .about-bio__image {
+        max-height: none;
+        height: 100%;
+        object-position: top center;
+    }
+}
+
 .life-journey {
     background-color: var(--color-bg-secondary);
 }
@@ -165,7 +165,6 @@
     border-radius: var(--radius-full);
 }
 
-/* Timeline with zigzag effect and tapered line */
 .life-journey__timeline {
     display: flex;
     flex-direction: column;
@@ -173,10 +172,9 @@
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-4) var(--space-20);
 }
 
-/* Vertical timeline line - visible on all sizes */
 .life-journey__timeline::before {
     content: '';
     position: absolute;
@@ -188,7 +186,7 @@
     background: linear-gradient(to bottom,
             transparent 0%,
             var(--color-primary) 5%,
-            var(--color-primary) 95%,
+            var(--color-primary) 99.5%,
             transparent 100%);
     border-radius: var(--radius-full);
     display: block;
@@ -212,7 +210,6 @@
     margin-left: 0;
 }
 
-/* Zigzag effect on desktop */
 @media (min-width: 768px) {
     .timeline-item--left {
         margin-right: auto;
@@ -258,12 +255,10 @@
     line-height: var(--leading-relaxed);
 }
 
-/* Adjust 3rd Life Journey image (2023) to show face */
 .life-journey__timeline .timeline-item:nth-child(3) .timeline-item__image {
-    object-position: center 30% !important;
+    object-position: center 30%;
 }
 
-/* Pro Materials */
 .pro-materials {
     text-align: center;
     padding-top: var(--space-8) !important;
@@ -310,7 +305,6 @@
     }
 }
 
-/* Life Journey More Text */
 .life-journey__more {
     text-align: center;
     margin-top: var(--space-10);
@@ -319,11 +313,16 @@
     font-style: italic;
 }
 
+@media (min-width: 1024px) {
+    .life-journey__more {
+        margin-top: var(--space-20);
+    }
+}
+
 [data-theme="dark"] .life-journey__more {
     color: #fff;
 }
 
-/* Resume Blocks */
 .resume-blocks {
     display: grid;
     gap: var(--space-6);
@@ -385,13 +384,11 @@
     color: var(--color-primary);
 }
 
-/* Acting Section */
 .acting-section {
     background: var(--color-bg-secondary);
     padding-bottom: var(--space-8) !important;
 }
 
-/* Mobile: Center title and move section higher */
 @media (max-width: 767px) {
     .acting-section {
         padding-top: var(--space-4) !important;
@@ -429,7 +426,6 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark theme IMDB - dark background with gold accent */
 [data-theme="dark"] .acting-imdb__link {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: #fff;
@@ -484,12 +480,6 @@
     }
 }
 
-@media (min-width: 1024px) {
-    .acting-videos__grid--multi {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
 .acting-video {
     aspect-ratio: 16 / 9;
     border-radius: var(--radius-lg);
@@ -505,14 +495,12 @@
     border: none;
 }
 
-/* Constrain video width for single videos so they aren't huge */
 .acting-videos__grid:not(.acting-videos__grid--multi) .acting-video {
     width: 100%;
     max-width: 650px;
     margin: 0 auto;
 }
 
-/* Larger IMDB Button for Desktop */
 @media (min-width: 1024px) {
     .acting-imdb__link {
         font-size: 1.25rem;
@@ -524,9 +512,23 @@
         font-size: 14px;
         padding: 5px 10px;
     }
+
+    .acting-videos__grid,
+    .acting-videos__grid--multi {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .acting-videos__grid .acting-video,
+    .acting-videos__grid:not(.acting-videos__grid--multi) .acting-video {
+        max-width: none !important;
+        width: 100%;
+        margin: 0;
+    }
 }
 
-/* Resume Blur Effect */
 .resume-block--blurred {
     filter: blur(8px);
     opacity: 0.7;

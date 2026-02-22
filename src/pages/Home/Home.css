@@ -222,6 +222,79 @@
     }
 }
 
+/* Large Desktop (1300px+) */
+@media (min-width: 1300px) {
+    .hero__title {
+        font-size: 5.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-2xl);
+    }
+}
+
+/* Big Desktop (1700px+) */
+@media (min-width: 1700px) {
+    .hero__title {
+        font-size: 6.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Huge Desktop (1900px+) */
+@media (min-width: 1900px) {
+    .hero__title {
+        font-size: 7.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Massive Desktop (2100px+) */
+@media (min-width: 2100px) {
+    .hero__title {
+        font-size: 8.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-4xl);
+    }
+}
+
+/* Ultra Desktop (2400px+) */
+@media (min-width: 2400px) {
+    .hero__title {
+        font-size: 10rem;
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-5xl);
+    }
+}
+
+/* Mega Desktop (2700px+) */
+@media (min-width: 2700px) {
+    .hero__title {
+        font-size: 11rem;
+    }
+}
+
+/* Super Desktop (3000px+) */
+@media (min-width: 3000px) {
+    .hero__title {
+        font-size: 13rem;
+    }
+
+    .hero__subtitle {
+        font-size: var(--text-6xl);
+    }
+}
+
 /* About button hover - light mode */
 @media (hover: hover) {
     [data-theme="light"] .hero__btn.btn-outline:hover {
@@ -286,9 +359,7 @@
 @media (min-width: 1024px) {
     .hero__btn {
         width: 190px;
-        /* Reduced from 220px */
         padding: 10px 0;
-        /* Custom padding for perfect height (~44px) */
         font-size: var(--text-base);
         justify-content: center;
     }
@@ -297,7 +368,115 @@
         width: 24px;
         height: 24px;
         margin-right: var(--space-2);
-        /* Ensure spacing */
+    }
+}
+
+/* Large Desktop (1300px+) */
+@media (min-width: 1300px) {
+    .hero__btn {
+        width: 210px;
+        padding: 12px 0;
+        font-size: var(--text-lg);
+    }
+}
+
+/* Big Desktop (1700px+) */
+@media (min-width: 1700px) {
+    .hero__btn {
+        width: 240px;
+        padding: 14px 0;
+        font-size: var(--text-xl);
+    }
+
+    .hero__btn-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .hero__cta {
+        gap: var(--space-5);
+    }
+}
+
+/* Huge Desktop (1900px+) */
+@media (min-width: 1900px) {
+    .hero__btn {
+        width: 270px;
+        padding: 16px 0;
+        font-size: var(--text-xl);
+    }
+
+    .hero__btn-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Massive Desktop (2100px+) */
+@media (min-width: 2100px) {
+    .hero__btn {
+        width: 300px;
+        padding: 18px 0;
+        font-size: var(--text-2xl);
+    }
+
+    .hero__btn-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hero__cta {
+        gap: var(--space-6);
+    }
+}
+
+/* Ultra Desktop (2400px+) */
+@media (min-width: 2400px) {
+    .hero__btn {
+        width: 340px;
+        padding: 20px 0;
+        font-size: var(--text-2xl);
+    }
+
+    .hero__btn-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero__cta {
+        gap: var(--space-8);
+    }
+}
+
+/* Mega Desktop (2700px+) */
+@media (min-width: 2700px) {
+    .hero__btn {
+        width: 380px;
+        padding: 22px 0;
+        font-size: var(--text-3xl);
+    }
+
+    .hero__btn-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Super Desktop (3000px+) */
+@media (min-width: 3000px) {
+    .hero__btn {
+        width: 420px;
+        padding: 26px 0;
+        font-size: var(--text-3xl);
+    }
+
+    .hero__btn-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .hero__cta {
+        gap: var(--space-10);
     }
 }
 
@@ -410,8 +589,8 @@
 
 @media (min-width: 1024px) {
     .explore__card {
-        min-height: 200px;
-        padding: var(--space-6) var(--space-4);
+        min-height: 260px;
+        padding: var(--space-10) var(--space-6);
     }
 }
 
@@ -525,6 +704,13 @@
     .follow__link {
         padding: var(--space-8) var(--space-4);
         min-height: 140px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .follow__link {
+        padding: var(--space-12) var(--space-6);
+        min-height: 200px;
     }
 }
 

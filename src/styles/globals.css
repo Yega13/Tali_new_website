@@ -245,6 +245,10 @@ h6,
 
 /* Desktop (1024px+) */
 @media (min-width: 1024px) {
+    html {
+        font-size: 17px;
+    }
+
     .container {
         padding-left: var(--space-8);
         padding-right: var(--space-8);
@@ -274,6 +278,10 @@ h6,
 
 /* Medium Desktop (1300px+) */
 @media (min-width: 1300px) {
+    html {
+        font-size: 18px;
+    }
+
     .container {
         max-width: var(--container-2xl);
         padding-left: var(--space-8);
@@ -348,6 +356,73 @@ h6,
     h2,
     .h2 {
         font-size: 4rem;
+    }
+}
+
+/* Ultra Desktop (2400px+) */
+@media (min-width: 2400px) {
+    .container {
+        max-width: var(--container-6xl);
+        padding-left: var(--space-16);
+        padding-right: var(--space-16);
+    }
+
+    h1,
+    .h1 {
+        font-size: 5.5rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 4.5rem;
+    }
+
+    h3,
+    .h3 {
+        font-size: var(--text-5xl);
+    }
+}
+
+/* Mega Desktop (2700px+) */
+@media (min-width: 2700px) {
+    .container {
+        max-width: var(--container-7xl);
+        padding-left: var(--space-20);
+        padding-right: var(--space-20);
+    }
+
+    h1,
+    .h1 {
+        font-size: 6rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 5rem;
+    }
+}
+
+/* Super Desktop (3000px+) */
+@media (min-width: 3000px) {
+    .container {
+        max-width: var(--container-8xl);
+        padding-left: var(--space-24);
+        padding-right: var(--space-24);
+    }
+
+    h1,
+    .h1 {
+        font-size: 7rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 5.5rem;
+    }
+
+    h3,
+    .h3 {
+        font-size: var(--text-6xl);
     }
 }
 
@@ -452,8 +527,14 @@ h6,
     background: var(--color-primary-dark);
 }
 
-/* Hide scrollbar when modal/lightbox/menu/preloader is open */
-body.modal-open,
+/* Modal open - overflow:hidden only, no position:fixed (avoids scroll jump on close) */
+body.modal-open {
+    overflow: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+/* Hide scrollbar when lightbox/menu/preloader is open */
 body.lightbox-open,
 body.menu-open,
 body.preloader-active {
@@ -462,8 +543,6 @@ body.preloader-active {
     -ms-overflow-style: none !important;
     position: fixed !important;
     width: 100% !important;
-    top: 0 !important;
-    left: 0 !important;
 }
 
 body.modal-open::-webkit-scrollbar,

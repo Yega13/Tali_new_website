@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './MusicModal.css'
 
@@ -60,24 +60,20 @@ const musicPlatforms = [
 ]
 
 export default function MusicModal({ isOpen, onClose }) {
-    const scrollPositionRef = useRef(0)
-
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (isOpen) {
-            scrollPositionRef.current = window.scrollY
             const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
             document.body.classList.add('modal-open')
             document.body.style.paddingRight = `${scrollbarWidth}px`
-            // Add escape key listener
             const handleEscape = (e) => {
                 if (e.key === 'Escape') onClose()
             }
             document.addEventListener('keydown', handleEscape)
-            return () => document.removeEventListener('keydown', handleEscape)
-        } else {
-            document.body.classList.remove('modal-open')
-            document.body.style.paddingRight = ''
-            window.scrollTo(0, scrollPositionRef.current)
+            return () => {
+                document.removeEventListener('keydown', handleEscape)
+                document.body.classList.remove('modal-open')
+                document.body.style.paddingRight = ''
+            }
         }
     }, [isOpen, onClose])
 

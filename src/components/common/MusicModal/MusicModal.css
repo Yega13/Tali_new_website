@@ -45,6 +45,13 @@
     }
 }
 
+@media (min-width: 1024px) {
+    .music-modal__content {
+        max-width: 500px;
+        padding: var(--space-8);
+    }
+}
+
 .music-modal__close {
     position: absolute;
     top: var(--space-2);

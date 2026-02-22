@@ -11,6 +11,37 @@
     overflow-x: hidden;
 }
 
+/* Scale header padding for large screens */
+@media (min-width: 1700px) {
+    .header {
+        padding: var(--space-5) 0;
+    }
+}
+
+@media (min-width: 2100px) {
+    .header {
+        padding: var(--space-6) 0;
+    }
+}
+
+@media (min-width: 2400px) {
+    .header {
+        padding: var(--space-8) 0;
+    }
+}
+
+@media (min-width: 2700px) {
+    .header {
+        padding: var(--space-10) 0;
+    }
+}
+
+@media (min-width: 3000px) {
+    .header {
+        padding: var(--space-12) 0;
+    }
+}
+
 /* When mobile menu is open - solid background for header bar and allow overlay to show */
 .header--menu-open {
     background-color: var(--color-bg-primary);
@@ -200,6 +231,27 @@
     }
 }
 
+/* Ultra Desktop (2400px+) */
+@media (min-width: 2400px) {
+    .header__logo-text {
+        font-size: 4.5rem;
+    }
+}
+
+/* Mega Desktop (2700px+) */
+@media (min-width: 2700px) {
+    .header__logo-text {
+        font-size: 5rem;
+    }
+}
+
+/* Super Desktop (3000px+) */
+@media (min-width: 3000px) {
+    .header__logo-text {
+        font-size: 5.5rem;
+    }
+}
+
 /* Desktop Navigation */
 .header__nav--desktop {
     display: none;
@@ -245,6 +297,27 @@
     }
 }
 
+/* Ultra Desktop (2400px+) */
+@media (min-width: 2400px) {
+    .header__nav--desktop {
+        gap: var(--space-32);
+    }
+}
+
+/* Mega Desktop (2700px+) */
+@media (min-width: 2700px) {
+    .header__nav--desktop {
+        gap: 10rem;
+    }
+}
+
+/* Super Desktop (3000px+) */
+@media (min-width: 3000px) {
+    .header__nav--desktop {
+        gap: 12rem;
+    }
+}
+
 .header__nav-link {
     position: relative;
     font-size: var(--text-xs);
@@ -254,6 +327,49 @@
     letter-spacing: var(--tracking-wider);
     padding: var(--space-2) 0;
     transition: color var(--transition-base);
+}
+
+/* Scale nav links for larger screens */
+@media (min-width: 1300px) {
+    .header__nav-link {
+        font-size: var(--text-sm);
+    }
+}
+
+@media (min-width: 1700px) {
+    .header__nav-link {
+        font-size: var(--text-base);
+    }
+}
+
+@media (min-width: 1900px) {
+    .header__nav-link {
+        font-size: var(--text-lg);
+    }
+}
+
+@media (min-width: 2100px) {
+    .header__nav-link {
+        font-size: var(--text-xl);
+    }
+}
+
+@media (min-width: 2400px) {
+    .header__nav-link {
+        font-size: var(--text-2xl);
+    }
+}
+
+@media (min-width: 2700px) {
+    .header__nav-link {
+        font-size: var(--text-3xl);
+    }
+}
+
+@media (min-width: 3000px) {
+    .header__nav-link {
+        font-size: var(--text-4xl);
+    }
 }
 
 .header__nav-link::after {

@@ -523,88 +523,47 @@
     }
 }
 
-/* Desktop - masonry layout for moments like Gallery */
+/* Desktop - centered 2-column grid for moments */
 @media (min-width: 1024px) {
     .collab-moments__grid {
-        display: block;
-        column-count: 4;
-        column-gap: var(--space-4);
-        max-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+        max-width: 520px;
+        margin: 0 auto;
     }
 
     .collab-moments__item {
-        break-inside: avoid;
-        margin-bottom: var(--space-4);
-        aspect-ratio: auto;
+        aspect-ratio: 1 / 1;
     }
 
     .collab-moments__item img,
     .collab-moments__item video {
         width: 100%;
-        height: auto;
-        aspect-ratio: auto;
-    }
-
-    /* Varied sizes for masonry effect */
-    .collab-moments__item:nth-child(1) img,
-    .collab-moments__item:nth-child(1) video {
-        aspect-ratio: 4 / 5;
-    }
-
-    .collab-moments__item:nth-child(2) img,
-    .collab-moments__item:nth-child(2) video {
+        height: 100%;
         aspect-ratio: 1 / 1;
-    }
-
-    .collab-moments__item:nth-child(3) img,
-    .collab-moments__item:nth-child(3) video {
-        aspect-ratio: 3 / 4;
-    }
-
-    .collab-moments__item:nth-child(4) img,
-    .collab-moments__item:nth-child(4) video {
-        aspect-ratio: 16 / 9;
-    }
-
-    .collab-moments__item:nth-child(5) img,
-    .collab-moments__item:nth-child(5) video {
-        aspect-ratio: 1 / 1;
-    }
-
-    .collab-moments__item:nth-child(6) img,
-    .collab-moments__item:nth-child(6) video {
-        aspect-ratio: 4 / 3;
-    }
-
-    .collab-moments__item:nth-child(7) img,
-    .collab-moments__item:nth-child(7) video {
-        aspect-ratio: 3 / 4;
-    }
-
-    .collab-moments__item:nth-child(8) img,
-    .collab-moments__item:nth-child(8) video {
-        aspect-ratio: 16 / 9;
+        object-fit: cover;
     }
 }
 
 @media (min-width: 1700px) {
     .collab-moments__grid {
-        column-count: 5;
-        column-gap: var(--space-5);
+        max-width: 600px;
+        gap: var(--space-4);
     }
 }
 
 @media (min-width: 1900px) {
     .collab-moments__grid {
-        column-count: 6;
-        column-gap: var(--space-6);
+        max-width: 680px;
+        gap: var(--space-5);
     }
 }
 
 @media (min-width: 2100px) {
     .collab-moments__grid {
-        column-count: 7;
-        column-gap: var(--space-8);
+        max-width: 760px;
+        gap: var(--space-6);
     }
 }
 
@@ -723,6 +682,13 @@
     max-height: 75vh;
     object-fit: contain;
     border-radius: var(--radius-lg);
+}
+
+@media (min-width: 1024px) {
+    .collab-lightbox__image {
+        max-width: 80vw;
+        max-height: 85vh;
+    }
 }
 
 .collab-lightbox__caption {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import StyleModal from '@/components/common/StyleModal'
@@ -139,6 +139,13 @@ const interviews = [
 export default function News() {
     const [isWanderModalOpen, setIsWanderModalOpen] = useState(false)
     const [isStyleModalOpen, setIsStyleModalOpen] = useState(false)
+
+    useLayoutEffect(() => {
+        if (isWanderModalOpen) {
+            document.body.classList.add('modal-open')
+            return () => document.body.classList.remove('modal-open')
+        }
+    }, [isWanderModalOpen])
 
     const handleCardClick = (item, e) => {
         if (item.hasModal) {

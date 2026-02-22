@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './StyleModal.css'
 
@@ -33,34 +33,20 @@ const stylePlatforms = [
 ]
 
 export default function StyleModal({ isOpen, onClose }) {
-    const scrollPositionRef = useRef(0)
-
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (isOpen) {
-            // Save current scroll position
-            scrollPositionRef.current = window.scrollY
             const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-
-            // Lock body scroll and compensate for scrollbar
             document.body.classList.add('modal-open')
             document.body.style.paddingRight = `${scrollbarWidth}px`
-            document.body.style.top = `-${scrollPositionRef.current}px`
-
             const handleEscape = (e) => {
                 if (e.key === 'Escape') onClose()
             }
             document.addEventListener('keydown', handleEscape)
-
             return () => {
                 document.removeEventListener('keydown', handleEscape)
+                document.body.classList.remove('modal-open')
+                document.body.style.paddingRight = ''
             }
-        } else {
-            // Restore scroll position
-            const scrollY = scrollPositionRef.current
-            document.body.classList.remove('modal-open')
-            document.body.style.paddingRight = ''
-            document.body.style.top = ''
-            window.scrollTo(0, scrollY)
         }
     }, [isOpen, onClose])
 
