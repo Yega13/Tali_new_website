@@ -24,8 +24,8 @@
 
 @media (min-width: 1024px) {
     .style-modal__content {
-        max-width: 520px;
-        padding: var(--space-8);
+        max-width: 420px;
+        padding: var(--space-6);
     }
 }
 

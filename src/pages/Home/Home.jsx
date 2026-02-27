@@ -209,6 +209,32 @@ export default function Home() {
                 </div>
             </section>
 
+            <section className="hi-tali section">
+                <div className="container">
+                    <motion.div
+                        className="hi-tali__card"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                    >
+                        <h2 className="hi-tali__title">Hi Tali! ✨</h2>
+                        <p>Hii Taliii!! So happy you enjoyed this project! 🎉</p>
+                        <p>Before I walk you through how everything works, I need to ask — do you want to own this? Because if you do, I'd need a day or two to rewrite the newsletter so subscribers receive a welcome email from your production, set up the contact form so every message from fans, booking requests, collabs, etc. lands directly in your inbox, and possibly change the domain (website address) to whatever name you want. :)</p>
+                        <p>Below you'll see screenshots of the newsletter, the contact form — and one more hidden thing that I think will make you smile 😄</p>
+
+                        <div className="hi-tali__screenshots">
+                            <img src="/photos/newsletter.png" alt="Newsletter" className="hi-tali__screenshot" />
+                            <div className="hi-tali__screenshots-pair">
+                                <img src="/photos/before.png" alt="Before" className="hi-tali__screenshot" />
+                                <img src="/photos/after.png" alt="After" className="hi-tali__screenshot" />
+                                <p className="hi-tali__screenshot-note">In the search bar just add /404 — it will take you to the 404 page, so when a user can't connect to the website, this opens instead :D</p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             <MusicModal
                 isOpen={isMusicModalOpen}
                 onClose={() => setIsMusicModalOpen(false)}

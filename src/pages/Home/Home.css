@@ -807,3 +807,77 @@
         height: 52px;
     }
 }
+
+/* ── Hi Tali section ── */
+.hi-tali {
+    background: var(--color-bg-secondary);
+}
+
+.hi-tali__card {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.hi-tali__title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    color: #000;
+    margin-bottom: var(--space-5);
+}
+
+[data-theme="dark"] .hi-tali__title {
+    color: #fff;
+}
+
+.hi-tali__card p {
+    color: #000;
+    line-height: var(--leading-relaxed);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+}
+
+[data-theme="dark"] .hi-tali__card p {
+    color: #fff;
+}
+
+.hi-tali__screenshots {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+    align-items: start;
+}
+
+.hi-tali__screenshot {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    display: block;
+}
+
+.hi-tali__screenshots-pair {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.hi-tali__screenshots-pair .hi-tali__screenshot {
+    width: 100%;
+}
+
+.hi-tali__screenshot-note {
+    color: #000 !important;
+    font-size: var(--text-sm) !important;
+    margin-bottom: 0 !important;
+    margin-top: var(--space-1);
+}
+
+[data-theme="dark"] .hi-tali__screenshot-note {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .hi-tali__screenshots {
+        grid-template-columns: 1fr;
+    }
+}
