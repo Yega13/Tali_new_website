@@ -129,42 +129,6 @@
     margin-top: var(--space-6);
 }
 
-.shop__info-link {
-    margin-top: var(--space-8);
-    padding-top: var(--space-4);
-    border-top: 1px dashed var(--color-border-light);
-}
-
-.shop__info-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-5);
-    background: transparent;
-    color: var(--color-text-secondary);
-    border: 1px solid var(--color-border-medium);
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.shop__info-btn svg {
-    stroke: var(--color-text-tertiary);
-    transition: stroke 0.3s ease;
-}
-
-.shop__info-btn:hover {
-    background: var(--color-bg-secondary);
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-}
-
-.shop__info-btn:hover svg {
-    stroke: var(--color-primary);
-}
 
 .shop__cta p {
     color: var(--color-text-tertiary);
@@ -191,6 +155,7 @@
 .shop__notify-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(196, 164, 132, 0.4);
+    color: #fff;
 }
 
 .shop__cone {

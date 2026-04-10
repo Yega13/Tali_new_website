@@ -20,7 +20,6 @@ const Contact = lazy(() => import('@/pages/Contact'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 const Birthday = lazy(() => import('@/pages/Birthday'))
 const Shop = lazy(() => import('@/pages/Shop'))
-const Info = lazy(() => import('@/pages/Info'))
 
 const pageVariants = {
     initial: { opacity: 0 },
@@ -78,7 +77,6 @@ function AnimatedRoutes() {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/birthday" element={<Birthday />} />
                         <Route path="/shop" element={<Shop />} />
-                        <Route path="/info" element={<Info />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>
