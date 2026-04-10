@@ -113,22 +113,6 @@
 
    /* ============ Border Radius ============ */
    --radius-sm: 0.25rem;
-   /* ... other variables ... */
-   /* ============ BREAKPOINT REFERENCE (for documentation) ============
-   Mobile-first approach:
-   - Base: 0-767px (mobile)
-   - Tablet: 768px+
-   - Desktop: 1024px+
-   - Large Desktop: 1280px+
-   - XL Desktop: 1536px+
-   - Big Desktop: 1700px - 1899px
-   - Huge Desktop: 1900px - 2099px
-   - Massive Desktop: 2100px - 2399px
-   - Ultra Desktop: 2400px - 2699px
-   - Mega Desktop: 2700px - 2999px
-   - Super Desktop: 3000px+
-   ============================================ */
-   --radius-sm: 0.25rem;
    /* 4px */
    --radius-md: 0.5rem;
    /* 8px */

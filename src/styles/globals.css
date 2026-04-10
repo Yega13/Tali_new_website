@@ -48,32 +48,26 @@ body {
 }
 
 /* ============ Global Theme Transitions ============ */
-/* Smooth color transitions for all elements during theme switch */
-*,
-*::before,
-*::after {
+/* Only apply broad transitions during theme switch (added/removed via JS) */
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
     transition:
         background-color var(--theme-transition-duration) var(--theme-transition-timing),
         border-color var(--theme-transition-duration) var(--theme-transition-timing),
         color var(--theme-transition-duration) var(--theme-transition-timing),
         fill var(--theme-transition-duration) var(--theme-transition-timing),
         stroke var(--theme-transition-duration) var(--theme-transition-timing),
-        box-shadow var(--theme-transition-duration) var(--theme-transition-timing);
+        box-shadow var(--theme-transition-duration) var(--theme-transition-timing) !important;
 }
 
-/* Elements that need additional transitions preserve their existing ones */
+/* Interactive elements always keep their own transitions */
 a,
 button,
 input,
 textarea,
 select {
     transition:
-        background-color var(--theme-transition-duration) var(--theme-transition-timing),
-        border-color var(--theme-transition-duration) var(--theme-transition-timing),
-        color var(--theme-transition-duration) var(--theme-transition-timing),
-        fill var(--theme-transition-duration) var(--theme-transition-timing),
-        stroke var(--theme-transition-duration) var(--theme-transition-timing),
-        box-shadow var(--theme-transition-duration) var(--theme-transition-timing),
         transform var(--transition-base),
         opacity var(--transition-base);
 }
@@ -337,8 +331,8 @@ h6,
     }
 
     .section {
-        padding-top: var(--space-32);
-        padding-bottom: var(--space-32);
+        padding-top: var(--space-24);
+        padding-bottom: var(--space-24);
     }
 }
 
@@ -590,35 +584,6 @@ body.preloader-active::-webkit-scrollbar {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-primary {
-    color: var(--color-primary);
-}
-
-/* ============ Page Transitions ============ */
-.page-enter {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.page-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
-}
-
-.page-exit {
-    opacity: 1;
-}
-
-.page-exit-active {
-    opacity: 0;
-    transition: opacity var(--transition-base);
 }
 
 /* ============ App Root ============ */

@@ -1,0 +1,1 @@
+import{r as e}from"./react-vendor-9JpN9TOQ.js";function t(t){const[n,a]=e.useState(()=>"undefined"!=typeof window&&window.matchMedia(t).matches);return e.useEffect(()=>{const e=window.matchMedia(t),n=e=>a(e.matches);return a(e.matches),e.addEventListener("change",n),()=>e.removeEventListener("change",n)},[t]),n}function n(){return t("(min-width: 1024px)")}export{n as a,t as u};

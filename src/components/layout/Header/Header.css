@@ -221,7 +221,7 @@
 
 @media (min-width: 1900px) {
     .header__logo-text {
-        font-size: 3.5rem;
+        font-size: 2.2rem;
     }
 }
 
@@ -287,7 +287,7 @@
 
 @media (min-width: 1900px) {
     .header__nav--desktop {
-        gap: var(--space-16);
+        gap: var(--space-10);
     }
 }
 
@@ -344,7 +344,7 @@
 
 @media (min-width: 1900px) {
     .header__nav-link {
-        font-size: var(--text-lg);
+        font-size: var(--text-sm);
     }
 }
 
@@ -942,18 +942,22 @@
 /* ============ 1900px-2099px (1920p screens) ============ */
 @media (min-width: 1900px) and (max-width: 2099px) {
     .header__logo-text {
-        font-size: 3rem;
+        font-size: 2.2rem;
     }
 
     .header__nav--desktop {
-        gap: var(--space-12);
+        gap: var(--space-10);
+    }
+
+    .header__nav-link {
+        font-size: var(--text-sm);
     }
 }
 
-/* ============ 2000px-2499px: smaller logo, closer nav ============ */
+/* ============ 2000px-2499px ============ */
 @media (min-width: 2000px) and (max-width: 2499px) {
     .header__logo-text {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
     }
 
     .header__nav--desktop {
@@ -961,6 +965,6 @@
     }
 
     .header__nav-link {
-        font-size: var(--text-lg);
+        font-size: var(--text-base);
     }
 }

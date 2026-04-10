@@ -247,11 +247,11 @@
 /* Huge Desktop (1900px+) */
 @media (min-width: 1900px) {
     .hero__title {
-        font-size: 7.5rem;
+        font-size: 5.5rem;
     }
 
     .hero__subtitle {
-        font-size: var(--text-3xl);
+        font-size: var(--text-2xl);
     }
 }
 
@@ -401,14 +401,14 @@
 /* Huge Desktop (1900px+) */
 @media (min-width: 1900px) {
     .hero__btn {
-        width: 270px;
-        padding: 16px 0;
-        font-size: var(--text-xl);
+        width: 230px;
+        padding: 14px 0;
+        font-size: var(--text-lg);
     }
 
     .hero__btn-icon {
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
     }
 }
 
@@ -742,142 +742,69 @@
 /* ============ 1900px-2099px (1920p screens) ============ */
 @media (min-width: 1900px) and (max-width: 2099px) {
 
-    /* Hero buttons bigger */
+    /* Hero buttons */
     .hero__btn {
-        width: 300px;
-        padding: 20px 0;
-        font-size: var(--text-2xl);
+        width: 230px;
+        padding: 14px 0;
+        font-size: var(--text-lg);
     }
 
     .hero__btn-icon {
-        width: 32px;
-        height: 32px;
+        width: 26px;
+        height: 26px;
     }
 
     .hero__cta {
-        gap: var(--space-6);
+        gap: var(--space-5);
     }
 
-    /* Explore section title and blocks bigger */
+    /* Explore section */
     .explore__title {
-        font-size: var(--text-4xl);
-        margin-bottom: var(--space-12);
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-10);
     }
 
     .explore__grid {
-        gap: var(--space-8);
-    }
-
-    .explore__card {
-        min-height: 320px;
-        padding: var(--space-12) var(--space-8);
-    }
-
-    .explore__card-icon {
-        width: 64px;
-        height: 64px;
-    }
-
-    .explore__card-label {
-        font-size: var(--text-xl);
-    }
-
-    .explore__card-desc {
-        font-size: var(--text-base);
-    }
-
-    /* Follow Tali section title and blocks bigger */
-    .follow__title {
-        font-size: var(--text-4xl);
-        margin-bottom: var(--space-12);
-    }
-
-    .follow__socials {
         gap: var(--space-6);
     }
 
-    .follow__link {
-        min-height: 250px;
-        padding: var(--space-16) var(--space-8);
-        font-size: var(--text-base);
+    .explore__card {
+        min-height: 280px;
+        padding: var(--space-10) var(--space-6);
     }
 
-    .follow__icon {
+    .explore__card-icon {
         width: 52px;
         height: 52px;
     }
-}
 
-/* ── Hi Tali section ── */
-.hi-tali {
-    background: var(--color-bg-secondary);
-}
+    .explore__card-label {
+        font-size: var(--text-lg);
+    }
 
-.hi-tali__card {
-    max-width: 680px;
-    margin: 0 auto;
-}
+    .explore__card-desc {
+        font-size: var(--text-sm);
+    }
 
-.hi-tali__title {
-    font-family: var(--font-display);
-    font-size: var(--text-3xl);
-    color: #000;
-    margin-bottom: var(--space-5);
-}
+    /* Follow Tali section */
+    .follow__title {
+        font-size: var(--text-3xl);
+        margin-bottom: var(--space-10);
+    }
 
-[data-theme="dark"] .hi-tali__title {
-    color: #fff;
-}
+    .follow__socials {
+        gap: var(--space-5);
+    }
 
-.hi-tali__card p {
-    color: #000;
-    line-height: var(--leading-relaxed);
-    font-size: var(--text-base);
-    margin-bottom: var(--space-4);
-}
+    .follow__link {
+        min-height: 200px;
+        padding: var(--space-12) var(--space-6);
+        font-size: var(--text-sm);
+    }
 
-[data-theme="dark"] .hi-tali__card p {
-    color: #fff;
-}
-
-.hi-tali__screenshots {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: var(--space-6);
-    margin-top: var(--space-6);
-    align-items: start;
-}
-
-.hi-tali__screenshot {
-    width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    display: block;
-}
-
-.hi-tali__screenshots-pair {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-}
-
-.hi-tali__screenshots-pair .hi-tali__screenshot {
-    width: 100%;
-}
-
-.hi-tali__screenshot-note {
-    color: #000 !important;
-    font-size: var(--text-sm) !important;
-    margin-bottom: 0 !important;
-    margin-top: var(--space-1);
-}
-
-[data-theme="dark"] .hi-tali__screenshot-note {
-    color: #fff !important;
-}
-
-@media (max-width: 600px) {
-    .hi-tali__screenshots {
-        grid-template-columns: 1fr;
+    .follow__icon {
+        width: 44px;
+        height: 44px;
     }
 }
+

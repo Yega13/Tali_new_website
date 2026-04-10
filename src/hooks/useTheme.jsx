@@ -37,6 +37,8 @@ export function ThemeProvider({ children }) {
         const originalScrollBehavior = html.style.scrollBehavior
         html.style.scrollBehavior = 'auto'
 
+        html.classList.add('theme-transitioning')
+
         const newTheme = theme === 'light' ? 'dark' : 'light'
 
         html.setAttribute('data-theme', newTheme)
@@ -50,6 +52,10 @@ export function ThemeProvider({ children }) {
                 html.style.scrollBehavior = originalScrollBehavior
             })
         })
+
+        setTimeout(() => {
+            html.classList.remove('theme-transitioning')
+        }, 450)
     }
 
     return (
