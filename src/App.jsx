@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from '@/hooks/useTheme'
 import { AnimatePresence, motion } from 'framer-motion'
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useRef, useEffect } from 'react'
 import Preloader from '@/components/common/Preloader'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -33,7 +33,7 @@ const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborati
 function PageLoader() {
     return (
         <div style={{
-            minHeight: '50vh',
+            minHeight: '100vh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -52,13 +52,18 @@ function PageLoader() {
 
 function AnimatedRoutes() {
     const location = useLocation()
+    const isFirstRender = useRef(true)
+
+    useEffect(() => {
+        isFirstRender.current = false
+    }, [])
 
     return (
         <AnimatePresence mode="wait">
             <motion.div
                 key={location.pathname}
                 variants={pageVariants}
-                initial="initial"
+                initial={isFirstRender.current ? false : "initial"}
                 animate="animate"
                 exit="exit"
             >
