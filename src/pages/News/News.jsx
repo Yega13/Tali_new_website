@@ -1,8 +1,20 @@
 import { useState, useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import StyleModal from '@/components/common/StyleModal'
+import StyleModal, { PLATFORM_ICONS } from '@/components/common/StyleModal'
 import './News.css'
+
+const strawberryPlatforms = [
+    { name: 'Spotify', url: 'https://open.spotify.com/track/4PtvZEksyIx8prenJvjhvk?si=f0ed0448cf27422d', icon: PLATFORM_ICONS.Spotify },
+    { name: 'Apple Music', url: 'https://music.apple.com/us/album/strawberry-fragrance-single/1878009313', icon: PLATFORM_ICONS['Apple Music'] },
+    { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GNCPRW4P?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Hnv1LGUlVwwFTErEaL9NI3yLM', icon: PLATFORM_ICONS['Amazon Music'] },
+]
+
+const sentimentalPlatforms = [
+    { name: 'Spotify', url: 'https://open.spotify.com/track/3hf7mln3oPgT6CEVpFdmSN?si=e1b931cdc94b43b9', icon: PLATFORM_ICONS.Spotify },
+    { name: 'Apple Music', url: 'https://music.apple.com/us/album/senti-mental-single/1885177646', icon: PLATFORM_ICONS['Apple Music'] },
+    { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GSHFFH82?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Sz9DzDAomYeTg4hapJFgFwjMX', icon: PLATFORM_ICONS['Amazon Music'] },
+]
 
 const wanderPlatforms = [
     {
@@ -81,25 +93,22 @@ const newsItems = [
         hasStyleModal: true
     },
     {
-        id: 'trounwiessel',
-        image: '/photos/trounwiessel-3.webp',
-        title: 'Trounwiessel: The Duke\'s Coronation',
-        date: 'October 2025',
-        excerpt: 'A historic collaboration celebrating Luxembourg\'s royal heritage through an enchanting musical tribute.',
-        linkText: 'Read more →',
-        link: 'https://monarchie.lu/en/trounwiessel-throne',
-        secondaryLink: 'https://play.rtl.lu/shows/lb/trounwiessel/episodes/r/3430493',
-        secondaryLinkText: 'Watch Full Show →',
-        isExternal: true
+        id: 'strawberry-fields',
+        image: '/photos/tali%20picsnew%206.jpg',
+        title: 'Strawberry Fields',
+        date: 'March 13, 2026',
+        excerpt: 'Tali\'s dreamy new single "Strawberry Fields" dropped on March 13th — a sweet, sun-soaked track that lingers like the scent of summer berries. Hit play and let yourself wander.',
+        linkText: 'Listen Now →',
+        hasStrawberryModal: true
     },
     {
-        id: 'birthday',
-        image: '/photos/baby-tali-1.webp',
-        title: 'Happy Birthday Tali!',
-        date: 'November 2025',
-        excerpt: 'TALIIIII, ik i\'m late, and i\' so sorry, but this is definitely worth it! Happy Birthday! Happy Hannukah! and Happy new year! Love you sm!',
-        linkText: 'Read more →',
-        link: '/birthday'
+        id: 'sentimental',
+        image: '/photos/tali%20picsnew%204.jpg',
+        title: 'Not crazy. Just Senti(Mental)',
+        date: 'April 10, 2026',
+        excerpt: 'Released April 10th, "Not crazy. Just Senti(Mental)" is Tali\'s most energizing drop yet — a punchy, electric anthem about feeling everything at once and owning every bit of it. Press play and turn it up loud.',
+        linkText: 'Listen Now →',
+        hasSentimentalModal: true
     }
 ]
 
@@ -139,6 +148,8 @@ const interviews = [
 export default function News() {
     const [isWanderModalOpen, setIsWanderModalOpen] = useState(false)
     const [isStyleModalOpen, setIsStyleModalOpen] = useState(false)
+    const [isStrawberryModalOpen, setIsStrawberryModalOpen] = useState(false)
+    const [isSentimentalModalOpen, setIsSentimentalModalOpen] = useState(false)
 
     useLayoutEffect(() => {
         if (isWanderModalOpen) {
@@ -155,6 +166,14 @@ export default function News() {
         if (item.hasStyleModal) {
             e.preventDefault()
             setIsStyleModalOpen(true)
+        }
+        if (item.hasStrawberryModal) {
+            e.preventDefault()
+            setIsStrawberryModalOpen(true)
+        }
+        if (item.hasSentimentalModal) {
+            e.preventDefault()
+            setIsSentimentalModalOpen(true)
         }
     }
 
@@ -197,7 +216,7 @@ export default function News() {
                                     <p className="news-card__excerpt">{item.excerpt}</p>
 
                                     <div className="news-card__links">
-                                        {item.hasModal || item.hasStyleModal ? (
+                                        {item.hasModal || item.hasStyleModal || item.hasStrawberryModal || item.hasSentimentalModal ? (
                                             <button
                                                 className="news-card__link news-card__link--button"
                                                 onClick={(e) => handleCardClick(item, e)}
@@ -344,6 +363,22 @@ export default function News() {
             <StyleModal
                 isOpen={isStyleModalOpen}
                 onClose={() => setIsStyleModalOpen(false)}
+            />
+
+            <StyleModal
+                isOpen={isStrawberryModalOpen}
+                onClose={() => setIsStrawberryModalOpen(false)}
+                title="Strawberry Fields"
+                cover="/photos/tali%20picsnew%206.jpg"
+                platforms={strawberryPlatforms}
+            />
+
+            <StyleModal
+                isOpen={isSentimentalModalOpen}
+                onClose={() => setIsSentimentalModalOpen(false)}
+                title="Not crazy. Just Senti(Mental)"
+                cover="/photos/tali%20picsnew%204.jpg"
+                platforms={sentimentalPlatforms}
             />
         </div>
     )

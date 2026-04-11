@@ -1,1 +1,1 @@
-export { default } from './StyleModal'
+export { default, PLATFORM_ICONS } from './StyleModal'

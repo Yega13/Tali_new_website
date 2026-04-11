@@ -37,7 +37,7 @@ const structuredData = {
 const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Tali Golergant - Official Website",
+    "name": "Tali Golergant",
     "url": "https://taligolergant.org",
     "description": "Official website of Tali Golergant - Singer, Songwriter, and Artist from Luxembourg",
     "publisher": {
