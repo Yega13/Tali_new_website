@@ -8,7 +8,6 @@ import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/common/ScrollToTop'
 import BackToTop from '@/components/common/BackToTop'
 import ErrorBoundary from '@/components/common/ErrorBoundary'
-import SEO from '@/components/common/SEO'
 
 import Home from '@/pages/Home'
 const About = lazy(() => import('@/pages/About'))
@@ -93,7 +92,6 @@ function AppContent() {
         <>
             {!is404 && <Preloader />}
             <ScrollToTop />
-            <SEO />
             {!is404 && <Header />}
             <main>
                 <AnimatedRoutes />
