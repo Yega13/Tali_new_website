@@ -52,13 +52,13 @@ export default function NewSinglePopup({ onListenClick }) {
                 >
                     <div className="new-single-popup__content">
                         <img
-                            src="/photos/tali-style2.webp"
-                            alt="Style - New Single"
+                            src="/photos/tali%20picsnew%204.jpg"
+                            alt="Senti(Mental) - New Single"
                             className="new-single-popup__cover"
                         />
                         <div className="new-single-popup__info">
                             <span className="new-single-popup__badge">NEW SINGLE</span>
-                            <h3 className="new-single-popup__title">"Style" is Out!</h3>
+                            <h3 className="new-single-popup__title">"Senti(Mental)" is Out!</h3>
                             <button
                                 className="new-single-popup__btn"
                                 onClick={onListenClick}

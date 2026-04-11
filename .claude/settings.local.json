@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(powershell -Command:*)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "Bash(npm run:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

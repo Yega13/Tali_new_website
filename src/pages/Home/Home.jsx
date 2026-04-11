@@ -3,13 +3,19 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
 import MusicModal from '@/components/common/MusicModal'
-import StyleModal from '@/components/common/StyleModal'
+import StyleModal, { PLATFORM_ICONS } from '@/components/common/StyleModal'
 import NewSinglePopup from '@/components/common/NewSinglePopup'
 import './Home.css'
 
+const sentimentalPlatforms = [
+    { name: 'Spotify', url: 'https://open.spotify.com/track/3hf7mln3oPgT6CEVpFdmSN?si=e1b931cdc94b43b9', icon: PLATFORM_ICONS.Spotify },
+    { name: 'Apple Music', url: 'https://music.apple.com/us/album/senti-mental-single/1885177646', icon: PLATFORM_ICONS['Apple Music'] },
+    { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GSHFFH82?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Sz9DzDAomYeTg4hapJFgFwjMX', icon: PLATFORM_ICONS['Amazon Music'] },
+]
+
 export default function Home() {
     const [isMusicModalOpen, setIsMusicModalOpen] = useState(false)
-    const [isStyleModalOpen, setIsStyleModalOpen] = useState(false)
+    const [isSentimentalModalOpen, setIsSentimentalModalOpen] = useState(false)
     const { theme } = useTheme()
 
     return (
@@ -215,11 +221,14 @@ export default function Home() {
             />
 
             <StyleModal
-                isOpen={isStyleModalOpen}
-                onClose={() => setIsStyleModalOpen(false)}
+                isOpen={isSentimentalModalOpen}
+                onClose={() => setIsSentimentalModalOpen(false)}
+                title="Senti(Mental)"
+                cover="/photos/tali%20picsnew%204.jpg"
+                platforms={sentimentalPlatforms}
             />
 
-            <NewSinglePopup onListenClick={() => setIsStyleModalOpen(true)} />
+            <NewSinglePopup onListenClick={() => setIsSentimentalModalOpen(true)} />
         </div>
     )
 }
