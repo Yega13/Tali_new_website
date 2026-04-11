@@ -2,11 +2,11 @@ HII TALI! this website is for you! honestly it was a long work, me and my little
 
 ---
 
-# Tali Golergant - Official Website
+# Tali Golergant - Website
 
 ![Tali Golergant](screenshots/hero-preview.png)
 
-The official website for **Tali Golergant** - Singer, Songwriter, and Artist from Luxembourg. Eurovision 2025 representative.
+The website for **Tali Golergant** - Singer, Songwriter, and Artist from Luxembourg. Eurovision 2024 representative.
 
 ## Live Site
 
