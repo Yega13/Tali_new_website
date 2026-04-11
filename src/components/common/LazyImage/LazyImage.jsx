@@ -14,6 +14,7 @@ export default function LazyImage({ src, alt, className = '', ...props }) {
                 src={src}
                 alt={alt}
                 loading="lazy"
+                decoding="async"
                 className={`lazy-image__img ${isLoaded ? 'lazy-image__img--loaded' : ''}`}
                 onLoad={() => setIsLoaded(true)}
                 onError={() => setHasError(true)}

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import './Contact.css'
 
 const CONTACT_FORM_ID = 'mlggdeda'
-const NEWSLETTER_FORM_ID = 'mzddzbzw'
 
 export default function Contact() {
     const [formData, setFormData] = useState({

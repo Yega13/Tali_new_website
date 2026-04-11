@@ -135,7 +135,7 @@
     .about-bio__image-wrapper {
         height: 700px;
         overflow: hidden;
-        margin-top: 0;
+        margin-top: 40px;
     }
 
     .about-bio__image {
@@ -452,10 +452,6 @@
     letter-spacing: 0.5px;
 }
 
-.acting-imdb__icon {
-    display: none;
-}
-
 .acting-category {
     margin-bottom: var(--space-10);
 }
@@ -534,47 +530,8 @@
     }
 }
 
-.resume-block--blurred {
-    filter: blur(8px);
-    opacity: 0.7;
-    pointer-events: none;
-    user-select: none;
-}
-
-.resume-show-more-container {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--space-6);
-    width: 100%;
-    grid-column: 1 / -1;
-}
-
-.resume-show-more-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-6);
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary);
-    border-radius: var(--radius-full);
-    font-weight: var(--weight-semibold);
-    transition: all var(--transition-base);
-    cursor: pointer;
-}
-
-.resume-show-more-btn:hover {
-    background-color: var(--color-primary);
-    color: var(--color-text-inverse);
-}
-
-.resume-show-more-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-/* ============ Big Desktop (1700px+) ============ */
-@media (min-width: 1700px) {
+/* ============ Big Desktop (1700px - 1899px) ============ */
+@media (min-width: 1700px) and (max-width: 1899px) {
 
     /* Main picture higher */
     .about-bio__image-wrapper {

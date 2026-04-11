@@ -177,16 +177,6 @@ export default function Gallery() {
         setDragOffset(0)
     }
 
-    // Video click to pause/play
-    const handleVideoClick = (e) => {
-        e.stopPropagation()
-        if (e.target.paused) {
-            e.target.play()
-        } else {
-            e.target.pause()
-        }
-    }
-
     return (
         <div className="gallery">
             {/* Ticker with Gallery Title and Images */}
@@ -243,10 +233,10 @@ export default function Gallery() {
                                 <motion.div
                                     key={index}
                                     className="gallery-item"
-                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.05 }}
+                                    viewport={{ once: true, margin: '100px' }}
+                                    transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25), ease: 'easeOut' }}
                                     onClick={() => openLightbox(media)}
                                 >
                                     {media.type === 'video' ? (
@@ -270,10 +260,10 @@ export default function Gallery() {
                             <motion.div
                                 key={index}
                                 className="gallery-item"
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
+                                viewport={{ once: true, margin: '100px' }}
+                                transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25), ease: 'easeOut' }}
                                 onClick={() => openLightbox(media)}
                             >
                                 {media.type === 'video' ? (
@@ -299,10 +289,10 @@ export default function Gallery() {
                                 <motion.div
                                     key={index}
                                     className="gallery-item"
-                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.05 }}
+                                    viewport={{ once: true, margin: '100px' }}
+                                    transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25), ease: 'easeOut' }}
                                     onClick={() => openLightbox(media)}
                                 >
                                     {media.type === 'video' ? (
@@ -330,10 +320,10 @@ export default function Gallery() {
                             <motion.div
                                 key={index}
                                 className="gallery-item gallery-item--bw"
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
+                                viewport={{ once: true, margin: '100px' }}
+                                transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25), ease: 'easeOut' }}
                                 onClick={() => openLightbox(image)}
                             >
                                 <LazyImage src={image.src} alt={image.alt} />
