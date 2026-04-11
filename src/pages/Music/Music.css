@@ -195,6 +195,20 @@
     font-size: var(--text-sm);
 }
 
+.show-item--upcoming .show-item__date,
+.show-item--upcoming .show-item__venue {
+    color: #e63946;
+    font-weight: var(--weight-semibold);
+}
+
+.show-item__upcoming-tag {
+    color: #e63946;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
 /* Show Toggle Button */
 .shows__toggle {
     display: flex;

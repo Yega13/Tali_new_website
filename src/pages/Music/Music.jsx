@@ -54,6 +54,8 @@ export default function Music() {
     ]
 
     const allShows = [
+        { date: '08/05/26', venue: 'Bruxelles - RED HAVEN Release Show', upcoming: true },
+        { date: '05/02/26', venue: 'Jewish Federation of Broward' },
         { date: '04/10/25', venue: 'Duke Coronation Luxembourg' },
         { date: '24/07/25', venue: 'Echterlive Festival' },
         { date: '06/06/25', venue: 'Francofolies Festival' },
@@ -215,14 +217,17 @@ export default function Music() {
                         {visibleShows.map((show, index) => (
                             <motion.div
                                 key={`${show.date}-${show.venue}`}
-                                className={`show-item ${!isDesktop && !showAllShows && index === 5 ? 'show-item--half-blurred' : ''}`}
+                                className={`show-item ${show.upcoming ? 'show-item--upcoming' : ''} ${!isDesktop && !showAllShows && index === 5 ? 'show-item--half-blurred' : ''}`}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.3, delay: index * 0.03 }}
                             >
                                 <span className="show-item__date">{show.date}</span>
-                                <span className="show-item__venue">{show.venue}</span>
+                                <span className="show-item__venue">
+                                    {show.venue}
+                                    {show.upcoming && <span className="show-item__upcoming-tag"> · Upcoming!</span>}
+                                </span>
                             </motion.div>
                         ))}
                     </div>

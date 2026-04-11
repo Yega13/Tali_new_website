@@ -27,9 +27,29 @@ const structuredData = {
     "performerIn": {
         "@type": "Event",
         "name": "Eurovision Song Contest 2025",
+        "startDate": "2025-05-13",
+        "endDate": "2025-05-17",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "description": "Tali Golergant represented Luxembourg at the Eurovision Song Contest 2025 in Basel, Switzerland.",
+        "image": "https://taligolergant.org/social-square.jpg",
         "location": {
             "@type": "Place",
-            "name": "Basel, Switzerland"
+            "name": "St. Jakobshalle",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Basel",
+                "addressCountry": "CH"
+            }
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "European Broadcasting Union",
+            "url": "https://www.eurovision.tv"
+        },
+        "performer": {
+            "@type": "Person",
+            "name": "Tali Golergant"
         }
     }
 }

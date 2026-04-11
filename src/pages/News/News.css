@@ -152,6 +152,11 @@
     object-fit: cover;
 }
 
+/* Belgium card (1st) — anchor image to the top so Tali's eyes are visible */
+.news-card:nth-child(1) .news-card__image img {
+    object-position: center top;
+}
+
 .news-card__content {
     padding: var(--space-5);
     display: flex;
