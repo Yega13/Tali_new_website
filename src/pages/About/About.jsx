@@ -171,7 +171,7 @@ export default function About() {
                                 year: '2026',
                                 image: '/photos/tali%20picsnew%204.jpg',
                                 alt: 'Tali RED HAVEN',
-                                text: '2026 marked a turning point — Tali released her debut album "RED HAVEN", featuring singles like "Style", "Strawberry Fragrance", and "Senti(mental)". She also performed her first ever show outside of Luxembourg, taking the stage in Belgium.'
+                                text: '2026 is shaping up to be a turning point — Tali is set to release her debut album "RED HAVEN", featuring singles like "Style", "Strawberry Fragrance", and "Senti(mental)". She also performed her first ever show outside of Luxembourg, taking the stage in Belgium.'
                             }
                         ].map((item, index) => (
                             <motion.div
