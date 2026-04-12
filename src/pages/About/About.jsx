@@ -166,6 +166,12 @@ export default function About() {
                                 image: '/photos/tali-pics51.webp',
                                 alt: 'Tali WANDER',
                                 text: 'In 2025 Tali finally released her second EP, had her first solo gig, which immediately went sold-out, and started to expand her community across the globe.'
+                            },
+                            {
+                                year: '2026',
+                                image: '/photos/tali%20picsnew%204.jpg',
+                                alt: 'Tali RED HAVEN',
+                                text: '2026 marked a turning point — Tali released her debut album "RED HAVEN", featuring singles like "Style", "Strawberry Fragrance", and "Senti(mental)". She also performed her first ever show outside of Luxembourg, taking the stage in Belgium.'
                             }
                         ].map((item, index) => (
                             <motion.div

@@ -22,8 +22,8 @@ const newsItems = [
         id: 'belgium',
         image: '/photos/tali%20picsnew%209.jpg',
         title: 'Tali in Belgium!',
-        date: 'May 8, 2026',
-        excerpt: 'Tali is heading to Brussels! On May 8th she takes the stage in Bruxelles for a very special night — the official release of her brand new album "RED HAVEN". Expect new songs, big energy, and a one-of-a-kind live experience. Don\'t miss it.',
+        date: 'June 6, 2026',
+        excerpt: 'Tali is heading to Brussels! On June 6th she takes the stage in Bruxelles for a very special night — the official release of her brand new album "RED HAVEN". Expect new songs, big energy, and a one-of-a-kind live experience. Don\'t miss it.',
         linkText: 'Buy Tickets →',
         link: BELGIUM_TICKET_URL,
         isExternal: true

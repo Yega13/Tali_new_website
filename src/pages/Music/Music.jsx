@@ -54,7 +54,8 @@ export default function Music() {
     ]
 
     const allShows = [
-        { date: '08/05/26', venue: 'Bruxelles - RED HAVEN Release Show', upcoming: true },
+        { date: '06/06/26', venue: 'Bruxelles - RED HAVEN Release Show', upcoming: true },
+        { date: '08/05/26', venue: 'Esch-sur-Alzette', upcoming: true },
         { date: '05/02/26', venue: 'Jewish Federation of Broward' },
         { date: '04/10/25', venue: 'Duke Coronation Luxembourg' },
         { date: '24/07/25', venue: 'Echterlive Festival' },
