@@ -115,22 +115,24 @@ export default function Gallery() {
     }
 
     // Block body scroll when lightbox is open
+    const isLightboxOpen = lightboxIndex !== null
     useLayoutEffect(() => {
-        if (lightboxIndex !== null) {
-            const scrollY = window.scrollY
-            document.body.style.position = 'fixed'
-            document.body.style.top = `-${scrollY}px`
-            document.body.style.width = '100%'
-            document.body.classList.add('lightbox-open')
-            return () => {
-                document.body.classList.remove('lightbox-open')
-                document.body.style.position = ''
-                document.body.style.top = ''
-                document.body.style.width = ''
-                window.scrollTo(0, scrollY)
-            }
+        if (!isLightboxOpen) return
+
+        const scrollY = window.scrollY
+        document.body.style.position = 'fixed'
+        document.body.style.top = `-${scrollY}px`
+        document.body.style.width = '100%'
+        document.body.classList.add('lightbox-open')
+
+        return () => {
+            document.body.style.position = ''
+            document.body.style.top = ''
+            window.scrollTo(0, scrollY)
+            document.body.style.width = ''
+            document.body.classList.remove('lightbox-open')
         }
-    }, [lightboxIndex])
+    }, [isLightboxOpen])
 
     // Keyboard navigation for lightbox
     useEffect(() => {

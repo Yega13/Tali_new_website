@@ -500,7 +500,7 @@
 /* Scale mobile menu text for larger screens - 7-tier system */
 /* TIER 1: Tiny (320-359px) - uses base text-lg */
 
-/* TIER 2: Mid phones (360px+) */
+/* TIER 2: Small mid phones (360-389px) - iPhone SE etc */
 @media (min-width: 360px) {
     .header__nav-link--mobile {
         font-size: 1.45rem;
@@ -508,7 +508,15 @@
     }
 }
 
-/* TIER 3: Standard phones (400px+) */
+/* TIER 2b: Mid phones (390-399px) - iPhone 12 Pro, Pixel etc */
+@media (min-width: 390px) {
+    .header__nav-link--mobile {
+        font-size: 1.6rem;
+        padding: var(--space-3) 0;
+    }
+}
+
+/* TIER 3: Standard phones (400px+) - iPhone 14 Pro Max, Galaxy etc */
 @media (min-width: 400px) {
     .header__nav-link--mobile {
         font-size: 1.7rem;

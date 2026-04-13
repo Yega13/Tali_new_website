@@ -34,28 +34,20 @@ export default function Header() {
     }, [])
 
     useLayoutEffect(() => {
-        if (isMenuOpen) {
-            const scrollY = window.scrollY
-            document.body.dataset.scrollY = scrollY
-            document.body.style.position = 'fixed'
-            document.body.style.top = `-${scrollY}px`
-            document.body.style.width = '100%'
-            document.body.classList.add('menu-open')
-        } else {
-            const scrollY = parseInt(document.body.dataset.scrollY || '0', 10)
-            document.body.classList.remove('menu-open')
-            document.body.style.position = ''
-            document.body.style.top = ''
-            document.body.style.width = ''
-            window.scrollTo(0, scrollY)
-        }
+        if (!isMenuOpen) return
+
+        const scrollY = window.scrollY
+        document.body.style.position = 'fixed'
+        document.body.style.top = `-${scrollY}px`
+        document.body.style.width = '100%'
+        document.body.classList.add('menu-open')
+
         return () => {
-            const scrollY = parseInt(document.body.dataset.scrollY || '0', 10)
-            document.body.classList.remove('menu-open')
             document.body.style.position = ''
             document.body.style.top = ''
-            document.body.style.width = ''
             window.scrollTo(0, scrollY)
+            document.body.style.width = ''
+            document.body.classList.remove('menu-open')
         }
     }, [isMenuOpen])
 
