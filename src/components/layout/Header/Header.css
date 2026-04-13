@@ -503,7 +503,7 @@
 /* TIER 2: Mid phones (360px+) */
 @media (min-width: 360px) {
     .header__nav-link--mobile {
-        font-size: 1.3rem;
+        font-size: 1.45rem;
         padding: var(--space-3) 0;
     }
 }

@@ -535,8 +535,6 @@ body.preloader-active {
     overflow: hidden !important;
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
-    position: fixed !important;
-    width: 100% !important;
 }
 
 body.modal-open::-webkit-scrollbar,

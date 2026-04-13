@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from '@/components/common/ThemeToggle'
@@ -33,14 +33,29 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (isMenuOpen) {
+            const scrollY = window.scrollY
+            document.body.dataset.scrollY = scrollY
+            document.body.style.position = 'fixed'
+            document.body.style.top = `-${scrollY}px`
+            document.body.style.width = '100%'
             document.body.classList.add('menu-open')
         } else {
+            const scrollY = parseInt(document.body.dataset.scrollY || '0', 10)
             document.body.classList.remove('menu-open')
+            document.body.style.position = ''
+            document.body.style.top = ''
+            document.body.style.width = ''
+            window.scrollTo(0, scrollY)
         }
         return () => {
+            const scrollY = parseInt(document.body.dataset.scrollY || '0', 10)
             document.body.classList.remove('menu-open')
+            document.body.style.position = ''
+            document.body.style.top = ''
+            document.body.style.width = ''
+            window.scrollTo(0, scrollY)
         }
     }, [isMenuOpen])
 
