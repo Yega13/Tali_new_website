@@ -117,8 +117,14 @@ export default function Gallery() {
     // Block body scroll when lightbox is open
     useLayoutEffect(() => {
         if (lightboxIndex !== null) {
-            document.body.style.overflow = 'hidden'
-            return () => { document.body.style.overflow = '' }
+            const scrollY = window.scrollY
+            document.body.classList.add('lightbox-open')
+            document.body.style.top = `-${scrollY}px`
+            return () => {
+                document.body.classList.remove('lightbox-open')
+                document.body.style.top = ''
+                window.scrollTo(0, scrollY)
+            }
         }
     }, [lightboxIndex])
 

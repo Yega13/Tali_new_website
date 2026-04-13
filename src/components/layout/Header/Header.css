@@ -482,15 +482,9 @@
     padding: var(--space-4);
     padding-top: 80px;
     background-color: transparent;
-    overflow-y: auto;
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    overflow: hidden;
 }
 
-.header__nav--mobile::-webkit-scrollbar {
-    display: none;
-}
 
 .header__nav-link--mobile {
     display: block;
@@ -509,8 +503,8 @@
 /* TIER 2: Mid phones (360px+) */
 @media (min-width: 360px) {
     .header__nav-link--mobile {
-        font-size: 1.6rem;
-        padding: var(--space-4) 0;
+        font-size: 1.3rem;
+        padding: var(--space-3) 0;
     }
 }
 
