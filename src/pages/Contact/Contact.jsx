@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import './Contact.css'
 
@@ -144,6 +145,11 @@ export default function Contact() {
 
     return (
         <div className="contact">
+            <Helmet>
+                <title>Contact - Tali Golergant</title>
+                <meta name="description" content="Get in touch with Tali Golergant - booking inquiries, management contact, and fan messages." />
+                <link rel="canonical" href="https://taligolergant.org/contact" />
+            </Helmet>
             <section className="contact-hero">
                 <div className="contact-hero__background">
                     <img src="/photos/tali-pics78.webp" alt="Tali portrait" className="contact-hero__image" />

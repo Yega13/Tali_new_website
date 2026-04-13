@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { ThemeProvider } from '@/hooks/useTheme'
 import { AnimatePresence, motion } from 'framer-motion'
 import { lazy, Suspense, useRef, useEffect } from 'react'
@@ -105,11 +106,13 @@ function AppContent() {
 export default function App() {
     return (
         <ErrorBoundary>
-            <ThemeProvider>
-                <Router>
-                    <AppContent />
-                </Router>
-            </ThemeProvider>
+            <HelmetProvider>
+                <ThemeProvider>
+                    <Router>
+                        <AppContent />
+                    </Router>
+                </ThemeProvider>
+            </HelmetProvider>
         </ErrorBoundary>
     )
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef, useMemo } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useIsDesktop } from '@/hooks/useMediaQuery'
 import LazyImage from '@/components/common/LazyImage'
@@ -200,6 +201,11 @@ export default function Gallery() {
 
     return (
         <div className="gallery">
+            <Helmet>
+                <title>Gallery - Tali Golergant</title>
+                <meta name="description" content="Photos and videos of Tali Golergant - live performances, Eurovision 2024, photoshoots, and behind-the-scenes moments." />
+                <link rel="canonical" href="https://taligolergant.org/gallery" />
+            </Helmet>
             {/* Ticker with Gallery Title and Images */}
             <div className="gallery-ticker">
                 <div className="gallery-ticker__title">GALLERY</div>

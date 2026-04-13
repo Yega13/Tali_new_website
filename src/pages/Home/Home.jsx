@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
 import MusicModal from '@/components/common/MusicModal'
@@ -20,6 +21,11 @@ export default function Home() {
 
     return (
         <div className="home">
+            <Helmet>
+                <title>Tali Golergant - Singer & Songwriter from Luxembourg</title>
+                <meta name="description" content="Tali Golergant - Singer, Songwriter, and Artist from Luxembourg. Eurovision 2024 representative. Explore music, gallery, news and more." />
+                <link rel="canonical" href="https://taligolergant.org/" />
+            </Helmet>
             <section className="hero">
                 <div className="hero__background">
                     <img

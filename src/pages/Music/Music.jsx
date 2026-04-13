@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useMediaQuery, useIsDesktop } from '@/hooks/useMediaQuery'
 import './Music.css'
@@ -84,6 +85,11 @@ export default function Music() {
 
     return (
         <div className="music music-page">
+            <Helmet>
+                <title>Music - Tali Golergant</title>
+                <meta name="description" content="Listen to Tali Golergant's music - singles, EPs, and music videos. Including WANDER EP, Style, Senti(mental), and more." />
+                <link rel="canonical" href="https://taligolergant.org/music" />
+            </Helmet>
             <section className="music-hero">
                 <div className="music-hero__background">
                     <img

@@ -1,4 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Collaborations.css'
 
@@ -187,6 +188,11 @@ export default function Collaborations() {
 
     return (
         <div className="collaborations">
+            <Helmet>
+                <title>Collaborations - Tali Golergant</title>
+                <meta name="description" content="Tali Golergant's collaborations - working with artists, brands, and creatives across music and fashion." />
+                <link rel="canonical" href="https://taligolergant.org/collaborations" />
+            </Helmet>
             {/* Hero */}
             <section className="collab-hero">
                 <div className="collab-hero__background">

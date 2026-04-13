@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import './Shop.css'
 
@@ -62,6 +63,11 @@ const WarningIcon = () => (
 export default function Shop() {
     return (
         <div className="shop">
+            <Helmet>
+                <title>Shop - Tali Golergant</title>
+                <meta name="description" content="Tali Golergant merchandise - coming soon." />
+                <link rel="canonical" href="https://taligolergant.org/shop" />
+            </Helmet>
             <div className="shop__construction">
                 <motion.div
                     className="shop__crane"

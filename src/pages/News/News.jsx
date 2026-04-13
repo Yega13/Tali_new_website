@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import StyleModal, { PLATFORM_ICONS } from '@/components/common/StyleModal'
 import './News.css'
@@ -112,6 +113,11 @@ export default function News() {
 
     return (
         <div className="news">
+            <Helmet>
+                <title>News - Tali Golergant</title>
+                <meta name="description" content="Latest news from Tali Golergant - new releases, upcoming shows, and announcements." />
+                <link rel="canonical" href="https://taligolergant.org/news" />
+            </Helmet>
             <section className="news-hero">
                 <div className="news-hero__background">
                     <img src="/photos/tali-pics47-national-selection.webp" alt="Tali - National Selection" className="news-hero__image" />

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
 import LazyVideo from '@/components/common/LazyVideo'
@@ -74,6 +75,11 @@ export default function About() {
 
     return (
         <div className="about">
+            <Helmet>
+                <title>About - Tali Golergant</title>
+                <meta name="description" content="Learn about Tali Golergant - singer, songwriter, and artist from Luxembourg. Biography, management, and career highlights." />
+                <link rel="canonical" href="https://taligolergant.org/about" />
+            </Helmet>
             <section className="about-bio section">
                 <div className="container">
                     <div className="about-bio__layout">
