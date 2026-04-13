@@ -488,7 +488,7 @@
 
 .header__nav-link--mobile {
     display: block;
-    font-size: var(--text-lg);
+    font-size: 1.35rem;
     font-weight: var(--weight-medium);
     padding: var(--space-3) 0;
     border-bottom: none;
@@ -952,7 +952,7 @@
     }
 
     .header__nav-link {
-        font-size: var(--text-sm);
+        font-size: var(--text-base);
     }
 }
 

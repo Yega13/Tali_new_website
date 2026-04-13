@@ -119,18 +119,13 @@ export default function Gallery() {
     useLayoutEffect(() => {
         if (!isLightboxOpen) return
 
-        const scrollY = window.scrollY
-        document.body.style.position = 'fixed'
-        document.body.style.top = `-${scrollY}px`
-        document.body.style.width = '100%'
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
         document.body.classList.add('lightbox-open')
+        document.body.style.paddingRight = `${scrollbarWidth}px`
 
         return () => {
-            document.body.style.position = ''
-            document.body.style.top = ''
-            window.scrollTo(0, scrollY)
-            document.body.style.width = ''
             document.body.classList.remove('lightbox-open')
+            document.body.style.paddingRight = ''
         }
     }, [isLightboxOpen])
 
