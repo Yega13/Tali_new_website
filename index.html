@@ -75,8 +75,13 @@
     <link rel="dns-prefetch" href="https://open.spotify.com" />
     <link rel="dns-prefetch" href="https://chimpstatic.com" />
 
-    <!-- Preload critical hero image for faster LCP -->
-    <link rel="preload" as="image" href="/photos/tali-style1.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload critical hero image for faster LCP (responsive: browser picks the right variant) -->
+    <link rel="preload" as="image"
+        href="/photos/tali-style1-800.webp"
+        imagesrcset="/photos/tali-style1-540.webp 540w, /photos/tali-style1-800.webp 800w, /photos/tali-style1.webp 1080w"
+        imagesizes="100vw"
+        type="image/webp"
+        fetchpriority="high" />
 
     <!-- Google Fonts (async, non-render-blocking; saves ~1.1s on slow 4G) -->
     <link rel="preload" as="style"

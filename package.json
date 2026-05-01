@@ -5,6 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
+        "images": "node scripts/generate-responsive-images.js",
+        "prebuild": "node scripts/generate-responsive-images.js",
         "build": "vite build",
         "preview": "vite preview"
     },

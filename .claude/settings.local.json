@@ -3,7 +3,10 @@
     "allow": [
       "Bash(powershell -Command:*)",
       "Bash(npx vite:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(node *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(try { $h = \\(Invoke-WebRequest 'https://taligolergant.org/photos/tali-style1.webp' -Method Head -UseBasicParsing\\).Headers; $h.GetEnumerator\\(\\) | Where-Object { $_.Key -in 'Server','Cf-Ray','Cf-Cache-Status','Cache-Control','Age','X-Robots-Tag' } | Format-Table -AutoSize } catch { Write-Output \"ERR: $\\($_.Exception.Message\\)\" })"
     ]
   },
   "enableAllProjectMcpServers": true,
