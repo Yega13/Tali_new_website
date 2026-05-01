@@ -9,7 +9,8 @@ const quickLinks = [
     { to: '/gallery', label: 'Gallery' },
     { to: '/news', label: 'News' },
     { to: '/collaborations', label: 'Collaborations' },
-    { to: '/contact', label: 'Contact' }
+    { to: '/contact', label: 'Contact' },
+    { to: '/faq', label: 'FAQ' }
 ]
 
 const socialLinks = [

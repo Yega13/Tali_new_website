@@ -32,8 +32,9 @@ export default function Home() {
                         src="/photos/tali-style1.webp"
                         alt="Tali Golergant"
                         className={`hero__image hero__image--light ${theme === 'light' ? 'hero__image--active' : ''}`}
-                        loading="eager"
+                        loading={theme === 'light' ? 'eager' : 'lazy'}
                         fetchpriority={theme === 'light' ? 'high' : 'low'}
+                        decoding="async"
                         width="1920"
                         height="1080"
                     />
@@ -41,8 +42,9 @@ export default function Home() {
                         src="/photos/tali-pics35-eurovision-2025.webp"
                         alt="Tali Golergant"
                         className={`hero__image hero__image--dark ${theme === 'dark' ? 'hero__image--active' : ''}`}
-                        loading="eager"
+                        loading={theme === 'dark' ? 'eager' : 'lazy'}
                         fetchpriority={theme === 'dark' ? 'high' : 'low'}
+                        decoding="async"
                         width="1920"
                         height="1080"
                     />
