@@ -60,6 +60,11 @@ const newsItems = [
 
 const interviews = [
     {
+        id: 'XVMrprCnW1s',
+        title: 'Bringing Luxembourg Back to Eurovision | 4Cee Sessions Podcast',
+        description: 'A long-form conversation with Tali about returning Luxembourg to the Eurovision stage after 31 years, the journey from New York to Malmö, and the artistic identity behind "Fighter".'
+    },
+    {
         id: 'iBQ4K6-SN60',
         title: 'TALI at Eurovision 2024 | ELLE On The Go With GINTA',
         description: 'Dive into an inspiring episode of "ELLE On The Go" as Ginta meets TALI, Luxembourg\'s vibrant representative at Eurovision 2024.'
@@ -83,11 +88,6 @@ const interviews = [
         id: 'RbwsXErIMKo',
         title: 'TALI: From Hard Work to Eurovision - GËLLE FRO EP. 92',
         description: 'In this interview we talked about struggling of how to become a singer in New-York, what difficulties she met at her jouney, how was her first solo gig, about philosophy, our nature and many many more! if you want to dig a bit deeper and know all the answers, then watch the interview!'
-    },
-    {
-        id: 'SSYzQQCq9aA',
-        title: 'Tali on her Secret Code Name, Undercover Disguises and Surprising Celine Dion Connection',
-        description: 'We sit down, in person, with Tali (Luxembourg, Eurovision 2024) and explore what post-Eurovision life is like for a contemporary artist, she reveals her secret code name during Eurovision, and we get a little peak into what\'s next for her as she prepares to release her next EP!'
     }
 ]
 

@@ -13,23 +13,23 @@ const faqs = [
             },
             {
                 q: 'Where was Tali Golergant born?',
-                a: 'Tali Golergant was born on November 26, 2000, in Jerusalem, Israel. She moved to Luxembourg at a young age and grew up there, which is why she represents Luxembourg internationally.'
+                a: 'Tali Golergant was born in Jerusalem, Israel. At six months old, she moved to Chile, followed by seven years in Argentina. This decade in South America shaped her music before she finally relocated to Luxembourg at age ten.'
             },
             {
                 q: 'What nationality is Tali Golergant?',
-                a: 'Tali holds Luxembourgish nationality and represents Luxembourg as an artist. She has roots in Israel and was raised in Luxembourg.'
+                a: 'Tali Golergant is an Israeli-born Luxembourgish singer. She was born in Israel to an Israeli mother and a Peruvian father. While she holds Luxembourgish citizenship and represented Luxembourg at Eurovision, her strong Israeli roots and South American upbringing make her a self-described \"cocktail of cultures.\"'
             },
             {
                 q: 'How old is Tali Golergant?',
-                a: 'Tali was born on November 26, 2000. You can calculate her current age based on today\'s date.'
+                a: 'Tali Golergant is 25 years old. She was born on November 26, 2000.'
             },
             {
                 q: 'What languages does Tali speak?',
-                a: 'Tali speaks and performs in English, Hebrew, Spanish, French, and German, which gives her a unique multilingual presence in the European music scene.'
+                a: 'Tali Golergant is a true polyglot, fluently speaking Hebrew, Spanish, French, and English. she used Hebrew and Spanish as her primary languages at home with her parents. Her time living in Luxembourg and later studying in New York allowed her to master French and English, while she also possesses a strong conversational command of German, passive understanding of Luxembourgish and is currently learning Italian.'
             },
             {
                 q: 'Where does Tali Golergant live now?',
-                a: 'Tali is based between Luxembourg and the United States, where she trained in musical theatre at Marymount Manhattan College in New York City.'
+                a: 'As of 2026, Tali Golergant splits her time between New York City and Luxembourg. While she originally moved to New York at age 19 to study musical theatre and build her professional music career, she relocated back to Luxembourg in early 2024 to prepare for her Eurovision journey.'
             }
         ]
     },
@@ -46,7 +46,7 @@ const faqs = [
             },
             {
                 q: 'How did Tali do at Eurovision 2024?',
-                a: 'Tali qualified for the Eurovision 2024 Grand Final and represented Luxembourg with "Fighter", marking the country\'s first Eurovision final appearance in over three decades.'
+                a: 'Tali represented Luxembourg with the song "Fighter," marking the country\'s return after 31 years. She successfully qualified from the first semi-final in 5th place with 117 points. In the Grand Final, she finished 13th overall with a total of 103 points (83 from the jury and 20 from the televote).'
             },
             {
                 q: 'Did Tali participate in the Luxembourg Song Contest (LSC) 2024?',
@@ -67,15 +67,15 @@ const faqs = [
             },
             {
                 q: 'What is Tali\'s latest single?',
-                a: 'Tali\'s recent releases include "Style" and tracks from her WANDER EP. Check the Music page for the most up-to-date discography.'
+                a: 'Tali\'s recent release is "Senti(Mental)" which is a track from upcoming "RED HAVEN" album. Check the Music page for the most up-to-date discography.'
             },
             {
                 q: 'Has Tali released an EP or album?',
-                a: 'Yes. Tali released the WANDER EP, showcasing her songwriting across multiple languages and styles. Full tracklists and links are on the Music page.'
+                a: 'Tali has built a strong catalog of music over the past few years. Following her success at Eurovision, she released the EP "Wander" in May 2025, which features her breakout single "Fighter" along with tracks like "Dear Parents" and "So Far So Good." In May 2026, she expanded her discography further with the release of her latest project, "Red Haven" which already includes recent singles such as "(Senti)mental," "Strawberry Fragrance," and "Style." and upcoming "Make Me Stay" and "DCBA".'
             },
             {
                 q: 'What genre of music does Tali make?',
-                a: 'Tali\'s music blends pop, indie pop, and singer-songwriter influences with theatrical and folk elements. Her multilingual lyrics and emotional vocal delivery are signature features.'
+                a: 'Tali Golergant describes her music as a blend of pop, indie, and R&B. Her sound is often characterized by international influences, drawing from her background in South America and Europe.'
             },
             {
                 q: 'Does Tali write her own songs?',
@@ -92,15 +92,15 @@ const faqs = [
         items: [
             {
                 q: 'When is Tali\'s next concert or live show?',
-                a: 'Upcoming concerts, festival appearances, and live shows are announced on the News page and on Tali\'s Instagram (@taligolergant). For booking inquiries, visit the Contact page.'
+                a: 'Tali Golergant has several live performances scheduled throughout 2026 to celebrate the release of her latest EP, "Red Haven." Her next major appearance is set for May 8, 2026, at the Rockhal Club in Esch-sur-Alzette, Luxembourg, with the show beginning at 20:00. Following her home-country performance, she will head to Brussels, Belgium, to perform at the Royal Circus on June 6, 2026, at 18:30. These shows are part of her broader 2026 tour, showcasing her new music alongside the hits that launched her international career.'
             },
             {
                 q: 'What was Tali\'s last show?',
-                a: 'Tali regularly performs at festivals, theatres, and Eurovision-related events across Europe. The most recent appearances are listed on the News page on this website.'
+                a: 'Tali\'s most recent major performance was a guest appearance at the Ceremony of Accession to the Throne for the new Grand Duke of Luxembourg in October 2025.'
             },
             {
                 q: 'Has Tali performed in musicals?',
-                a: 'Yes. Tali has stage credits including Eponine in Les Misérables, Tzeitel in Fiddler on the Roof, and Susan Snell (Carrie understudy) in Carrie at New England Theatreworks. Her full theatre resume is on the About page.'
+                a: 'Tali Golergant is a trained musical theatre performer who earned her BFA from Marymount Manhattan College in New York. Her stage credits include playing Éponine in Les Misérables and Tzeitel in Fiddler on the Roof. She also starred as Sue Snell in Carrie: The Musical and participated in various New York productions like Fugitive Songs.'
             },
             {
                 q: 'How can I book Tali for a performance or event?',
@@ -108,7 +108,7 @@ const faqs = [
             },
             {
                 q: 'Does Tali tour internationally?',
-                a: 'Yes. Tali performs across Europe, Israel, and the United States. Tour announcements appear on the News page and on her social media.'
+                a: 'Tali performs frequently across Luxembourg, with her next major headline show scheduled for May 8, 2026, at the Rockhal Club in Esch-sur-Alzette to celebrate her new EP, Red Haven. While she is a regular fixture at Luxembourgish venues and festivals like Francofolies and USINA, she is also making a rare international appearance soon.'
             }
         ]
     },
@@ -125,7 +125,7 @@ const faqs = [
             },
             {
                 q: 'Where can I find Tali on IMDb?',
-                a: 'Tali\'s IMDb page is at imdb.com/name/nm12387164/. It lists her acting and performance credits.'
+                a: 'You can find it in our About page.'
             }
         ]
     },
@@ -138,11 +138,11 @@ const faqs = [
             },
             {
                 q: 'How can I send fan mail to Tali?',
-                a: 'You can reach out via the Contact page on this website, or message Tali directly on Instagram (@taligolergant). For management inquiries, email morezapwave@gmail.com.'
+                a: 'You can reach out via the Contact page on this website, or message Tali directly on Instagram (@taligolergant). For management inquiries, email taliartisticproduction@gmail.com.'
             },
             {
                 q: 'Does Tali have an official fan club?',
-                a: 'Tali doesn\'t run an official paid fan club, but you can subscribe to her newsletter on this website and follow her social media for the closest fan experience.'
+                a: 'Tali doesn\'t run an official paid fan club, but you can subscribe to her newsletter on this website and follow her social media for the closest fan experience. noteable fans are - "taalisversion_", "talispoupee", "wanderingfortali" and "dear_tali"'
             }
         ]
     },
@@ -151,23 +151,19 @@ const faqs = [
         items: [
             {
                 q: 'What is Tali Golergant\'s Instagram?',
-                a: 'Tali\'s official Instagram is @taligolergant: instagram.com/taligolergant.'
+                a: 'Tali\'s official Instagram is @taligolergant. link provided in the website footer.'
             },
             {
                 q: 'Does Tali have TikTok?',
-                a: 'Yes. Follow Tali on TikTok at @taligolergant: tiktok.com/@taligolergant.'
+                a: 'Yes. Follow Tali on TikTok at @taligolergant. link provided in the website footer.'
             },
             {
                 q: 'What is Tali\'s YouTube channel?',
-                a: 'Tali\'s official YouTube channel is youtube.com/@taligolergant, where you can watch her music videos, live performances, and Eurovision content.'
+                a: 'Tali\'s official YouTube channel is taligolergant, where you can watch her music videos, live performances, and Eurovision content. link provided in the website footer.'
             },
             {
-                q: 'How do I contact Tali\'s management?',
-                a: 'Tali is managed by More Zap Productions & Management. Contact them at morezapwave@gmail.com or +1 (310) 749-5700.'
-            },
-            {
-                q: 'Is this the official Tali Golergant website?',
-                a: 'Yes. taligolergant.org is the official website of Tali Golergant. Beware of unofficial fan sites or social profiles that claim to be Tali — always check for verification on her main social channels.'
+                q: 'How do I contact Tali\'s production?',
+                a: 'You can contact Tali\'s production at taliartisticproduction@gmail.com or write direct message to them in our Contact page.'
             }
         ]
     }

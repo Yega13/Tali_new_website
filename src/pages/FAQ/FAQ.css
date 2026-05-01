@@ -142,10 +142,16 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-a.faq__cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    background: var(--color-primary-dark);
+@media (hover: hover) and (pointer: fine) {
+    a.faq__cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        background: var(--color-primary-dark);
+    }
+}
+
+a.faq__cta-btn:active {
+    transform: translateY(0);
 }
 
 @media (max-width: 600px) {
