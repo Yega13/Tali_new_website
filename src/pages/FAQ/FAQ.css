@@ -131,29 +131,6 @@
     margin-bottom: var(--space-5);
 }
 
-.faq__cta-btn {
-    display: inline-block;
-    padding: var(--space-3) var(--space-6);
-    background: var(--color-primary);
-    color: #fff;
-    border-radius: var(--radius-full);
-    font-weight: var(--weight-semibold);
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    a.faq__cta-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-        background: var(--color-primary-dark);
-    }
-}
-
-a.faq__cta-btn:active {
-    transform: translateY(0);
-}
-
 @media (max-width: 600px) {
     .faq {
         padding-top: 100px;

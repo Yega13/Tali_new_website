@@ -52,9 +52,13 @@ export default function NewSinglePopup({ onListenClick }) {
                 >
                     <div className="new-single-popup__content">
                         <img
-                            src="/photos/tali%20picsnew%204.jpg"
+                            src="/photos/tali-picsnew-4-popup.webp"
                             alt="Senti(Mental) - New Single"
                             className="new-single-popup__cover"
+                            width="400"
+                            height="300"
+                            loading="lazy"
+                            decoding="async"
                         />
                         <div className="new-single-popup__info">
                             <span className="new-single-popup__badge">NEW SINGLE</span>

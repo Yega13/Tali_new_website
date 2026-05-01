@@ -296,7 +296,7 @@ export default function FAQ() {
                 >
                     <h3>Didn't find your answer?</h3>
                     <p>Reach out and we'll be happy to help.</p>
-                    <a href="/contact" className="faq__cta-btn">Contact Tali's Team</a>
+                    <a href="/contact" className="btn btn-primary">Contact Tali's Team</a>
                 </motion.div>
             </div>
         </div>
