@@ -137,6 +137,13 @@
     }
 }
 
+/* Hide Senti(Mental) banner on mobile */
+@media (max-width: 767px) {
+    .new-single-popup {
+        display: none !important;
+    }
+}
+
 /* Hide when mobile menu or modal is open */
 body.modal-open .new-single-popup,
 body.menu-open .new-single-popup {
