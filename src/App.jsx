@@ -18,7 +18,6 @@ const News = lazy(() => import('@/pages/News'))
 const Collaborations = lazy(() => import('@/pages/Collaborations'))
 const Contact = lazy(() => import('@/pages/Contact'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
-const Birthday = lazy(() => import('@/pages/Birthday'))
 const Shop = lazy(() => import('@/pages/Shop'))
 const FAQ = lazy(() => import('@/pages/FAQ'))
 
@@ -28,7 +27,7 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.2 } }
 }
 
-const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/birthday', '/shop', '/faq']
+const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/shop', '/faq']
 
 function PageLoader() {
     return (
@@ -76,7 +75,6 @@ function AnimatedRoutes() {
                         <Route path="/news" element={<News />} />
                         <Route path="/collaborations" element={<Collaborations />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/birthday" element={<Birthday />} />
                         <Route path="/shop" element={<Shop />} />
                         <Route path="/faq" element={<FAQ />} />
                         <Route path="*" element={<NotFound />} />

@@ -197,6 +197,12 @@ export default function Contact() {
                 <title>Contact - Tali Golergant</title>
                 <meta name="description" content="Get in touch with Tali Golergant - booking inquiries, management contact, and fan messages." />
                 <link rel="canonical" href="https://taligolergant.org/contact" />
+                <meta property="og:title" content="Contact - Tali Golergant" />
+                <meta property="og:description" content="Get in touch with Tali Golergant - booking inquiries, management contact, and fan messages." />
+                <meta property="og:url" content="https://taligolergant.org/contact" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Contact - Tali Golergant" />
+                <meta name="twitter:description" content="Get in touch with Tali Golergant - booking inquiries, management contact, and fan messages." />
             </Helmet>
             <section className="contact-hero">
                 <div className="contact-hero__background">

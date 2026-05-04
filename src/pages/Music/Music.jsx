@@ -4,6 +4,39 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useMediaQuery, useIsDesktop } from '@/hooks/useMediaQuery'
 import './Music.css'
 
+const musicJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MusicGroup',
+    'name': 'Tali Golergant',
+    'alternateName': 'TALI',
+    'url': 'https://taligolergant.org/music',
+    'genre': ['Pop', 'Indie Pop'],
+    'image': 'https://taligolergant.org/social-square.jpg',
+    'sameAs': [
+        'https://open.spotify.com/artist/6FGONoPILQdWo7NUk1JQPA',
+        'https://www.youtube.com/@taligolergant',
+        'https://www.instagram.com/taligolergant'
+    ],
+    'album': [
+        {
+            '@type': 'MusicAlbum',
+            'name': 'WANDER',
+            'datePublished': '2025-05',
+            'albumProductionType': 'https://schema.org/StudioAlbum',
+            'numTracks': 4,
+            'byArtist': { '@type': 'MusicGroup', 'name': 'Tali Golergant' }
+        },
+        {
+            '@type': 'MusicAlbum',
+            'name': 'RED HAVEN',
+            'datePublished': '2026-06-06',
+            'albumProductionType': 'https://schema.org/StudioAlbum',
+            'numTracks': 5,
+            'byArtist': { '@type': 'MusicGroup', 'name': 'Tali Golergant' }
+        }
+    ]
+}
+
 export default function Music() {
     const carouselRef = useRef(null);
     const playerRef = useRef(null);
@@ -89,6 +122,15 @@ export default function Music() {
                 <title>Music - Tali Golergant</title>
                 <meta name="description" content="Listen to Tali Golergant's music - singles, EPs, and music videos. Including WANDER EP, Style, Senti(mental), and more." />
                 <link rel="canonical" href="https://taligolergant.org/music" />
+                <meta property="og:title" content="Music - Tali Golergant" />
+                <meta property="og:description" content="Listen to Tali Golergant's music - singles, EPs, and music videos. Including WANDER EP, Style, Senti(mental), and more." />
+                <meta property="og:url" content="https://taligolergant.org/music" />
+                <meta property="og:type" content="music.musician" />
+                <meta name="twitter:title" content="Music - Tali Golergant" />
+                <meta name="twitter:description" content="Listen to Tali Golergant's music - singles, EPs, and music videos. Including WANDER EP, Style, Senti(mental), and more." />
+                <script type="application/ld+json">
+                    {JSON.stringify(musicJsonLd)}
+                </script>
             </Helmet>
             <section className="music-hero">
                 <div className="music-hero__background">

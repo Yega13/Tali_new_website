@@ -79,6 +79,12 @@ export default function About() {
                 <title>About - Tali Golergant</title>
                 <meta name="description" content="Learn about Tali Golergant - singer, songwriter, and artist from Luxembourg. Biography, management, and career highlights." />
                 <link rel="canonical" href="https://taligolergant.org/about" />
+                <meta property="og:title" content="About - Tali Golergant" />
+                <meta property="og:description" content="Learn about Tali Golergant - singer, songwriter, and artist from Luxembourg. Biography, management, and career highlights." />
+                <meta property="og:url" content="https://taligolergant.org/about" />
+                <meta property="og:type" content="profile" />
+                <meta name="twitter:title" content="About - Tali Golergant" />
+                <meta name="twitter:description" content="Learn about Tali Golergant - singer, songwriter, and artist from Luxembourg. Biography, management, and career highlights." />
             </Helmet>
             <section className="about-bio section">
                 <div className="container">

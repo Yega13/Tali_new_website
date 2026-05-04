@@ -205,6 +205,12 @@ export default function Gallery() {
                 <title>Gallery - Tali Golergant</title>
                 <meta name="description" content="Photos and videos of Tali Golergant - live performances, Eurovision 2024, photoshoots, and behind-the-scenes moments." />
                 <link rel="canonical" href="https://taligolergant.org/gallery" />
+                <meta property="og:title" content="Gallery - Tali Golergant" />
+                <meta property="og:description" content="Photos and videos of Tali Golergant - live performances, Eurovision 2024, photoshoots, and behind-the-scenes moments." />
+                <meta property="og:url" content="https://taligolergant.org/gallery" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Gallery - Tali Golergant" />
+                <meta name="twitter:description" content="Photos and videos of Tali Golergant - live performances, Eurovision 2024, photoshoots, and behind-the-scenes moments." />
             </Helmet>
             {/* Ticker with Gallery Title and Images */}
             <div className="gallery-ticker">

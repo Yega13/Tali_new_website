@@ -192,6 +192,12 @@ export default function Collaborations() {
                 <title>Collaborations - Tali Golergant</title>
                 <meta name="description" content="Tali Golergant's collaborations - working with artists, brands, and creatives across music and fashion." />
                 <link rel="canonical" href="https://taligolergant.org/collaborations" />
+                <meta property="og:title" content="Collaborations - Tali Golergant" />
+                <meta property="og:description" content="Tali Golergant's collaborations - working with artists, brands, and creatives across music and fashion." />
+                <meta property="og:url" content="https://taligolergant.org/collaborations" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Collaborations - Tali Golergant" />
+                <meta name="twitter:description" content="Tali Golergant's collaborations - working with artists, brands, and creatives across music and fashion." />
             </Helmet>
             {/* Hero */}
             <section className="collab-hero">

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(Get-ChildItem -Recurse -Path . -Attributes !H -ErrorAction SilentlyContinue)",
-      "Bash(Select-Object FullName)"
+      "Bash(Select-Object FullName)",
+      "Bash(Get-ChildItem -Path \"C:\\\\tali_new_website\" -Recurse -Filter \"*.jsx\" -o)"
     ]
   },
   "enableAllProjectMcpServers": true,

@@ -24,6 +24,7 @@ const newsItems = [
         image: '/photos/tali%20picsnew%209.jpg',
         title: 'Tali in Belgium!',
         date: 'June 6, 2026',
+        isoDate: '2026-06-06',
         excerpt: 'Tali is heading to Brussels! On June 6th she takes the stage in Bruxelles for a very special night — the official release of her brand new EP "RED HAVEN". Expect new songs, big energy, and a one-of-a-kind live experience. Don\'t miss it.',
         linkText: 'Buy Tickets →',
         link: BELGIUM_TICKET_URL,
@@ -34,6 +35,7 @@ const newsItems = [
         image: '/photos/tali-style2.webp',
         title: 'Style Drops: A Bold New Chapter',
         date: 'January 30, 2026',
+        isoDate: '2026-01-30',
         excerpt: 'The new single "Style" will definitely make your style a bit better, especially if you\'re dressing for that one person. rawr.',
         linkText: 'Listen Now →',
         hasStyleModal: true
@@ -43,6 +45,7 @@ const newsItems = [
         image: '/photos/tali%20picsnew%206.jpg',
         title: 'Strawberry Fields',
         date: 'March 13, 2026',
+        isoDate: '2026-03-13',
         excerpt: 'Tali\'s dreamy new single "Strawberry Fields" dropped on March 13th — a sweet, sun-soaked track that lingers like the scent of summer berries. Hit play and let yourself wander.',
         linkText: 'Listen Now →',
         hasStrawberryModal: true
@@ -52,11 +55,31 @@ const newsItems = [
         image: '/photos/tali%20picsnew%204.jpg',
         title: 'Not crazy. Just Senti(Mental)',
         date: 'April 10, 2026',
+        isoDate: '2026-04-10',
         excerpt: 'Released April 10th, "Not crazy. Just Senti(Mental)" is Tali\'s most energizing drop yet — a punchy, electric anthem about feeling everything at once and owning every bit of it. Press play and turn it up loud.',
         linkText: 'Listen Now →',
         hasSentimentalModal: true
     }
 ]
+
+const newsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'itemListElement': newsItems.map((item, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'item': {
+            '@type': 'NewsArticle',
+            'headline': item.title,
+            'datePublished': item.isoDate,
+            'description': item.excerpt,
+            'image': `https://taligolergant.org${item.image}`,
+            'url': `https://taligolergant.org/news#${item.id}`,
+            'author': { '@type': 'Person', 'name': 'Tali Golergant' },
+            'publisher': { '@type': 'Person', 'name': 'Tali Golergant' }
+        }
+    }))
+}
 
 const interviews = [
     {
@@ -117,6 +140,15 @@ export default function News() {
                 <title>News - Tali Golergant</title>
                 <meta name="description" content="Latest news from Tali Golergant - new releases, upcoming shows, and announcements." />
                 <link rel="canonical" href="https://taligolergant.org/news" />
+                <meta property="og:title" content="News - Tali Golergant" />
+                <meta property="og:description" content="Latest news from Tali Golergant - new releases, upcoming shows, and announcements." />
+                <meta property="og:url" content="https://taligolergant.org/news" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="News - Tali Golergant" />
+                <meta name="twitter:description" content="Latest news from Tali Golergant - new releases, upcoming shows, and announcements." />
+                <script type="application/ld+json">
+                    {JSON.stringify(newsJsonLd)}
+                </script>
             </Helmet>
             <section className="news-hero">
                 <div className="news-hero__background">

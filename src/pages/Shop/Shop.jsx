@@ -38,6 +38,12 @@ export default function Shop() {
                 <title>Shop - Tali Golergant</title>
                 <meta name="description" content="Tali Golergant merchandise - coming soon." />
                 <link rel="canonical" href="https://taligolergant.org/shop" />
+                <meta property="og:title" content="Shop - Tali Golergant" />
+                <meta property="og:description" content="Tali Golergant merchandise - coming soon." />
+                <meta property="og:url" content="https://taligolergant.org/shop" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Shop - Tali Golergant" />
+                <meta name="twitter:description" content="Tali Golergant merchandise - coming soon." />
             </Helmet>
             <div className="shop__construction">
                 <motion.div

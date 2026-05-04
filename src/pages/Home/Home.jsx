@@ -25,6 +25,12 @@ export default function Home() {
                 <title>Tali Golergant - Singer & Songwriter from Luxembourg</title>
                 <meta name="description" content="Tali Golergant - Singer, Songwriter, and Artist from Luxembourg. Eurovision 2024 representative. Explore music, gallery, news and more." />
                 <link rel="canonical" href="https://taligolergant.org/" />
+                <meta property="og:title" content="Tali Golergant - Singer & Songwriter from Luxembourg" />
+                <meta property="og:description" content="Tali Golergant - Singer, Songwriter, and Artist from Luxembourg. Eurovision 2024 representative. Explore music, gallery, news and more." />
+                <meta property="og:url" content="https://taligolergant.org/" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Tali Golergant - Singer & Songwriter from Luxembourg" />
+                <meta name="twitter:description" content="Tali Golergant - Singer, Songwriter, and Artist from Luxembourg. Eurovision 2024 representative. Explore music, gallery, news and more." />
             </Helmet>
             <section className="hero">
                 <div className="hero__background">
