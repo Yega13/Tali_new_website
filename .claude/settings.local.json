@@ -1,6 +1,12 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Recurse -Path . -Attributes !H -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object FullName)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "task-master-ai"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
