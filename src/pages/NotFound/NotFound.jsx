@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import './NotFound.css'
 
@@ -105,6 +106,12 @@ export default function NotFound() {
                 <h1 className="not-found__title">404</h1>
                 <p className="not-found__subtitle">Page not found</p>
                 <p className="not-found__message">We're incredibly sorry, try later !</p>
+                <nav className="not-found__links" aria-label="Helpful links">
+                    <Link to="/" className="not-found__link">Home</Link>
+                    <Link to="/music" className="not-found__link">Music</Link>
+                    <Link to="/news" className="not-found__link">News</Link>
+                    <Link to="/contact" className="not-found__link">Contact</Link>
+                </nav>
             </motion.div>
         </div>
     )

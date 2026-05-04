@@ -124,3 +124,30 @@
     font-size: var(--text-sm);
     color: rgba(255, 255, 255, 0.4);
 }
+
+.not-found__links {
+    margin-top: var(--space-6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+.not-found__link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .not-found__link:hover {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}

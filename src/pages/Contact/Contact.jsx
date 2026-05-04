@@ -95,6 +95,11 @@ export default function Contact() {
     const handleFormSubmit = async (e) => {
         e.preventDefault()
 
+        if (e.target._gotcha && e.target._gotcha.value) {
+            setFormStatus({ type: 'success', message: 'Thank you for your message! We\'ll be in touch soon!' })
+            return
+        }
+
         const emailCheck = validateEmail(formData.email)
         if (!emailCheck.valid) {
             setFormStatus({ type: 'error', message: emailCheck.message })
@@ -151,6 +156,11 @@ export default function Contact() {
 
     const handleNewsletterSubmit = async (e) => {
         e.preventDefault()
+
+        if (e.target._gotcha && e.target._gotcha.value) {
+            setNewsletterStatus({ type: 'success', message: 'Welcome to the family! Check your email to confirm :)' })
+            return
+        }
 
         const emailCheck = validateEmail(newsletterData.email)
         if (!emailCheck.valid) {
@@ -249,6 +259,14 @@ export default function Contact() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
+                            <input
+                                type="text"
+                                name="_gotcha"
+                                tabIndex="-1"
+                                autoComplete="off"
+                                aria-hidden="true"
+                                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+                            />
                             <div className="form-group">
                                 <label htmlFor="name">Name</label>
                                 <input
@@ -326,6 +344,14 @@ export default function Contact() {
                         )}
 
                         <form className="newsletter__form" onSubmit={handleNewsletterSubmit}>
+                            <input
+                                type="text"
+                                name="_gotcha"
+                                tabIndex="-1"
+                                autoComplete="off"
+                                aria-hidden="true"
+                                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+                            />
                             <input
                                 type="text"
                                 placeholder="Your Name (optional)"
