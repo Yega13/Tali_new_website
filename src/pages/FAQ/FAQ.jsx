@@ -67,7 +67,7 @@ const faqs = [
             },
             {
                 q: 'What is Tali\'s latest single?',
-                a: 'Tali\'s recent release is "Senti(Mental)" which is a track from upcoming "RED HAVEN" album. Check the Music page for the most up-to-date discography.'
+                a: 'Tali\'s recent release is "Senti(Mental)" which is a track from upcoming "RED HAVEN" EP. Check the Music page for the most up-to-date discography.'
             },
             {
                 q: 'Has Tali released an EP or album?',

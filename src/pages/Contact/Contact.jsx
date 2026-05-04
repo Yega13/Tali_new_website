@@ -5,6 +5,50 @@ import './Contact.css'
 
 const CONTACT_FORM_ID = 'mlggdeda'
 
+const COMMON_EMAIL_TYPOS = {
+    'gmial.com': 'gmail.com',
+    'gmai.com': 'gmail.com',
+    'gmal.com': 'gmail.com',
+    'gnail.com': 'gmail.com',
+    'gmaill.com': 'gmail.com',
+    'gmail.co': 'gmail.com',
+    'gmail.con': 'gmail.com',
+    'gmail.cm': 'gmail.com',
+    'gmil.com': 'gmail.com',
+    'gamil.com': 'gmail.com',
+    'yahooo.com': 'yahoo.com',
+    'yaho.com': 'yahoo.com',
+    'yahoo.co': 'yahoo.com',
+    'yhoo.com': 'yahoo.com',
+    'hotnail.com': 'hotmail.com',
+    'hotmial.com': 'hotmail.com',
+    'hotmal.com': 'hotmail.com',
+    'hotmai.com': 'hotmail.com',
+    'hotmaill.com': 'hotmail.com',
+    'outlok.com': 'outlook.com',
+    'outloook.com': 'outlook.com',
+    'outloo.com': 'outlook.com',
+    'iclud.com': 'icloud.com',
+    'icloud.co': 'icloud.com',
+    'iclould.com': 'icloud.com'
+}
+
+const validateEmail = (email) => {
+    const trimmed = (email || '').trim().toLowerCase()
+    if (!trimmed) {
+        return { valid: false, message: 'Please enter your email address.' }
+    }
+    const strictRegex = /^[a-z0-9._%+-]+@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/
+    if (!strictRegex.test(trimmed) || trimmed.includes('..')) {
+        return { valid: false, message: 'Please enter a valid email address (e.g., name@example.com).' }
+    }
+    const domain = trimmed.split('@')[1]
+    if (COMMON_EMAIL_TYPOS[domain]) {
+        return { valid: false, message: `Did you mean ...@${COMMON_EMAIL_TYPOS[domain]}? Please check the spelling.` }
+    }
+    return { valid: true }
+}
+
 export default function Contact() {
     const [formData, setFormData] = useState({
         name: '',
@@ -51,7 +95,11 @@ export default function Contact() {
     const handleFormSubmit = async (e) => {
         e.preventDefault()
 
-
+        const emailCheck = validateEmail(formData.email)
+        if (!emailCheck.valid) {
+            setFormStatus({ type: 'error', message: emailCheck.message })
+            return
+        }
 
         if (checkDailyLimit()) {
             setFormStatus({ type: 'error', message: 'You reached your daily limit of messages!' })
@@ -104,9 +152,9 @@ export default function Contact() {
     const handleNewsletterSubmit = async (e) => {
         e.preventDefault()
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(newsletterData.email)) {
-            setNewsletterStatus({ type: 'error', message: 'Please enter a valid email address (e.g., name@example.com)' })
+        const emailCheck = validateEmail(newsletterData.email)
+        if (!emailCheck.valid) {
+            setNewsletterStatus({ type: 'error', message: emailCheck.message })
             return
         }
 
