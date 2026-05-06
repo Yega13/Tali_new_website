@@ -12,6 +12,7 @@ const navLinks = [
     { to: '/news', label: 'News' },
     { to: '/collaborations', label: 'Collaborations' },
     { to: '/contact', label: 'Contact' },
+    { to: '/faq', label: 'FAQ' },
     { to: '/shop', label: 'Shop', badge: '🚧' }
 ]
 
