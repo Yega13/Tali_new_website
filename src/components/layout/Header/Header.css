@@ -491,9 +491,9 @@
 
 .header__nav-link--mobile {
     display: block;
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     font-weight: var(--weight-medium);
-    padding: var(--space-3) 0;
+    padding: var(--space-2) 0;
     border-bottom: none;
     text-transform: none;
     letter-spacing: normal;
@@ -501,13 +501,15 @@
 }
 
 /* Scale mobile menu text for larger screens - 7-tier system */
-/* TIER 1: Tiny (320-359px) - uses base text-lg */
+/* TIER 1: Tiny (320-359px) - uses tightened base above */
 
-/* TIER 2: Small mid phones (360-389px) - iPhone SE etc */
+/* TIER 2: Small mid phones (360-389px) - iPhone SE, Galaxy S8 etc.
+   With 9 nav items + fixed social block at bottom, links must stay compact
+   to avoid merging with the socials on short viewports (640-667px). */
 @media (min-width: 360px) {
     .header__nav-link--mobile {
-        font-size: 1.45rem;
-        padding: var(--space-3) 0;
+        font-size: 1.2rem;
+        padding: var(--space-2) 0;
     }
 }
 
