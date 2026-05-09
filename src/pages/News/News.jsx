@@ -16,6 +16,14 @@ const sentimentalPlatforms = [
     { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GSHFFH82?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Sz9DzDAomYeTg4hapJFgFwjMX', icon: PLATFORM_ICONS['Amazon Music'] },
 ]
 
+const redHavenPlatforms = [
+    { name: 'Spotify', url: 'https://open.spotify.com/album/5v67Yp2zCFOJl9SIkTZhSi?si=NtNTXhxLTzWu1s5sg1pYhg', icon: PLATFORM_ICONS.Spotify },
+    { name: 'Apple Music', url: 'https://music.apple.com/ke/album/red-haven-ep/1892889225', icon: PLATFORM_ICONS['Apple Music'] },
+    { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GWXQVQHS?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_AxmC0CElMKoEUjOeO3fDEFDE9', icon: PLATFORM_ICONS['Amazon Music'] },
+    { name: 'YouTube', url: 'https://youtube.com/playlist?list=OLAK5uy_n2c_sA00thPkK0QrqmsgKK9M0Kp7R3X7w&si=TgWixxmzrbFRIw-M', icon: PLATFORM_ICONS.YouTube },
+    { name: 'Deezer', url: 'https://link.deezer.com/s/33dFbB5nDKsGV2HhYuhKp', icon: PLATFORM_ICONS.Deezer },
+]
+
 const BELGIUM_TICKET_URL = 'https://apps.ticketmatic.com/widgets/rockhal/addtickets?event=11728&skinid=10000&contactid=&flow=basketwithcheckout&edit=yes&ticketinfo=name&returnurl=https%3A%2F%2Frockhal.lu&l=en&accesskey=4528f4e37549c2433e6bd4a7&signature=120e428d3a99d4b97af77a7c15c75cb451cf0f1f967bf24d27a963ff0bb98cb1&_ga=2.227268702.297391511.1775897965-281215746.1775897965&_gl=1*1wn81x9*_gcl_au*ODQ5MTkwNzUyLjE3NzU4OTc5NjU.*_ga*MjgxMjE1NzQ2LjE3NzU4OTc5NjU.*_ga_VFH9NGH6YZ*czE3NzU4OTc5NjQkbzEkZzAkdDE3NzU4OTc5NjQkajYwJGwwJGgw*_ga_0VEB3SQ6S6*czE3NzU4OTc5NjQkbzEkZzAkdDE3NzU4OTc5NjQkajYwJGwwJGgw#!/addtickets'
 
 const newsItems = [
@@ -32,14 +40,13 @@ const newsItems = [
     },
     {
         id: 'rockhal-release',
-        image: '/photos/tali-pics-rockhall.webp',
+        image: '/photos/tali-pics142.jpg',
         title: 'Rockhal "RED HAVEN" Release Show & Meet \'n Greet',
         date: 'May 8, 2026',
         isoDate: '2026-05-08',
         excerpt: 'On May 8th, Tali took over Rockhal for the official "RED HAVEN" EP release show — a sold-out night of brand new songs, fan favorites, and pure emotion on stage. The evening continued with an intimate meet \'n greet, where Tali got to thank her fans in person, share stories, sign EPs, and celebrate the release together. A night to remember.',
         linkText: 'Listen to RED HAVEN →',
-        link: 'https://open.spotify.com/album/5v67Yp2zCFOJl9SIkTZhSi?si=NtNTXhxLTzWu1s5sg1pYhg',
-        isExternal: true
+        hasRedHavenModal: true
     },
     {
         id: 'strawberry-fields',
@@ -118,6 +125,7 @@ const interviews = [
 export default function News() {
     const [isStrawberryModalOpen, setIsStrawberryModalOpen] = useState(false)
     const [isSentimentalModalOpen, setIsSentimentalModalOpen] = useState(false)
+    const [isRedHavenModalOpen, setIsRedHavenModalOpen] = useState(false)
 
     const handleCardClick = (item, e) => {
         if (item.hasStrawberryModal) {
@@ -127,6 +135,10 @@ export default function News() {
         if (item.hasSentimentalModal) {
             e.preventDefault()
             setIsSentimentalModalOpen(true)
+        }
+        if (item.hasRedHavenModal) {
+            e.preventDefault()
+            setIsRedHavenModalOpen(true)
         }
     }
 
@@ -183,7 +195,7 @@ export default function News() {
                                     <p className="news-card__excerpt">{item.excerpt}</p>
 
                                     <div className="news-card__links">
-                                        {item.hasStrawberryModal || item.hasSentimentalModal ? (
+                                        {item.hasStrawberryModal || item.hasSentimentalModal || item.hasRedHavenModal ? (
                                             <button
                                                 className="news-card__link news-card__link--button"
                                                 onClick={(e) => handleCardClick(item, e)}
@@ -271,6 +283,14 @@ export default function News() {
                 title="Senti(mental)"
                 cover="/photos/tali%20picsnew%204.jpg"
                 platforms={sentimentalPlatforms}
+            />
+
+            <StyleModal
+                isOpen={isRedHavenModalOpen}
+                onClose={() => setIsRedHavenModalOpen(false)}
+                title="RED HAVEN"
+                cover="/photos/tali%20picsnew%204.jpg"
+                platforms={redHavenPlatforms}
             />
         </div>
     )

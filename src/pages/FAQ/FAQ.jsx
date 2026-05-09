@@ -67,7 +67,7 @@ const faqs = [
             },
             {
                 q: 'What is Tali\'s latest single?',
-                a: 'Tali\'s recent release is "Senti(Mental)" which is a track from upcoming "RED HAVEN" EP. Check the Music page for the most up-to-date discography.'
+                a: 'Tali\'s "RED HAVEN" EP is officially out as of May 8, 2026, with "Senti(Mental)" being the most recent single from it. Check the Music page for the most up-to-date discography.'
             },
             {
                 q: 'Has Tali released an EP or album?',
@@ -92,11 +92,11 @@ const faqs = [
         items: [
             {
                 q: 'When is Tali\'s next concert or live show?',
-                a: 'Tali Golergant has several live performances scheduled throughout 2026 to celebrate the release of her latest EP, "Red Haven." Her next major appearance is set for May 8, 2026, at the Rockhal Club in Esch-sur-Alzette, Luxembourg, with the show beginning at 20:00. Following her home-country performance, she will head to Brussels, Belgium, to perform at the Royal Circus on June 6, 2026, at 18:30. These shows are part of her broader 2026 tour, showcasing her new music alongside the hits that launched her international career.'
+                a: 'Tali\'s next show is on June 6, 2026, at the Royal Circus in Brussels, Belgium (18:30) — her first headline appearance outside Luxembourg, celebrating the release of her new EP "RED HAVEN."'
             },
             {
                 q: 'What was Tali\'s last show?',
-                a: 'Tali\'s most recent major performance was a guest appearance at the Ceremony of Accession to the Throne for the new Grand Duke of Luxembourg in October 2025.'
+                a: 'Tali\'s most recent show was the official "RED HAVEN" EP release night at Rockhal Club in Esch-sur-Alzette on May 8, 2026 — a sold-out evening of new music followed by an intimate meet \'n greet with fans.'
             },
             {
                 q: 'Has Tali performed in musicals?',
@@ -108,7 +108,7 @@ const faqs = [
             },
             {
                 q: 'Does Tali tour internationally?',
-                a: 'Tali performs frequently across Luxembourg, with her next major headline show scheduled for May 8, 2026, at the Rockhal Club in Esch-sur-Alzette to celebrate her new EP, Red Haven. While she is a regular fixture at Luxembourgish venues and festivals like Francofolies and USINA, she is also making a rare international appearance soon.'
+                a: 'Tali performs regularly across Luxembourg and just headlined her "RED HAVEN" release show at Rockhal in Esch-sur-Alzette on May 8, 2026. Her next stop is international — Brussels, Belgium, on June 6, 2026, marking her first headline show outside Luxembourg. She is also a regular fixture at Luxembourgish festivals like Francofolies and USINA.'
             }
         ]
     },
