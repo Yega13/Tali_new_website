@@ -41,7 +41,8 @@ const newsItems = [
     {
         id: 'rockhal-release',
         image: '/photos/tali-pics142.jpg',
-        title: 'Rockhal "RED HAVEN" Release Show & Meet \'n Greet',
+        imagePosition: 'top',
+        title: 'Rockhall "RED HAVEN" Release Show',
         date: 'May 8, 2026',
         isoDate: '2026-05-08',
         excerpt: 'On May 8th, Tali took over Rockhal for the official "RED HAVEN" EP release show — a sold-out night of brand new songs, fan favorites, and pure emotion on stage. The evening continued with an intimate meet \'n greet, where Tali got to thank her fans in person, share stories, sign EPs, and celebrate the release together. A night to remember.',
@@ -187,7 +188,11 @@ export default function News() {
                                 transition={{ delay: index * 0.1 }}
                             >
                                 <div className="news-card__image">
-                                    <img src={item.image} alt={item.title} />
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
+                                    />
                                 </div>
                                 <div className="news-card__content">
                                     <span className="news-card__date">{item.date}</span>

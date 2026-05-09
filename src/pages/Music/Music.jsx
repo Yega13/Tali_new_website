@@ -80,7 +80,7 @@ export default function Music() {
     ]
 
     const youtubeVideos = [
-        { id: 'uDhiaqPiMJ8', title: 'TALI - DCBA (Official Music Video)', upcoming: true },
+        { id: 'uDhiaqPiMJ8', title: 'TALI - DCBA (Official Music Video)' },
         { id: 'DJf04cdgk70', title: 'TALI – Fighter (Official Music Video)' },
         { id: 'ZwHoEwjopJE', title: 'dancing alone - (A Homemade Music Video)' },
         { id: 'IfKKZYN1P9A', title: 'Fighter (Live with the Luxembourg Philharmonic)' },

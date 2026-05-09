@@ -17,6 +17,8 @@ const wanderMedia = [
     { src: '/photos/tali-pics51.webp', alt: 'WANDER', type: 'image' },
     { src: '/photos/tali-wander-vid.mp4', type: 'video' },
     { src: '/photos/tali-pics85.webp', type: 'image' },
+    // Desktop-only: fills the shortest column in the 4-col masonry
+    { src: '/photos/Lemon lime vid.mp4', alt: 'Lemon Lime', type: 'video', desktopOnly: true },
 ]
 
 // Eurovision 2024 section

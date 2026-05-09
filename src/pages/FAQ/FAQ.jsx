@@ -67,11 +67,11 @@ const faqs = [
             },
             {
                 q: 'What is Tali\'s latest single?',
-                a: 'Tali\'s "RED HAVEN" EP is officially out as of May 8, 2026, with "Senti(Mental)" being the most recent single from it. Check the Music page for the most up-to-date discography.'
+                a: 'Tali\'s most recent singles are "DCBA" and "Make Me Stay," both from her "RED HAVEN" EP, which was officially released on May 8, 2026. Check the Music page for the most up-to-date discography.'
             },
             {
                 q: 'Has Tali released an EP or album?',
-                a: 'Tali has built a strong catalog of music over the past few years. Following her success at Eurovision, she released the EP "Wander" in May 2025, which features her breakout single "Fighter" along with tracks like "Dear Parents" and "So Far So Good." In May 2026, she expanded her discography further with the release of her latest project, "Red Haven" which already includes recent singles such as "(Senti)mental," "Strawberry Fragrance," and "Style." and upcoming "Make Me Stay" and "DCBA".'
+                a: 'Tali has built a strong catalog of music over the past few years. Following her success at Eurovision, she released the EP "Wander" in May 2025, which features her breakout single "Fighter" along with tracks like "Dear Parents" and "So Far So Good." In May 2026, she expanded her discography further with the release of her latest project, "Red Haven," which includes singles such as "Style," "Strawberry Fragrance," "(Senti)mental," "Make Me Stay," and "DCBA".'
             },
             {
                 q: 'What genre of music does Tali make?',
