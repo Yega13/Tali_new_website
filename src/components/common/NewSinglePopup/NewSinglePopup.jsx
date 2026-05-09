@@ -53,7 +53,7 @@ export default function NewSinglePopup({ onListenClick }) {
                     <div className="new-single-popup__content">
                         <img
                             src="/photos/tali-picsnew-4-popup.webp"
-                            alt="Senti(Mental) - New Single"
+                            alt="RED HAVEN - New EP"
                             className="new-single-popup__cover"
                             width="400"
                             height="300"
@@ -61,8 +61,8 @@ export default function NewSinglePopup({ onListenClick }) {
                             decoding="async"
                         />
                         <div className="new-single-popup__info">
-                            <span className="new-single-popup__badge">NEW SINGLE</span>
-                            <h3 className="new-single-popup__title">Senti(Mental)</h3>
+                            <span className="new-single-popup__badge">NEW EP</span>
+                            <h3 className="new-single-popup__title">"RED HAVEN" is out!</h3>
                             <button
                                 className="new-single-popup__btn"
                                 onClick={onListenClick}

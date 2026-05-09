@@ -107,6 +107,21 @@
     font-weight: var(--weight-medium);
 }
 
+.video-card__upcoming-tag {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    padding: 4px 10px;
+    background-color: #e63946;
+    color: #fff;
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius-full);
+    z-index: 2;
+}
+
 /* Music Platforms */
 .music-platforms {
     background-color: var(--color-bg-secondary);

@@ -31,14 +31,15 @@ const newsItems = [
         isExternal: true
     },
     {
-        id: 'style',
-        image: '/photos/tali-style2.webp',
-        title: 'Style Drops: A Bold New Chapter',
-        date: 'January 30, 2026',
-        isoDate: '2026-01-30',
-        excerpt: 'The new single "Style" will definitely make your style a bit better, especially if you\'re dressing for that one person. rawr.',
-        linkText: 'Listen Now →',
-        hasStyleModal: true
+        id: 'rockhal-release',
+        image: '/photos/tali-pics-rockhall.webp',
+        title: 'Rockhal "RED HAVEN" Release Show & Meet \'n Greet',
+        date: 'May 8, 2026',
+        isoDate: '2026-05-08',
+        excerpt: 'On May 8th, Tali took over Rockhal for the official "RED HAVEN" EP release show — a sold-out night of brand new songs, fan favorites, and pure emotion on stage. The evening continued with an intimate meet \'n greet, where Tali got to thank her fans in person, share stories, sign EPs, and celebrate the release together. A night to remember.',
+        linkText: 'Listen to RED HAVEN →',
+        link: 'https://open.spotify.com/album/5v67Yp2zCFOJl9SIkTZhSi?si=NtNTXhxLTzWu1s5sg1pYhg',
+        isExternal: true
     },
     {
         id: 'strawberry-fields',
@@ -115,15 +116,10 @@ const interviews = [
 ]
 
 export default function News() {
-    const [isStyleModalOpen, setIsStyleModalOpen] = useState(false)
     const [isStrawberryModalOpen, setIsStrawberryModalOpen] = useState(false)
     const [isSentimentalModalOpen, setIsSentimentalModalOpen] = useState(false)
 
     const handleCardClick = (item, e) => {
-        if (item.hasStyleModal) {
-            e.preventDefault()
-            setIsStyleModalOpen(true)
-        }
         if (item.hasStrawberryModal) {
             e.preventDefault()
             setIsStrawberryModalOpen(true)
@@ -187,7 +183,7 @@ export default function News() {
                                     <p className="news-card__excerpt">{item.excerpt}</p>
 
                                     <div className="news-card__links">
-                                        {item.hasStyleModal || item.hasStrawberryModal || item.hasSentimentalModal ? (
+                                        {item.hasStrawberryModal || item.hasSentimentalModal ? (
                                             <button
                                                 className="news-card__link news-card__link--button"
                                                 onClick={(e) => handleCardClick(item, e)}
@@ -260,11 +256,6 @@ export default function News() {
                     </div>
                 </div>
             </section>
-
-            <StyleModal
-                isOpen={isStyleModalOpen}
-                onClose={() => setIsStyleModalOpen(false)}
-            />
 
             <StyleModal
                 isOpen={isStrawberryModalOpen}

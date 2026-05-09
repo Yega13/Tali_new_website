@@ -135,6 +135,13 @@ export default function About() {
                                     TALI released her second EP - "WANDER", which contains 7 songs and and one collaborations with Sean
                                     Biopick. Soon, TALI is realising her new song which is called "Style", we still have a lot to show! ;)
                                 </p>
+                                <p>
+                                    In May 2026, TALI released her third EP - "RED HAVEN", featuring 2 brand new songs alongside
+                                    her latest singles. To celebrate the release, on May 8th she headlined a special release show
+                                    at Rockhal - an unforgettable night packed with new music, raw energy, and an incredible crowd
+                                    that turned the venue into one big sing-along. It was the perfect way to officially welcome
+                                    "RED HAVEN" into the world.
+                                </p>
                             </div>
                         </motion.div>
                     </div>

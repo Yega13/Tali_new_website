@@ -8,15 +8,17 @@ import StyleModal, { PLATFORM_ICONS } from '@/components/common/StyleModal'
 import NewSinglePopup from '@/components/common/NewSinglePopup'
 import './Home.css'
 
-const sentimentalPlatforms = [
-    { name: 'Spotify', url: 'https://open.spotify.com/track/3hf7mln3oPgT6CEVpFdmSN?si=e1b931cdc94b43b9', icon: PLATFORM_ICONS.Spotify },
-    { name: 'Apple Music', url: 'https://music.apple.com/us/album/senti-mental-single/1885177646', icon: PLATFORM_ICONS['Apple Music'] },
-    { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GSHFFH82?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Sz9DzDAomYeTg4hapJFgFwjMX', icon: PLATFORM_ICONS['Amazon Music'] },
+const redHavenPlatforms = [
+    { name: 'Spotify', url: 'https://open.spotify.com/album/5v67Yp2zCFOJl9SIkTZhSi?si=NtNTXhxLTzWu1s5sg1pYhg', icon: PLATFORM_ICONS.Spotify },
+    { name: 'Apple Music', url: 'https://music.apple.com/ke/album/red-haven-ep/1892889225', icon: PLATFORM_ICONS['Apple Music'] },
+    { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GWXQVQHS?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_AxmC0CElMKoEUjOeO3fDEFDE9', icon: PLATFORM_ICONS['Amazon Music'] },
+    { name: 'YouTube', url: 'https://youtube.com/playlist?list=OLAK5uy_n2c_sA00thPkK0QrqmsgKK9M0Kp7R3X7w&si=TgWixxmzrbFRIw-M', icon: PLATFORM_ICONS.YouTube },
+    { name: 'Deezer', url: 'https://link.deezer.com/s/33dFbB5nDKsGV2HhYuhKp', icon: PLATFORM_ICONS.Deezer },
 ]
 
 export default function Home() {
     const [isMusicModalOpen, setIsMusicModalOpen] = useState(false)
-    const [isSentimentalModalOpen, setIsSentimentalModalOpen] = useState(false)
+    const [isRedHavenModalOpen, setIsRedHavenModalOpen] = useState(false)
     const { theme } = useTheme()
 
     return (
@@ -239,14 +241,14 @@ export default function Home() {
             />
 
             <StyleModal
-                isOpen={isSentimentalModalOpen}
-                onClose={() => setIsSentimentalModalOpen(false)}
-                title="Senti(Mental)"
+                isOpen={isRedHavenModalOpen}
+                onClose={() => setIsRedHavenModalOpen(false)}
+                title="RED HAVEN"
                 cover="/photos/tali%20picsnew%204.jpg"
-                platforms={sentimentalPlatforms}
+                platforms={redHavenPlatforms}
             />
 
-            <NewSinglePopup onListenClick={() => setIsSentimentalModalOpen(true)} />
+            <NewSinglePopup onListenClick={() => setIsRedHavenModalOpen(true)} />
         </div>
     )
 }

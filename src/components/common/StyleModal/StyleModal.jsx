@@ -20,10 +20,24 @@ const AMAZON_MUSIC_ICON = (
     </svg>
 )
 
+const YOUTUBE_ICON = (
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+)
+
+const DEEZER_ICON = (
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.81 4.16h5.19v3.3h-5.19zM18.81 8.59h5.19v3.3h-5.19zM12.41 8.59h5.19v3.3h-5.19zM6.01 8.59h5.19v3.3H6.01zM18.81 13.02h5.19v3.3h-5.19zM12.41 13.02h5.19v3.3h-5.19zM6.01 13.02h5.19v3.3H6.01zM0 13.02h5.19v3.3H0zM18.81 17.45h5.19v3.3h-5.19zM12.41 17.45h5.19v3.3h-5.19zM6.01 17.45h5.19v3.3H6.01zM0 17.45h5.19v3.3H0z" />
+    </svg>
+)
+
 export const PLATFORM_ICONS = {
     Spotify: SPOTIFY_ICON,
     'Apple Music': APPLE_MUSIC_ICON,
     'Amazon Music': AMAZON_MUSIC_ICON,
+    YouTube: YOUTUBE_ICON,
+    Deezer: DEEZER_ICON,
 }
 
 const stylePlatforms = [

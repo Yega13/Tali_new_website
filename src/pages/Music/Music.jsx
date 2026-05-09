@@ -73,13 +73,14 @@ export default function Music() {
     };
 
     const spotifyTracks = [
-        'https://open.spotify.com/embed/track/1wdZFH8dbdUXQxTmoAh9tu?utm_source=generator', // Style (NEW)
-        'https://open.spotify.com/embed/track/5kPrQcU2fJfpBUXAXGZZLq?utm_source=generator', // Fighter
-        'https://open.spotify.com/embed/track/1z3ulT9OvoGdGjwbIQGw1h?utm_source=generator',
-        'https://open.spotify.com/embed/track/21AABHmjP1ObzTmgjcTxDM?utm_source=generator'
+        'https://open.spotify.com/embed/track/07Z0tpscRSQOlCjRicammI?utm_source=generator',
+        'https://open.spotify.com/embed/track/4ydGoM64MfkhXPBlLEq4K0?utm_source=generator',
+        'https://open.spotify.com/embed/track/6RYzaNcj83Li7RyI6ZlQzc?utm_source=generator',
+        'https://open.spotify.com/embed/track/1z3ulT9OvoGdGjwbIQGw1h?utm_source=generator' // Ocean (feat.)
     ]
 
     const youtubeVideos = [
+        { id: 'uDhiaqPiMJ8', title: 'TALI - DCBA (Official Music Video)', upcoming: true },
         { id: 'DJf04cdgk70', title: 'TALI – Fighter (Official Music Video)' },
         { id: 'ZwHoEwjopJE', title: 'dancing alone - (A Homemade Music Video)' },
         { id: 'IfKKZYN1P9A', title: 'Fighter (Live with the Luxembourg Philharmonic)' },
@@ -89,7 +90,7 @@ export default function Music() {
 
     const allShows = [
         { date: '06/06/26', venue: 'Bruxelles - RED HAVEN Release Show', upcoming: true },
-        { date: '08/05/26', venue: 'Esch-sur-Alzette', upcoming: true },
+        { date: '08/05/26', venue: 'Rockhal "RED HAVEN" release show' },
         { date: '05/02/26', venue: 'Jewish Federation of Broward' },
         { date: '04/10/25', venue: 'Duke Coronation Luxembourg' },
         { date: '24/07/25', venue: 'Echterlive Festival' },
@@ -163,7 +164,7 @@ export default function Music() {
                                 href={`https://youtu.be/${video.id}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="video-card"
+                                className={`video-card ${video.upcoming ? 'video-card--upcoming' : ''}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -179,6 +180,7 @@ export default function Music() {
                                             <path d="M8 5v14l11-7z" />
                                         </svg>
                                     </div>
+                                    {video.upcoming && <span className="video-card__upcoming-tag">Upcoming</span>}
                                 </div>
                                 <h3 className="video-card__title">{video.title}</h3>
                             </motion.a>
