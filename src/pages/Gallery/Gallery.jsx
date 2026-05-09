@@ -11,15 +11,12 @@ const wanderMedia = [
     { src: '/photos/tali-pics25-dear-parents.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
     { src: '/photos/tali-pics26-dear-parents-tongue.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
     { src: '/photos/tali-from-facebook-8.webp', type: 'image' },
-    { src: '/photos/tali-pics27-dear-parents-necklace.webp', alt: 'Dear Parents necklace', type: 'image' },
     { src: '/photos/tali-vids20.mp4', alt: 'Blue Turns To Grey - Studio', type: 'video' },
-    { src: '/photos/tali-pics51.webp', alt: 'WANDER', type: 'image' },
+    { src: '/photos/tali-pics27-dear-parents-necklace.webp', alt: 'Dear Parents necklace', type: 'image' },
     { src: '/photos/tali-pics23-wander.webp', alt: 'Wander Photoshoot', type: 'image' },
+    { src: '/photos/tali-pics51.webp', alt: 'WANDER', type: 'image' },
     { src: '/photos/tali-wander-vid.mp4', type: 'video' },
-    { src: '/photos/tali-vids21.mp4', alt: 'Sticker ;)', type: 'video' },
     { src: '/photos/tali-pics85.webp', type: 'image' },
-    // Desktop-only media
-    { src: '/photos/Lemon lime vid.mp4', alt: 'Lemon Lime', type: 'video', desktopOnly: true },
 ]
 
 // Eurovision 2024 section
@@ -38,14 +35,15 @@ const eurovisionMedia = [
 const inFocusMedia = [
     // New 2026 shoots & clips
     { src: '/photos/tali%20picsnew%201.jpg', alt: 'Jewish Federation of Broward', type: 'image' },
-    { src: '/photos/tali%20vidsnew1.mp4', type: 'video' },
+    { src: '/photos/tali-pics141.jpg', type: 'image' },
     { src: '/photos/tali%20picsnew%202.jpg', alt: 'Strawberry Fregrance', type: 'image' },
+    { src: '/photos/tali-vids33.mp4', type: 'video' },
+    { src: '/photos/tali-pics142.jpg', type: 'image' },
     { src: '/photos/tali%20vidsnew2.mp4', type: 'video' },
     { src: '/photos/tali%20picsnew%205.jpg', alt: 'Strawberry fregrance backstage', type: 'image' },
     { src: '/photos/tali%20vidsnew%203.mp4', alt: 'Backstage', type: 'video' },
     { src: '/photos/tali%20picsnew%207.jpg', alt: 'BELGIUM!', type: 'image' },
     { src: '/photos/tali%20vidsnew%204.mp4', type: 'video' },
-    { src: '/photos/tali%20picsnew%208.jpg', type: 'image' },
     { src: '/photos/tali%20vidsnew%205.mp4', alt: 'Live at 4CEE', type: 'video' },
     { src: '/photos/tali%20vidsnew%206.mp4', alt: 'Not crazy. Just backstage.', type: 'video' },
     { src: '/photos/tali%20picsnew%206.jpg', alt: 'Strawberry Fragrance', type: 'image' },
