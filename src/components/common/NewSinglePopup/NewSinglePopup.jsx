@@ -52,11 +52,9 @@ export default function NewSinglePopup({ onListenClick }) {
                 >
                     <div className="new-single-popup__content">
                         <img
-                            src="/photos/tali-picsnew-4-popup.webp"
+                            src="/photos/tali%20banner.jpg"
                             alt="RED HAVEN - New EP"
                             className="new-single-popup__cover"
-                            width="400"
-                            height="300"
                             loading="lazy"
                             decoding="async"
                         />

@@ -37,20 +37,28 @@ export default function Home() {
             <section className="hero">
                 <div className="hero__background">
                     <img
-                        src="/photos/tali%20banner.jpg"
+                        src="/photos/tali-style1.webp"
+                        srcSet="/photos/tali-style1-540.webp 540w, /photos/tali-style1-800.webp 800w, /photos/tali-style1.webp 1080w"
+                        sizes="100vw"
                         alt="Tali Golergant"
                         className={`hero__image hero__image--light ${theme === 'light' ? 'hero__image--active' : ''}`}
                         loading={theme === 'light' ? 'eager' : 'lazy'}
                         fetchpriority={theme === 'light' ? 'high' : 'low'}
                         decoding="async"
+                        width="1080"
+                        height="1080"
                     />
                     <img
-                        src="/photos/tali%20banner.jpg"
+                        src="/photos/tali-pics35-eurovision-2025.webp"
+                        srcSet="/photos/tali-pics35-eurovision-2025-540.webp 540w, /photos/tali-pics35-eurovision-2025-800.webp 800w, /photos/tali-pics35-eurovision-2025.webp 1080w"
+                        sizes="100vw"
                         alt="Tali Golergant"
                         className={`hero__image hero__image--dark ${theme === 'dark' ? 'hero__image--active' : ''}`}
                         loading={theme === 'dark' ? 'eager' : 'lazy'}
                         fetchpriority={theme === 'dark' ? 'high' : 'low'}
                         decoding="async"
+                        width="1080"
+                        height="1214"
                     />
                     <div className="hero__overlay" />
                 </div>
