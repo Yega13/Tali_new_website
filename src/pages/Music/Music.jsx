@@ -80,7 +80,7 @@ export default function Music() {
     ]
 
     const youtubeVideos = [
-        { id: 'uDhiaqPiMJ8', title: 'TALI - DCBA (Official Music Video)' },
+        { id: 'uDhiaqPiMJ8', title: 'TALI - DCBA (Official Music Video)', isNew: true },
         { id: 'DJf04cdgk70', title: 'TALI – Fighter (Official Music Video)' },
         { id: 'ZwHoEwjopJE', title: 'dancing alone - (A Homemade Music Video)' },
         { id: 'IfKKZYN1P9A', title: 'Fighter (Live with the Luxembourg Philharmonic)' },
@@ -164,7 +164,7 @@ export default function Music() {
                                 href={`https://youtu.be/${video.id}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`video-card ${video.upcoming ? 'video-card--upcoming' : ''}`}
+                                className={`video-card ${video.upcoming ? 'video-card--upcoming' : ''} ${video.isNew ? 'video-card--new' : ''}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -181,6 +181,7 @@ export default function Music() {
                                         </svg>
                                     </div>
                                     {video.upcoming && <span className="video-card__upcoming-tag">Upcoming</span>}
+                                    {video.isNew && <span className="video-card__new-tag">New</span>}
                                 </div>
                                 <h3 className="video-card__title">{video.title}</h3>
                             </motion.a>
