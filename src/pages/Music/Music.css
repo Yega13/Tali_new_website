@@ -127,14 +127,19 @@
     top: var(--space-2);
     left: var(--space-2);
     padding: 4px 10px;
-    background-color: #2ecc71;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     font-size: 11px;
     font-weight: var(--weight-bold);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border-radius: var(--radius-full);
     z-index: 2;
+}
+
+[data-theme="dark"] .video-card__new-tag {
+    background-color: #000;
+    color: #fff;
 }
 
 /* Music Platforms */
