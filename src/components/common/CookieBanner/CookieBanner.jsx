@@ -40,14 +40,14 @@ export default function CookieBanner() {
                 >
                     <span className="cookie-banner__icon">🍪</span>
                     <p className="cookie-banner__text">
-                        We use cookies for Spotify &amp; YouTube embeds and traffic analysis.
+                        Cookies keep the music playing — Spotify, YouTube &amp; a bit of analytics.
                     </p>
                     <div className="cookie-banner__actions">
                         <button className="cookie-banner__btn cookie-banner__btn--accept" onClick={accept}>
-                            Accept
+                            Sure!
                         </button>
                         <button className="cookie-banner__btn cookie-banner__btn--decline" onClick={decline}>
-                            Decline
+                            Nope
                         </button>
                     </div>
                 </motion.div>
