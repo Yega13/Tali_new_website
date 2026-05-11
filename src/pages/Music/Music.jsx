@@ -121,14 +121,14 @@ export default function Music() {
         <div className="music music-page">
             <Helmet>
                 <title>Music - Tali Golergant</title>
-                <meta name="description" content="Listen to Tali Golergant's music - singles, EPs, and music videos. Including WANDER EP, Style, Senti(mental), and more." />
+                <meta name="description" content="Listen to Tali Golergant's music — RED HAVEN EP out now. Featuring DCBA, Make Me Stay, Senti(mental), Strawberry Fragrance, and more." />
                 <link rel="canonical" href="https://taligolergant.org/music" />
                 <meta property="og:title" content="Music - Tali Golergant" />
-                <meta property="og:description" content="Listen to Tali Golergant's music - singles, EPs, and music videos. Including WANDER EP, Style, Senti(mental), and more." />
+                <meta property="og:description" content="Listen to Tali Golergant's music — RED HAVEN EP out now. Featuring DCBA, Make Me Stay, Senti(mental), Strawberry Fragrance, and more." />
                 <meta property="og:url" content="https://taligolergant.org/music" />
                 <meta property="og:type" content="music.musician" />
                 <meta name="twitter:title" content="Music - Tali Golergant" />
-                <meta name="twitter:description" content="Listen to Tali Golergant's music - singles, EPs, and music videos. Including WANDER EP, Style, Senti(mental), and more." />
+                <meta name="twitter:description" content="Listen to Tali Golergant's music — RED HAVEN EP out now. Featuring DCBA, Make Me Stay, Senti(mental), Strawberry Fragrance, and more." />
                 <script type="application/ld+json">
                     {JSON.stringify(musicJsonLd)}
                 </script>
@@ -293,7 +293,9 @@ export default function Music() {
                         )}
                     </div>
 
-                    <p className="spotify-carousel__indicator">← Swipe for more →</p>
+                    <p className="spotify-carousel__indicator">
+                        {isMobile ? '← Swipe for more →' : '← Scroll for more →'}
+                    </p>
                 </div>
             </section>
 

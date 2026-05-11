@@ -75,6 +75,7 @@ export default function Home() {
                             <span className="hero__title-last">Golergant</span>
                         </h1>
                         <p className="hero__subtitle">Singer • Songwriter • Artist</p>
+                        <p className="hero__stats">13M+ streams on "Fighter" &nbsp;·&nbsp; Eurovision 2024 Grand Final</p>
 
                         <div className="hero__cta">
                             <motion.button

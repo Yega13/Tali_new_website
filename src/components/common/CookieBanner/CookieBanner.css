@@ -1,0 +1,89 @@
+.cookie-banner {
+    position: fixed;
+    bottom: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - var(--space-8));
+    max-width: 680px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-xl);
+    background: rgba(15, 15, 20, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .cookie-banner {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.cookie-banner__text {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+}
+
+[data-theme="light"] .cookie-banner__text {
+    color: var(--color-text-primary);
+}
+
+.cookie-banner__actions {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.cookie-banner__btn {
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s;
+}
+
+.cookie-banner__btn:hover {
+    opacity: 0.85;
+}
+
+.cookie-banner__btn--accept {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.cookie-banner__btn--decline {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .cookie-banner__btn--decline {
+    color: var(--color-text-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 540px) {
+    .cookie-banner {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-6);
+    }
+
+    .cookie-banner__text {
+        flex: 1;
+    }
+
+    .cookie-banner__actions {
+        flex-shrink: 0;
+        flex-wrap: nowrap;
+    }
+}
