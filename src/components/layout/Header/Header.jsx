@@ -12,7 +12,7 @@ const navLinks = [
     { to: '/news', label: 'News' },
     { to: '/collaborations', label: 'Collaborations' },
     { to: '/contact', label: 'Contact' },
-    { to: '/faq', label: 'FAQ' },
+    { to: '/faq', label: 'FAQ', desktopHidden: true },
     { to: '/shop', label: 'Shop', badge: '🚧' }
 ]
 
@@ -69,7 +69,7 @@ export default function Header() {
                 </Link>
 
                 <nav className="header__nav header__nav--desktop">
-                    {navLinks.map(link => (
+                    {navLinks.filter(link => !link.desktopHidden).map(link => (
                         <NavLink
                             key={link.to}
                             to={link.to}
