@@ -9,6 +9,10 @@
     gap: 1rem;
     padding: 1.1rem 1.5rem;
     border-radius: 14px;
+    background: #0f0f12;
+    color: #f0f0f0;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
 }
 
 .cookie-banner--light {
