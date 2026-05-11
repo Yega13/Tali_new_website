@@ -249,6 +249,10 @@ export default function Contact() {
                                     <strong>Email:</strong>
                                     <span>taliartistproductions@gmail.com</span>
                                 </div>
+                                <div className="contact-info__item">
+                                    <strong>Management:</strong>
+                                    <span>+1 (310) 749-5700</span>
+                                </div>
                             </div>
                         </motion.div>
 

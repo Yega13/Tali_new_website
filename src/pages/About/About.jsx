@@ -190,7 +190,7 @@ export default function About() {
                                 year: '2026',
                                 image: '/photos/tali%20picsnew%204.jpg',
                                 alt: 'Tali RED HAVEN',
-                                text: '2026 is shaping up to be a turning point — Tali is set to release her third EP "RED HAVEN", featuring singles like "Style", "Strawberry Fragrance", and "Senti(mental)". She also performed her first ever show outside of Luxembourg, taking the stage in Belgium.'
+                                text: '2026 is a major turning point — Tali released her third EP "RED HAVEN", featuring singles "Style", "Strawberry Fragrance", "Senti(mental)", "Make Me Stay", and "DCBA". To celebrate, she headlined a sold-out release show at Rockhal. Next up: her first headline show outside Luxembourg, in Brussels, Belgium on June 6th.'
                             }
                         ].map((item, index) => (
                             <motion.div

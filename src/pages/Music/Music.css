@@ -49,6 +49,74 @@
     font-family: var(--font-display);
 }
 
+/* RED HAVEN Featured Section */
+.red-haven-feature__layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.red-haven-feature__badge {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: #fff;
+    margin-bottom: var(--space-3);
+}
+
+.red-haven-feature__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    line-height: 1;
+    margin-bottom: var(--space-1);
+}
+
+.red-haven-feature__subtitle {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
+}
+
+.red-haven-feature__desc {
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+    max-width: 38ch;
+}
+
+.red-haven-feature__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.red-haven-feature__embed iframe {
+    border-radius: var(--radius-lg);
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .red-haven-feature__layout {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-12);
+    }
+
+    .red-haven-feature__info {
+        flex: 0 0 auto;
+        max-width: 340px;
+    }
+
+    .red-haven-feature__embed {
+        flex: 1;
+    }
+}
+
 .music-videos {
     background-color: var(--color-bg-secondary);
 }

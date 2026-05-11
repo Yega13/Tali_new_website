@@ -25,12 +25,12 @@ const collaborations = [
             {
                 title: "You Don't Really Know Me",
                 image: '/photos/you-dont-really-know-me-pic.webp',
-                description: 'This is the first and the most popular song of the bad at the moment, and it is popular for a reason!'
+                description: 'This is the first and the most popular song of the band at the moment, and it is popular for a reason!'
             },
             {
                 title: "Blue Bird",
                 image: '/photos/blue-bird.webp',
-                description: 'This is one of the most unique melodies with beatiful vocals and instruments like violin and saxaphone, which will fill your heart with jazzy notes'
+                description: 'This is one of the most unique melodies with beautiful vocals and instruments like violin and saxophone, which will fill your heart with jazzy notes'
             },
             {
                 title: "Come On!",

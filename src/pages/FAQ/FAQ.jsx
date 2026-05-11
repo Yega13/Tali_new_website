@@ -138,7 +138,7 @@ const faqs = [
             },
             {
                 q: 'How can I send fan mail to Tali?',
-                a: 'You can reach out via the Contact page on this website, or message Tali directly on Instagram (@taligolergant). For management inquiries, email taliartisticproduction@gmail.com.'
+                a: 'You can reach out via the Contact page on this website, or message Tali directly on Instagram (@taligolergant). For management inquiries, email taliartistproductions@gmail.com.'
             },
             {
                 q: 'Does Tali have an official fan club?',
@@ -163,7 +163,7 @@ const faqs = [
             },
             {
                 q: 'How do I contact Tali\'s production?',
-                a: 'You can contact Tali\'s production at taliartisticproduction@gmail.com or write direct message to them in our Contact page.'
+                a: 'You can contact Tali\'s production at taliartistproductions@gmail.com or write direct message to them in our Contact page.'
             }
         ]
     }
