@@ -8,6 +8,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/common/ScrollToTop'
 import BackToTop from '@/components/common/BackToTop'
+import CookieBanner from '@/components/common/CookieBanner'
 import ErrorBoundary from '@/components/common/ErrorBoundary'
 
 import Home from '@/pages/Home'
@@ -99,6 +100,7 @@ function AppContent() {
             </main>
             {!is404 && <Footer />}
             {!is404 && <BackToTop />}
+            {!is404 && <CookieBanner />}
         </>
     )
 }
