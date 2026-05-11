@@ -64,7 +64,7 @@ const resumeData = [
         content: (
             <>
                 <p><span className="resume-block__label">Languages:</span> Hebrew (fluent), Spanish (fluent), French (advanced), German (intermediate)</p>
-                <p><span className="resume-block__label">Musical:</span> Piano (advanced), Singer/Songwriter (Spotify: Tali Golergant), Teacher of piano and voice (6 years)</p>
+                <p><span className="resume-block__label">Musical:</span> Piano (advanced), Singer/Songwriter ("Fighter" 13M+ Spotify streams), Teacher of piano and voice (6 years)</p>
             </>
         )
     }
@@ -125,9 +125,9 @@ export default function About() {
                                 <p>
                                     After 2020, she started gigging shows with her own music in NYC. Her debut single is a part of
                                     her first EP "Lose You", the song is called "temporary". After that in 2024 TALI tried her luck
-                                    in Luxembourg's national selection for Eurovision, and won with her song "Fighter". And that's
-                                    how Luxembourg got back to Eurovision after 32 years. In Eurovision TALI achieved Grand Final
-                                    and finished 13th.
+                                    in Luxembourg's national selection for Eurovision, and won with her song "Fighter" — which went
+                                    on to cross 13 million streams. And that's how Luxembourg got back to Eurovision after 32 years.
+                                    In Eurovision TALI reached the Grand Final and finished 13th.
                                 </p>
                                 <p>
                                     In January of 2025, TALI released first song of her new EP "WANDER", which was "Dear Parents".
@@ -178,7 +178,7 @@ export default function About() {
                                 year: '2024',
                                 image: '/photos/tali-pics50.webp',
                                 alt: 'Tali - Eurovision 2024',
-                                text: 'Selected to represent Luxembourg at Eurovision Song Contest 2024. Which was very important step in her career.Her performance introduced her music to millions of viewers worldwide.'
+                                text: 'Selected to represent Luxembourg at Eurovision Song Contest 2024. She reached the Grand Final and finished 13th — with "Fighter" going on to rack up over 13 million streams.'
                             },
                             {
                                 year: '2025',

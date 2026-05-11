@@ -313,7 +313,7 @@
 .hero__subtitle {
     font-size: var(--text-lg);
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-8);
 }
 
 [data-theme="light"] .hero__subtitle {
@@ -325,13 +325,6 @@
     .hero__subtitle {
         font-size: var(--text-xl);
     }
-}
-
-.hero__stats {
-    font-size: var(--text-xs);
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: 0.06em;
-    margin-bottom: var(--space-8);
 }
 
 .hero__cta {

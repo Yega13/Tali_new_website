@@ -76,7 +76,7 @@
 }
 
 .cookie-banner__btn--accept {
-    background: #22c55e;
+    background: var(--color-primary);
     color: #fff;
     border: none;
 }

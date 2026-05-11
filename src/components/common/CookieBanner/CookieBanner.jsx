@@ -62,7 +62,7 @@ export default function CookieBanner() {
                             Yeah, sure
                         </button>
                         <button className="cookie-banner__btn cookie-banner__btn--decline" onClick={decline}>
-                            Nah
+                            No, thanks
                         </button>
                     </div>
                 </motion.div>
