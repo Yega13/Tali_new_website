@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 110" width="740" height="110">
+  <defs>
+    <style><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+      .logo {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+    ]]></style>
+  </defs>
+  <!-- Light text — use on dark/black backgrounds -->
+  <text class="logo" x="370" y="82" text-anchor="middle" font-size="82" fill="#FFFFFF">Tali Golergant</text>
+</svg>

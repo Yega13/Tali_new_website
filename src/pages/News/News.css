@@ -98,6 +98,29 @@
     }
 }
 
+/* Small Desktop (1024px - 1399px) - Compact cards */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .news-grid__container {
+        gap: var(--space-4);
+    }
+
+    .news-card__content {
+        padding: var(--space-4);
+    }
+
+    .news-card__title {
+        font-size: var(--text-base);
+    }
+
+    .news-card__excerpt {
+        font-size: var(--text-xs);
+    }
+
+    .news-card:nth-child(1) .news-card__image {
+        aspect-ratio: 21 / 9;
+    }
+}
+
 /* Large desktop (1300px+) */
 @media (min-width: 1300px) {
     .news-grid__container {

@@ -36,9 +36,6 @@
     object-fit: contain;
 }
 
-[data-theme="dark"] .hushare-preloader__logo {
-    filter: brightness(0) invert(1);
-}
 
 @media (min-width: 768px) {
     .hushare-preloader__tali {
@@ -117,9 +114,6 @@
     object-fit: contain;
 }
 
-[data-theme="dark"] .hushare-hero__logo {
-    filter: brightness(0) invert(1);
-}
 
 .hushare-hero__sub {
     font-size: var(--text-lg);
@@ -209,6 +203,3 @@
     object-fit: contain;
 }
 
-[data-theme="dark"] .hushare-about__logo-img {
-    filter: brightness(0) invert(1);
-}

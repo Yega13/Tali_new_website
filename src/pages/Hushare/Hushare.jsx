@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
+import { useTheme } from '@/hooks/useTheme'
 import './Hushare.css'
 
-function HusharePreloader({ onDone }) {
+function HusharePreloader({ onDone, logoSrc }) {
     const [animating, setAnimating] = useState(false)
     const [visible, setVisible] = useState(true)
 
@@ -49,7 +50,7 @@ function HusharePreloader({ onDone }) {
                             ×
                         </motion.span>
                         <motion.img
-                            src="/photos/hushare-logo.png"
+                            src={logoSrc}
                             alt="Hushare"
                             className="hushare-preloader__logo"
                             initial={{ opacity: 0, x: 40 }}
@@ -65,9 +66,13 @@ function HusharePreloader({ onDone }) {
 
 export default function HushareCollab() {
     const location = useLocation()
-    // Only show the preloader when navigating from within the site
+    const { theme } = useTheme()
     const fromInternal = location.state?.fromInternal === true
     const [preloaderDone, setPreloaderDone] = useState(!fromInternal)
+
+    const logoSrc = theme === 'dark'
+        ? '/photos/hushare-logo-dark-transparent.png'
+        : '/photos/hushare-logo-light-transparent.png'
 
     return (
         <div className="hushare-page">
@@ -80,7 +85,12 @@ export default function HushareCollab() {
                 <meta property="og:url" content="https://taligolergant.org/hushare" />
             </Helmet>
 
-            {!preloaderDone && <HusharePreloader onDone={() => setPreloaderDone(true)} />}
+            {!preloaderDone && (
+                <HusharePreloader
+                    onDone={() => setPreloaderDone(true)}
+                    logoSrc={logoSrc}
+                />
+            )}
 
             <motion.div
                 className="hushare-content"
@@ -99,7 +109,7 @@ export default function HushareCollab() {
                         >
                             <span className="hushare-hero__tali">Tali Golergant</span>
                             <span className="hushare-hero__x">×</span>
-                            <img src="/photos/hushare-logo.png" alt="Hushare" className="hushare-hero__logo" />
+                            <img src={logoSrc} alt="Hushare" className="hushare-hero__logo" />
                         </motion.div>
                         <motion.p
                             className="hushare-hero__sub"
@@ -126,7 +136,7 @@ export default function HushareCollab() {
                                 Tali Golergant and Hushare — the Armenian creative photography and visual community — have officially joined forces in a one-of-a-kind collaboration that crosses borders, languages, and art forms.
                             </p>
                             <p>
-                                Hushare is a platform built around visual storytelling: photographers, artists, and creatives who share a common language regardless of where they're from. Their community breathes art in every frame.
+                                Hushare is a platform built around visual storytelling: photographers, artists, and creatives who share a common language regardless of where they&apos;re from. Their community breathes art in every frame.
                             </p>
                             <p>
                                 Together, Tali and Hushare are bridging music and image — bringing exclusive photography, behind-the-scenes content, and joint creative projects to both communities. Two worlds, one shared passion for creating something real.
@@ -151,7 +161,7 @@ export default function HushareCollab() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            <img src="/photos/hushare-logo.png" alt="Hushare" className="hushare-about__logo-img" />
+                            <img src={logoSrc} alt="Hushare" className="hushare-about__logo-img" />
                         </motion.div>
                     </div>
                 </section>
