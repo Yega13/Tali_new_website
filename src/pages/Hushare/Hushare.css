@@ -71,21 +71,79 @@
     text-align: center;
 }
 
-.hushare-hero__collab-img {
-    width: min(1080px, 96%);
-    height: auto;
-    object-fit: contain;
-    margin-bottom: var(--space-5);
+.hushare-hero__img-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-6);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a0a2e 0%, #0d1a2e 100%);
+    padding: var(--space-6) var(--space-4);
+    width: min(1200px, 96vw);
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 12px 60px rgba(0, 0, 0, 0.35);
 }
 
-[data-theme="dark"] .hushare-hero__collab-img {
-    border-radius: var(--radius-xl);
+[data-theme="light"] .hushare-hero__img-wrap {
+    background: linear-gradient(135deg, #f5f0ff 0%, #e8f0fe 100%);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hushare-hero__collab-img {
+    display: block;
+    width: 100%;
+    max-width: 980px;
+    height: auto;
+    object-fit: contain;
+}
+
+[data-theme="light"] .hushare-hero__collab-img {
+    mix-blend-mode: multiply;
+}
+
+.hushare-hero__sub-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
 }
 
 .hushare-hero__sub {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     letter-spacing: 0.04em;
+    flex-shrink: 0;
+}
+
+.hushare-hero__sticker {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+}
+
+.hushare-hero__sticker--left {
+    transform: rotate(-8deg);
+}
+
+.hushare-hero__sticker--right {
+    transform: rotate(7deg);
+}
+
+@media (min-width: 640px) {
+    .hushare-hero__sticker {
+        width: 110px;
+        height: 145px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hushare-hero__sticker {
+        display: none;
+    }
 }
 
 /* ── Challenge section ── */

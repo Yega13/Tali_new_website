@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import './Hushare.css'
@@ -28,7 +27,7 @@ const albums = [
     {
         number: '04',
         name: 'Fan Work',
-        desc: 'Bracelets, drawings, paintings, custom art — all the creative work fans have made for Tali lives here.',
+        desc: 'Friendship bracelets, hand-drawn portraits, painted lyrics, love notes — every little thing made with heart. This one hits different.',
         url: 'https://hushare.space/tfromthefans',
     },
 ]
@@ -93,9 +92,9 @@ function HusharePreloader({ onDone }) {
 }
 
 export default function HushareCollab() {
-    const location = useLocation()
-    const fromInternal = location.state?.fromInternal === true
-    const [preloaderDone, setPreloaderDone] = useState(!fromInternal)
+    const isReload = typeof performance !== 'undefined' &&
+        performance.getEntriesByType('navigation')[0]?.type === 'reload'
+    const [preloaderDone, setPreloaderDone] = useState(isReload)
 
     return (
         <div className="hushare-page">
@@ -119,23 +118,37 @@ export default function HushareCollab() {
                 {/* Hero */}
                 <section className="hushare-hero">
                     <div className="hushare-hero__bg" />
-                    <div className="container hushare-hero__inner">
-                        <motion.img
-                            src="/collab_pic.png"
-                            alt="Tali Golergant × Hushare"
-                            className="hushare-hero__collab-img"
+                    <div className="hushare-hero__inner">
+                        <motion.div
+                            className="hushare-hero__img-wrap"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: preloaderDone ? 1 : 0, y: preloaderDone ? 0 : 30 }}
                             transition={{ duration: 0.7, delay: 0.15 }}
-                        />
-                        <motion.p
-                            className="hushare-hero__sub"
+                        >
+                            <img
+                                src="/collab_pic.png"
+                                alt="Tali Golergant × Hushare"
+                                className="hushare-hero__collab-img"
+                            />
+                        </motion.div>
+                        <motion.div
+                            className="hushare-hero__sub-row"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: preloaderDone ? 1 : 0 }}
                             transition={{ duration: 0.7, delay: 0.35 }}
                         >
-                            Where fans share their best shots.
-                        </motion.p>
+                            <img
+                                src="/photos/tali-red-haven-pic-3.jpg"
+                                alt=""
+                                className="hushare-hero__sticker hushare-hero__sticker--left"
+                            />
+                            <p className="hushare-hero__sub">Where fans share their best shots.</p>
+                            <img
+                                src="/photos/tali-red-haven-pic-4.jpg"
+                                alt=""
+                                className="hushare-hero__sticker hushare-hero__sticker--right"
+                            />
+                        </motion.div>
                     </div>
                 </section>
 
@@ -152,7 +165,7 @@ export default function HushareCollab() {
                             <span className="hushare-challenge__eyebrow">Tali × Hushare</span>
                             <h2 className="hushare-challenge__heading">Participate in the Fan Photo Challenge</h2>
                             <p className="hushare-challenge__intro">
-                                Tali and Hushare have opened 4 official fan albums on Hushare. Upload your photos directly — the best shots get hand-picked by the team and featured right here on this page. Four albums, four stories. Pick yours.
+                                Tali and Hushare have opened 4 official fan albums on Hushare. Upload your photos directly — the best shots get hand-picked by the team and featured right here on this page. Four albums, four stories. Pick yours, and show us your part of the story.
                             </p>
                             <div className="hushare-challenge__deadline">
                                 Challenge ends <strong>July 1, 2026</strong>

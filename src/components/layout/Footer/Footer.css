@@ -21,48 +21,55 @@
 /* Small Desktop (1024px - 1399px) - Compact footer */
 @media (min-width: 1024px) and (max-width: 1399px) {
     .footer {
-        padding: var(--space-4) 0 var(--space-2);
-        min-height: 160px;
+        padding: var(--space-3) 0 var(--space-2);
+        min-height: 0;
     }
 
     .footer__content {
         gap: var(--space-4);
-        margin-bottom: var(--space-3);
+        margin-bottom: var(--space-2);
     }
 
     .footer__logo-text {
-        font-size: var(--text-lg);
+        font-size: var(--text-base);
     }
 
     .footer__tagline {
-        font-size: var(--text-sm);
-        margin-top: var(--space-2);
+        font-size: var(--text-xs);
+        margin-top: var(--space-1);
     }
 
     .footer__nav-title {
-        margin-bottom: var(--space-3);
+        font-size: var(--text-xs);
+        margin-bottom: var(--space-2);
     }
 
     .footer__nav-list {
-        gap: var(--space-2);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-1) var(--space-4);
     }
 
     .footer__nav-link {
-        font-size: var(--text-sm);
+        font-size: var(--text-xs);
     }
 
     .footer__social-link {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
     }
 
     .footer__social-link svg {
-        width: 18px;
-        height: 18px;
+        width: 15px;
+        height: 15px;
     }
 
     .footer__bottom {
-        padding-top: var(--space-4);
+        padding-top: var(--space-2);
+    }
+
+    .footer__copyright {
+        font-size: var(--text-xs);
     }
 }
 
