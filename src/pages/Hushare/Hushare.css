@@ -36,29 +36,16 @@
     object-fit: contain;
 }
 
-
 @media (min-width: 768px) {
-    .hushare-preloader__tali {
-        font-size: var(--text-5xl);
-    }
-    .hushare-preloader__x {
-        font-size: var(--text-5xl);
-    }
-    .hushare-preloader__logo {
-        height: 3.5rem;
-    }
+    .hushare-preloader__tali { font-size: var(--text-5xl); }
+    .hushare-preloader__x { font-size: var(--text-5xl); }
+    .hushare-preloader__logo { height: 3.5rem; }
 }
 
 @media (min-width: 1024px) {
-    .hushare-preloader__tali {
-        font-size: var(--text-6xl);
-    }
-    .hushare-preloader__x {
-        font-size: var(--text-6xl);
-    }
-    .hushare-preloader__logo {
-        height: 4.2rem;
-    }
+    .hushare-preloader__tali { font-size: var(--text-6xl); }
+    .hushare-preloader__x { font-size: var(--text-6xl); }
+    .hushare-preloader__logo { height: 4.2rem; }
 }
 
 /* ── Hero ── */
@@ -95,92 +82,178 @@
     border-radius: var(--radius-xl);
 }
 
-
 .hushare-hero__sub {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     letter-spacing: 0.04em;
 }
 
-@media (min-width: 768px) {
-    .hushare-hero__tali {
-        font-size: var(--text-5xl);
-    }
-    .hushare-hero__x {
-        font-size: var(--text-5xl);
-    }
-    .hushare-hero__logo {
-        height: 3.6rem;
+/* ── Albums ── */
+.hushare-albums__header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-12);
+}
+
+.hushare-albums__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.hushare-albums__intro {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.hushare-albums__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+    .hushare-albums__grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
-    .hushare-hero__tali {
-        font-size: var(--text-6xl);
-    }
-    .hushare-hero__x {
-        font-size: var(--text-6xl);
-    }
-    .hushare-hero__logo {
-        height: 4.4rem;
+    .hushare-albums__grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* ── About section ── */
-.hushare-about__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-12);
-    align-items: center;
+.hushare-album-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-7) var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
-@media (min-width: 768px) {
-    .hushare-about__grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-16);
+@media (hover: hover) and (pointer: fine) {
+    .hushare-album-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--color-primary);
     }
 }
 
-.hushare-about__heading {
+.hushare-album-card__tag {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.hushare-album-card__name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.hushare-album-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    flex: 1;
+    margin: 0;
+}
+
+.hushare-album-card__cta {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    margin-top: var(--space-2);
+}
+
+/* ── Section heading (shared) ── */
+.hushare-section__heading {
     font-family: var(--font-display);
     font-size: var(--text-3xl);
     font-weight: var(--weight-bold);
-    margin-bottom: var(--space-6);
     color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
 }
 
-.hushare-about__text p {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-    margin-bottom: var(--space-4);
-}
-
-.hushare-about__closing {
-    font-style: italic;
-    color: var(--color-primary) !important;
-    font-weight: var(--weight-medium);
-}
-
-.hushare-about__btn {
-    margin-top: var(--space-4);
-    display: inline-flex;
-}
-
-.hushare-about__logo-side {
+/* ── Gallery ── */
+.hushare-gallery__grid {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-8);
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .hushare-gallery__grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--space-5);
+        align-items: start;
+    }
+}
+
+.hushare-gallery__video-wrap {
     border-radius: var(--radius-xl);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border-light);
+    overflow: hidden;
+    background: #000;
+    box-shadow: var(--shadow-lg);
 }
 
-.hushare-about__logo-img {
+.hushare-gallery__video {
+    display: block;
     width: 100%;
-    max-width: 280px;
     height: auto;
-    object-fit: contain;
 }
 
+.hushare-gallery__photos {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .hushare-gallery__photos {
+        flex-direction: column;
+    }
+}
+
+.hushare-gallery__photo {
+    width: 100%;
+    flex: 1;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+/* ── Moments ── */
+.hushare-moments__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+    .hushare-moments__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.hushare-moments__photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}

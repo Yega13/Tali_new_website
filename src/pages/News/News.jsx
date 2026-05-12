@@ -57,15 +57,14 @@ const newsItems = [
     },
     {
         id: 'hushare-collab',
-        image: '/collab_pic.png',
+        image: '/photos/tali-red-haven-pic-2.jpg',
         title: 'Tali Golergant × Hushare',
         date: 'May 2026',
         isoDate: '2026-05-12',
-        excerpt: 'Tali has officially partnered with Hushare — the Armenian creative photography community. Two worlds, one shared passion for art. Music meets visual storytelling.',
+        excerpt: 'Tali has officially partnered with Hushare — the Armenian creative photography community. Fans now have access to 4 shared albums — submit your best shots and get featured on the website.',
         linkText: 'Read More →',
         isInternal: true,
-        isCollab: true,
-        link: '/hushare'
+        link: '/hushare-collab'
     }
 ]
 

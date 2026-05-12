@@ -29,7 +29,7 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.2 } }
 }
 
-const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/shop', '/faq', '/hushare']
+const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/shop', '/faq', '/hushare-collab']
 
 function PageLoader() {
     return (
@@ -79,7 +79,7 @@ function AnimatedRoutes() {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/shop" element={<Shop />} />
                         <Route path="/faq" element={<FAQ />} />
-                        <Route path="/hushare" element={<HushareCollab />} />
+                        <Route path="/hushare-collab" element={<HushareCollab />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>

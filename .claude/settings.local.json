@@ -16,7 +16,10 @@
       "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\" -Recurse | Where-Object { $_.Name -match \"collab|tali-x|hushare\" } | Select-Object Name, FullName)",
       "PowerShell(sort LastWriteTime -Descending)",
       "Bash(find /mnt/c/Users/yegan/OneDrive/Desktop/tali_new_website/public -name \"*collab*\" -o -name \"*Collab*\" 2>/dev/null)",
-      "Read(//mnt/c/Users/yegan/OneDrive/Desktop/tali_new_website/**)"
+      "Read(//mnt/c/Users/yegan/OneDrive/Desktop/tali_new_website/**)",
+      "Bash(Sort-Object LastWriteTime -Descending)",
+      "Bash(Select-Object -First 20)",
+      "Bash(Format-Table Name, LastWriteTime)"
     ]
   },
   "enableAllProjectMcpServers": true,

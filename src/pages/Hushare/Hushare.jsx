@@ -6,6 +6,33 @@ import './Hushare.css'
 
 const LOGO = '/photos/hushare-logo-primary.png'
 
+const albums = [
+    {
+        name: 'Tali × Fans',
+        tag: 'Fan Moments',
+        desc: 'Got a photo with Tali? This is your album. Share your favorite fan moments from shows, meet & greets, and everywhere in between.',
+        url: 'https://hushare.space/talixfans',
+    },
+    {
+        name: 'RED HAVEN',
+        tag: 'Concert Photography',
+        desc: 'The best shots from the RED HAVEN EP release show at Rockhal. If you were there and captured something special — this is its home.',
+        url: 'https://hushare.space/redhavenepreleaseshow',
+    },
+    {
+        name: 'Peak Frames',
+        tag: 'Best Shots',
+        desc: 'The sharpest, most stunning frames of Tali — captured by fans. If you got the shot, this is where it belongs.',
+        url: 'https://hushare.space/tpeakframes',
+    },
+    {
+        name: 'Fan Work',
+        tag: 'Fan Art',
+        desc: 'Bracelets, drawings, paintings, custom art — all the creative work fans have made for Tali lives here.',
+        url: 'https://hushare.space/tfromthefans',
+    },
+]
+
 function HusharePreloader({ onDone }) {
     const [animating, setAnimating] = useState(false)
     const [visible, setVisible] = useState(true)
@@ -74,11 +101,11 @@ export default function HushareCollab() {
         <div className="hushare-page">
             <Helmet>
                 <title>Tali Golergant × Hushare</title>
-                <meta name="description" content="Tali Golergant and Hushare — a creative collaboration between music and visual storytelling." />
-                <link rel="canonical" href="https://taligolergant.org/hushare" />
+                <meta name="description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums. Submit your best shots and get featured on the website." />
+                <link rel="canonical" href="https://taligolergant.org/hushare-collab" />
                 <meta property="og:title" content="Tali Golergant × Hushare" />
-                <meta property="og:description" content="Tali Golergant and Hushare — a creative collaboration between music and visual storytelling." />
-                <meta property="og:url" content="https://taligolergant.org/hushare" />
+                <meta property="og:description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums." />
+                <meta property="og:url" content="https://taligolergant.org/hushare-collab" />
             </Helmet>
 
             {!preloaderDone && <HusharePreloader onDone={() => setPreloaderDone(true)} />}
@@ -89,6 +116,7 @@ export default function HushareCollab() {
                 animate={{ opacity: preloaderDone ? 1 : 0 }}
                 transition={{ duration: 0.6 }}
             >
+                {/* Hero */}
                 <section className="hushare-hero">
                     <div className="hushare-hero__bg" />
                     <div className="container hushare-hero__inner">
@@ -106,52 +134,124 @@ export default function HushareCollab() {
                             animate={{ opacity: preloaderDone ? 1 : 0 }}
                             transition={{ duration: 0.7, delay: 0.35 }}
                         >
-                            Music meets visual storytelling
+                            Where fans share their best shots.
                         </motion.p>
                     </div>
                 </section>
 
-                <section className="hushare-about section">
-                    <div className="container hushare-about__grid">
+                {/* Albums */}
+                <section className="hushare-albums section">
+                    <div className="container">
                         <motion.div
-                            className="hushare-about__text"
-                            initial={{ opacity: 0, y: 24 }}
+                            className="hushare-albums__header"
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="hushare-about__heading">The Partnership</h2>
-                            <p>
-                                Tali Golergant and Hushare — the Armenian creative photography and visual community — have officially joined forces in a one-of-a-kind collaboration that crosses borders, languages, and art forms.
+                            <h2 className="hushare-albums__heading">Join the Community</h2>
+                            <p className="hushare-albums__intro">
+                                Tali and Hushare have opened 4 official fan albums. Upload your shots directly on Hushare — the best ones get hand-picked and featured right here on this page.
                             </p>
-                            <p>
-                                Hushare is a platform built around visual storytelling: photographers, artists, and creatives who share a common language regardless of where they&apos;re from. Their community breathes art in every frame.
-                            </p>
-                            <p>
-                                Together, Tali and Hushare are bridging music and image — bringing exclusive photography, behind-the-scenes content, and joint creative projects to both communities. Two worlds, one shared passion for creating something real.
-                            </p>
-                            <p className="hushare-about__closing">
-                                This is just the beginning.
-                            </p>
-                            <a
-                                href="https://hushare.space"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn btn-primary hushare-about__btn"
-                            >
-                                Visit Hushare →
-                            </a>
                         </motion.div>
 
-                        <motion.div
-                            className="hushare-about__logo-side"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                        <div className="hushare-albums__grid">
+                            {albums.map((album, i) => (
+                                <motion.a
+                                    key={album.name}
+                                    href={album.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hushare-album-card"
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                                >
+                                    <span className="hushare-album-card__tag">{album.tag}</span>
+                                    <h3 className="hushare-album-card__name">{album.name}</h3>
+                                    <p className="hushare-album-card__desc">{album.desc}</p>
+                                    <span className="hushare-album-card__cta">Submit your shots →</span>
+                                </motion.a>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Gallery */}
+                <section className="hushare-gallery section">
+                    <div className="container">
+                        <motion.h2
+                            className="hushare-section__heading"
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            <img src={LOGO} alt="Hushare" className="hushare-about__logo-img" />
-                        </motion.div>
+                            Gallery
+                        </motion.h2>
+                        <div className="hushare-gallery__grid">
+                            <motion.div
+                                className="hushare-gallery__video-wrap"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <video
+                                    src="/photos/dcba-vid-1.mp4"
+                                    controls
+                                    playsInline
+                                    preload="metadata"
+                                    className="hushare-gallery__video"
+                                />
+                            </motion.div>
+                            <motion.div
+                                className="hushare-gallery__photos"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.15 }}
+                            >
+                                <img src="/photos/tali-red-haven-pic-1.jpg" alt="Red Haven" className="hushare-gallery__photo" />
+                                <img src="/photos/tali-red-haven-pic-2.jpg" alt="Red Haven" className="hushare-gallery__photo" />
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Moments */}
+                <section className="hushare-moments section">
+                    <div className="container">
+                        <motion.h2
+                            className="hushare-section__heading"
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            Moments
+                        </motion.h2>
+                        <div className="hushare-moments__grid">
+                            <motion.img
+                                src="/photos/tali-red-haven-pic-3.jpg"
+                                alt="Moment"
+                                className="hushare-moments__photo"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                            />
+                            <motion.img
+                                src="/photos/tali-red-haven-pic-4.jpg"
+                                alt="Moment"
+                                className="hushare-moments__photo"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.15 }}
+                            />
+                        </div>
                     </div>
                 </section>
             </motion.div>
