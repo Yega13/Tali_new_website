@@ -27,7 +27,7 @@ const albums = [
     {
         number: '04',
         name: 'Fan Work',
-        desc: 'Friendship bracelets, hand-drawn portraits, painted lyrics, love notes — every little thing made with heart. This one hits different.',
+        desc: 'Friendship bracelets, hand-drawn portraits, painted lyrics, handwritten notes — every piece of fan creativity made for Tali finds its rightful place here.',
         url: 'https://hushare.space/tfromthefans',
     },
 ]
