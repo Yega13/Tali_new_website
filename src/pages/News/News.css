@@ -175,6 +175,21 @@
     object-fit: cover;
 }
 
+.news-card__image--collab {
+    background: var(--color-bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6) var(--space-4);
+}
+
+.news-card__image--collab img {
+    object-fit: contain;
+    width: 98%;
+    height: auto;
+    max-height: 100%;
+}
+
 .news-card:nth-child(1) .news-card__image img {
     object-position: center 40%;
 }

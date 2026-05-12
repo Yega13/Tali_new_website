@@ -84,34 +84,15 @@
     text-align: center;
 }
 
-.hushare-hero__lockup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--space-4);
+.hushare-hero__collab-img {
+    width: min(1080px, 96%);
+    height: auto;
+    object-fit: contain;
     margin-bottom: var(--space-5);
 }
 
-.hushare-hero__tali {
-    font-family: var(--font-display);
-    font-size: var(--text-4xl);
-    font-weight: var(--weight-bold);
-    color: var(--color-text-primary);
-    letter-spacing: var(--tracking-tight);
-}
-
-.hushare-hero__x {
-    font-family: var(--font-display);
-    font-size: var(--text-4xl);
-    font-weight: var(--weight-light);
-    color: var(--color-primary);
-}
-
-.hushare-hero__logo {
-    height: 2.8rem;
-    width: auto;
-    object-fit: contain;
+[data-theme="dark"] .hushare-hero__collab-img {
+    border-radius: var(--radius-xl);
 }
 
 

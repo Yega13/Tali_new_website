@@ -57,13 +57,14 @@ const newsItems = [
     },
     {
         id: 'hushare-collab',
-        image: '/photos/tali-pics141.jpg',
+        image: '/collab_pic.png',
         title: 'Tali Golergant × Hushare',
         date: 'May 2026',
         isoDate: '2026-05-12',
         excerpt: 'Tali has officially partnered with Hushare — the Armenian creative photography community. Two worlds, one shared passion for art. Music meets visual storytelling.',
         linkText: 'Read More →',
         isInternal: true,
+        isCollab: true,
         link: '/hushare'
     }
 ]
@@ -179,7 +180,7 @@ export default function News() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <div className="news-card__image">
+                                <div className={`news-card__image${item.isCollab ? ' news-card__image--collab' : ''}`}>
                                     <img
                                         src={item.image}
                                         alt={item.title}

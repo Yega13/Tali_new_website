@@ -10,7 +10,13 @@
       "WebFetch(domain:hushare.space)",
       "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\\\\photos\" | Where-Object { $_.Name -match \"hushare\" })",
       "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\\\\photos\" | Where-Object { $_.Name -match \"hushare|tali-pics141\" } | Select-Object Name, Length)",
-      "PowerShell(Get-ChildItem \"C:\\\\Windows\\\\Fonts\" | Where-Object { $_.Name -match \"Playfair\" } | Select-Object Name)"
+      "PowerShell(Get-ChildItem \"C:\\\\Windows\\\\Fonts\" | Where-Object { $_.Name -match \"Playfair\" } | Select-Object Name)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\\\\photos\" | Where-Object { $_.Name -match \"collab\" } | Select-Object Name)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\" | Where-Object { $_.Name -match \"collab\" } | Select-Object Name, FullName)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\" -Recurse | Where-Object { $_.Name -match \"collab|tali-x|hushare\" } | Select-Object Name, FullName)",
+      "PowerShell(sort LastWriteTime -Descending)",
+      "Bash(find /mnt/c/Users/yegan/OneDrive/Desktop/tali_new_website/public -name \"*collab*\" -o -name \"*Collab*\" 2>/dev/null)",
+      "Read(//mnt/c/Users/yegan/OneDrive/Desktop/tali_new_website/**)"
     ]
   },
   "enableAllProjectMcpServers": true,

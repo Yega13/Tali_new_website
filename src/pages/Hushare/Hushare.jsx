@@ -92,16 +92,14 @@ export default function HushareCollab() {
                 <section className="hushare-hero">
                     <div className="hushare-hero__bg" />
                     <div className="container hushare-hero__inner">
-                        <motion.div
-                            className="hushare-hero__lockup"
+                        <motion.img
+                            src="/collab_pic.png"
+                            alt="Tali Golergant × Hushare"
+                            className="hushare-hero__collab-img"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: preloaderDone ? 1 : 0, y: preloaderDone ? 0 : 30 }}
                             transition={{ duration: 0.7, delay: 0.15 }}
-                        >
-                            <span className="hushare-hero__tali">Tali Golergant</span>
-                            <span className="hushare-hero__x">×</span>
-                            <img src={LOGO} alt="Hushare" className="hushare-hero__logo" />
-                        </motion.div>
+                        />
                         <motion.p
                             className="hushare-hero__sub"
                             initial={{ opacity: 0 }}
