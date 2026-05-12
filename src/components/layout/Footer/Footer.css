@@ -15,69 +15,6 @@
     }
 }
 
-/* Small–Mid Desktop (768px - 1399px) - Compact single-row footer */
-@media (min-width: 768px) and (max-width: 1399px) {
-    .footer {
-        padding: var(--space-4) 0 var(--space-2);
-        min-height: 0;
-    }
-
-    /* Collapse to 2 columns: brand+social on left, nav on right */
-    .footer__content {
-        grid-template-columns: auto 1fr auto;
-        gap: var(--space-8);
-        margin-bottom: var(--space-3);
-        align-items: center;
-    }
-
-    .footer__logo-text {
-        font-size: var(--text-base);
-    }
-
-    .footer__tagline {
-        font-size: var(--text-xs);
-        margin-top: var(--space-1);
-    }
-
-    .footer__nav-title {
-        font-size: var(--text-xs);
-        margin-bottom: var(--space-2);
-    }
-
-    /* Nav links in a horizontal wrapping row */
-    .footer__nav-list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--space-1) var(--space-4);
-    }
-
-    .footer__nav-link {
-        font-size: var(--text-xs);
-    }
-
-    .footer__social-link {
-        width: 34px;
-        height: 34px;
-    }
-
-    .footer__social-link svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .footer__social-links {
-        gap: var(--space-2);
-    }
-
-    .footer__bottom {
-        padding-top: var(--space-2);
-    }
-
-    .footer__copyright {
-        font-size: var(--text-xs);
-    }
-}
 
 .footer__content {
     display: grid;
@@ -368,5 +305,66 @@
 
     .footer__copyright {
         font-size: var(--text-sm);
+    }
+}
+
+/* ── Compact Desktop (768px–1399px) — must be last to win cascade ── */
+@media (min-width: 768px) and (max-width: 1399px) {
+    .footer {
+        padding: var(--space-3) 0 var(--space-2);
+    }
+
+    .footer__content {
+        grid-template-columns: auto 1fr auto;
+        gap: var(--space-6);
+        margin-bottom: var(--space-2);
+        align-items: center;
+    }
+
+    .footer__logo-text {
+        font-size: var(--text-base);
+    }
+
+    .footer__tagline {
+        font-size: var(--text-xs);
+        margin-top: var(--space-1);
+    }
+
+    .footer__nav-title {
+        font-size: var(--text-xs);
+        margin-bottom: var(--space-2);
+    }
+
+    .footer__nav-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--space-1) var(--space-3);
+    }
+
+    .footer__nav-link {
+        font-size: var(--text-xs);
+    }
+
+    .footer__social-link {
+        width: 32px;
+        height: 32px;
+    }
+
+    .footer__social-link svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .footer__social-links {
+        gap: var(--space-2);
+        flex-wrap: nowrap;
+    }
+
+    .footer__bottom {
+        padding-top: var(--space-2);
+    }
+
+    .footer__copyright {
+        font-size: var(--text-xs);
     }
 }

@@ -138,7 +138,7 @@ export default function HushareCollab() {
                             transition={{ duration: 0.7, delay: 0.35 }}
                         >
                             <img
-                                src="/photos/tali-red-haven-pic-3.jpg"
+                                src="/photos/tali-pics42-eurovision.webp"
                                 alt=""
                                 className="hushare-hero__sticker hushare-hero__sticker--left"
                             />
