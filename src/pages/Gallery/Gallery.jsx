@@ -36,6 +36,9 @@ const eurovisionMedia = [
 // In Focus section
 const inFocusMedia = [
     // New 2026 shoots & clips
+    { src: '/photos/tali-red-haven-pic-1.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
+    { src: '/photos/tali-red-haven-pic-2.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
+    { src: '/photos/dcba-vid-1.mp4', type: 'video' },
     { src: '/photos/tali%20picsnew%201.jpg', alt: 'Jewish Federation of Broward', type: 'image' },
     { src: '/photos/tali-pics141.jpg', type: 'image' },
     { src: '/photos/tali%20picsnew%202.jpg', alt: 'Strawberry Fregrance', type: 'image' },
@@ -78,6 +81,8 @@ const inFocusMedia = [
 
 // Moments section - pictures with humans
 const momentsImages = [
+    { src: '/photos/tali-red-haven-pic-3.jpg', alt: 'RED HAVEN Release Show' },
+    { src: '/photos/tali-red-haven-pic-4.jpg', alt: 'RED HAVEN Release Show' },
     { src: '/photos/tali-pics103.webp', alt: 'Echterlive 2025 Backstage' },
     { src: '/photos/tali-pics69.webp', alt: 'Eurovision 2024' },
     { src: '/photos/tali-from-facebook-4.webp' },

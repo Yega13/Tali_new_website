@@ -8,26 +8,26 @@ const LOGO = '/photos/hushare-logo-primary.png'
 
 const albums = [
     {
+        number: '01',
         name: 'Tali × Fans',
-        tag: 'Fan Moments',
-        desc: 'Got a photo with Tali? This is your album. Share your favorite fan moments from shows, meet & greets, and everywhere in between.',
+        desc: 'Got a photo with Tali? This is your album. Fan moments from shows, meet & greets, and everywhere in between.',
         url: 'https://hushare.space/talixfans',
     },
     {
+        number: '02',
         name: 'RED HAVEN',
-        tag: 'Concert Photography',
         desc: 'The best shots from the RED HAVEN EP release show at Rockhal. If you were there and captured something special — this is its home.',
         url: 'https://hushare.space/redhavenepreleaseshow',
     },
     {
+        number: '03',
         name: 'Peak Frames',
-        tag: 'Best Shots',
-        desc: 'The sharpest, most stunning frames of Tali — captured by fans. If you got the shot, this is where it belongs.',
+        desc: 'The sharpest, most stunning frames of Tali captured by fans. If you got the shot, this is where it belongs.',
         url: 'https://hushare.space/tpeakframes',
     },
     {
+        number: '04',
         name: 'Fan Work',
-        tag: 'Fan Art',
         desc: 'Bracelets, drawings, paintings, custom art — all the creative work fans have made for Tali lives here.',
         url: 'https://hushare.space/tfromthefans',
     },
@@ -100,11 +100,11 @@ export default function HushareCollab() {
     return (
         <div className="hushare-page">
             <Helmet>
-                <title>Tali Golergant × Hushare</title>
-                <meta name="description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums. Submit your best shots and get featured on the website." />
+                <title>Tali Golergant × Hushare — Fan Challenge</title>
+                <meta name="description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums. Submit your best shots and get featured on the website. Challenge ends July 1, 2026." />
                 <link rel="canonical" href="https://taligolergant.org/hushare-collab" />
-                <meta property="og:title" content="Tali Golergant × Hushare" />
-                <meta property="og:description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums." />
+                <meta property="og:title" content="Tali Golergant × Hushare — Fan Challenge" />
+                <meta property="og:description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums. Submit your best shots and get featured." />
                 <meta property="og:url" content="https://taligolergant.org/hushare-collab" />
             </Helmet>
 
@@ -139,118 +139,47 @@ export default function HushareCollab() {
                     </div>
                 </section>
 
-                {/* Albums */}
-                <section className="hushare-albums section">
+                {/* Challenge */}
+                <section className="hushare-challenge section">
                     <div className="container">
                         <motion.div
-                            className="hushare-albums__header"
+                            className="hushare-challenge__header"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="hushare-albums__heading">Join the Community</h2>
-                            <p className="hushare-albums__intro">
-                                Tali and Hushare have opened 4 official fan albums. Upload your shots directly on Hushare — the best ones get hand-picked and featured right here on this page.
+                            <span className="hushare-challenge__eyebrow">Tali × Hushare</span>
+                            <h2 className="hushare-challenge__heading">Participate in the Fan Photo Challenge</h2>
+                            <p className="hushare-challenge__intro">
+                                Tali and Hushare have opened 4 official fan albums on Hushare. Upload your photos directly — the best shots get hand-picked by the team and featured right here on this page. Four albums, four stories. Pick yours.
                             </p>
+                            <div className="hushare-challenge__deadline">
+                                Challenge ends <strong>July 1, 2026</strong>
+                            </div>
                         </motion.div>
 
-                        <div className="hushare-albums__grid">
+                        <div className="hushare-albums__list">
                             {albums.map((album, i) => (
                                 <motion.a
                                     key={album.name}
                                     href={album.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="hushare-album-card"
-                                    initial={{ opacity: 0, y: 24 }}
+                                    className="hushare-album-row"
+                                    initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                                    transition={{ duration: 0.5, delay: i * 0.08 }}
                                 >
-                                    <span className="hushare-album-card__tag">{album.tag}</span>
-                                    <h3 className="hushare-album-card__name">{album.name}</h3>
-                                    <p className="hushare-album-card__desc">{album.desc}</p>
-                                    <span className="hushare-album-card__cta">Submit your shots →</span>
+                                    <span className="hushare-album-row__number">{album.number}</span>
+                                    <div className="hushare-album-row__body">
+                                        <h3 className="hushare-album-row__name">{album.name}</h3>
+                                        <p className="hushare-album-row__desc">{album.desc}</p>
+                                    </div>
+                                    <span className="hushare-album-row__cta">Join Album →</span>
                                 </motion.a>
                             ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Gallery */}
-                <section className="hushare-gallery section">
-                    <div className="container">
-                        <motion.h2
-                            className="hushare-section__heading"
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            Gallery
-                        </motion.h2>
-                        <div className="hushare-gallery__grid">
-                            <motion.div
-                                className="hushare-gallery__video-wrap"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6 }}
-                            >
-                                <video
-                                    src="/photos/dcba-vid-1.mp4"
-                                    controls
-                                    playsInline
-                                    preload="metadata"
-                                    className="hushare-gallery__video"
-                                />
-                            </motion.div>
-                            <motion.div
-                                className="hushare-gallery__photos"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.15 }}
-                            >
-                                <img src="/photos/tali-red-haven-pic-1.jpg" alt="Red Haven" className="hushare-gallery__photo" />
-                                <img src="/photos/tali-red-haven-pic-2.jpg" alt="Red Haven" className="hushare-gallery__photo" />
-                            </motion.div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Moments */}
-                <section className="hushare-moments section">
-                    <div className="container">
-                        <motion.h2
-                            className="hushare-section__heading"
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            Moments
-                        </motion.h2>
-                        <div className="hushare-moments__grid">
-                            <motion.img
-                                src="/photos/tali-red-haven-pic-3.jpg"
-                                alt="Moment"
-                                className="hushare-moments__photo"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6 }}
-                            />
-                            <motion.img
-                                src="/photos/tali-red-haven-pic-4.jpg"
-                                alt="Moment"
-                                className="hushare-moments__photo"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.15 }}
-                            />
                         </div>
                     </div>
                 </section>
