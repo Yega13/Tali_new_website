@@ -8,7 +8,9 @@
       "Bash(Rename-Item -Path \"c:/Users/yegan/OneDrive/Desktop/tali_new_website/public/photos/Tali vids\\(temp\\).mp4\" -NewName \"tali-vids34.mp4\")",
       "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\\\\photos\\\\Tali vids\\(temp\\).mp4\" -NewName \"tali-vids34.mp4\")",
       "WebFetch(domain:hushare.space)",
-      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\\\\photos\" | Where-Object { $_.Name -match \"hushare\" })"
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\\\\photos\" | Where-Object { $_.Name -match \"hushare\" })",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\yegan\\\\OneDrive\\\\Desktop\\\\tali_new_website\\\\public\\\\photos\" | Where-Object { $_.Name -match \"hushare|tali-pics141\" } | Select-Object Name, Length)",
+      "PowerShell(Get-ChildItem \"C:\\\\Windows\\\\Fonts\" | Where-Object { $_.Name -match \"Playfair\" } | Select-Object Name)"
     ]
   },
   "enableAllProjectMcpServers": true,
