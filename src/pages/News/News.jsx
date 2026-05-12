@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import StyleModal, { PLATFORM_ICONS } from '@/components/common/StyleModal'
@@ -10,11 +11,6 @@ const strawberryPlatforms = [
     { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GNCPRW4P?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Hnv1LGUlVwwFTErEaL9NI3yLM', icon: PLATFORM_ICONS['Amazon Music'] },
 ]
 
-const sentimentalPlatforms = [
-    { name: 'Spotify', url: 'https://open.spotify.com/track/3hf7mln3oPgT6CEVpFdmSN?si=e1b931cdc94b43b9', icon: PLATFORM_ICONS.Spotify },
-    { name: 'Apple Music', url: 'https://music.apple.com/us/album/senti-mental-single/1885177646', icon: PLATFORM_ICONS['Apple Music'] },
-    { name: 'Amazon Music', url: 'https://music.amazon.com/albums/B0GSHFFH82?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_Sz9DzDAomYeTg4hapJFgFwjMX', icon: PLATFORM_ICONS['Amazon Music'] },
-]
 
 const redHavenPlatforms = [
     { name: 'Spotify', url: 'https://open.spotify.com/album/5v67Yp2zCFOJl9SIkTZhSi?si=NtNTXhxLTzWu1s5sg1pYhg', icon: PLATFORM_ICONS.Spotify },
@@ -60,14 +56,15 @@ const newsItems = [
         hasStrawberryModal: true
     },
     {
-        id: 'sentimental',
-        image: '/photos/tali%20picsnew%204.jpg',
-        title: 'Not crazy. Just Senti(Mental)',
-        date: 'April 10, 2026',
-        isoDate: '2026-04-10',
-        excerpt: 'Released April 10th, "Not crazy. Just Senti(Mental)" is Tali\'s most energizing drop yet — a punchy, electric anthem about feeling everything at once and owning every bit of it. Press play and turn it up loud.',
-        linkText: 'Listen Now →',
-        hasSentimentalModal: true
+        id: 'hushare-collab',
+        image: '/photos/tali-pics141.jpg',
+        title: 'Tali Golergant × Hushare',
+        date: 'May 2026',
+        isoDate: '2026-05-12',
+        excerpt: 'Tali has officially partnered with Hushare — the Armenian creative photography community. Two worlds, one shared passion for art. Music meets visual storytelling.',
+        linkText: 'Read More →',
+        isInternal: true,
+        link: '/hushare'
     }
 ]
 
@@ -125,17 +122,12 @@ const interviews = [
 
 export default function News() {
     const [isStrawberryModalOpen, setIsStrawberryModalOpen] = useState(false)
-    const [isSentimentalModalOpen, setIsSentimentalModalOpen] = useState(false)
     const [isRedHavenModalOpen, setIsRedHavenModalOpen] = useState(false)
 
     const handleCardClick = (item, e) => {
         if (item.hasStrawberryModal) {
             e.preventDefault()
             setIsStrawberryModalOpen(true)
-        }
-        if (item.hasSentimentalModal) {
-            e.preventDefault()
-            setIsSentimentalModalOpen(true)
         }
         if (item.hasRedHavenModal) {
             e.preventDefault()
@@ -207,6 +199,14 @@ export default function News() {
                                             >
                                                 {item.linkText}
                                             </button>
+                                        ) : item.isInternal ? (
+                                            <Link
+                                                to={item.link}
+                                                state={{ fromInternal: true }}
+                                                className="news-card__link"
+                                            >
+                                                {item.linkText}
+                                            </Link>
                                         ) : (
                                             <a
                                                 href={item.link}
@@ -280,14 +280,6 @@ export default function News() {
                 title="Strawberry Fields"
                 cover="/photos/tali%20picsnew%206.jpg"
                 platforms={strawberryPlatforms}
-            />
-
-            <StyleModal
-                isOpen={isSentimentalModalOpen}
-                onClose={() => setIsSentimentalModalOpen(false)}
-                title="Senti(mental)"
-                cover="/photos/tali%20picsnew%204.jpg"
-                platforms={sentimentalPlatforms}
             />
 
             <StyleModal

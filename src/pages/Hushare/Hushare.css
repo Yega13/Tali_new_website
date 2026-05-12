@@ -1,0 +1,214 @@
+/* ── Preloader ── */
+.hushare-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-preloader);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-preloader-bg);
+}
+
+.hushare-preloader__content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.hushare-preloader__tali {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-tight);
+}
+
+.hushare-preloader__x {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-light);
+    color: var(--color-primary);
+}
+
+.hushare-preloader__logo {
+    height: 2.8rem;
+    width: auto;
+    object-fit: contain;
+}
+
+[data-theme="dark"] .hushare-preloader__logo {
+    filter: brightness(0) invert(1);
+}
+
+@media (min-width: 768px) {
+    .hushare-preloader__tali {
+        font-size: var(--text-5xl);
+    }
+    .hushare-preloader__x {
+        font-size: var(--text-5xl);
+    }
+    .hushare-preloader__logo {
+        height: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hushare-preloader__tali {
+        font-size: var(--text-6xl);
+    }
+    .hushare-preloader__x {
+        font-size: var(--text-6xl);
+    }
+    .hushare-preloader__logo {
+        height: 4.2rem;
+    }
+}
+
+/* ── Hero ── */
+.hushare-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: var(--space-20) 0;
+}
+
+.hushare-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+}
+
+.hushare-hero__inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.hushare-hero__lockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+}
+
+.hushare-hero__tali {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    letter-spacing: var(--tracking-tight);
+}
+
+.hushare-hero__x {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-light);
+    color: var(--color-primary);
+}
+
+.hushare-hero__logo {
+    height: 2.8rem;
+    width: auto;
+    object-fit: contain;
+}
+
+[data-theme="dark"] .hushare-hero__logo {
+    filter: brightness(0) invert(1);
+}
+
+.hushare-hero__sub {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    letter-spacing: 0.04em;
+}
+
+@media (min-width: 768px) {
+    .hushare-hero__tali {
+        font-size: var(--text-5xl);
+    }
+    .hushare-hero__x {
+        font-size: var(--text-5xl);
+    }
+    .hushare-hero__logo {
+        height: 3.6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hushare-hero__tali {
+        font-size: var(--text-6xl);
+    }
+    .hushare-hero__x {
+        font-size: var(--text-6xl);
+    }
+    .hushare-hero__logo {
+        height: 4.4rem;
+    }
+}
+
+/* ── About section ── */
+.hushare-about__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hushare-about__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+    }
+}
+
+.hushare-about__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    margin-bottom: var(--space-6);
+    color: var(--color-text-primary);
+}
+
+.hushare-about__text p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.hushare-about__closing {
+    font-style: italic;
+    color: var(--color-primary) !important;
+    font-weight: var(--weight-medium);
+}
+
+.hushare-about__btn {
+    margin-top: var(--space-4);
+    display: inline-flex;
+}
+
+.hushare-about__logo-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+}
+
+.hushare-about__logo-img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+}
+
+[data-theme="dark"] .hushare-about__logo-img {
+    filter: brightness(0) invert(1);
+}

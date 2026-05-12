@@ -21,6 +21,7 @@ const Contact = lazy(() => import('@/pages/Contact'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 const Shop = lazy(() => import('@/pages/Shop'))
 const FAQ = lazy(() => import('@/pages/FAQ'))
+const HushareCollab = lazy(() => import('@/pages/Hushare'))
 
 const pageVariants = {
     initial: { opacity: 0 },
@@ -28,7 +29,7 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.2 } }
 }
 
-const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/shop', '/faq']
+const validRoutes = ['/', '/about', '/music', '/gallery', '/news', '/collaborations', '/contact', '/shop', '/faq', '/hushare']
 
 function PageLoader() {
     return (
@@ -78,6 +79,7 @@ function AnimatedRoutes() {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/shop" element={<Shop />} />
                         <Route path="/faq" element={<FAQ />} />
+                        <Route path="/hushare" element={<HushareCollab />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>
