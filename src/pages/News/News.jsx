@@ -187,7 +187,7 @@ export default function News() {
                                         style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
                                     />
                                     {item.isCollab && (
-                                        <span className="news-card__collab-badge">Official Collab</span>
+                                        <span className="news-card__new-tag">New</span>
                                     )}
                                 </div>
                                 <div className="news-card__content">
