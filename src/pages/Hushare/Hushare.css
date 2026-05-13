@@ -38,123 +38,173 @@
 
 @media (min-width: 768px) {
     .hushare-preloader__tali { font-size: var(--text-5xl); }
-    .hushare-preloader__x { font-size: var(--text-5xl); }
+    .hushare-preloader__x   { font-size: var(--text-5xl); }
     .hushare-preloader__logo { height: 3.5rem; }
 }
 
 @media (min-width: 1024px) {
     .hushare-preloader__tali { font-size: var(--text-6xl); }
-    .hushare-preloader__x { font-size: var(--text-6xl); }
+    .hushare-preloader__x   { font-size: var(--text-6xl); }
     .hushare-preloader__logo { height: 4.2rem; }
+}
+
+/* ── Page ── */
+.hushare-page {
+    padding-top: 0;
 }
 
 /* ── Hero ── */
 .hushare-hero {
     position: relative;
+    height: 55vh;
+    min-height: 340px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    padding: var(--space-10) 0 var(--space-8);
 }
 
-.hushare-hero__bg {
+.hushare-hero__background {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    z-index: 0;
 }
 
-.hushare-hero__inner {
+.hushare-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.hushare-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.72));
+}
+
+.hushare-hero__content {
     position: relative;
     z-index: 1;
     text-align: center;
-}
-
-.hushare-hero__img-wrap {
-    position: relative;
-    margin-bottom: var(--space-6);
-    border-radius: var(--radius-2xl);
-    overflow: hidden;
-    width: min(600px, 90vw);
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
-}
-
-.hushare-hero__collab-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    aspect-ratio: 3 / 4;
-}
-
-.hushare-hero__img-badge {
-    position: absolute;
-    bottom: var(--space-4);
-    right: var(--space-4);
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.hushare-hero__badge-logo {
-    height: 1.6rem;
-    width: auto;
-    display: block;
-}
-
-.hushare-hero__sub-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: clamp(5rem, 14vw, 11rem);
+    gap: var(--space-3);
+}
+
+.hushare-hero__hushare-logo {
+    height: 2rem;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .hushare-hero__hushare-logo { height: 2.6rem; }
+}
+
+.hushare-hero__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    letter-spacing: var(--tracking-tight);
+    margin: 0;
+}
+
+@media (min-width: 480px) {
+    .hushare-hero__title { font-size: var(--text-5xl); }
+}
+
+@media (min-width: 1024px) {
+    .hushare-hero__title { font-size: var(--text-6xl); }
 }
 
 .hushare-hero__sub {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .hushare-hero__sub { font-size: var(--text-lg); }
+}
+
+/* ── Countdown ── */
+.hushare-countdown-section {
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+    padding: var(--space-8) var(--space-4);
+    text-align: center;
+}
+
+.hushare-countdown__label-top {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.hushare-countdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+}
+
+.hushare-countdown__unit {
+    display: flex;
+    align-items: center;
+}
+
+.hushare-countdown__sep {
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    color: var(--color-border-light);
+    padding: 0 var(--space-2);
+    line-height: 1;
+    margin-bottom: var(--space-4);
+}
+
+.hushare-countdown__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 4rem;
+}
+
+@media (min-width: 480px) {
+    .hushare-countdown__block { min-width: 5.5rem; }
+}
+
+.hushare-countdown__number {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 480px) {
+    .hushare-countdown__number { font-size: var(--text-5xl); }
+}
+
+.hushare-countdown__unit-label {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
     color: var(--color-text-secondary);
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
-}
-
-.hushare-hero__sticker {
-    width: 90px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    flex-shrink: 0;
-}
-
-.hushare-hero__sticker--left {
-    transform: rotate(-8deg);
-}
-
-.hushare-hero__sticker--right {
-    transform: rotate(7deg);
-}
-
-@media (min-width: 640px) {
-    .hushare-hero__sticker {
-        width: 110px;
-        height: 145px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hushare-hero__sticker {
-        display: none;
-    }
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: var(--space-1);
 }
 
 /* ── Challenge section ── */
 .hushare-challenge__header {
     max-width: 700px;
-    margin-bottom: var(--space-14);
+    margin-bottom: var(--space-12);
 }
 
 .hushare-challenge__eyebrow {
@@ -177,29 +227,13 @@
 }
 
 @media (min-width: 768px) {
-    .hushare-challenge__heading {
-        font-size: var(--text-4xl);
-    }
+    .hushare-challenge__heading { font-size: var(--text-4xl); }
 }
 
 .hushare-challenge__intro {
     font-size: var(--text-base);
     color: var(--color-text-secondary);
     line-height: var(--leading-relaxed);
-    margin-bottom: var(--space-5);
-}
-
-.hushare-challenge__deadline {
-    display: inline-block;
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-full);
-    padding: var(--space-2) var(--space-5);
-}
-
-.hushare-challenge__deadline strong {
-    color: var(--color-primary);
 }
 
 /* ── Album rows ── */
@@ -216,8 +250,8 @@
     padding: var(--space-7) 0;
     border-top: 1px solid var(--color-border-light);
     text-decoration: none;
-    transition: background var(--transition-base);
     border-radius: var(--radius-md);
+    transition: background var(--transition-base), padding var(--transition-base);
 }
 
 .hushare-albums__list .hushare-album-row:last-child {
@@ -242,11 +276,6 @@
     .hushare-album-row:hover .hushare-album-row__number {
         color: var(--color-primary);
     }
-
-    .hushare-album-row:hover .hushare-album-row__cta {
-        gap: var(--space-3);
-        color: var(--color-primary);
-    }
 }
 
 .hushare-album-row__number {
@@ -259,9 +288,7 @@
 }
 
 @media (min-width: 768px) {
-    .hushare-album-row__number {
-        font-size: var(--text-3xl);
-    }
+    .hushare-album-row__number { font-size: var(--text-3xl); }
 }
 
 .hushare-album-row__body {
@@ -279,9 +306,7 @@
 }
 
 @media (min-width: 768px) {
-    .hushare-album-row__name {
-        font-size: var(--text-2xl);
-    }
+    .hushare-album-row__name { font-size: var(--text-2xl); }
 }
 
 .hushare-album-row__desc {
@@ -297,13 +322,15 @@
     font-weight: var(--weight-semibold);
     color: var(--color-text-secondary);
     white-space: nowrap;
-    transition: color var(--transition-base), gap var(--transition-base);
+    transition: color var(--transition-base);
 }
 
 @media (min-width: 768px) {
-    .hushare-album-row__cta {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--space-2);
+    .hushare-album-row__cta { display: inline-flex; align-items: center; gap: var(--space-2); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hushare-album-row:hover .hushare-album-row__cta {
+        color: var(--color-primary);
     }
 }

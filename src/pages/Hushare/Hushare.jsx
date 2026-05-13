@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import './Hushare.css'
 
 const LOGO = '/photos/hushare-logo-primary.png'
+const CHALLENGE_END = new Date('2026-07-01T00:00:00')
 
 const albums = [
     {
@@ -31,6 +32,17 @@ const albums = [
         url: 'https://hushare.space/tfromthefans',
     },
 ]
+
+function getTimeLeft() {
+    const diff = CHALLENGE_END - new Date()
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+    return {
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+    }
+}
 
 function HusharePreloader({ onDone }) {
     const [animating, setAnimating] = useState(false)
@@ -95,6 +107,14 @@ export default function HushareCollab() {
     const isReload = typeof performance !== 'undefined' &&
         performance.getEntriesByType('navigation')[0]?.type === 'reload'
     const [preloaderDone, setPreloaderDone] = useState(isReload)
+    const [timeLeft, setTimeLeft] = useState(getTimeLeft)
+
+    useEffect(() => {
+        const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000)
+        return () => clearInterval(id)
+    }, [])
+
+    const pad = n => String(n).padStart(2, '0')
 
     return (
         <div className="hushare-page">
@@ -103,7 +123,7 @@ export default function HushareCollab() {
                 <meta name="description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums. Submit your best shots and get featured on the website. Challenge ends July 1, 2026." />
                 <link rel="canonical" href="https://taligolergant.org/hushare-collab" />
                 <meta property="og:title" content="Tali Golergant × Hushare — Fan Challenge" />
-                <meta property="og:description" content="Tali Golergant and Hushare — fans now have access to 4 official photo albums. Submit your best shots and get featured." />
+                <meta property="og:description" content="Submit your best shots and get featured on Tali's website. Challenge ends July 1, 2026." />
                 <meta property="og:url" content="https://taligolergant.org/hushare-collab" />
             </Helmet>
 
@@ -115,45 +135,70 @@ export default function HushareCollab() {
                 animate={{ opacity: preloaderDone ? 1 : 0 }}
                 transition={{ duration: 0.6 }}
             >
-                {/* Hero */}
+                {/* Hero — full-width background photo */}
                 <section className="hushare-hero">
-                    <div className="hushare-hero__bg" />
-                    <div className="hushare-hero__inner">
-                        <motion.div
-                            className="hushare-hero__img-wrap"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: preloaderDone ? 1 : 0, y: preloaderDone ? 0 : 30 }}
-                            transition={{ duration: 0.7, delay: 0.15 }}
+                    <div className="hushare-hero__background">
+                        <img
+                            src="/photos/tali-pics105.webp"
+                            alt="Tali Golergant"
+                            className="hushare-hero__image"
+                        />
+                        <div className="hushare-hero__overlay" />
+                    </div>
+                    <div className="container hushare-hero__content">
+                        <motion.img
+                            src={LOGO}
+                            alt="Hushare"
+                            className="hushare-hero__hushare-logo"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: preloaderDone ? 1 : 0, y: preloaderDone ? 0 : -20 }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                        />
+                        <motion.h1
+                            className="hushare-hero__title"
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: preloaderDone ? 1 : 0, y: preloaderDone ? 0 : 24 }}
+                            transition={{ duration: 0.7, delay: 0.2 }}
                         >
-                            <img
-                                src="/photos/tali-pics105.webp"
-                                alt="Tali Golergant"
-                                className="hushare-hero__collab-img"
-                            />
-                            <div className="hushare-hero__img-badge">
-                                <img src="/photos/hushare-logo-primary.png" alt="Hushare" className="hushare-hero__badge-logo" />
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className="hushare-hero__sub-row"
+                            Tali Golergant × Hushare
+                        </motion.h1>
+                        <motion.p
+                            className="hushare-hero__sub"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: preloaderDone ? 1 : 0 }}
                             transition={{ duration: 0.7, delay: 0.35 }}
                         >
-                            <img
-                                src="/photos/tali-pics68.webp"
-                                alt=""
-                                className="hushare-hero__sticker hushare-hero__sticker--left"
-                            />
-                            <p className="hushare-hero__sub">Where fans share their best shots.</p>
-                            <img
-                                src="/photos/tali-red-haven-pic-4.jpg"
-                                alt=""
-                                className="hushare-hero__sticker hushare-hero__sticker--right"
-                            />
-                        </motion.div>
+                            Where fans share their best shots.
+                        </motion.p>
                     </div>
                 </section>
+
+                {/* Countdown */}
+                <motion.section
+                    className="hushare-countdown-section"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <p className="hushare-countdown__label-top">Challenge closes in</p>
+                    <div className="hushare-countdown">
+                        {[
+                            { value: timeLeft.days, label: 'Days' },
+                            { value: timeLeft.hours, label: 'Hours' },
+                            { value: timeLeft.minutes, label: 'Min' },
+                            { value: timeLeft.seconds, label: 'Sec' },
+                        ].map(({ value, label }, i) => (
+                            <div key={label} className="hushare-countdown__unit">
+                                {i > 0 && <span className="hushare-countdown__sep">:</span>}
+                                <div className="hushare-countdown__block">
+                                    <span className="hushare-countdown__number">{pad(value)}</span>
+                                    <span className="hushare-countdown__unit-label">{label}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </motion.section>
 
                 {/* Challenge */}
                 <section className="hushare-challenge section">
@@ -170,9 +215,6 @@ export default function HushareCollab() {
                             <p className="hushare-challenge__intro">
                                 Tali and Hushare have opened 4 official fan albums on Hushare. Upload your photos directly — the best shots get hand-picked by the team and featured right here on this page. Four albums, four stories. Pick yours, and show us your part of the story.
                             </p>
-                            <div className="hushare-challenge__deadline">
-                                Challenge ends <strong>July 1, 2026</strong>
-                            </div>
                         </motion.div>
 
                         <div className="hushare-albums__list">
