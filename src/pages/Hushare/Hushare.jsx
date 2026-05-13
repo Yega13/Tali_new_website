@@ -126,10 +126,13 @@ export default function HushareCollab() {
                             transition={{ duration: 0.7, delay: 0.15 }}
                         >
                             <img
-                                src="/collab_pic.png"
-                                alt="Tali Golergant × Hushare"
+                                src="/photos/tali-pics105.webp"
+                                alt="Tali Golergant"
                                 className="hushare-hero__collab-img"
                             />
+                            <div className="hushare-hero__img-badge">
+                                <img src="/photos/hushare-logo-primary.png" alt="Hushare" className="hushare-hero__badge-logo" />
+                            </div>
                         </motion.div>
                         <motion.div
                             className="hushare-hero__sub-row"
@@ -138,7 +141,7 @@ export default function HushareCollab() {
                             transition={{ duration: 0.7, delay: 0.35 }}
                         >
                             <img
-                                src="/photos/tali-pics42-eurovision.webp"
+                                src="/photos/tali-pics68.webp"
                                 alt=""
                                 className="hushare-hero__sticker hushare-hero__sticker--left"
                             />
