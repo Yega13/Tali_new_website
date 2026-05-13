@@ -59,7 +59,7 @@ export default function Header() {
     const toggleMenu = () => setIsMenuOpen(prev => !prev)
 
     const isMusicPage = location.pathname === '/music'
-    const isHeroPage = ['/', '/news', '/collaborations', '/contact', '/hushare-collab'].includes(location.pathname)
+    const isHeroPage = ['/', '/news', '/collaborations', '/contact', '/hushare-collab', '/fan-gallery'].includes(location.pathname)
 
     return (
         <header className={`header ${isScrolled ? 'header--scrolled' : ''} ${isMusicPage ? 'header--music' : ''} ${isHeroPage ? 'header--hero' : ''} ${isMenuOpen ? 'header--menu-open' : ''}`}>
