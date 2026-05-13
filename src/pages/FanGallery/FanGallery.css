@@ -1,0 +1,186 @@
+.fan-gallery {
+    padding-top: 0;
+}
+
+/* ── Hero ── */
+.fan-gallery-hero {
+    position: relative;
+    height: 40vh;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fan-gallery-hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.fan-gallery-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.fan-gallery-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.72));
+}
+
+.fan-gallery-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.fan-gallery-hero__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: #fff;
+    margin: 0 0 var(--space-3);
+}
+
+@media (min-width: 480px) {
+    .fan-gallery-hero__title { font-size: var(--text-5xl); }
+}
+
+.fan-gallery-hero__sub {
+    font-size: var(--text-base);
+    color: rgba(255,255,255,0.75);
+    margin: 0;
+}
+
+/* ── Album sections ── */
+.fan-gallery-albums {
+    padding-bottom: var(--space-8);
+}
+
+.fan-gallery-album + .fan-gallery-album {
+    padding-top: 0;
+    border-top: 1px solid var(--color-border-light);
+}
+
+.fan-gallery-album__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.fan-gallery-album__name {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-1);
+}
+
+.fan-gallery-album__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.fan-gallery-album__submit-btn {
+    flex-shrink: 0;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-top: var(--space-1);
+    transition: opacity var(--transition-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .fan-gallery-album__submit-btn:hover { opacity: 0.7; }
+}
+
+/* ── Empty state ── */
+.fan-gallery-album__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-14) var(--space-4);
+    border: 2px dashed var(--color-border-light);
+    border-radius: var(--radius-xl);
+    text-align: center;
+}
+
+.fan-gallery-album__empty-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-border-light);
+}
+
+.fan-gallery-album__empty-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.fan-gallery-album__empty-text {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.fan-gallery-album__empty-sub {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* ── Photo grid (for when photos arrive) ── */
+.fan-gallery-album__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+    .fan-gallery-album__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .fan-gallery-album__grid { grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+}
+
+.fan-gallery-album__photo {
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.fan-gallery-album__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── Back link ── */
+.fan-gallery-back {
+    padding-bottom: var(--space-12);
+}
+
+.fan-gallery-back__link {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .fan-gallery-back__link:hover { color: var(--color-primary); }
+}

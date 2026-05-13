@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import './Hushare.css'
@@ -241,6 +242,27 @@ export default function HushareCollab() {
                         </div>
                     </div>
                 </section>
+                {/* Fan Gallery teaser */}
+                <motion.section
+                    className="hushare-gallery-teaser"
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <div className="container hushare-gallery-teaser__inner">
+                        <div className="hushare-gallery-teaser__text">
+                            <h2 className="hushare-gallery-teaser__heading">Featured Submissions</h2>
+                            <p className="hushare-gallery-teaser__desc">
+                                The best fan photos from each album — hand-picked and featured here. Submit yours on Hushare before July 1st.
+                            </p>
+                        </div>
+                        <Link to="/fan-gallery" className="hushare-gallery-teaser__btn">
+                            View Gallery →
+                        </Link>
+                    </div>
+                </motion.section>
+
             </motion.div>
         </div>
     )

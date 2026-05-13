@@ -335,3 +335,62 @@
         color: var(--color-primary);
     }
 }
+
+/* ── Fan Gallery teaser ── */
+.hushare-gallery-teaser {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border-light);
+    padding: var(--space-10) 0;
+}
+
+.hushare-gallery-teaser__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+    .hushare-gallery-teaser__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.hushare-gallery-teaser__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-2);
+}
+
+.hushare-gallery-teaser__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    max-width: 480px;
+}
+
+.hushare-gallery-teaser__btn {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: var(--space-3) var(--space-7);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: background var(--transition-base), transform var(--transition-base);
+    white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hushare-gallery-teaser__btn:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-2px);
+    }
+}
