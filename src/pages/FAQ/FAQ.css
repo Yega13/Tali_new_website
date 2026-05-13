@@ -102,6 +102,7 @@
 
 .faq__answer {
     overflow: hidden;
+    will-change: height;
 }
 
 .faq__answer p {

@@ -58,6 +58,7 @@ const newsItems = [
     {
         id: 'hushare-collab',
         image: '/photos/tali-red-haven-pic-2.jpg',
+        imagePosition: 'top',
         title: 'Tali Golergant × Hushare',
         date: 'May 2026',
         isoDate: '2026-05-12',

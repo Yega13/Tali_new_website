@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import './FAQ.css'
 
 const faqs = [
@@ -199,19 +199,15 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
                     </svg>
                 </span>
             </button>
-            <AnimatePresence initial={false}>
-                {isOpen && (
-                    <motion.div
-                        className="faq__answer"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeOut' }}
-                    >
-                        <p>{answer}</p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <motion.div
+                className="faq__answer"
+                initial={false}
+                animate={{ height: isOpen ? 'auto' : 0 }}
+                transition={{ type: 'spring', duration: 0.4, bounce: 0 }}
+                style={{ overflow: 'hidden' }}
+            >
+                <p>{answer}</p>
+            </motion.div>
         </div>
     )
 }
