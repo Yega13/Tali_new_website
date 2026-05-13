@@ -250,16 +250,22 @@ export default function HushareCollab() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="container hushare-gallery-teaser__inner">
-                        <div className="hushare-gallery-teaser__text">
-                            <h2 className="hushare-gallery-teaser__heading">Featured Submissions</h2>
+                    <div className="container">
+                        <div className="hushare-gallery-teaser__inner">
+                            <p className="hushare-gallery-teaser__eyebrow">Featured Submissions</p>
+                            <h2 className="hushare-gallery-teaser__heading">
+                                The best shots — hand-picked and featured here.
+                            </h2>
                             <p className="hushare-gallery-teaser__desc">
-                                The best fan photos from each album — hand-picked and featured here. Submit yours on Hushare before July 1st.
+                                Submit yours on Hushare before July 1st and get featured on this page.
                             </p>
+                            <Link to="/fan-gallery" className="hushare-gallery-teaser__btn">
+                                <span>View Gallery</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </Link>
                         </div>
-                        <Link to="/fan-gallery" className="hushare-gallery-teaser__btn">
-                            View Gallery →
-                        </Link>
                     </div>
                 </motion.section>
 
