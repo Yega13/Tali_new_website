@@ -1,9 +1,50 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
 import LazyVideo from '@/components/common/LazyVideo'
 import './About.css'
+
+const BIO_EXTRA = [
+    "After 2020, she started gigging shows with her own music in NYC. Her debut single is a part of her first EP \"Lose You\", the song is called \"temporary\". After that in 2024 TALI tried her luck in Luxembourg's national selection for Eurovision, and won with her song \"Fighter\" — which went on to cross 13 million streams. And that's how Luxembourg got back to Eurovision after 32 years. In Eurovision TALI reached the Grand Final and finished 13th.",
+    "In January of 2025, TALI released first song of her new EP \"WANDER\", which was \"Dear Parents\". Shortly after that TALI had her first solo concert in famous Den Atelier, Luxembourg. Then in May, TALI released her second EP - \"WANDER\", which contains 7 songs and one collaboration with Sean Biopick. Soon, TALI is releasing her new song which is called \"Style\", we still have a lot to show! ;)",
+    "In May 2026, TALI released her third EP - \"RED HAVEN\", featuring 2 brand new songs alongside her latest singles. To celebrate the release, on May 8th she headlined a special release show at Rockhal - an unforgettable night packed with new music, raw energy, and an incredible crowd that turned the venue into one big sing-along. It was the perfect way to officially welcome \"RED HAVEN\" into the world.",
+]
+
+function TypewriterSequence({ paragraphs }) {
+    const [paraIdx, setParaIdx] = useState(0)
+    const [charIdx, setCharIdx] = useState(0)
+    const [done, setDone] = useState([])
+
+    useEffect(() => {
+        if (paraIdx >= paragraphs.length) return
+        const text = paragraphs[paraIdx]
+        if (charIdx >= text.length) {
+            setDone(prev => [...prev, text])
+            setParaIdx(i => i + 1)
+            setCharIdx(0)
+            return
+        }
+        const ch = text[charIdx]
+        const delay = ch === ' ' ? 2 : 4 + Math.random() * 10
+        const t = setTimeout(() => setCharIdx(c => c + 1), delay)
+        return () => clearTimeout(t)
+    }, [paraIdx, charIdx, paragraphs])
+
+    const allDone = paraIdx >= paragraphs.length
+
+    return (
+        <>
+            {done.map((text, i) => <p key={i}>{text}</p>)}
+            {!allDone && (
+                <p>
+                    {paragraphs[paraIdx].slice(0, charIdx)}
+                    <span className="about-bio__cursor" aria-hidden="true" />
+                </p>
+            )}
+        </>
+    )
+}
 
 const resumeData = [
     {
@@ -125,37 +166,27 @@ export default function About() {
                                     music together to create her own unique sound.
                                 </p>
 
-                                <motion.div
-                                    className="about-bio__extra"
-                                    initial={false}
-                                    animate={{
-                                        height: bioExpanded ? 'auto' : 0,
-                                        opacity: bioExpanded ? 1 : 0,
-                                    }}
-                                    transition={{ type: 'spring', duration: 0.5, bounce: 0 }}
-                                    style={{ overflow: 'hidden' }}
-                                >
-                                    <p>
-                                        After 2020, she started gigging shows with her own music in NYC. Her debut single is a part of
-                                        her first EP "Lose You", the song is called "temporary". After that in 2024 TALI tried her luck
-                                        in Luxembourg's national selection for Eurovision, and won with her song "Fighter" — which went
-                                        on to cross 13 million streams. And that's how Luxembourg got back to Eurovision after 32 years.
-                                        In Eurovision TALI reached the Grand Final and finished 13th.
-                                    </p>
-                                    <p>
-                                        In January of 2025, TALI released first song of her new EP "WANDER", which was "Dear Parents".
-                                        Shortly after that TALI had her first solo concert in famous Den Atelier, Luxembourg. Then in May,
-                                        TALI released her second EP - "WANDER", which contains 7 songs and and one collaborations with Sean
-                                        Biopick. Soon, TALI is realising her new song which is called "Style", we still have a lot to show! ;)
-                                    </p>
-                                    <p>
-                                        In May 2026, TALI released her third EP - "RED HAVEN", featuring 2 brand new songs alongside
-                                        her latest singles. To celebrate the release, on May 8th she headlined a special release show
-                                        at Rockhal - an unforgettable night packed with new music, raw energy, and an incredible crowd
-                                        that turned the venue into one big sing-along. It was the perfect way to officially welcome
-                                        "RED HAVEN" into the world.
-                                    </p>
-                                </motion.div>
+                                {/* Mobile: typewriter reveal on tap */}
+                                <div className="about-bio__extra-mobile">
+                                    <AnimatePresence>
+                                        {bioExpanded && (
+                                            <motion.div
+                                                key="bio-typewriter"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                transition={{ duration: 0.25 }}
+                                            >
+                                                <TypewriterSequence paragraphs={BIO_EXTRA} />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+
+                                {/* Desktop: always visible, no animation */}
+                                <div className="about-bio__extra-desktop">
+                                    {BIO_EXTRA.map((text, i) => <p key={i}>{text}</p>)}
+                                </div>
 
                                 <button
                                     className="about-bio__read-more"

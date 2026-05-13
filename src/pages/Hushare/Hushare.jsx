@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
@@ -115,6 +115,8 @@ export default function HushareCollab() {
         return () => clearInterval(id)
     }, [])
 
+    const handlePreloaderDone = useCallback(() => setPreloaderDone(true), [])
+
     const pad = n => String(n).padStart(2, '0')
 
     return (
@@ -128,7 +130,7 @@ export default function HushareCollab() {
                 <meta property="og:url" content="https://taligolergant.org/hushare-collab" />
             </Helmet>
 
-            {!preloaderDone && <HusharePreloader onDone={() => setPreloaderDone(true)} />}
+            {!preloaderDone && <HusharePreloader onDone={handlePreloaderDone} />}
 
             <motion.div
                 className="hushare-content"
