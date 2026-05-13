@@ -64,6 +64,7 @@ const newsItems = [
         excerpt: 'Tali has officially partnered with Hushare — the Armenian creative photography community. Fans now have access to 4 shared albums — submit your best shots and get featured on the website.',
         linkText: 'Read More →',
         isInternal: true,
+        isCollab: true,
         link: '/hushare-collab'
     }
 ]
@@ -173,18 +174,21 @@ export default function News() {
                         {newsItems.map((item, index) => (
                             <motion.article
                                 key={item.id}
-                                className={`news-card ${item.isSpecial ? 'news-card--special' : ''}`}
+                                className={`news-card ${item.isSpecial ? 'news-card--special' : ''} ${item.isCollab ? 'news-card--collab' : ''}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <div className={`news-card__image${item.isCollab ? ' news-card__image--collab' : ''}`}>
+                                <div className="news-card__image">
                                     <img
                                         src={item.image}
                                         alt={item.title}
                                         style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
                                     />
+                                    {item.isCollab && (
+                                        <span className="news-card__collab-badge">Official Collab</span>
+                                    )}
                                 </div>
                                 <div className="news-card__content">
                                     <span className="news-card__date">{item.date}</span>
