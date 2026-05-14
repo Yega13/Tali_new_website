@@ -91,8 +91,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
-    z-index: 2;
 }
 
 .hushare-hero__background {
@@ -168,18 +166,18 @@
 /* ── Countdown ── */
 .hushare-countdown-section {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     background: var(--color-bg-secondary);
     border-bottom: 1px solid var(--color-border-light);
     padding: var(--space-8) var(--space-4);
     text-align: center;
-    z-index: 1;
+    z-index: 3;
 }
 
 /* ── Countdown stickers ── */
 .hushare-sticker {
     position: absolute;
-    bottom: -70px;
+    top: -75px;
     width: 110px;
     height: 145px;
     pointer-events: none;
@@ -206,23 +204,23 @@
 }
 
 @media (min-width: 768px) {
-    .hushare-sticker { width: 130px; height: 172px; bottom: -82px; }
+    .hushare-sticker { width: 130px; height: 172px; top: -90px; }
 }
 
 @media (min-width: 1024px) {
-    .hushare-sticker { width: 150px; height: 198px; bottom: -95px; }
+    .hushare-sticker { width: 150px; height: 198px; top: -100px; }
     .hushare-sticker--left  { left: 3%; }
     .hushare-sticker--right { right: 3%; }
 }
 
 @media (min-width: 1440px) {
-    .hushare-sticker { width: 170px; height: 224px; bottom: -108px; }
+    .hushare-sticker { width: 170px; height: 224px; top: -112px; }
     .hushare-sticker--left  { left: 4%; }
     .hushare-sticker--right { right: 4%; }
 }
 
 @media (max-width: 540px) {
-    .hushare-sticker { width: 80px; height: 106px; bottom: -50px; }
+    .hushare-sticker { width: 80px; height: 106px; top: -55px; }
 }
 
 @media (max-width: 400px) {
