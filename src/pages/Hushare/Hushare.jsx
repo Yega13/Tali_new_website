@@ -175,6 +175,15 @@ export default function HushareCollab() {
                         </motion.p>
                     </div>
 
+                    {/* Sticker 1 — left, straddles hero → countdown */}
+                    <motion.div
+                        className="hushare-sticker hushare-sticker--left"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: preloaderDone ? 1 : 0 }}
+                        transition={{ duration: 0.7, delay: 0.55 }}
+                    >
+                        <img src="/photos/tali-red-haven-pic-9.jpg" alt="" aria-hidden="true" />
+                    </motion.div>
                 </section>
 
                 {/* Countdown */}
@@ -185,22 +194,13 @@ export default function HushareCollab() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    {/* Stickers alongside the timer */}
-                    <motion.div
-                        className="hushare-sticker hushare-sticker--left"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                    >
-                        <img src="/photos/tali-red-haven-pic-9.jpg" alt="" aria-hidden="true" />
-                    </motion.div>
+                    {/* Sticker 2 — right, straddles countdown → challenge */}
                     <motion.div
                         className="hushare-sticker hushare-sticker--right"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.3 }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
                     >
                         <img src="/photos/tali-red-haven-pic-10.jpg" alt="" aria-hidden="true" />
                     </motion.div>

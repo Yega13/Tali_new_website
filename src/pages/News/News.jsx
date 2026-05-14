@@ -37,7 +37,6 @@ const newsItems = [
     {
         id: 'rockhal-release',
         image: '/photos/tali-red-haven-pic-7.jpg',
-        imagePosition: 'top',
         title: 'Rockhall "RED HAVEN" Release Show',
         date: 'May 8, 2026',
         isoDate: '2026-05-08',
