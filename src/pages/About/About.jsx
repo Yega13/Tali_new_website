@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '@/hooks/useTheme'
@@ -11,39 +11,16 @@ const BIO_EXTRA = [
     "In May 2026, TALI released her third EP - \"RED HAVEN\", featuring 2 brand new songs alongside her latest singles. To celebrate the release, on May 8th she headlined a special release show at Rockhal - an unforgettable night packed with new music, raw energy, and an incredible crowd that turned the venue into one big sing-along. It was the perfect way to officially welcome \"RED HAVEN\" into the world.",
 ]
 
-function TypewriterSequence({ paragraphs }) {
-    const [paraIdx, setParaIdx] = useState(0)
-    const [charIdx, setCharIdx] = useState(0)
-    const [done, setDone] = useState([])
+const extraVariants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.18 } },
+    exit: { transition: { staggerChildren: 0.06, staggerDirection: -1 } },
+}
 
-    useEffect(() => {
-        if (paraIdx >= paragraphs.length) return
-        const text = paragraphs[paraIdx]
-        if (charIdx >= text.length) {
-            setDone(prev => [...prev, text])
-            setParaIdx(i => i + 1)
-            setCharIdx(0)
-            return
-        }
-        const ch = text[charIdx]
-        const delay = ch === ' ' ? 2 : 4 + Math.random() * 10
-        const t = setTimeout(() => setCharIdx(c => c + 1), delay)
-        return () => clearTimeout(t)
-    }, [paraIdx, charIdx, paragraphs])
-
-    const allDone = paraIdx >= paragraphs.length
-
-    return (
-        <>
-            {done.map((text, i) => <p key={i}>{text}</p>)}
-            {!allDone && (
-                <p>
-                    {paragraphs[paraIdx].slice(0, charIdx)}
-                    <span className="about-bio__cursor" aria-hidden="true" />
-                </p>
-            )}
-        </>
-    )
+const paraVariants = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } },
+    exit: { opacity: 0, y: 8, transition: { duration: 0.2 } },
 }
 
 const resumeData = [
@@ -166,18 +143,22 @@ export default function About() {
                                     music together to create her own unique sound.
                                 </p>
 
-                                {/* Mobile: typewriter reveal on tap */}
+                                {/* Mobile: staggered fade-in per paragraph */}
                                 <div className="about-bio__extra-mobile">
                                     <AnimatePresence>
                                         {bioExpanded && (
                                             <motion.div
-                                                key="bio-typewriter"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                exit={{ opacity: 0 }}
-                                                transition={{ duration: 0.25 }}
+                                                key="bio-extra"
+                                                variants={extraVariants}
+                                                initial="hidden"
+                                                animate="show"
+                                                exit="exit"
                                             >
-                                                <TypewriterSequence paragraphs={BIO_EXTRA} />
+                                                {BIO_EXTRA.map((text, i) => (
+                                                    <motion.p key={i} variants={paraVariants}>
+                                                        {text}
+                                                    </motion.p>
+                                                ))}
                                             </motion.div>
                                         )}
                                     </AnimatePresence>

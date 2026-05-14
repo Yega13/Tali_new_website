@@ -97,21 +97,6 @@
     .about-bio__read-more:hover { opacity: 0.7; }
 }
 
-/* Typewriter blinking cursor */
-.about-bio__cursor {
-    display: inline-block;
-    width: 1.5px;
-    height: 0.9em;
-    background: currentColor;
-    margin-left: 2px;
-    vertical-align: text-bottom;
-    animation: bio-blink 0.75s step-end infinite;
-}
-
-@keyframes bio-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
 
 @media (min-width: 768px) {
     .about-bio__extra-mobile { display: none; }
