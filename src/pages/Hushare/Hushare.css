@@ -176,7 +176,6 @@
 /* ── Countdown stickers ── */
 .hushare-sticker {
     position: absolute;
-    top: 50%;
     width: 110px;
     height: 145px;
     pointer-events: none;
@@ -185,12 +184,14 @@
 
 .hushare-sticker--left {
     left: 2%;
-    transform: translateY(-50%) rotate(-13deg);
+    top: 0;
+    transform: rotate(-13deg);
 }
 
 .hushare-sticker--right {
     right: 2%;
-    transform: translateY(-50%) rotate(9deg);
+    bottom: 0;
+    transform: rotate(9deg);
 }
 
 .hushare-sticker img {
