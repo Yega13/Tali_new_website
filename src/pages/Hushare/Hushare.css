@@ -162,63 +162,67 @@
     .hushare-hero__sub { font-size: var(--text-lg); }
 }
 
-/* ── Hero stickers ── */
-.hushare-hero__sticker {
-    position: absolute;
-    z-index: 2;
-    bottom: -28px;
-    width: 90px;
-    height: 118px;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
-    pointer-events: none;
-}
-
-.hushare-hero__sticker--left  { left: 4%; }
-.hushare-hero__sticker--right { right: 4%; }
-
-@media (min-width: 640px) {
-    .hushare-hero__sticker { width: 110px; height: 145px; bottom: -34px; }
-}
-
-@media (min-width: 1024px) {
-    .hushare-hero__sticker { width: 135px; height: 178px; bottom: -42px; }
-    .hushare-hero__sticker--left  { left: 5%; }
-    .hushare-hero__sticker--right { right: 5%; }
-}
-
-@media (min-width: 1440px) {
-    .hushare-hero__sticker { width: 155px; height: 205px; bottom: -48px; }
-}
-
-@media (max-width: 380px) {
-    .hushare-hero__sticker { display: none; }
-}
 
 /* ── Countdown ── */
 .hushare-countdown-section {
+    position: relative;
+    overflow: hidden;
     background: var(--color-bg-secondary);
     border-bottom: 1px solid var(--color-border-light);
     padding: var(--space-8) var(--space-4);
-    padding-top: calc(var(--space-8) + 36px);
     text-align: center;
 }
 
-@media (min-width: 640px) {
-    .hushare-countdown-section { padding-top: calc(var(--space-8) + 44px); }
+/* ── Countdown stickers ── */
+.hushare-sticker {
+    position: absolute;
+    top: 50%;
+    width: 110px;
+    height: 145px;
+    pointer-events: none;
+}
+
+.hushare-sticker--left {
+    left: 2%;
+    transform: translateY(-50%) rotate(-13deg);
+}
+
+.hushare-sticker--right {
+    right: 2%;
+    transform: translateY(-50%) rotate(9deg);
+}
+
+.hushare-sticker img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .hushare-sticker { width: 130px; height: 172px; }
 }
 
 @media (min-width: 1024px) {
-    .hushare-countdown-section { padding-top: calc(var(--space-8) + 54px); }
+    .hushare-sticker { width: 150px; height: 198px; }
+    .hushare-sticker--left  { left: 3%; }
+    .hushare-sticker--right { right: 3%; }
 }
 
 @media (min-width: 1440px) {
-    .hushare-countdown-section { padding-top: calc(var(--space-8) + 62px); }
+    .hushare-sticker { width: 170px; height: 224px; }
+    .hushare-sticker--left  { left: 4%; }
+    .hushare-sticker--right { right: 4%; }
 }
 
-@media (max-width: 380px) {
-    .hushare-countdown-section { padding-top: var(--space-8); }
+@media (max-width: 540px) {
+    .hushare-sticker { width: 80px; height: 106px; }
+}
+
+@media (max-width: 400px) {
+    .hushare-sticker { display: none; }
 }
 
 .hushare-countdown__label-top {
