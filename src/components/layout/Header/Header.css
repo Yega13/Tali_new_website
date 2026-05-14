@@ -504,9 +504,9 @@
 /* TIER 1: Tiny (320-359px) - uses tightened base above */
 
 /* TIER 2: Small mid phones (360-389px) - iPhone SE, Galaxy S8 etc. */
-@media (min-width: 360px) {
+@media (min-width: 360px) and (max-width: 389px) {
     .header__nav-link--mobile {
-        font-size: 1.45rem;
+        font-size: 1.75rem;
         padding: var(--space-3) 0;
     }
 }

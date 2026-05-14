@@ -174,6 +174,26 @@ export default function HushareCollab() {
                             Where fans share their best shots.
                         </motion.p>
                     </div>
+
+                    {/* Stickers */}
+                    <motion.img
+                        src="/photos/tali-red-haven-pic-9.jpg"
+                        alt=""
+                        aria-hidden="true"
+                        className="hushare-hero__sticker hushare-hero__sticker--left"
+                        initial={{ opacity: 0, y: 30, rotate: -13 }}
+                        animate={{ opacity: preloaderDone ? 1 : 0, y: preloaderDone ? 0 : 30, rotate: -13 }}
+                        transition={{ duration: 0.8, delay: 0.55, ease: 'easeOut' }}
+                    />
+                    <motion.img
+                        src="/photos/tali-red-haven-pic-10.jpg"
+                        alt=""
+                        aria-hidden="true"
+                        className="hushare-hero__sticker hushare-hero__sticker--right"
+                        initial={{ opacity: 0, y: 30, rotate: 9 }}
+                        animate={{ opacity: preloaderDone ? 1 : 0, y: preloaderDone ? 0 : 30, rotate: 9 }}
+                        transition={{ duration: 0.8, delay: 0.65, ease: 'easeOut' }}
+                    />
                 </section>
 
                 {/* Countdown */}
