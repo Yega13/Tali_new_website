@@ -1,42 +1,81 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { supabase } from '../../lib/supabase'
 import './FanGallery.css'
 
 const HUSHARE_LOGO = '/photos/hushare-logo-primary.png'
+const MAX_VISIBLE = 3
 
-const albums = [
+const ALBUM_DEFS = [
     {
         number: '01',
         name: 'Tali × Fans',
         desc: 'Fan moments with Tali — shows, meet & greets, and everywhere in between.',
         submitUrl: 'https://hushare.space/talixfans',
-        photos: [],
+        albumId: 'e67cc306-08e6-4231-9289-dd5c8f93949e',
     },
     {
         number: '02',
         name: 'RED HAVEN',
         desc: 'The best shots from the RED HAVEN EP release show at Rockhal.',
         submitUrl: 'https://hushare.space/redhavenepreleaseshow',
-        photos: [],
+        albumId: '1fa6dcb3-6e5f-4e08-9ca5-fe59b666fb12',
     },
     {
         number: '03',
         name: 'Peak Frames',
         desc: 'The sharpest, most stunning frames of Tali — captured by fans.',
         submitUrl: 'https://hushare.space/tpeakframes',
-        photos: [],
+        albumId: '544a7e46-9f82-48fd-a82b-59b7fefe12d2',
     },
     {
         number: '04',
         name: 'Fan Work',
         desc: 'Friendship bracelets, hand-drawn portraits, painted lyrics, handwritten notes.',
         submitUrl: 'https://hushare.space/tfromthefans',
-        photos: [],
+        albumId: 'f78fb970-6cb4-41f5-8ace-26ad9b329a52',
     },
 ]
 
+const ALBUM_IDS = ALBUM_DEFS.map(a => a.albumId)
+
+function thumbUrl(photo) {
+    return photo.media_type === 'video' ? photo.poster_url : photo.url
+}
+
 export default function FanGallery() {
+    const [photosByAlbum, setPhotosByAlbum] = useState({})
+
+    async function fetchPhotos() {
+        const { data, error } = await supabase
+            .from('photos')
+            .select('id, album_id, url, media_type, poster_url')
+            .in('album_id', ALBUM_IDS)
+            .order('created_at', { ascending: true })
+
+        if (error || !data) return
+
+        const grouped = {}
+        for (const photo of data) {
+            if (!grouped[photo.album_id]) grouped[photo.album_id] = []
+            grouped[photo.album_id].push(photo)
+        }
+        setPhotosByAlbum(grouped)
+    }
+
+    useEffect(() => {
+        fetchPhotos()
+
+        const channel = supabase
+            .channel('fan-gallery-photos')
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'photos' }, fetchPhotos)
+            .subscribe()
+
+        return () => supabase.removeChannel(channel)
+    }, [])
+
     return (
         <div className="fan-gallery">
             <Helmet>
@@ -98,46 +137,63 @@ export default function FanGallery() {
             <section className="fan-gallery-cards section">
                 <div className="container">
                     <div className="fan-gallery-cards__grid">
-                        {albums.map((album, i) => (
-                            <motion.div
-                                key={album.name}
-                                className="fan-gallery-card"
-                                initial={{ opacity: 0, y: 24 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.55, delay: i * 0.07 }}
-                            >
-                                <div className="fan-gallery-card__top">
-                                    <span className="fan-gallery-card__num">{album.number}</span>
-                                    <a
-                                        href={album.submitUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="fan-gallery-card__submit"
-                                    >
-                                        Submit →
-                                    </a>
-                                </div>
-                                <h2 className="fan-gallery-card__name">{album.name}</h2>
-                                <p className="fan-gallery-card__desc">{album.desc}</p>
+                        {ALBUM_DEFS.map((album, i) => {
+                            const photos = photosByAlbum[album.albumId] || []
+                            const visible = photos.slice(0, MAX_VISIBLE)
+                            const overflow = photos.length - MAX_VISIBLE
 
-                                {album.photos.length === 0 ? (
-                                    <div className="fan-gallery-card__empty">
-                                        <span className="fan-gallery-card__empty-label">
-                                            Waiting for submissions
-                                        </span>
+                            return (
+                                <motion.div
+                                    key={album.name}
+                                    className="fan-gallery-card"
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.55, delay: i * 0.07 }}
+                                >
+                                    <div className="fan-gallery-card__top">
+                                        <span className="fan-gallery-card__num">{album.number}</span>
+                                        <a
+                                            href={album.submitUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="fan-gallery-card__submit"
+                                        >
+                                            Submit →
+                                        </a>
                                     </div>
-                                ) : (
-                                    <div className="fan-gallery-card__grid">
-                                        {album.photos.map((photo, j) => (
-                                            <div key={j} className="fan-gallery-card__photo">
-                                                <img src={photo.src} alt={photo.alt || album.name} />
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </motion.div>
-                        ))}
+                                    <h2 className="fan-gallery-card__name">{album.name}</h2>
+                                    <p className="fan-gallery-card__desc">{album.desc}</p>
+
+                                    {photos.length === 0 ? (
+                                        <div className="fan-gallery-card__empty">
+                                            <span className="fan-gallery-card__empty-label">
+                                                Waiting for submissions
+                                            </span>
+                                        </div>
+                                    ) : (
+                                        <div className="fan-gallery-card__grid">
+                                            {visible.map((photo, j) => {
+                                                const isLast = j === MAX_VISIBLE - 1 && overflow > 0
+                                                return (
+                                                    <div
+                                                        key={photo.id}
+                                                        className={`fan-gallery-card__photo${isLast ? ' fan-gallery-card__photo--overflow' : ''}`}
+                                                    >
+                                                        <img src={thumbUrl(photo)} alt={album.name} loading="lazy" />
+                                                        {isLast && (
+                                                            <div className="fan-gallery-card__overflow-badge">
+                                                                +{overflow}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    )}
+                                </motion.div>
+                            )
+                        })}
                     </div>
                 </div>
             </section>
