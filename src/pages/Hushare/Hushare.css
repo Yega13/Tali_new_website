@@ -166,30 +166,30 @@
 .hushare-hero__sticker {
     position: absolute;
     z-index: 2;
-    bottom: -50px;
-    width: 160px;
-    height: 210px;
+    bottom: -28px;
+    width: 90px;
+    height: 118px;
     object-fit: cover;
-    border-radius: var(--radius-xl);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
     pointer-events: none;
 }
 
-.hushare-hero__sticker--left  { left: 5%; }
-.hushare-hero__sticker--right { right: 5%; }
+.hushare-hero__sticker--left  { left: 4%; }
+.hushare-hero__sticker--right { right: 4%; }
 
-@media (min-width: 768px) {
-    .hushare-hero__sticker { width: 200px; height: 265px; bottom: -65px; }
+@media (min-width: 640px) {
+    .hushare-hero__sticker { width: 110px; height: 145px; bottom: -34px; }
 }
 
 @media (min-width: 1024px) {
-    .hushare-hero__sticker { width: 230px; height: 305px; bottom: -75px; }
-    .hushare-hero__sticker--left  { left: 6%; }
-    .hushare-hero__sticker--right { right: 6%; }
+    .hushare-hero__sticker { width: 135px; height: 178px; bottom: -42px; }
+    .hushare-hero__sticker--left  { left: 5%; }
+    .hushare-hero__sticker--right { right: 5%; }
 }
 
-@media (max-width: 540px) {
-    .hushare-hero__sticker { width: 110px; height: 145px; bottom: -35px; }
+@media (min-width: 1440px) {
+    .hushare-hero__sticker { width: 155px; height: 205px; bottom: -48px; }
 }
 
 @media (max-width: 380px) {
@@ -201,20 +201,20 @@
     background: var(--color-bg-secondary);
     border-bottom: 1px solid var(--color-border-light);
     padding: var(--space-8) var(--space-4);
-    padding-top: calc(var(--space-8) + 60px);
+    padding-top: calc(var(--space-8) + 36px);
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .hushare-countdown-section { padding-top: calc(var(--space-8) + 80px); }
+@media (min-width: 640px) {
+    .hushare-countdown-section { padding-top: calc(var(--space-8) + 44px); }
 }
 
 @media (min-width: 1024px) {
-    .hushare-countdown-section { padding-top: calc(var(--space-8) + 90px); }
+    .hushare-countdown-section { padding-top: calc(var(--space-8) + 54px); }
 }
 
-@media (max-width: 540px) {
-    .hushare-countdown-section { padding-top: calc(var(--space-8) + 45px); }
+@media (min-width: 1440px) {
+    .hushare-countdown-section { padding-top: calc(var(--space-8) + 62px); }
 }
 
 @media (max-width: 380px) {
