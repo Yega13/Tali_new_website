@@ -1,8 +1,10 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import './Hushare.css'
+
+const HUSHARE_PRELOADER_KEY = 'hushare-preloader-shown'
 
 const LOGO = '/photos/hushare-logo-primary.png'
 const CHALLENGE_END = new Date('2026-07-01T00:00:00')
@@ -48,6 +50,8 @@ function getTimeLeft() {
 function HusharePreloader({ onDone }) {
     const [animating, setAnimating] = useState(false)
     const [visible, setVisible] = useState(true)
+    const onDoneRef = useRef(onDone)
+    onDoneRef.current = onDone
 
     useEffect(() => {
         document.body.classList.add('preloader-active')
@@ -56,12 +60,12 @@ function HusharePreloader({ onDone }) {
             document.body.classList.remove('preloader-active')
             setVisible(false)
         }, 2500)
-        const t3 = setTimeout(onDone, 3000)
+        const t3 = setTimeout(() => onDoneRef.current(), 3000)
         return () => {
             clearTimeout(t1); clearTimeout(t2); clearTimeout(t3)
             document.body.classList.remove('preloader-active')
         }
-    }, [onDone])
+    }, [])
 
     return (
         <AnimatePresence>
@@ -105,9 +109,9 @@ function HusharePreloader({ onDone }) {
 }
 
 export default function HushareCollab() {
-    const isReload = typeof performance !== 'undefined' &&
-        performance.getEntriesByType('navigation')[0]?.type === 'reload'
-    const [preloaderDone, setPreloaderDone] = useState(isReload)
+    const [preloaderDone, setPreloaderDone] = useState(
+        () => !!sessionStorage.getItem(HUSHARE_PRELOADER_KEY)
+    )
     const [timeLeft, setTimeLeft] = useState(getTimeLeft)
 
     useEffect(() => {
@@ -115,7 +119,10 @@ export default function HushareCollab() {
         return () => clearInterval(id)
     }, [])
 
-    const handlePreloaderDone = useCallback(() => setPreloaderDone(true), [])
+    const handlePreloaderDone = useCallback(() => {
+        sessionStorage.setItem(HUSHARE_PRELOADER_KEY, 'true')
+        setPreloaderDone(true)
+    }, [])
 
     const pad = n => String(n).padStart(2, '0')
 
