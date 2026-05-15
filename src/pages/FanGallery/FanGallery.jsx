@@ -21,7 +21,7 @@ const ALBUM_DEFS = [
         name: 'RED HAVEN',
         desc: 'The best shots from the RED HAVEN EP release show at Rockhal.',
         submitUrl: 'https://hushare.space/redhavenepreleaseshow',
-        albumId: '1fa6dcb3-6e5f-4e08-9ca5-fe59b666fb12',
+        albumId: '1f66b462-e190-4eb8-8e78-2f21898e161e',
     },
     {
         number: '03',
