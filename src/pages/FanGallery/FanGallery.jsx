@@ -55,7 +55,11 @@ export default function FanGallery() {
             .in('album_id', ALBUM_IDS)
             .order('created_at', { ascending: true })
 
-        if (error || !data) return
+        if (error) {
+            console.error('[FanGallery] Supabase error:', error)
+            return
+        }
+        if (!data) return
 
         const grouped = {}
         for (const photo of data) {
