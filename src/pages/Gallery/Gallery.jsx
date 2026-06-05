@@ -54,15 +54,11 @@ const eurovisionMedia = [
 const inFocusMedia = [
     // New 2026 shoots & clips
     { src: '/photos/tali-red-haven-pic-2.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
-    { src: '/photos/tali%20picsnew%201.jpg', alt: 'Jewish Federation of Broward', type: 'image' },
     { src: '/photos/tali-pics141.jpg', type: 'image' },
-    { src: '/photos/tali%20picsnew%202.jpg', alt: 'Strawberry Fregrance', type: 'image' },
     { src: '/photos/tali-vids33.mp4', type: 'video' },
     { src: '/photos/tali-pics142.jpg', type: 'image' },
     { src: '/photos/tali%20picsnew%205.jpg', alt: 'Strawberry fregrance backstage', type: 'image' },
     { src: '/photos/tali%20vidsnew%203.mp4', alt: 'Backstage', type: 'video' },
-    { src: '/photos/tali%20picsnew%207.jpg', alt: 'BELGIUM!', type: 'image' },
-    { src: '/photos/tali%20vidsnew%205.mp4', alt: 'Live at 4CEE', type: 'video' },
     { src: '/photos/tali%20vidsnew%206.mp4', alt: 'Not crazy. Just backstage.', type: 'video' },
     { src: '/photos/tali%20picsnew%204.jpg', alt: 'Senti(mental)', type: 'image' },
     { src: '/photos/tali-pics68.webp', alt: 'Den Atelier 2025', type: 'image' },

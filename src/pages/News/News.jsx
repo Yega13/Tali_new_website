@@ -24,13 +24,24 @@ const BELGIUM_TICKET_URL = 'https://apps.ticketmatic.com/widgets/rockhal/addtick
 
 const newsItems = [
     {
+        id: 'allie-sherlock-tour',
+        image: '/photos/talixallie-tour-1.jpg',
+        title: 'Tour with Allie Sherlock',
+        date: 'Fall 2026',
+        isoDate: '2026-09-22',
+        excerpt: 'This fall, Tali joins Allie Sherlock for a European co-headline tour — Cologne, Warsaw, Prague, Vienna, and Stuttgart. Two incredible artists, one unforgettable run of shows. Tickets on sale now.',
+        linkText: 'Get Tickets →',
+        link: 'https://www.alliesherlock.com/tour',
+        isExternal: true
+    },
+    {
         id: 'belgium',
         image: '/photos/tali%20picsnew%209.jpg',
-        title: 'Tali in Belgium!',
-        date: 'June 6, 2026',
+        title: 'Tali in Belgium — Postponed',
+        date: 'TBA',
         isoDate: '2026-06-06',
-        excerpt: 'Tali is heading to Brussels! On June 6th she takes the stage in Bruxelles for a very special night — the official release of her brand new EP "RED HAVEN". Expect new songs, big energy, and a one-of-a-kind live experience. Don\'t miss it.',
-        linkText: 'Buy Tickets →',
+        excerpt: 'The Cirque Royal Club Brussels show originally scheduled for June 6th has been postponed. A new date will be announced soon — stay tuned for updates.',
+        linkText: 'Check for Updates →',
         link: BELGIUM_TICKET_URL,
         isExternal: true
     },
@@ -46,14 +57,15 @@ const newsItems = [
         hasRedHavenModal: true
     },
     {
-        id: 'strawberry-fields',
-        image: '/photos/tali%20picsnew%206.jpg',
-        title: 'Strawberry Fields',
-        date: 'March 13, 2026',
-        isoDate: '2026-03-13',
-        excerpt: 'Tali\'s dreamy new single "Strawberry Fields" dropped on March 13th — a sweet, sun-soaked track that lingers like the scent of summer berries. Hit play and let yourself wander.',
-        linkText: 'Listen Now →',
-        hasStrawberryModal: true
+        id: 'city-sounds-lux',
+        image: '/photos/tali-pics144.jpg',
+        title: 'City Sounds Luxembourg!',
+        date: 'June 23, 2026',
+        isoDate: '2026-06-23',
+        excerpt: 'Tali is performing at City Sounds Luxembourg on June 23rd — a free open-air concert in the heart of Luxembourg City, celebrating the National Day. A summer night you don\'t want to miss.',
+        linkText: 'Read More →',
+        link: 'https://www.vdl.lu/fr/visiter/loisirs-et-divertissement/fetes-foires-et-evenements/fete-nationale/city-sounds-0',
+        isExternal: true
     },
     {
         id: 'hushare-collab',
@@ -65,7 +77,6 @@ const newsItems = [
         excerpt: 'Tali has officially partnered with Hushare — the Armenian creative photography community. Fans now have access to 4 shared albums — submit your best shots and get featured on the website.',
         linkText: 'Read More →',
         isInternal: true,
-        isCollab: true,
         link: '/hushare-collab'
     }
 ]
