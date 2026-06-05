@@ -44,6 +44,7 @@ export default function Music() {
     const [currentTrack, setCurrentTrack] = useState(0)
     const isMobile = useMediaQuery('(max-width: 479px)')
     const isDesktop = useIsDesktop()
+    const collapsedShowCount = 7
 
     // Handle scroll to track current position (for mobile carousel)
     useEffect(() => {
@@ -89,7 +90,12 @@ export default function Music() {
     ]
 
     const allShows = [
-        { date: '06/06/26', venue: 'Bruxelles - RED HAVEN Release Show', upcoming: true },
+        { date: '22/09/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Cologne - Gloria Theatre', upcoming: true },
+        { date: '29/09/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Warsaw - Stodola', upcoming: true },
+        { date: '01/10/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Prague - Lucerna Music Bar', upcoming: true },
+        { date: '05/10/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Vienna - Flex Cafe', upcoming: true },
+        { date: '06/10/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Stuttgart - Im Wizemann', upcoming: true },
+        { date: 'Postponed', venue: 'Bruxelles - RED HAVEN Release Show', postponed: true },
         { date: '08/05/26', venue: 'Rockhal "RED HAVEN" release show' },
         { date: '05/02/26', venue: 'Jewish Federation of Broward' },
         { date: '04/10/25', venue: 'Duke Coronation Luxembourg' },
@@ -112,7 +118,7 @@ export default function Music() {
         { date: '12/17/21', venue: 'The Green Room' }
     ]
 
-    const visibleShows = isDesktop ? allShows : (showAllShows ? allShows : allShows.slice(0, 6))
+    const visibleShows = isDesktop ? allShows : (showAllShows ? allShows : allShows.slice(0, collapsedShowCount))
 
     // ... render ...
 
@@ -318,7 +324,7 @@ export default function Music() {
                         {visibleShows.map((show, index) => (
                             <motion.div
                                 key={`${show.date}-${show.venue}`}
-                                className={`show-item ${show.upcoming ? 'show-item--upcoming' : ''} ${!isDesktop && !showAllShows && index === 5 ? 'show-item--half-blurred' : ''}`}
+                                className={`show-item ${show.upcoming ? 'show-item--upcoming' : ''} ${show.postponed ? 'show-item--postponed' : ''} ${!isDesktop && !showAllShows && index === collapsedShowCount - 1 ? 'show-item--half-blurred' : ''}`}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -326,8 +332,11 @@ export default function Music() {
                             >
                                 <span className="show-item__date">{show.date}</span>
                                 <span className="show-item__venue">
-                                    {show.venue}
-                                    {show.upcoming && <span className="show-item__upcoming-tag"> · Upcoming!</span>}
+                                    {show.tour && <span className="show-item__tour">{show.tour}</span>}
+                                    <span className="show-item__venue-line">
+                                        <span className="show-item__venue-name">{show.venue}</span>
+                                        {show.upcoming && <span className="show-item__upcoming-tag"> · Upcoming!</span>}
+                                    </span>
                                 </span>
                             </motion.div>
                         ))}

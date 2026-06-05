@@ -293,15 +293,33 @@
 }
 
 .show-item__venue {
+    display: flex;
+    flex-direction: column;
     font-weight: var(--weight-normal);
     color: var(--color-text-secondary);
     font-size: var(--text-sm);
+    min-width: 0;
+}
+
+.show-item__tour {
+    color: var(--color-text-primary);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-snug);
+}
+
+.show-item__venue-name {
+    line-height: var(--leading-snug);
 }
 
 .show-item--upcoming .show-item__date,
 .show-item--upcoming .show-item__venue {
     color: #e63946;
     font-weight: var(--weight-semibold);
+}
+
+.show-item--postponed .show-item__date {
+    color: #b7791f;
+    font-weight: var(--weight-bold);
 }
 
 .show-item__upcoming-tag {
