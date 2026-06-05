@@ -27,4 +27,7 @@ node_modules/
 
 # Task files
 tasks.json
-tasks/ 
+tasks/
+
+# Codex config (may contain API keys)
+.codex/
