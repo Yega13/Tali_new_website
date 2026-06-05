@@ -6,7 +6,7 @@ import LazyImage from '@/components/common/LazyImage'
 import './Gallery.css'
 
 // Mixed media arrays (photos + videos merged)
-// WANDER section
+// RED HAVEN section
 const wanderMedia = [
     { src: '/photos/tali-pics25-dear-parents.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
     { src: '/photos/tali-pics26-dear-parents-tongue.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
@@ -259,10 +259,10 @@ export default function Gallery() {
                 </div>
             </div>
 
-            {/* WANDER */}
+            {/* RED HAVEN */}
             <section className="gallery-grid section">
                 <div className="container">
-                    <h2 className="section-title">WANDER</h2>
+                    <h2 className="section-title">RED HAVEN</h2>
                     <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
                         {wanderMedia.map((media, index) => {
                             // Skip desktop-only items on mobile

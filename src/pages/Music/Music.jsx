@@ -90,12 +90,12 @@ export default function Music() {
     ]
 
     const allShows = [
-        { date: '22/09/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Cologne - Gloria Theatre', upcoming: true },
-        { date: '29/09/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Warsaw - Stodola', upcoming: true },
-        { date: '01/10/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Prague - Lucerna Music Bar', upcoming: true },
-        { date: '05/10/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Vienna - Flex Cafe', upcoming: true },
-        { date: '06/10/26', tour: 'Tour with Allie Sherlock "For Once I\'ll say it Out loud!"', venue: 'Stuttgart - Im Wizemann', upcoming: true },
-        { date: 'Postponed', venue: 'Bruxelles - RED HAVEN Release Show', postponed: true },
+        { date: '22/09/26', tour: 'Tour with Allie Sherlock', venue: 'Cologne - Gloria Theatre', upcoming: true },
+        { date: '29/09/26', tour: 'Tour with Allie Sherlock', venue: 'Warsaw - Stodola', upcoming: true },
+        { date: '01/10/26', tour: 'Tour with Allie Sherlock', venue: 'Prague - Lucerna Music Bar', upcoming: true },
+        { date: '05/10/26', tour: 'Tour with Allie Sherlock', venue: 'Vienna - Flex Cafe', upcoming: true },
+        { date: '06/10/26', tour: 'Tour with Allie Sherlock', venue: 'Stuttgart - Im Wizemann', upcoming: true },
+        { date: 'Postponed', venue: 'Bruxelles - Cirque Royal Club', postponed: true },
         { date: '08/05/26', venue: 'Rockhal "RED HAVEN" release show' },
         { date: '05/02/26', venue: 'Jewish Federation of Broward' },
         { date: '04/10/25', venue: 'Duke Coronation Luxembourg' },
