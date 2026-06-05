@@ -92,7 +92,7 @@ const faqs = [
         items: [
             {
                 q: 'When is Tali\'s next concert or live show?',
-                a: 'Tali\'s next show is on June 6, 2026, at the Royal Circus in Brussels, Belgium (18:30) — her first headline appearance outside Luxembourg, celebrating the release of her new EP "RED HAVEN."'
+                a: 'Tali\'s next confirmed show is City Sounds Luxembourg on June 23, 2026 — a free open-air concert in the heart of Luxembourg City celebrating the National Day. After that, she heads out on a European co-headline tour with Allie Sherlock from September 22 through October 6, 2026, with dates in Cologne, Warsaw, Prague, Vienna, and Stuttgart. The Brussels show at Cirque Royal Club has been postponed; a new date will be announced soon.'
             },
             {
                 q: 'What was Tali\'s last show?',
@@ -108,7 +108,11 @@ const faqs = [
             },
             {
                 q: 'Does Tali tour internationally?',
-                a: 'Tali performs regularly across Luxembourg and just headlined her "RED HAVEN" release show at Rockhal in Esch-sur-Alzette on May 8, 2026. Her next stop is international — Brussels, Belgium, on June 6, 2026, marking her first headline show outside Luxembourg. She is also a regular fixture at Luxembourgish festivals like Francofolies and USINA.'
+                a: 'Yes. After headlining the "RED HAVEN" release show at Rockhal in May 2026, Tali is taking her music across Europe. This fall she co-headlines a tour with Allie Sherlock across Germany, Poland, Czech Republic, Austria, and more. She is also a regular fixture at Luxembourgish festivals like Francofolies and USINA.'
+            },
+            {
+                q: 'Is Tali going on tour in 2026?',
+                a: 'Yes! Tali is co-headlining a European tour with Irish singer-songwriter Allie Sherlock in Fall 2026. Dates include Cologne (Sep 22), Warsaw (Sep 29), Prague (Oct 1), Vienna (Oct 5), and Stuttgart (Oct 6). Tickets are available at alliesherlock.com/tour.'
             }
         ]
     },
