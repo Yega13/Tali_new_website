@@ -26,6 +26,7 @@ const newsItems = [
     {
         id: 'allie-sherlock-tour',
         image: '/photos/talixallie-tour-1.jpg',
+        imagePosition: 'center 70%',
         title: 'Tour with Allie Sherlock',
         date: 'Fall 2026',
         isoDate: '2026-09-22',
