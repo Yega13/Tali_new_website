@@ -377,16 +377,12 @@
     font-weight: var(--weight-semibold);
     text-align: center;
     margin: 0;
-    margin-top: var(--space-4);
+    margin-top: var(--space-2);
     padding: var(--space-2) var(--space-5);
     background: rgba(0, 0, 0, 0.75);
     border-radius: var(--radius-lg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Spacer to balance caption for centering */
-.lightbox__spacer {
-    height: calc(var(--text-sm) + var(--space-4) + var(--space-4));
+    flex-shrink: 0;
 }
 
 /* Carousel strip - 3 images side by side */

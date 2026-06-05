@@ -16,7 +16,7 @@ const redHavenMedia = [
     { src: '/photos/tali-red-haven-pic-7.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
     { src: '/photos/tali-vids-style-walking.mp4', alt: 'Style - Jan 30...', type: 'video' },
     { src: '/photos/tali-vids38.mp4', type: 'video' },
-    { src: '/photos/tali-vids37.mp4', type: 'video' },
+    { src: '/photos/tali%20vidsnew%204.mp4', type: 'video' },
     { src: '/photos/dcba-vid-1.mp4', type: 'video' },
     { src: '/photos/tali-red-haven-pic-1.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
     { src: '/photos/tali-red-haven-pic-10.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
@@ -62,7 +62,6 @@ const inFocusMedia = [
     { src: '/photos/tali%20picsnew%205.jpg', alt: 'Strawberry fregrance backstage', type: 'image' },
     { src: '/photos/tali%20vidsnew%203.mp4', alt: 'Backstage', type: 'video' },
     { src: '/photos/tali%20picsnew%207.jpg', alt: 'BELGIUM!', type: 'image' },
-    { src: '/photos/tali%20vidsnew%204.mp4', type: 'video' },
     { src: '/photos/tali%20vidsnew%205.mp4', alt: 'Live at 4CEE', type: 'video' },
     { src: '/photos/tali%20vidsnew%206.mp4', alt: 'Not crazy. Just backstage.', type: 'video' },
     { src: '/photos/tali%20picsnew%204.jpg', alt: 'Senti(mental)', type: 'image' },
@@ -272,7 +271,7 @@ export default function Gallery() {
             </div>
 
             {/* RED HAVEN */}
-            <section className="gallery-grid section">
+            <section className="gallery-grid section" style={{ paddingBottom: 'var(--space-8)' }}>
                 <div className="container">
                     <h2 className="section-title">RED HAVEN</h2>
                     <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
@@ -474,7 +473,6 @@ export default function Gallery() {
 
                                 {/* Current image */}
                                 <div className="lightbox__slide lightbox__slide--current">
-                                    {filteredMedia[lightboxIndex].alt && <div className="lightbox__spacer" />}
                                     {filteredMedia[lightboxIndex].type === 'video' || filteredMedia[lightboxIndex].src.endsWith('.mp4') ? (
                                         <div className="lightbox__video-wrapper" onClick={(e) => e.stopPropagation()}>
                                             <video
