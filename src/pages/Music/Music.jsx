@@ -44,7 +44,7 @@ export default function Music() {
     const [currentTrack, setCurrentTrack] = useState(0)
     const isMobile = useMediaQuery('(max-width: 479px)')
     const isDesktop = useIsDesktop()
-    const collapsedShowCount = 7
+    const collapsedShowCount = 8
 
     // Handle scroll to track current position (for mobile carousel)
     useEffect(() => {
@@ -95,6 +95,7 @@ export default function Music() {
         { date: '01/10/26', tour: 'Tour with Allie Sherlock', venue: 'Prague - Lucerna Music Bar', upcoming: true },
         { date: '05/10/26', tour: 'Tour with Allie Sherlock', venue: 'Vienna - Flex Cafe', upcoming: true },
         { date: '06/10/26', tour: 'Tour with Allie Sherlock', venue: 'Stuttgart - Im Wizemann', upcoming: true },
+        { date: '23/06/26', venue: 'CITY SOUNDS - Luxembourg - Glacis', upcoming: true },
         { date: 'Postponed', venue: 'Bruxelles - Cirque Royal Club', postponed: true },
         { date: '08/05/26', venue: 'Rockhal "RED HAVEN" release show' },
         { date: '05/02/26', venue: 'Jewish Federation of Broward' },

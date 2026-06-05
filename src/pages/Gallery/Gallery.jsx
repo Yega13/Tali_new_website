@@ -7,6 +7,23 @@ import './Gallery.css'
 
 // Mixed media arrays (photos + videos merged)
 // RED HAVEN section
+const redHavenMedia = [
+    { src: '/photos/tali%20banner.jpg', alt: 'RED HAVEN', type: 'image' },
+    { src: '/photos/tali%20picsnew%206.jpg', alt: 'Strawberry Fragrance', type: 'image' },
+    { src: '/photos/tali%20vidsnew2.mp4', type: 'video' },
+    { src: '/photos/tali-pics143.jpg', alt: 'RED HAVEN', type: 'image' },
+    { src: '/photos/tali-red-haven-pic-4.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
+    { src: '/photos/tali-red-haven-pic-7.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
+    { src: '/photos/tali-vids-style-walking.mp4', alt: 'Style - Jan 30...', type: 'video' },
+    { src: '/photos/tali-vids38.mp4', type: 'video' },
+    { src: '/photos/tali-vids37.mp4', type: 'video' },
+    { src: '/photos/dcba-vid-1.mp4', type: 'video' },
+    { src: '/photos/tali-red-haven-pic-1.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
+    { src: '/photos/tali-red-haven-pic-10.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
+    { src: '/photos/tali-style1.webp', alt: 'Style', type: 'image' },
+]
+
+// WANDER section
 const wanderMedia = [
     { src: '/photos/tali-pics25-dear-parents.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
     { src: '/photos/tali-pics26-dear-parents-tongue.webp', alt: 'Dear Parents - Photoshoot in Paris', type: 'image' },
@@ -36,26 +53,21 @@ const eurovisionMedia = [
 // In Focus section
 const inFocusMedia = [
     // New 2026 shoots & clips
-    { src: '/photos/tali-red-haven-pic-1.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
     { src: '/photos/tali-red-haven-pic-2.jpg', alt: 'RED HAVEN Release Show', type: 'image' },
-    { src: '/photos/dcba-vid-1.mp4', type: 'video' },
     { src: '/photos/tali%20picsnew%201.jpg', alt: 'Jewish Federation of Broward', type: 'image' },
     { src: '/photos/tali-pics141.jpg', type: 'image' },
     { src: '/photos/tali%20picsnew%202.jpg', alt: 'Strawberry Fregrance', type: 'image' },
     { src: '/photos/tali-vids33.mp4', type: 'video' },
     { src: '/photos/tali-pics142.jpg', type: 'image' },
-    { src: '/photos/tali%20vidsnew2.mp4', type: 'video' },
     { src: '/photos/tali%20picsnew%205.jpg', alt: 'Strawberry fregrance backstage', type: 'image' },
     { src: '/photos/tali%20vidsnew%203.mp4', alt: 'Backstage', type: 'video' },
     { src: '/photos/tali%20picsnew%207.jpg', alt: 'BELGIUM!', type: 'image' },
     { src: '/photos/tali%20vidsnew%204.mp4', type: 'video' },
     { src: '/photos/tali%20vidsnew%205.mp4', alt: 'Live at 4CEE', type: 'video' },
     { src: '/photos/tali%20vidsnew%206.mp4', alt: 'Not crazy. Just backstage.', type: 'video' },
-    { src: '/photos/tali%20picsnew%206.jpg', alt: 'Strawberry Fragrance', type: 'image' },
     { src: '/photos/tali%20picsnew%204.jpg', alt: 'Senti(mental)', type: 'image' },
     { src: '/photos/tali-pics68.webp', alt: 'Den Atelier 2025', type: 'image' },
     { src: '/photos/tali-pics47-national-selection.webp', alt: 'LSC 2024 - National Selection', type: 'image' },
-    { src: '/photos/tali-vids-style-walking.mp4', alt: 'Style - Jan 30...', type: 'video' },
     { src: '/photos/tali-pics60-trounwiessel.webp', alt: 'Trounwiessel', type: 'image' },
     { src: '/photos/tali-pics18.webp', alt: 'Echterlive 2025', type: 'image' },
     { src: '/photos/tali-pics12-not-included.webp', alt: 'Fans ;)', type: 'image' },
@@ -82,7 +94,6 @@ const inFocusMedia = [
 // Moments section - pictures with humans
 const momentsImages = [
     { src: '/photos/tali-red-haven-pic-3.jpg', alt: 'RED HAVEN Release Show' },
-    { src: '/photos/tali-red-haven-pic-4.jpg', alt: 'RED HAVEN Release Show' },
     { src: '/photos/tali-pics103.webp', alt: 'Echterlive 2025 Backstage' },
     { src: '/photos/tali-pics69.webp', alt: 'Eurovision 2024' },
     { src: '/photos/tali-from-facebook-4.webp' },
@@ -93,6 +104,7 @@ const momentsImages = [
 
 // Combine ALL media into one unified array for the lightbox
 const allMedia = [
+    ...redHavenMedia,
     ...wanderMedia,
     ...eurovisionMedia,
     ...inFocusMedia,
@@ -263,6 +275,36 @@ export default function Gallery() {
             <section className="gallery-grid section">
                 <div className="container">
                     <h2 className="section-title">RED HAVEN</h2>
+                    <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
+                        {redHavenMedia.map((media, index) => {
+                            // Skip desktop-only items on mobile
+                            if (media.desktopOnly && !isDesktop) return null
+                            return (
+                                <motion.div
+                                    key={index}
+                                    className="gallery-item"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true, margin: '100px' }}
+                                    transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.25), ease: 'easeOut' }}
+                                    onClick={() => openLightbox(media)}
+                                >
+                                    {media.type === 'video' ? (
+                                        <video src={media.src} autoPlay loop muted playsInline preload="auto" />
+                                    ) : (
+                                        <LazyImage src={media.src} alt={media.alt} />
+                                    )}
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* WANDER */}
+            <section className="gallery-grid section" style={{ paddingTop: 0 }}>
+                <div className="container">
+                    <h2 className="section-title">WANDER</h2>
                     <div className={`gallery-grid__container ${isDesktop ? 'gallery-grid__container--masonry' : ''}`}>
                         {wanderMedia.map((media, index) => {
                             // Skip desktop-only items on mobile
